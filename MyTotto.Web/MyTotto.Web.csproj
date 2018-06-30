@@ -9,21 +9,25 @@
     <Compile Remove="wwwroot\fonts\**" />
     <Compile Remove="wwwroot\images\**" />
     <Compile Remove="wwwroot\js\**" />
+    <Compile Remove="wwwroot\libs\**" />
     <Compile Remove="wwwroot\lib\**" />
     <Content Remove="wwwroot\css\**" />
     <Content Remove="wwwroot\fonts\**" />
     <Content Remove="wwwroot\images\**" />
     <Content Remove="wwwroot\js\**" />
+    <Content Remove="wwwroot\libs\**" />
     <Content Remove="wwwroot\lib\**" />
     <EmbeddedResource Remove="wwwroot\css\**" />
     <EmbeddedResource Remove="wwwroot\fonts\**" />
     <EmbeddedResource Remove="wwwroot\images\**" />
     <EmbeddedResource Remove="wwwroot\js\**" />
+    <EmbeddedResource Remove="wwwroot\libs\**" />
     <EmbeddedResource Remove="wwwroot\lib\**" />
     <None Remove="wwwroot\css\**" />
     <None Remove="wwwroot\fonts\**" />
     <None Remove="wwwroot\images\**" />
     <None Remove="wwwroot\js\**" />
+    <None Remove="wwwroot\libs\**" />
     <None Remove="wwwroot\lib\**" />
   </ItemGroup>
 

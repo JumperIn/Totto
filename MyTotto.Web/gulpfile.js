@@ -9,15 +9,22 @@
     concat = require('gulp-concat'),
     livereload = require('gulp-livereload');
 
+// сюда указываем пути у подключаемых библиотек
+var libs = [
+    './node_modules/bootstrap-grid/dist/grid.min.css',
+    './node_modules/jquery/dist/jquery.min.js'
+];
+
 // пути исходников
 var source = 'src';
 var srcPaths = {
-    stylus: [`./${source}/css/*.styl`],
+    stylus: [`./${source}/css/site.styl`],
     img: [`./${source}/img/**`],
     icons: [`./${source}/icons/**`],
     js: [`./${source}/scripts/*.js`],
     favicon: [`./${source}/favicon.ico`],
-    fonts: [`./${source}/fonts/**`]
+    fonts: [`./${source}/fonts/**`],
+    libs: libs
 }
 
 // пути для сборки
@@ -28,7 +35,8 @@ var destPaths = {
     icons: `./${destination}/icons`,
     js: `./${destination}/js`,
     favicon: `./${destination}`,
-    fonts: `./${destination}/fonts`
+    fonts: `./${destination}/fonts`,
+    libs: `./${destination}/libs`
 }
 
 var production = argv.production !== undefined || argv.prod !== undefined;
@@ -72,6 +80,11 @@ gulp.task('copy', function () {
         .pipe(gulp.dest(destPaths.fonts));
 });
 
+gulp.task('libs', function () {
+    gulp.src(srcPaths.libs)
+        .pipe(gulp.dest(destPaths.libs));
+});
+
 gulp.task('favicon', function () {
     gulp.src(srcPaths.favicon)
         .pipe(gulp.dest(destPaths.favicon));
@@ -80,13 +93,14 @@ gulp.task('favicon', function () {
 gulp.task('watch', function () {
     livereload.listen();
     gulp.watch(
-        [ ...srcPaths.stylus, ...srcPaths.js, ...paths.icons, ...paths.img ],
-        [ 'stylus', 'js', 'copy' ])
+        [...srcPaths.stylus, ...srcPaths.js, ...srcPaths.icons, ...srcPaths.img, ...srcPaths.libs],
+        [ 'stylus', 'js', 'copy', 'libs' ])
         .on('change', livereload.changed);
 });
 
 gulp.task('default', [
     'copy',
+    'libs',
     'js',
     'stylus',
     'favicon'

@@ -1,0 +1,226 @@
+.header
+	background: #ffffff
+
+.header-name
+	display: flex
+	justify-content: center
+	border-bottom: 1px solid #EDEDED
+@media (max-width: 767px)
+	.header-info__phone_media
+		display: flex
+		justify-content: center
+		align-items: center
+		padding: 5px 0px
+	.header-name__menu
+		display: none
+	.header-info__phone
+		display: none
+	.header-info-icons
+		display: none
+	.header-info-logo
+		padding: 10px 20px 10px 0px
+
+@media (min-width: 768px)
+	.header-info__phone_media
+		display: none
+	.header-info__phone
+		display: flex
+	.header-info-icons
+		display: flex
+	.header-info-logo
+		padding: 15px 0px
+
+@media (max-width: 991px) 
+	.header-name__name
+		display: none
+	.header-info__phone
+		font-size: 20px
+	.header-nav-menu
+		width: 720px
+
+@media (min-width: 992px) 
+	.header-info__phone
+		font-size: 24px 
+@media (max-width: 1199px)
+	.header-nav-menu-drop
+		width: 100%
+		left: 0
+		
+@media (min-width: 1200px) 
+	.header-nav-menu-drop
+		width: 120%
+		left: -10%
+
+.header-name__name
+	font-size: 13px
+	color: #89899a
+	padding: 5px 0px
+
+.header-name__name_h
+	font-size: 13px
+	margin: 0px
+	font-weight: normal
+
+.header-name__menu
+	padding: 5px 0px
+
+.header-name__list
+	display: flex
+	justify-content: flex-end
+	list-style-type: none
+	margin: 0
+
+.header-name__item
+	padding-left: 10px
+	font-size: 13px
+	color: #89899a
+
+.header-name__item_h
+	font-size: 13px
+	margin: 0px
+	font-weight: normal
+
+.header-info__phone
+	justify-content: center
+	align-items: center
+
+.header-info__phone_color
+	color: #89899a
+
+
+.header-info-search
+	display: flex
+	flex-direction: row
+	justify-content: center
+	align-items: center
+
+.header-info-search_flex
+	display: flex
+
+.header-info-search__input
+	position: relative
+	height: 35px
+	text-transform: uppercase
+	font-size: 13px
+	border: 1px solid #ededed
+	border-radius: 22px
+	background: #ededed
+	color: #89899a
+	padding-left: 20px
+	transition: background-color 200ms ease-in-out
+
+.header-info-search__input:hover,
+.header-info-search__input:focus
+	background: #fff
+
+.header-info-search__input:active
+	border: none
+
+.header-info-search__button
+	position: absolute
+	right: 5px
+	top: 4px
+	font-size: 23px
+	border: none 
+	background: none 
+	color: #89899a
+	cursor: pointer
+
+
+.header-info-icons
+	justify-content: center
+	align-items: center
+
+.header-info-icons__item
+	padding-left: 10px
+	color: #89899a
+	transition: color 200ms ease-in-out
+
+.header-info-search__button
+	transition: color 200ms ease-in-out
+
+.header-info-icons__item:hover,
+.header-info-search__button:hover
+	color: #1db6ca
+
+.header-nav
+	display: flex
+	background: #FFE3E0
+
+// .header-nav-menu_padding
+// 	padding: 18px 0px
+
+.header-nav-menu
+	height: 56px
+
+.header-nav-menu__list
+	display: flex
+	flex-direction: row
+	justify-content: flex-start
+	align-items: center
+	height: 100%
+
+
+.header-nav-menu__item
+	list-style-type: none
+
+
+.header-nav-menu__item
+	display: flex
+	justify-content: flex-start
+	align-items: center
+	flex-wrap: nowrap
+	font-size: 13px
+	text-transform: uppercase
+	height: 100%
+	padding: 0px 8px
+	font-weight: 400
+	color: #4e2520
+
+.header-nav-menu__item_i
+	color: #8B4339
+	padding-left: 3px
+	font-size: 12px
+
+.header-nav-menu_drop:hover .header-nav-menu-drop,
+.header-nav-menu_drop:hover .header-nav-menu__item
+	display: flex
+	color: #42201B
+
+.header-nav-menu_drop:hover
+	background: #FFCAC4
+
+.header-nav-menu_drop
+	display: flex
+	justify-content: center
+	height: 100%
+	transition: background-color 200ms ease-in-out
+
+
+.header-nav-menu-drop
+	display: none
+	position: absolute
+	top: 100%
+	background: white
+	z-index: 200
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 10px 0px
+	
+.header-nav-menu-drop_padding
+	padding: 40px 0px
+
+.header-nav-menu-drop__list-header
+	display: block
+	font-size: 15px
+	font-weight: 700
+	color: #28282f
+	padding-bottom: 10px
+
+.header-nav-menu-drop__list
+	padding-right: 5px
+	list-style-type: none
+
+.header-nav-menu-drop__item
+	display: block
+	padding: 4px 0px
+	color: #4b4b58
+	font-size: 13px

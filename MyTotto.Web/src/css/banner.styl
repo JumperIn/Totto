@@ -1,0 +1,115 @@
+.banners
+	height: 450px
+	overflow: hidden
+	// background: #FFC000
+
+.banners-wrapper
+	display: flex
+	flex-direction: wrap
+	flex-wrap: nowrap
+	transition: transform 500ms ease-in-out
+
+.banners-buttons
+	display: inline-block
+	position: relative
+	width: 100%
+	top: -450px
+
+.banners-button-left
+	display: none
+	justify-content: center
+	align-items: center
+	position absolute
+	height: 72px
+	width: 40px
+	background: #fff
+	opacity: 0.7
+	top: 189px
+	color: #acacac
+	cursor: pointer
+
+.banners-button-right
+	display: none
+	justify-content: center
+	align-items: center
+	position absolute
+	height: 72px
+	width: 40px
+	background: #fff
+	opacity: 0.7
+	top: 189px
+	right: 0
+	color: #acacac
+	cursor: pointer
+
+.banners:hover .banners-button-left,
+.banners:hover .banners-button-right
+	display: flex
+
+
+.banner__bg1, .banner__bg2, .banner__bg3, .banner__bg4
+	background-position: center
+	background-size: cover
+	width: 100%
+	height: 100%
+	
+.banner__bg1
+	background-image: url(/images/bg_img1.png)
+	
+.banner__bg2
+	background-image: url(/images/bg_img2.png)
+
+.banner__bg3
+	background-image: url(/images/bg_img3.png)
+
+.banner__bg4
+	background-image: url(/images/bg_img1.png)
+
+
+.banner
+	padding: 0 80px
+	height: 100%
+
+.banner__img
+	display: flex
+	justify-content: center
+	align-items: center
+	height: 450px
+	img 
+		max-width: 100%
+		height: auto
+
+.banner__content
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: flex-start
+	padding: 0 40px
+
+.banner__content_h2
+	font-size: 42px
+	font-weight: 900
+	font-family: 'Open-Sans', sans-serif
+	color: #28282f
+	line-height: 120%
+	margin: 0 0 10px 0
+
+.banner__content_text
+	font-size: 15px
+	font-weight: 400
+	font-family: 'Open-Sans', sans-serif
+	color: #28282f
+	line-height: 140%
+	margin: 0 0 10px 0
+
+.banner__content_a
+	display: inline-block
+	font-size: 12px
+	font-family: 'Open-Sans', sans-serif
+	height: 44px
+	line-height: 44px
+	color: #fff
+	background: #0067b7
+	padding: 0 20px
+	border-radius: 22px
+	text-transform: uppercase
