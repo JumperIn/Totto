@@ -1,0 +1,107 @@
+@import "vars.styl"
+@font-face
+	font-family Lato-Light
+	src url(/totto-web/fonts/Lato-Light.ttf)
+@font-face
+	font-family Lato-Regular
+	src url(/totto-web/fonts/Lato-Regular.ttf)
+
+/* Stylus способен распознавать и без фигурных скобочек (можно с ними, но удобнее их опускать) */
+body {
+    background-color: body-color;
+	/* Горизонтальные отступы в пределах одного селектора должны быть одинаковые */ 
+	margin: 0px 0px;
+	/* точки с запятой Stylus тоже позволяет не писать (но вот двоеточия я бы не убирал, хоть это тоже может Стилус) */
+	font-size: fontsize ;
+	font-family: Arial, sans-serif;
+}
+	
+#main
+	/* 
+	Отступ для файла стилей может быть 2 пробела на табе или 4 пробела, больше - неудобно. 
+	Если значение не кратно двум - тоже жесть. 
+	Вот самое оптимальное для всех языков практически - 4 пробела отступ (тут 8)
+	*/
+    	display flex
+	flex-direction: column
+
+.head-menu
+	/* Где-то пишешь двоеточия, где-то нет, придерживайся одного стиля */
+	display block
+	width 100%
+	height 150px
+	background: #fff
+
+.container
+	display flex
+	justify-content space-between
+	/* как раз без двоеточий сложно бегло читать */
+	width container-width
+	
+	/* если не ошибаюсь, margin по умолчанию ставится как авто */
+	margin-left auto
+	margin-right auto
+	padding-top 20px
+	padding-left 0px
+	padding-right 0px
+
+/* 
+Здесь ты используешь в качестве селектора ID элемента.
+Преимущества такого способа:
++ ты получаешь высокую уникальность CSS-правила (свойства для идентификатора будут перебивать свойства для класс и тега)
+Недостатки:
+- всё, что выше и наоборот. Если ты присвоишь класс с width: 50%, он не применится, т.к. у ID приоритет выше.
+
+Ещё из недостатков - идентификатор может быть только 1 на всей странице.
+То есть ты пишешь особо уникальные стили для конкретного элемента.
+Если ты захочешь использовать этот элемент на другой странице или в другом месте - будет облом и некорректная html-разметка.
+
+Поэтому яндекс придумал такую систему, как БЭМ. Каждому элементу даются только классы, ничего не вешают на теги и на ID для стилизации.
+Поэтому я бы сделал класс .page-content.
+*/
+#page-content
+	width 100%
+	position relative
+	flex-wrap wrap
+	
+	/* 
+	Когда хочешь что-то вложить, помни об отступах для читабельности.
+	
+	И о том, что у тебя стили применяются на такое правило: "#page-content .sidebar"
+	То есть ты вкладываешь вовнутрь и повышаешь уникальность этого правила.
+	Если захочешь поменять отступ для .sidebar на другой странице или для мобилки, тебе придётся указывать и #page-content.
+	Поэтому в БЭМ очень рекомендуют избегать вложенности.
+	*/
+	.sidebar
+		display block
+		width 300px
+		// flex-basis 20%
+		margin-right 30px
+		border-radius 5px
+		font-family Lato-Light
+		&-main-menu
+			background-color sidebar-color
+			margin-bottom 40px
+			display block
+			border-radius 5px
+			
+			/*
+			Как и выше, заметь вложенность: "#page-content .sidebar-main-menu .main-menu"
+			*/
+			.main-menu
+				width 100%
+				&-inner
+					/* По умолчанию position = static, можно не указывать нарочно */
+					position static
+					width 100%
+					padding-top 20px
+					padding-bottom 20px
+					border 0px
+					box-shadow 1.5px 2.6px 7px rgba(0, 0, 0, 0.04)
+					&-content
+						width 100%
+						.main-menu-list
+							list-style-type none
+							&-item
+								margin-top 5px
+								margin-bottom 5px
