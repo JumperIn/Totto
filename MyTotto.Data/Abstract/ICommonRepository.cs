@@ -5,7 +5,7 @@ using MyTotto.Data.Models;
 
 namespace MyTotto.Data.Abstract
 {
-    interface ICommonRepository
+    public interface ICommonRepository
     {
         /// <summary>
         /// Получает список баннеров.

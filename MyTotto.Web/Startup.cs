@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using MyTotto.Data.Abstract;
+using MyTotto.Data.Repositories;
 
 namespace MyTotto
 {
@@ -21,6 +23,9 @@ namespace MyTotto
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<ICommonRepository, FakeCommonRepository>();
+
+
             services.AddMvc();
         }
 

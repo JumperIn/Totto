@@ -4,15 +4,28 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using MyTotto.Models;
+using MyTotto.Data.Abstract;
+using MyTotto.Data.Models;
+using MyTotto.Web.Models;
+using MyTotto.Web.Abstract;
 
-namespace MyTotto.Controllers
+namespace MyTotto.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
+        public HomeController(ICommonRepository repository) : base(repository)
+        {
+            this.repository = repository;
+        }
+
+
+
+
         public IActionResult Index()
         {
-            return View();
+            List<Banner> banners = repository.GetBanners();
+
+            return View(banners);
         }
 
         public IActionResult About()

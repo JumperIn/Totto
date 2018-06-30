@@ -1,6 +1,6 @@
 using System;
 
-namespace MyTotto.Models
+namespace MyTotto.Web.Models
 {
     public class ErrorViewModel
     {

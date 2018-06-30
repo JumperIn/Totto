@@ -25,7 +25,7 @@ namespace MyTotto.Data.Models
         public string Content { get; set; }
 
         /// <summary>
-        /// Адрес, куда ведёт баннер.
+        /// Адрес, куда ведёт кнопка.
         /// </summary>
         public string Url { get; set; }
 
@@ -33,6 +33,13 @@ namespace MyTotto.Data.Models
         /// Ссылка на изображение к баннеру.
         /// </summary>
         public string ImageUrl { get; set; }
+
+        /// <summary>
+        /// Текст кнопки.
+        /// Если не пустое значение - кнопка есть.
+        /// Иначе - кнопки нет.
+        /// </summary>
+        public string ButtonText { get; set; }
 
         /// <summary>
         /// Порядок, в котором выводится баннер.
