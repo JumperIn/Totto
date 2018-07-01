@@ -404,7 +404,7 @@ ul,
 }
 .banners-wrapper {
   display: flex;
-  flex-direction: wrap;
+  flex-direction: row;
   flex-wrap: nowrap;
   transition: transform 500ms ease-in-out;
 }
