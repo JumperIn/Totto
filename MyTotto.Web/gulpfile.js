@@ -24,7 +24,8 @@ var srcPaths = {
     js: [`./${source}/scripts/*.js`],
     favicon: [`./${source}/favicon.ico`],
     fonts: [`./${source}/fonts/**`],
-    libs: libs
+    libs: libs,
+    allStylus: [`./${source}/css/*.styl`]
 }
 
 // пути для сборки
@@ -93,7 +94,7 @@ gulp.task('favicon', function () {
 gulp.task('watch', function () {
     livereload.listen();
     gulp.watch(
-        [...srcPaths.stylus, ...srcPaths.js, ...srcPaths.icons, ...srcPaths.img, ...srcPaths.libs],
+        [...srcPaths.allStylus, ...srcPaths.js, ...srcPaths.icons, ...srcPaths.img, ...srcPaths.libs],
         [ 'stylus', 'js', 'copy', 'libs' ])
         .on('change', livereload.changed);
 });
