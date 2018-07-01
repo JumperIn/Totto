@@ -5,37 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="wwwroot\css\**" />
-    <Compile Remove="wwwroot\fonts\**" />
-    <Compile Remove="wwwroot\images\**" />
-    <Compile Remove="wwwroot\js\**" />
-    <Compile Remove="wwwroot\libs\**" />
-    <Compile Remove="wwwroot\lib\**" />
-    <Content Remove="wwwroot\css\**" />
-    <Content Remove="wwwroot\fonts\**" />
-    <Content Remove="wwwroot\images\**" />
-    <Content Remove="wwwroot\js\**" />
-    <Content Remove="wwwroot\libs\**" />
-    <Content Remove="wwwroot\lib\**" />
-    <EmbeddedResource Remove="wwwroot\css\**" />
-    <EmbeddedResource Remove="wwwroot\fonts\**" />
-    <EmbeddedResource Remove="wwwroot\images\**" />
-    <EmbeddedResource Remove="wwwroot\js\**" />
-    <EmbeddedResource Remove="wwwroot\libs\**" />
-    <EmbeddedResource Remove="wwwroot\lib\**" />
-    <None Remove="wwwroot\css\**" />
-    <None Remove="wwwroot\fonts\**" />
-    <None Remove="wwwroot\images\**" />
-    <None Remove="wwwroot\js\**" />
-    <None Remove="wwwroot\libs\**" />
-    <None Remove="wwwroot\lib\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Remove="wwwroot\favicon.ico" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
   </ItemGroup>
@@ -53,7 +22,12 @@
     <Folder Include="src\fonts\" />
     <Folder Include="src\icons\" />
     <Folder Include="src\scripts\" />
-    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\**\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>
