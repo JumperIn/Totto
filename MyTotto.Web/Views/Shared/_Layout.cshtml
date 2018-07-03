@@ -13,7 +13,7 @@
 </head>
 <body>
     @Html.Partial("_Header")
-    
+
     <main class="main container-fluid">
         @Html.Partial("_Banners")
 
@@ -187,10 +187,10 @@
         </div>
 
     </main>
-
+    @Html.Partial("_Footer")
     @RenderBody()
 
-    <footer></footer>
+
     <script src="js/main.js"></script>
 
     @RenderSection("Scripts", required: false)
