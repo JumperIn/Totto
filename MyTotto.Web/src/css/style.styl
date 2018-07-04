@@ -28,7 +28,6 @@ p, ul,
 	flex-direction: column
 	align-items: center
 
-
 .main-content_padding
 	padding-top: 40px
 
@@ -36,10 +35,8 @@ p, ul,
 	display: flex 
 	flex-direction: column
 	align-items: center
-	// max-width: 1500px
 	min-width: 290px
 	background: #fff
-	// overflow: hidden
 
 .main-nav__list
 	display: flex
@@ -48,18 +45,17 @@ p, ul,
 	margin: 0
 	padding: 0
 
-
 .main-nav_center
 	padding:  0px 5px 10px 0px
 
 .main-nav__item
-	height 50px
-	font-size: 12px
-	padding: 0px 15px
 	display: flex
 	align-items: center
+	height: 50px
+	padding: 0px 15px
 	border: 2px solid #e0e0e0
 	border-radius: 20px
+	font-size: 12px
 	text-transform: uppercase
 	color: #89899a
 	transition: color 200ms ease-in-out
@@ -70,17 +66,10 @@ p, ul,
 	color: #6A6A77
 	border: 2px solid #C5C5C5
 
-// .main-nav__item:focus
-// 	color: #1db6ca
-// 	border: 2px solid #1db6ca
-
-
 .main-nav__item_active,
 .main-nav__item_active:hover
 	color: #1db6ca
 	border: 2px solid #1db6ca
-
-
 
 .button-left,
 .button-right
@@ -96,9 +85,6 @@ p, ul,
 .products-wrapper
 	display: flex
 	flex-wrap: nowrap
-	// width: wrapper-size
-	transform: translateX(0)
-	transform: translateX()
 	transition: transform 500ms ease-in-out
 
 .products__item_padding
@@ -121,29 +107,29 @@ p, ul,
 
 .product__name
 	display: block
-	font-size: 12px
-	color: product-name-color
-	text-transform: uppercase
-	text-align: center
 	margin-bottom: 7px
+	font-size: 12px
+	text-align: center
+	text-transform: uppercase
+	color: product-name-color
 	overflow: hidden
 
 .product__price
-	color: product-name-color
 	font-weight: 700
 	text-align: center
+	color: product-name-color
 
 .product__inbasket
 	padding-top: 7px
 
 .product__inbasket_buy
 	display: block
+	padding: 5px 20px 5px
 	text-transform: uppercase
 	font-size: 14px
 	text-align: center
-	color: basket-color
 	border: 2px solid basket-color
-	padding: 5px 20px 5px
+	color: basket-color
 	opacity: 0
 	
 .product:hover .product__inbasket_buy
