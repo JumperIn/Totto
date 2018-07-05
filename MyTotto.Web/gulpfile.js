@@ -9,14 +9,26 @@
     concat = require('gulp-concat'),
     livereload = require('gulp-livereload');
 
-// сюда указываем пути у подключаемых библиотек
-var libs = [
-    './node_modules/bootstrap-grid/dist/grid.min.css',
-    './node_modules/jquery/dist/jquery.min.js'
-];
-
 // пути исходников
 var source = 'src';
+
+// сюда указываем пути у подключаемых библиотек
+var libsCss = [
+    `./${source}/libs/styles/bootstrap-grid.min.css`,
+    `./${source}/libs/styles/fontawesome/fontawesome-all.min.css`,
+    `./${source}/libs/styles/fontawesome/fontawesome.min.css`,
+    `./${source}/libs/styles/fontawesome/fa-brands.min.css`,
+    `./${source}/libs/styles/fontawesome/fa-regular.min.css`,
+    `./${source}/libs/styles/fontawesome/fa-solid.min.css`
+];
+
+var webfonts = `./${source}/libs/styles/fontawesome/webfonts/**`;
+
+// сюда указываем пути у подключаемых библиотек
+var libsJs = [
+    `./${source}/libs/scripts/jquery.min.js`
+];
+
 var srcPaths = {
     stylus: [`./${source}/css/site.styl`],
     img: [`./${source}/img/**`],
@@ -24,7 +36,9 @@ var srcPaths = {
     js: [`./${source}/scripts/*.js`],
     favicon: [`./${source}/favicon.ico`],
     fonts: [`./${source}/fonts/**`],
-    libs: libs,
+    webfonts: webfonts,
+    libsCss: libsCss,
+    libsJs: libsJs,
     allStylus: [`./${source}/css/*.styl`]
 }
 
@@ -37,7 +51,11 @@ var destPaths = {
     js: `./${destination}/js`,
     favicon: `./${destination}`,
     fonts: `./${destination}/fonts`,
-    libs: `./${destination}/libs`
+    webfonts: `./${destination}/libs/webfonts`,
+    libFolderJs: `./${destination}/libs/scripts`,
+    libFileJs: 'script.js',
+    libFolderCss: `./${destination}/libs/styles`,
+    libFileCss: 'style.css'
 }
 
 var production = argv.production !== undefined || argv.prod !== undefined;
@@ -79,11 +97,18 @@ gulp.task('copy', function () {
         .pipe(gulp.dest(destPaths.img));
     gulp.src(srcPaths.fonts)
         .pipe(gulp.dest(destPaths.fonts));
+    gulp.src(srcPaths.webfonts)
+        .pipe(gulp.dest(destPaths.webfonts));
 });
 
 gulp.task('libs', function () {
-    gulp.src(srcPaths.libs)
-        .pipe(gulp.dest(destPaths.libs));
+    gulp.src(srcPaths.libsJs)
+        .pipe(concat(destPaths.libFileJs))
+        .pipe(gulp.dest(destPaths.libFolderJs));
+
+    gulp.src(srcPaths.libsCss)
+        .pipe(concat(destPaths.libFileCss))
+        .pipe(gulp.dest(destPaths.libFolderCss));
 });
 
 gulp.task('favicon', function () {
