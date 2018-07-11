@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
@@ -22,6 +23,7 @@
     <Folder Include="src\fonts\" />
     <Folder Include="src\icons\" />
     <Folder Include="src\scripts\" />
+    <Folder Include="wwwroot\libs\" />
   </ItemGroup>
 
   <ItemGroup>
