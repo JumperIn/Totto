@@ -43,6 +43,16 @@
 	background-position: center
 	background-size: cover
 
+.banner_margin
+	display: flex
+	margin: 0 auto
+	height: 100%
+
+.banner_width
+	max-width: 1500px
+	width: 100%
+	height: 450px
+
 .banner_padding
 	padding: 0 80px
 	height: 100%
@@ -91,3 +101,28 @@
 	background: #0067b7
 	color: #fff
 	text-transform: uppercase
+
+@media (max-width: 767px)
+	.banner__wrapper
+		display: block
+		height: 180px
+		width: 305px
+		margin: 0 auto
+	.banner__img
+		display: block
+		height: 180px
+		max-width: none
+	.banner_direction
+		display: flex
+		flex-direction: column
+		flex-wrap: nowrap
+	.banner_width
+		float: left
+		display: block
+		padding: 20px
+	.banner__content
+		height: 180px
+	.banner__title
+		font-size: 28px
+	.banner__content_description
+		font-size: 12px
