@@ -133,3 +133,72 @@ function moveBannerMouseOut() {
     elem.addEventListener('mouseout', slideBannerTimer);
 }
 moveBannerMouseOut();
+
+//Адаптивность навигации
+
+function dropDownMenu() {
+    var elem = document.getElementsByClassName('header-nav-menu__link')[0];
+    if (window.matchMedia('(max-width: 767px)').matches) {
+        elem.nextElementSibling.style.display = 'none'
+        elem.parentElement.parentElement.classList.remove('container_padding');
+    }
+    elem.addEventListener('click', function () {
+        var panel = this.nextElementSibling;
+        if (panel.style.display === 'none') {
+            panel.style.display = 'flex';
+        } else {
+            panel.style.display = 'none';
+        }
+    })
+}
+dropDownMenu();
+
+function dropDownSubMenu() {
+    var elem = document.getElementsByClassName('accordion');
+    for (var i = 0; i < elem.length; i++) {
+        if (window.matchMedia('(max-width: 767px)').matches) {
+            elem[i].parentElement.nextElementSibling.style.display = 'none';
+            // elem[i].parentElement.firstChild.style.display = 'flex';
+            elem[i].classList.remove('fa-angle-down');
+            elem[i].classList.add('fa-plus');
+        };
+        elem[i].addEventListener('click', function () {
+            var panel = this.parentElement.nextElementSibling;
+            this.classList.toggle('icon-accordion-active');
+            this.parentElement.classList.toggle('accordion-active');
+            this.classList.toggle('fa-plus');
+            this.classList.toggle('fa-minus');
+            if (panel.style.display == 'none') {
+                panel.style.display = 'flex';
+            } else {
+                panel.style.display = 'none';
+            }
+        })
+    }
+}
+dropDownSubMenu();
+
+function dropDownSubSubMenu() {
+    var elem = document.getElementsByClassName('accordion-list');
+    for (var i = 0; i < elem.length; i++) {
+        if (window.matchMedia('(max-width: 767px)').matches) {
+            elem[i].parentElement.nextElementSibling.style.display = 'none';
+            elem[i].parentElement.parentElement.parentElement.parentElement.classList.remove('container_padding');
+        };
+        if (window.matchMedia('(min-width: 768px)').matches) {
+            elem[i].style.display = 'none';
+        };
+        elem[i].addEventListener('click', function () {
+            this.classList.toggle('sub-accordion-active');
+            this.classList.toggle('fa-plus');
+            this.classList.toggle('fa-minus');
+            var panel = this.parentElement.nextElementSibling;
+            if (panel.style.display == 'none') {
+                panel.style.display = 'flex';
+            } else {
+                panel.style.display = 'none';
+            }
+        })
+    }
+}
+dropDownSubSubMenu();
