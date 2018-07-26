@@ -166,12 +166,14 @@ function dropDownSubMenu() {
             var panel = this.parentElement.nextElementSibling;
             this.classList.toggle('icon-accordion-active');
             this.parentElement.classList.toggle('accordion-active');
-            this.classList.toggle('fa-plus');
-            this.classList.toggle('fa-minus');
-            if (panel.style.display == 'none') {
-                panel.style.display = 'flex';
-            } else {
-                panel.style.display = 'none';
+            if (window.matchMedia('(max-width: 767px)').matches) {
+                this.classList.toggle('fa-plus');
+                this.classList.toggle('fa-minus');
+                if (panel.style.display == 'none') {
+                    panel.style.display = 'flex';
+                } else {
+                    panel.style.display = 'none';
+                }
             }
         })
     }
