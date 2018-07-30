@@ -119,7 +119,7 @@ gulp.task('favicon', function () {
 gulp.task('watch', function () {
     livereload.listen();
     gulp.watch(
-        [...srcPaths.allStylus, ...srcPaths.js, ...srcPaths.icons, ...srcPaths.img, ...srcPaths.libs],
+        [...srcPaths.allStylus, ...srcPaths.js, ...srcPaths.icons, ...srcPaths.img, ...srcPaths.libsJs, ...srcPaths.libsCss],
         [ 'stylus', 'js', 'copy', 'libs' ])
         .on('change', livereload.changed);
 });

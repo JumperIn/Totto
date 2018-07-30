@@ -148,6 +148,9 @@ ul,
 .product:hover .product__inbasket_buy {
   opacity: 1;
 }
+.hiden {
+  display: none !important;
+}
 @font-face {
   font-family: Lato-Light;
   src: url("/fonts/Lato-Light.ttf");
@@ -167,23 +170,6 @@ ul,
   display: flex;
   justify-content: center;
   border-bottom: 1px solid #ededed;
-}
-@media (max-width: 767px) {
-  .header-info__phone_media {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px 0px;
-  }
-  .header-name__menu {
-    display: none;
-  }
-  .header-info__phone {
-    display: none;
-  }
-  .header-info-logo {
-    padding: 10px 20px 10px 0px;
-  }
 }
 @media (min-width: 768px) {
   .header-info__phone_media {
@@ -230,6 +216,26 @@ ul,
 @media (max-width: 1280px) {
   .header-nav-menu {
     width: 720px;
+  }
+}
+@media (max-width: 767px) {
+  .header-info__phone_media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 0px;
+  }
+  .header-name__menu {
+    display: none;
+  }
+  .header-info__phone {
+    display: none;
+  }
+  .header-info-logo {
+    padding: 10px 20px 10px 0px;
+  }
+  .header-nav-menu {
+    width: 100%;
   }
 }
 .header-name__name {

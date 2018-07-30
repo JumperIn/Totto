@@ -1,12 +1,45 @@
 'use strict'
 
+//Адаптивность сайта
+
+function resize() {
+	var timeOut;
+	window.addEventListener('resize', function() {
+		clearTimeout(timeOut);
+		timeOut = setTimeout(() => {
+			console.log(window.innerWidth);
+			shiftProducts = 0;
+			shiftBanners = 0;
+			getNumProductDisp();
+			returnBannerBack();
+			returnCarouselBack();
+			//внутри можно вызывать функции, которые определяют адаптивность сайта
+			//Можно так же вызывать функции, которые скажут, чтоб банеры и карусель прокрутились в начальное положение
+		}, 200)
+	})
+}
+resize();
+
+function returnCarouselBack() {
+	var elem = document.getElementsByClassName('products-wrapper')[0];
+	elem.style.transform = 'translateX(0px)';
+}
+
+function returnBannerBack() {
+	var elem = document.getElementsByClassName('banners-wrapper')[0];
+	elem.style.transform = 'translateX(0px)';
+}
+
 //карусель
 var numProductsDisp;
-if (window.matchMedia('(min-width: 0px)').matches) { numProductsDisp = 1; };
-if (window.matchMedia('(min-width: 576px)').matches) { numProductsDisp = 2; };
-if (window.matchMedia('(min-width: 768px)').matches) { numProductsDisp = 3; };
-if (window.matchMedia('(min-width: 992px)').matches) { numProductsDisp = 4; };
-if (window.matchMedia('(min-width: 1200px)').matches) { numProductsDisp = 4; };
+function getNumProductDisp() {
+	if (window.matchMedia('(min-width: 0px)').matches) { numProductsDisp = 1; };
+	if (window.matchMedia('(min-width: 576px)').matches) { numProductsDisp = 2; };
+	if (window.matchMedia('(min-width: 768px)').matches) { numProductsDisp = 3; };
+	if (window.matchMedia('(min-width: 992px)').matches) { numProductsDisp = 4; };
+	if (window.matchMedia('(min-width: 1200px)').matches) { numProductsDisp = 4; };
+}
+getNumProductDisp();
 
 function getProductWidth() {
     var elem = document.getElementsByClassName('products__item')[0];
