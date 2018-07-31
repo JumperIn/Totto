@@ -1,3 +1,11 @@
+//Миксины
+
+flex(direction = row, justify = flex-start, align = stretch)
+	display flex
+	flex-direction: direction
+	justify-content: justify
+	align-items: align
+
 body {
     background-color: body-color;
 	margin: 0px 0px;
@@ -24,9 +32,7 @@ p, ul,
 /* ������ ����� ������� �� �����-����� ���������� */
 
 .main
-	display: flex
-	flex-direction: column
-	align-items: center
+	flex(column, ,center)
 
 .main-content_padding
 	padding-top: 40px
@@ -57,7 +63,7 @@ p, ul,
 	border-radius: 20px
 	font-size: 12px
 	text-transform: uppercase
-	color: #89899a
+	color: gray
 	transition: color 200ms ease-in-out
 	transition: border 200ms ease-in-out
 	cursor: pointer
@@ -68,8 +74,8 @@ p, ul,
 
 .main-nav__item_active,
 .main-nav__item_active:hover
-	color: #1db6ca
-	border: 2px solid #1db6ca
+	color: blue-light
+	border: 2px solid blue-light
 
 .button-left,
 .button-right

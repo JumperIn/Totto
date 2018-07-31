@@ -1,8 +1,21 @@
 'use strict'
 
-//Константы
+//Константы и переменные
 
+var constants = {
+	SCREEN_SMALL: 576,
+	SCREEN_MEDIUM: 768,
+	SCREEN_LARGE: 992,
+	SCREEN_EXTRA_LARGE: 1200
 
+}
+var variables = {
+	numProductsDisp: 1,
+	shiftProducts: 0,
+	shiftBanners: 0,
+	numProducts: getLengthWrapper(),
+	numBanners: getBannersLengthWrapper(),
+}
 
 //Адаптивность сайта
 
@@ -12,17 +25,15 @@ function resize() {
 	window.addEventListener('resize', function() {
 		clearTimeout(timeOut);
 		timeOut = setTimeout(() => {
-			if (window.innerWidth > 0 && window.innerWidth < 768 && windowWidth > 767) {
-				console.log('от 0 до 767');
+			if (window.innerWidth > 0 && window.innerWidth < 768 && windowWidth >= 768) {
 				hideMenu();
 				windowWidth = window.innerWidth
-			} else if (window.innerWidth > 767 && window.innerWidth < 1920 && windowWidth < 768) {
-				console.log('от 767 до 1920');
+			} else if (window.innerWidth >= 768 && window.innerWidth < 1920 && windowWidth < 768) {
 				showMenu();
 				windowWidth = window.innerWidth;
 			}
-			shiftProducts = 0;
-			shiftBanners = 0;
+			variables.shiftProducts = 0;
+			variables.shiftBanners = 0;
 			getNumProductDisp();
 			returnBannerBack();
 			returnCarouselBack();
@@ -42,13 +53,12 @@ function returnBannerBack() {
 }
 
 //карусель
-var numProductsDisp;
 function getNumProductDisp() {
-	if (window.innerWidth > 0) { numProductsDisp = 1; };
-	if (window.innerWidth > 575) { numProductsDisp = 2; };
-	if (window.innerWidth > 767) { numProductsDisp = 3; };
-	if (window.innerWidth > 991) { numProductsDisp = 4; };
-	if (window.innerWidth > 1999) { numProductsDisp = 4; };
+	if (window.innerWidth > 0) { variables.numProductsDisp = 1; };
+	if (window.innerWidth >= constants.SCREEN_SMALL) { variables.numProductsDisp = 2; };
+	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numProductsDisp = 3; };
+	if (window.innerWidth >= constants.SCREEN_LARGE) { variables.numProductsDisp = 4; };
+	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numProductsDisp = 4; };
 }
 getNumProductDisp();
 
@@ -61,19 +71,17 @@ function getLengthWrapper() {
     var elem = document.getElementsByClassName('products-wrapper')[0];
     return elem.children.length
 }
-var numProducts = getLengthWrapper();
-var shiftProducts = 0;
 
 function moveCarouselRight() {
     var elem = document.getElementsByClassName('products-wrapper')[0];
     //граничное условие, при котором необходимо вернуть карусель в начальное состояние
-    var lastProduct = (numProducts - numProductsDisp) * getProductWidth();
-    if (shiftProducts == lastProduct || shiftProducts > lastProduct) {
-        shiftProducts = 0;
-        elem.style.transform = 'translateX(-' + +shiftProducts + 'px)';
+    var lastProduct = (variables.numProducts - variables.numProductsDisp) * getProductWidth();
+    if (variables.shiftProducts == lastProduct || variables.shiftProducts > lastProduct) {
+        variables.shiftProducts = 0;
+        elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
     } else {
-        shiftProducts = +shiftProducts + +getProductWidth();
-        elem.style.transform = 'translateX(-' + +shiftProducts + 'px)';
+        variables.shiftProducts = +variables.shiftProducts + +getProductWidth();
+        elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
     }
 };
 function moveCarouselRightEvent() {
@@ -84,12 +92,12 @@ moveCarouselRightEvent();
 
 function moveCarouselLeft() {
     var elem = document.getElementsByClassName('products-wrapper')[0];
-    if (shiftProducts == 0 || shiftProducts < 0) {
-        shiftProducts = (numProducts - numProductsDisp) * getProductWidth();
-        elem.style.transform = 'translateX(-' + +shiftProducts + 'px)';
+    if (variables.shiftProducts == 0 || variables.shiftProducts < 0) {
+        variables.shiftProducts = (variables.numProducts - variables.numProductsDisp) * getProductWidth();
+        elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
     } else {
-        shiftProducts = +shiftProducts - +getProductWidth();
-        elem.style.transform = 'translateX(-' + +shiftProducts + 'px)';
+        variables.shiftProducts = +variables.shiftProducts - +getProductWidth();
+        elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
     }
 };
 function moveCarouselLeftEvent() {
@@ -121,17 +129,15 @@ function getBannersLengthWrapper() {
     var elem = document.getElementsByClassName('banners-wrapper')[0];
     return elem.children.length
 }
-var numBanners = getBannersLengthWrapper();
-var shiftBanners = 0;
 
 function moveBannerRight() {
     var elem = document.getElementsByClassName('banners-wrapper')[0];
-    if (shiftBanners == (numBanners - 1) * getBannerWidth() || shiftBanners > (numBanners - 1) * getBannerWidth()) {
-        shiftBanners = 0;
-        elem.style.transform = 'translateX(-' + +shiftBanners + 'px)';
+    if (variables.shiftBanners == (variables.numBanners - 1) * getBannerWidth() || variables.shiftBanners > (variables.numBanners - 1) * getBannerWidth()) {
+        variables.shiftBanners = 0;
+        elem.style.transform = 'translateX(-' + +variables.shiftBanners + 'px)';
     } else {
-        shiftBanners = +shiftBanners + +getBannerWidth();
-        elem.style.transform = 'translateX(-' + +shiftBanners + 'px)';
+        variables.shiftBanners = +variables.shiftBanners + +getBannerWidth();
+        elem.style.transform = 'translateX(-' + +variables.shiftBanners + 'px)';
     }
 }
 
@@ -143,13 +149,13 @@ moveBannerRightEvent();
 
 function moveBannerLeft() {
     var elem = document.getElementsByClassName('banners-wrapper')[0];
-    if (shiftBanners == 0 || shiftBanners < 0) {
-        shiftBanners = (numBanners - 1) * getBannerWidth();
-        elem.style.transform = 'translateX(-' + +shiftBanners + 'px)';
+    if (variables.shiftBanners == 0 || variables.shiftBanners < 0) {
+        variables.shiftBanners = (variables.numBanners - 1) * getBannerWidth();
+        elem.style.transform = 'translateX(-' + +variables.shiftBanners + 'px)';
     } else {
 
-        shiftBanners = +shiftBanners - +getBannerWidth();
-        elem.style.transform = 'translateX(-' + +shiftBanners + 'px)';
+        variables.shiftBanners = +variables.shiftBanners - +getBannerWidth();
+        elem.style.transform = 'translateX(-' + +variables.shiftBanners + 'px)';
     }
 }
 
@@ -186,14 +192,14 @@ function dropDownMenu() {
 }
 
 function adaptDropDownMenu() {
-	var elem = document.getElementsByClassName('header-nav-menu__link')[0];
+	var elem = document.getElementsByClassName('menu-link')[0];
     if (window.innerWidth < 768) {
         elem.nextElementSibling.classList.toggle('hidden');
         elem.parentElement.parentElement.classList.remove('container_padding');
     }
 }
 function dropDownMenuEvent() {
-	var elem = document.getElementsByClassName('header-nav-menu__link')[0];
+	var elem = document.getElementsByClassName('menu-link')[0];
 	elem.addEventListener('click', function () {
 		var panel = this.nextElementSibling;
 		if (!panel.classList.contains('hidden')) {
@@ -253,7 +259,7 @@ function adaptDropDownItem() {
             elems[i].parentElement.nextElementSibling.classList.toggle('hidden');
             elems[i].parentElement.parentElement.parentElement.parentElement.classList.remove('container_padding');
         };
-        if (window.innerWidth > 767) {
+        if (window.innerWidth >= 768) {
             elems[i].classList.toggle('hidden');
 		};
 	}
@@ -274,7 +280,7 @@ dropDownItem();
 
 function hideMenu() {
 	//menu
-	var elem = document.getElementsByClassName('header-nav-menu__link')[0];
+	var elem = document.getElementsByClassName('menu-link')[0];
 	if (!elem.nextElementSibling.classList.contains('hidden')) {
 		elem.nextElementSibling.classList.toggle('hidden');
         elem.parentElement.parentElement.classList.remove('container_padding');
@@ -329,7 +335,7 @@ function hideItem() {
 
 function showMenu() {
 	//menu
-	var elem = document.getElementsByClassName('header-nav-menu__link')[0];
+	var elem = document.getElementsByClassName('menu-link')[0];
 	elem.nextElementSibling.classList.remove('hidden');
 	elem.parentElement.parentElement.classList.add('container_padding');
 	//list

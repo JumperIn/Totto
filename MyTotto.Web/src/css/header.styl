@@ -1,7 +1,7 @@
 .header
 	background: #ffffff
 
-.header-name
+.header-title
 	display: flex
 	justify-content: center
 	border-bottom: 1px solid #EDEDED
@@ -17,28 +17,28 @@
 		padding: 15px 0px
 
 @media (max-width: 991px) 
-	.header-name__name
+	.header-title__name
 		display: none
 	.header-info__phone
 		font-size: 20px
-	.header-nav-menu
+	.menu
 		width: 720px
 
 @media (min-width: 992px) 
 	.header-info__phone
 		font-size: 24px 
 @media (max-width: 1199px)
-	.header-nav-menu-drop
+	.menu-drop
 		width: 100%
 		left: 0
 		
 @media (min-width: 1200px) 
-	.header-nav-menu-drop
+	.menu-drop
 		width: 120%
 		left: -10%
 
 @media (max-width: 1280px)
-	.header-nav-menu
+	.menu
 		width: 720px
 		
 @media (max-width: 767px)
@@ -47,41 +47,41 @@
 		justify-content: center
 		align-items: center
 		padding: 5px 0px
-	.header-name__menu
+	.header-title__menu
 		display: none
 	.header-info__phone
 		display: none
 	.header-info-logo
 		padding: 10px 20px 10px 0px
-	.header-nav-menu
+	.menu
 		width: 100%
 
 
-.header-name__name
+.header-title__name
 	font-size: 13px
-	color: #89899a
+	color: gray
 	padding: 5px 0px
 
-.header-name__name_h
+.header-title__name_h
 	font-size: 13px
 	margin: 0px
 	font-weight: normal
 
-.header-name__menu
+.header-title__menu
 	padding: 5px 0px
 
-.header-name__list
+.header-title__list
 	display: flex
 	justify-content: flex-end
 	margin: 0
 	list-style-type: none
 
-.header-name__item
+.header-title__item
 	padding-left: 10px
 	font-size: 13px
-	color: #89899a
+	color: gray
 
-.header-name__item_h
+.header-title__item_h
 	margin: 0px
 	font-size: 13px
 	font-weight: normal
@@ -91,7 +91,7 @@
 	align-items: center
 
 .header-info__phone_color
-	color: #89899a
+	color: gray
 
 
 .header-info-search
@@ -112,7 +112,7 @@
 	border: 1px solid #ededed
 	border-radius: 22px
 	background: #ededed
-	color: #89899a
+	color: gray
 	transition: background-color 200ms ease-in-out
 
 .header-info-search__input:hover,
@@ -129,7 +129,7 @@
 	font-size: 23px
 	border: none 
 	background: none 
-	color: #89899a
+	color: gray
 	cursor: pointer
 
 
@@ -139,7 +139,7 @@
 
 .header-info-icons__item
 	padding-left: 10px
-	color: #89899a
+	color: gray
 	transition: color 200ms ease-in-out
 
 .header-info-search__button
@@ -147,7 +147,7 @@
 
 .header-info-icons__item:hover,
 .header-info-search__button:hover
-	color: #1db6ca
+	color: blue-light
 
 @media(max-width: 767px)
 	.header-info-icons
@@ -165,20 +165,20 @@
 	display: flex
 	background: #FFE3E0
 
-.header-nav-menu
+.menu
 	height: 56px
 
-.header-nav-menu__link
+.menu-link
 	display: none
 
-.header-nav-menu__list
+.menu__list
 	display: flex
 	flex-direction: row
 	justify-content: flex-start
 	align-items: center
 	height: 100%
 
-.header-nav-menu__item
+.menu-item
 	display: flex
 	justify-content: flex-start
 	align-items: center
@@ -191,27 +191,27 @@
 	color: #4e2520
 	list-style-type: none
 
-.header-nav-menu__item_i
+.menu-item__icon2
 	padding-left: 3px
 	font-size: 12px
 	color: #8B4339
 
-.header-nav-menu_drop:hover .header-nav-menu-drop,
-.header-nav-menu_drop:hover .header-nav-menu__item
+.menu_drop:hover .menu-drop,
+.menu_drop:hover .menu-item
 	display: flex
 	color: #42201B
 
-.header-nav-menu_drop:hover
-	background: #FFCAC4
+.menu_drop:hover
+	background: red-light
 
-.header-nav-menu_drop
+.menu_drop
 	display: flex
 	justify-content: center
 	height: 100%
 	transition: background-color 200ms ease-in-out
 
 
-.header-nav-menu-drop
+.menu-drop
 	display: none
 	position: absolute
 	top: 100%
@@ -219,38 +219,38 @@
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 10px 0px
 	background: white
 	
-.header-nav-menu-drop_padding
+.menu-drop_padding
 	padding: 40px 0px
 
-.header-nav-menu-drop__list-header
+.menu-drop__list-header
 	display: block
 	padding-bottom: 10px
 	font-size: 15px
 	font-weight: 700
-	color: #28282f
+	color: gray-darken
 
-.header-nav-menu-drop__list
+.menu-drop__list
 	padding-right: 5px
 	list-style-type: none
 
-.header-nav-menu-drop__item
+.menu-drop__item
 	display: block
 	padding: 4px 0px
 	font-family: 'Open-Sans', sans-serif
 	font-size: 13px
 	color: #4b4b58
 
-.header-nav-menu__wrap
+.menu__wrap
 	display: flex
 	flex-direction: row
 	align-items: center
 
-.header-nav-menu__item_i1
+.menu-item__icon1
 	display: none
 
 
 @media (max-width: 767px)
-	.header-nav-menu__list
+	.menu__list
 		// display: none
 		flex-direction: column
 		position: absolute
@@ -261,7 +261,7 @@
 		align-items: start
 		background: white
 		z-index: 200
-	.header-nav-menu__link
+	.menu-link
 		display: flex
 		align-items: center
 		padding: 0px 20px
@@ -273,44 +273,44 @@
 		font-weight: 600
 		text-transform: uppercase
 		transition: background-color 200ms ease-in-out
-	.header-nav-menu__wrap:hover,
-	.header-nav-menu__link:hover
-		background-color: #FFCAC4
-	.header-nav-menu__link_i1
+	.menu__wrap:hover,
+	.menu-link:hover
+		background-color: red-light
+	.menu-link__icon1
 		padding-right: 10px
 		font-size: 24px
-	.header-nav-menu__link_i2
+	.menu-link__icon2
 		padding-left: 5px
 		font-size: 16px
-	.header-nav-menu_drop
+	.menu_drop
 		width: 100%
 		display: flex
 		flex-direction: column
-	.header-nav-menu-drop
+	.menu-drop
 		display: flex
 		position: relative
 		box-shadow: none
-	.header-nav-menu-drop__list
+	.menu-drop__list
 		display: flex
 		flex-direction: column
 		padding: 0px 0px 15px 0px
-	.header-nav-menu-drop__item
+	.menu-drop__item
 		padding-left: 20px
-		color: #1DB6CA
-	.header-nav-menu-drop_padding
+		color: blue-light
+	.menu-drop_padding
 		display: flex
 		flex-direction: column
 		padding: 0px
-	.header-nav-menu__wrap
+	.menu__wrap
 		display: flex
 		flex-direction: row
 		height: 48px
 		width: 100%
 		padding: 0px
-		border-top: solid 1px #FFCAC4
+		border-top: solid 1px red-light
 		background-color: #FFFAFA
 		transition: background-color 200ms ease-in-out
-	.header-nav-menu-drop__wrap
+	.menu-drop__wrap
 		display: flex
 		flex-direction: row
 		align-items: center
@@ -319,13 +319,13 @@
 		padding: 0px
 		border-top: solid 1px #ededed
 		background-color: #fff
-	.header-nav-menu__item
+	.menu-item
 		width: 100%
 		padding: 0px 0px 0px 20px
 		font-family: 'Open-Sans', sans-serif
 		font-size: 14px
 		color: #000
-	.header-nav-menu-drop__list-header
+	.menu-drop__list-header
 		height: 100%
 		width: 100%
 		padding: 0px 0px 0px 20px
@@ -336,8 +336,8 @@
 		text-transform: uppercase
 		color: #000
 		transition: color 200ms ease-in-out
-	.header-nav-menu__item_i,
-	.header-nav-menu-drop__list-header_i
+	.menu-item__icon2,
+	.menu-drop__icon
 		height: 48px
 		width: 50px
 		padding: 0px
@@ -345,21 +345,21 @@
 		text-align: center
 		font-size: 18px
 		cursor: pointer
-	.header-nav-menu__item_i
+	.menu-item__icon2
 		color: #fff
-	.header-nav-menu-drop__list-header_i
+	.menu-drop__icon
 		color: #bfbfbf
-	.header-nav-menu__item_i1
+	.menu-item__icon1
 		display: flex
 		padding-right: 10px
 		font-size: 24px
 		color: #a8a8a8
 	.accordion-active
-		background-color: #FFCAC4
+		background-color: red-light
 	.icon-accordion-active
 		background-color: #FFD5D1
 	.sub-accordion-active
 		background-color: #E0E0E0
-	.header-nav-menu-drop__list-header:hover
-		color: #1DB6CA
+	.menu-drop__list-header:hover
+		color: blue-light
 		
