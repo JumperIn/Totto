@@ -148,7 +148,7 @@ ul,
 .product:hover .product__inbasket_buy {
   opacity: 1;
 }
-.hiden {
+.hidden {
   display: none !important;
 }
 @font-face {
@@ -431,7 +431,6 @@ ul,
 }
 @media (max-width: 767px) {
   .header-nav-menu__list {
-    display: none;
     flex-direction: column;
     position: absolute;
     top: 100%;
