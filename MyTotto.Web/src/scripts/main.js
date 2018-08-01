@@ -25,15 +25,19 @@ function resize() {
 	window.addEventListener('resize', function() {
 		clearTimeout(timeOut);
 		timeOut = setTimeout(() => {
-			if (window.innerWidth > 0 && window.innerWidth < 768 && windowWidth >= 768) {
+			//условия нужны для отслеживания события, когда ширина экрана переходит
+			//из области от (0 до 768) в область (>= 768) и обратно.
+			if (window.innerWidth > 0 && window.innerWidth < constants.SCREEN_MEDIUM && windowWidth >= constants.SCREEN_MEDIUM) {
 				hideMenu();
 				windowWidth = window.innerWidth
-			} else if (window.innerWidth >= 768 && window.innerWidth < 1920 && windowWidth < 768) {
+			} else if (window.innerWidth >= constants.SCREEN_MEDIUM && window.innerWidth < 1920 && windowWidth < constants.SCREEN_MEDIUM) {
 				showMenu();
 				windowWidth = window.innerWidth;
 			}
+			//для нормального отображения банеров и карусели, при изменении ширины экрана они плавно возвращаются в начальное положение
 			variables.shiftProducts = 0;
 			variables.shiftBanners = 0;
+			//данные функции выполняются при каждом событии изменения экрана, для адаптивной работы баннеров и карусели
 			getNumProductDisp();
 			returnBannerBack();
 			returnCarouselBack();
@@ -75,8 +79,9 @@ function getLengthWrapper() {
 function moveCarouselRight() {
     var elem = document.getElementsByClassName('products-wrapper')[0];
     //граничное условие, при котором необходимо вернуть карусель в начальное состояние
-    var lastProduct = (variables.numProducts - variables.numProductsDisp) * getProductWidth();
-    if (variables.shiftProducts == lastProduct || variables.shiftProducts > lastProduct) {
+    var distanceTolastProduct = (variables.numProducts - variables.numProductsDisp) * getProductWidth();
+    var returnToStartCondition = variables.shiftProducts == distanceTolastProduct || variables.shiftProducts > distanceTolastProduct;
+    if (returnToStartCondition) {
         variables.shiftProducts = 0;
         elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
     } else {
@@ -92,7 +97,8 @@ moveCarouselRightEvent();
 
 function moveCarouselLeft() {
     var elem = document.getElementsByClassName('products-wrapper')[0];
-    if (variables.shiftProducts == 0 || variables.shiftProducts < 0) {
+    var returnToEndCondition = variables.shiftProducts == 0 || variables.shiftProducts < 0;
+    if (returnToEndCondition) {
         variables.shiftProducts = (variables.numProducts - variables.numProductsDisp) * getProductWidth();
         elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
     } else {
@@ -132,7 +138,8 @@ function getBannersLengthWrapper() {
 
 function moveBannerRight() {
     var elem = document.getElementsByClassName('banners-wrapper')[0];
-    if (variables.shiftBanners == (variables.numBanners - 1) * getBannerWidth() || variables.shiftBanners > (variables.numBanners - 1) * getBannerWidth()) {
+    var returnToStartCondition = variables.shiftBanners == (variables.numBanners - 1) * getBannerWidth() || variables.shiftBanners > (variables.numBanners - 1) * getBannerWidth();
+    if (returnToStartCondition) {
         variables.shiftBanners = 0;
         elem.style.transform = 'translateX(-' + +variables.shiftBanners + 'px)';
     } else {
@@ -149,7 +156,8 @@ moveBannerRightEvent();
 
 function moveBannerLeft() {
     var elem = document.getElementsByClassName('banners-wrapper')[0];
-    if (variables.shiftBanners == 0 || variables.shiftBanners < 0) {
+    var returnToEndCondition = variables.shiftBanners == 0 || variables.shiftBanners < 0;
+    if (returnToEndCondition) {
         variables.shiftBanners = (variables.numBanners - 1) * getBannerWidth();
         elem.style.transform = 'translateX(-' + +variables.shiftBanners + 'px)';
     } else {
@@ -193,7 +201,7 @@ function dropDownMenu() {
 
 function adaptDropDownMenu() {
 	var elem = document.getElementsByClassName('menu-link')[0];
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < constants.SCREEN_MEDIUM) {
         elem.nextElementSibling.classList.toggle('hidden');
         elem.parentElement.parentElement.classList.remove('container_padding');
     }
@@ -221,7 +229,7 @@ function dropDownList() {
 function adaptDropDownList() {
 	var elems = document.getElementsByClassName('accordion');
     for (var i = 0; i < elems.length; i++) {
-        if (window.innerWidth < 768) {
+        if (window.innerWidth < constants.SCREEN_MEDIUM) {
             elems[i].parentElement.nextElementSibling.classList.toggle('hidden');
             elems[i].classList.remove('fa-angle-down');
             elems[i].classList.add('fa-plus');
@@ -234,7 +242,7 @@ function dropDownListEvent() {
     for (var i = 0; i < elems.length; i++) {
 		elems[i].addEventListener('click', function () {
             var panel = this.parentElement.nextElementSibling;
-            if (window.innerWidth < 768) {
+            if (window.innerWidth < constants.SCREEN_MEDIUM) {
 				this.classList.toggle('icon-accordion-active');
 				this.parentElement.classList.toggle('accordion-active');
                 this.classList.toggle('fa-plus');
@@ -255,11 +263,11 @@ function dropDownItem() {
 function adaptDropDownItem() {
 	var elems = document.getElementsByClassName('accordion-list');
     for (var i = 0; i < elems.length; i++) {
-        if (window.innerWidth < 768) {
+        if (window.innerWidth < constants.SCREEN_MEDIUM) {
             elems[i].parentElement.nextElementSibling.classList.toggle('hidden');
             elems[i].parentElement.parentElement.parentElement.parentElement.classList.remove('container_padding');
         };
-        if (window.innerWidth >= 768) {
+        if (window.innerWidth >= constants.SCREEN_MEDIUM) {
             elems[i].classList.toggle('hidden');
 		};
 	}
