@@ -2,8 +2,7 @@
 	background: #ffffff
 
 .header-title
-	display: flex
-	justify-content: center
+	flex(row, center, stretch)
 	border-bottom: 1px solid #EDEDED
 
 @media (min-width: 768px)
@@ -43,9 +42,7 @@
 		
 @media (max-width: 767px)
 	.header-info__phone_media
-		display: flex
-		justify-content: center
-		align-items: center
+		flex(row, center, center)
 		padding: 5px 0px
 	.header-title__menu
 		display: none
@@ -71,8 +68,7 @@
 	padding: 5px 0px
 
 .header-title__list
-	display: flex
-	justify-content: flex-end
+	flex(row, flex-end)
 	margin: 0
 	list-style-type: none
 
@@ -95,10 +91,7 @@
 
 
 .header-info-search
-	display: flex
-	flex-direction: row
-	justify-content: center
-	align-items: center
+	flex(row, center, center)
 
 .header-info-search_flex
 	display: flex
@@ -172,16 +165,11 @@
 	display: none
 
 .menu__list
-	display: flex
-	flex-direction: row
-	justify-content: flex-start
-	align-items: center
+	flex(row, flex-start, center)
 	height: 100%
 
 .menu-item
-	display: flex
-	justify-content: flex-start
-	align-items: center
+	flex(row, flex-start, center)
 	flex-wrap: nowrap
 	height: 100%
 	padding: 0px 8px
@@ -205,8 +193,7 @@
 	background: red-light
 
 .menu_drop
-	display: flex
-	justify-content: center
+	flex(row, center)
 	height: 100%
 	transition: background-color 200ms ease-in-out
 
@@ -241,9 +228,7 @@
 	color: #4b4b58
 
 .menu__wrap
-	display: flex
-	flex-direction: row
-	align-items: center
+	flex(row, flex-start, center)
 
 .menu-item__icon1
 	display: none

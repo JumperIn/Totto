@@ -48,13 +48,16 @@ ul,
 .main-content {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   min-width: 290px;
   background: #fff;
 }
 .main-nav__list {
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: stretch;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -64,6 +67,8 @@ ul,
 }
 .main-nav__item {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
   height: 50px;
   padding: 0px 15px;
@@ -88,8 +93,9 @@ ul,
 .button-left,
 .button-right {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
+  align-items: center;
   color: #d4d4d4;
   cursor: pointer;
 }
@@ -107,6 +113,7 @@ ul,
 .product {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 }
 .product_img {
@@ -117,6 +124,7 @@ ul,
 .product__info {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
 }
 .product__name {
@@ -169,7 +177,9 @@ ul,
 }
 .header-title {
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: stretch;
   border-bottom: 1px solid #ededed;
 }
 @media (min-width: 768px) {
@@ -222,6 +232,7 @@ ul,
 @media (max-width: 767px) {
   .header-info__phone_media {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     padding: 5px 0px;
@@ -254,7 +265,9 @@ ul,
 }
 .header-title__list {
   display: flex;
+  flex-direction: row;
   justify-content: flex-end;
+  align-items: stretch;
   margin: 0;
   list-style-type: none;
 }
@@ -363,6 +376,7 @@ ul,
 }
 .menu-item {
   display: flex;
+  flex-direction: row;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: nowrap;
@@ -389,7 +403,9 @@ ul,
 }
 .menu_drop {
   display: flex;
+  flex-direction: row;
   justify-content: center;
+  align-items: stretch;
   height: 100%;
   transition: background-color 200ms ease-in-out;
 }
@@ -425,6 +441,7 @@ ul,
 .menu__wrap {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
   align-items: center;
 }
 .menu-item__icon1 {
@@ -572,6 +589,8 @@ ul,
 .banners-wrapper {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
   flex-wrap: nowrap;
   transition: transform 500ms ease-in-out;
 }
@@ -625,8 +644,10 @@ ul,
 }
 .banner__wrapper {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  display: flex;
   height: 450px;
 }
 .banner__img {
@@ -740,6 +761,8 @@ ul,
 .connection__form {
   display: flex;
   flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 .connection__input {
   height: 36px;
