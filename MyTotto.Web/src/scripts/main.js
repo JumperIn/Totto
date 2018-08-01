@@ -262,14 +262,19 @@ function dropDownItem() {
 
 function adaptDropDownItem() {
 	var elems = document.getElementsByClassName('accordion-list');
+	var elems2 = document.getElementsByClassName('js-menu-wrapper');
     for (var i = 0; i < elems.length; i++) {
         if (window.innerWidth < constants.SCREEN_MEDIUM) {
             elems[i].parentElement.nextElementSibling.classList.toggle('hidden');
-            elems[i].parentElement.parentElement.parentElement.parentElement.classList.remove('container_padding');
         };
         if (window.innerWidth >= constants.SCREEN_MEDIUM) {
-            elems[i].classList.toggle('hidden');
+			elems[i].classList.toggle('hidden');
 		};
+	}
+	for (var i = 0; i < elems2.length; i++) {
+		if (window.innerWidth < constants.SCREEN_MEDIUM) {
+			elems2[i].classList.remove('container_padding');
+		}
 	}
 }
 function dropDownItemEvent() {
@@ -325,6 +330,7 @@ function hideList() {
 
 function hideItem() {
 	var elems = document.getElementsByClassName('accordion-list');
+	var elems2 = document.getElementsByClassName('js-menu-wrapper')
     for (var i = 0; i < elems.length; i++) {
 		if (!elems[i].classList.contains('fa-plus')) {
 			elems[i].classList.toggle('fa-plus');
@@ -341,8 +347,11 @@ function hideItem() {
 		if (!elems[i].parentElement.nextElementSibling.classList.contains('hidden')) {
 			elems[i].parentElement.nextElementSibling.classList.toggle('hidden');
 		}
-		if (elems[i].parentElement.parentElement.parentElement.parentElement.classList.contains('container_padding')) {
-			elems[i].parentElement.parentElement.parentElement.parentElement.classList.toggle('container_padding');
+		
+	}
+	for (var i = 0; i < elems2.length; i++) {
+		if (elems2[i].classList.contains('container_padding')) {
+			elems2[i].classList.toggle('container_padding');
 		}
 	}
 }
@@ -372,13 +381,16 @@ function showList() {
 
 function showItem() {
 	var elems = document.getElementsByClassName('accordion-list');
+	var elems2 = document.getElementsByClassName('js-menu-wrapper');
     for (var i = 0; i < elems.length; i++) {
 		elems[i].parentElement.nextElementSibling.classList.remove('hidden');
-		elems[i].parentElement.parentElement.parentElement.parentElement.classList.add('container_padding');
 		elems[i].classList.remove('sub-accordion-active');
 		elems[i].classList.remove('fa-plus');
 		elems[i].classList.remove('fa-minus');
 		elems[i].classList.add('fa-plus');
 		elems[i].classList.toggle('hidden');
+	}
+	for (var i = 0; i < elems2.length; i++) {
+		elems2[i].classList.add('container_padding');
 	}
 }
