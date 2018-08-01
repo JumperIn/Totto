@@ -303,21 +303,22 @@ function hideList() {
 	var elems = document.getElementsByClassName('accordion');
     for (var i = 0; i < elems.length; i++) {
 		if (!elems[i].classList.contains('fa-plus')) {
-            elems[i].parentElement.classList.remove('accordion-active');
-            elems[i].parentElement.classList.add('accordion-active');
-            elems[i].classList.remove('icon-accordion-active');
-            elems[i].classList.add('icon-accordion-active');
-			elems[i].classList.remove('fa-minus');
-			elems[i].classList.add('fa-minus');
-			elems[i].classList.remove('fa-angle-down');
+			elems[i].classList.toggle('fa-plus');
+		}
+		if (elems[i].classList.contains('fa-minus')) {
+			elems[i].classList.toggle('fa-minus');
+		}
+		if (elems[i].classList.contains('fa-angle-down')) {
+			elems[i].classList.toggle('fa-angle-down');
+		}
+		if (elems[i].classList.contains('icon-accordion-active')) {
+			elems[i].classList.toggle('icon-accordion-active');	
+		}
+		if (elems[i].parentElement.classList.contains('accordion-active')) {
+			elems[i].parentElement.classList.toggle('accordion-active');
 		}
 		if (!elems[i].parentElement.nextElementSibling.classList.contains('hidden')) {
 			elems[i].parentElement.nextElementSibling.classList.toggle('hidden');
-            elems[i].parentElement.classList.toggle('accordion-active');
-            elems[i].classList.toggle('icon-accordion-active');
-			elems[i].classList.toggle('fa-plus');
-			elems[i].classList.toggle('fa-minus');
-			elems[i].classList.remove('fa-angle-down');
 		}
 	}
 }
@@ -325,18 +326,23 @@ function hideList() {
 function hideItem() {
 	var elems = document.getElementsByClassName('accordion-list');
     for (var i = 0; i < elems.length; i++) {
-		if (elems[i].classList.contains('hidden')) {
-			elems[i].classList.toggle('sub-accordion-active');
-			elems[i].classList.toggle('fa-minus');
+		if (!elems[i].classList.contains('fa-plus')) {
 			elems[i].classList.toggle('fa-plus');
+		}
+		if (elems[i].classList.contains('fa-minus')) {
+			elems[i].classList.toggle('fa-minus');
+		}
+		if (elems[i].classList.contains('sub-accordion-active')) {
+			elems[i].classList.toggle('sub-accordion-active');
+		}
+		if (elems[i].classList.contains('hidden')) {
 			elems[i].classList.toggle('hidden');
 		}
 		if (!elems[i].parentElement.nextElementSibling.classList.contains('hidden')) {
 			elems[i].parentElement.nextElementSibling.classList.toggle('hidden');
-			elems[i].parentElement.parentElement.parentElement.parentElement.classList.remove('container_padding');
-			elems[i].classList.toggle('sub-accordion-active');
-			elems[i].classList.toggle('fa-plus');
-			elems[i].classList.toggle('fa-minus');
+		}
+		if (elems[i].parentElement.parentElement.parentElement.parentElement.classList.contains('container_padding')) {
+			elems[i].parentElement.parentElement.parentElement.parentElement.classList.toggle('container_padding');
 		}
 	}
 }
