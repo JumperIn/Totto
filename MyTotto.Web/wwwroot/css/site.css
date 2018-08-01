@@ -2,13 +2,28 @@ body {
   background-color: #fff;
   margin: 0px 0px;
   font-size: 16px;
-  font-family: Arial, sans-serif;
 }
 a,
 a:hover,
 a:focus,
 a:active {
   text-decoration: none;
+}
+body,
+div,
+main,
+section,
+header,
+footer,
+nav,
+ul,
+li,
+a,
+p,
+form,
+input,
+button {
+  font-family: 'Open-Sans', sans-serif;
 }
 p,
 ul,
@@ -159,14 +174,6 @@ ul,
 }
 .hidden {
   display: none !important;
-}
-@font-face {
-  font-family: Lato-Light;
-  src: url("/fonts/Lato-Light.ttf");
-}
-@font-face {
-  font-family: Lato-Regular;
-  src: url("/fonts/Lato-Regular.ttf");
 }
 @font-face {
   font-family: Open-Sans;
@@ -434,7 +441,6 @@ ul,
 .menu-drop__item {
   display: block;
   padding: 4px 0px;
-  font-family: 'Open-Sans', sans-serif;
   font-size: 13px;
   color: #4b4b58;
 }
@@ -466,7 +472,6 @@ ul,
     height: 56px;
     width: 140px;
     cursor: pointer;
-    font-family: 'Open-Sans', sans-serif;
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
@@ -531,7 +536,6 @@ ul,
   .menu-item {
     width: 100%;
     padding: 0px 0px 0px 20px;
-    font-family: 'Open-Sans', sans-serif;
     font-size: 14px;
     color: #000;
   }
@@ -539,7 +543,6 @@ ul,
     height: 100%;
     width: 100%;
     padding: 0px 0px 0px 20px;
-    font-family: 'Open-Sans', sans-serif;
     font-size: 12px;
     font-weight: 400;
     line-height: 48px;
@@ -665,7 +668,6 @@ ul,
   margin: 0 0 10px 0;
   font-size: 42px;
   font-weight: 900;
-  font-family: 'Open-Sans', sans-serif;
   line-height: 120%;
   color: #28282f;
 }
@@ -673,7 +675,6 @@ ul,
   margin: 0 0 10px 0;
   font-size: 15px;
   font-weight: 400;
-  font-family: 'Open-Sans', sans-serif;
   line-height: 140%;
   color: #28282f;
 }
@@ -682,7 +683,6 @@ ul,
   height: 44px;
   padding: 0 20px;
   font-size: 12px;
-  font-family: 'Open-Sans', sans-serif;
   line-height: 44px;
   border-radius: 22px;
   background: #0067b7;
@@ -734,7 +734,6 @@ ul,
 .contacts__title,
 .socnetwork__title {
   padding: 30px 0 10px 0;
-  font-family: 'Open-sans', sans-serif;
   font-weight: 700;
   font-size: 16px;
   color: #28282f;
@@ -749,7 +748,6 @@ ul,
 .connection__text,
 .contacts__text {
   padding-bottom: 10px;
-  font-family: 'Open-sans', sans-serif;
   font-weight: 400;
   font-size: 13px;
   text-transform: uppercase;
@@ -768,7 +766,6 @@ ul,
   height: 36px;
   width: 100%;
   padding: 4px 35px 4px 8px;
-  font-family: 'Open-sans', sans-serif;
   font-size: 13px;
   border: 1px solid #cfcfcf;
   border-top-left-radius: 4px;
@@ -802,7 +799,6 @@ ul,
 .categories__link,
 .contacts__link,
 .socnetwork__link {
-  font-family: 'Open-sans', sans-serif;
   font-size: 13px;
   color: #178e9d;
   transition: color 200ms ease-in-out;
@@ -823,7 +819,6 @@ ul,
 .footer-copyright__text {
   margin-top: 10px;
   padding: 5px 0;
-  font-family: 'Open-sans', sans-serif;
   font-size: 13px;
   color: #28282f;
 }
