@@ -222,7 +222,8 @@ function dropDownMenuEvent() {
 dropDownMenu();
 
 function dropDownList() {
-	adaptDropDownList();
+	// hideMenu();				// Можно удалить функции adapt.. и вместо них вызывать hide если экран < 768
+	adaptDropDownList();		// и выхзывать show если экран >= 768
 	dropDownListEvent();
 }
 
@@ -394,3 +395,18 @@ function showItem() {
 		elems2[i].classList.add('container_padding');
 	}
 }
+
+//инфо-блок
+
+function dropDownInfoItems() {
+	var elems = document.getElementsByClassName('faq-accordion');
+	for (var i = 0; i < elems.length; i++) {
+		elems[i].addEventListener('click', function() {
+			this.classList.toggle('faq-accordion-active');
+			this.nextElementSibling.classList.toggle('hidden');
+			this.lastElementChild.classList.toggle('fa-angle-down');
+			this.lastElementChild.classList.toggle('fa-angle-up');
+		})
+	}
+}
+dropDownInfoItems();

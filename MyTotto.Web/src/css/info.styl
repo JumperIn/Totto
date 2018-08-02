@@ -1,0 +1,123 @@
+.info
+	padding: 40px 80px 80px 80px
+	width: 100%
+	background-color: #F2F2F2
+
+.info-wrapper
+	flex(column, center, center)
+
+.info-header
+	flex(column, center, center)
+
+.info-header__title
+	margin: 0 0 10px 0
+	font-size: 32px
+	font-weight: 700
+	text-align: center
+	color: grey-darken
+
+.info-header__tagline
+	margin: 0 0 10px 0
+	font-size: 23px
+	font-weight: 400
+	text-align: center
+	color: grey-darken
+	opacity: 0.75
+
+.info-body
+	flex(row, flex-start, flex-start)
+
+.info-body__content
+	padding: 0 5px
+	margin-top: 30px
+	width: 50%
+
+.info-body__faq
+	padding: 0 5px
+	margin-top: 30px
+	width: 50%
+
+.content-wrapper
+	flex(column)
+	padding: 0 15px
+
+.info-body__content-paragraph
+	padding-bottom: 10px
+	font-size: 14px
+	line-height: 150%
+	color: grey-darken
+	opacity: 0.85
+
+.faq-list
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+
+.faq-item
+	flex(column)
+	border-top: 1px solid rgba(0, 0, 0, 0.1)
+
+
+.faq-title-wrapper
+	flex(row, space-between, center)
+	padding: 0 15px
+	cursor: pointer
+
+.faq-item__title
+	display: flex
+	margin: 0
+	padding-right: 15px
+	font-size: 14px
+	font-weight: 700
+	color: grey-darken
+	transition: color 200ms ease-in-out
+
+.faq-title-wrapper:hover .faq-item__title,
+.faq-title-wrapper:hover .faq-item__icon
+	color: blue-light
+
+.faq-item__icon
+	padding: 0px
+	line-height: 50px
+	text-align: center
+	font-size: 18px
+	color: grey-darken
+	cursor: pointer
+	transition: color 200ms ease-in-out
+
+.faq-item__content
+	padding: 0 15px 20px 15px
+	transition: display 200ms ease-in-out
+
+.faq-item__content-paragraph
+	padding: 6px 0
+	font-size: 13px
+	line-height: 150%
+	color: grey-darken
+
+.faq-accordion-active
+	color: blue-light
+
+
+@media (min-width: 992px) and (max-width: 1199px)
+	.info
+		padding 40px 80px 80px 80px
+
+@media (min-width: 768px) and (max-width: 991px)
+	.info
+		padding 40px 20px 80px 20px
+
+@media (min-width: 0px) and (max-width: 767px)
+	.info
+		padding 40px 20px 40px 20px
+		
+	.info-body__content
+		padding: 0
+		margin-top: 0
+		width: 100%
+
+	.info-body__faq
+		padding: 0
+		margin-top: 0
+		width: 100%
+
+	.info-body
+		flex(column, center, center)
