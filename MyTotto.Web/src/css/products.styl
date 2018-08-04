@@ -1,0 +1,94 @@
+.main-content
+	flex(column, flex-start, center)
+	padding: 40px 0
+	min-width: 290px
+	background: #fff
+
+.main-nav__list
+	flex(row, center)
+	list-style-type: none
+	margin: 0
+	padding-bottom: 20px
+
+.main-nav_center
+	padding-right: 10px
+
+.main-nav__item
+	flex(row, flex-start, center)
+	// height: 50px
+	padding: 0px 15px
+	border: 2px solid #e0e0e0
+	border-radius: 20px
+	font-size: 12px
+	font-weight: 700
+	line-height: 39px
+	text-transform: uppercase
+	color: gray
+	transition: color 200ms ease-in-out
+	cursor: pointer
+
+.main-nav__item:hover
+	color: blue-light
+
+.main-nav__item_active,
+.main-nav__item_active:hover
+	color: blue-light
+	border: 2px solid blue-light
+
+.button-left,
+.button-right
+	flex(row, center, center)
+	color: #d4d4d4
+	cursor: pointer
+
+.carousel
+	overflow: hidden
+
+.products-wrapper
+	display: flex
+	flex-wrap: nowrap
+	transition: transform 500ms ease-in-out
+
+.products__item_padding
+	padding: 0px 5px 5px 5px
+
+.product
+	flex(column, flex-start, center)
+
+.product_img
+	width: 100%
+	height: auto
+	margin-bottom: 10px
+
+.product__info
+	flex(column, flex-start, center)
+
+.product__name
+	display: block
+	margin-bottom: 7px
+	font-size: 12px
+	text-align: center
+	text-transform: uppercase
+	color: product-name-color
+	overflow: hidden
+
+.product__price
+	font-weight: 700
+	text-align: center
+	color: product-name-color
+
+.product__inbasket
+	padding-top: 7px
+
+.product__inbasket_buy
+	display: block
+	padding: 5px 20px 5px
+	text-transform: uppercase
+	font-size: 14px
+	text-align: center
+	border: 2px solid basket-color
+	color: basket-color
+	opacity: 0
+	
+.product:hover .product__inbasket_buy
+	opacity: 1

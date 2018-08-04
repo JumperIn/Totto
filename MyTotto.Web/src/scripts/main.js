@@ -13,7 +13,6 @@ var variables = {
 	numProductsDisp: 1,
 	shiftProducts: 0,
 	shiftBanners: 0,
-	numProducts: getLengthWrapper(),
 	numBanners: getBannersLengthWrapper(),
 }
 
@@ -42,14 +41,16 @@ function resize() {
 			//данные функции выполняются при каждом событии изменения экрана, для адаптивной работы баннеров и карусели
 			getNumProductDisp();
 			returnBannerBack();
-			returnCarouselBack();
+			returnCarouselBack(0);
+			returnCarouselBack(1);
+			returnCarouselBack(2);
 		}, 200)
 	})
 }
 resize();
 
-function returnCarouselBack() {
-	var elem = document.getElementsByClassName('products-wrapper')[0];
+function returnCarouselBack(j = 0) {
+	var elem = document.getElementsByClassName('products-wrapper')[j];
 	elem.style.transform = 'translateX(0px)';
 }
 
@@ -68,51 +69,99 @@ function getNumProductDisp() {
 }
 getNumProductDisp();
 
-function getProductWidth() {
-    var elem = document.getElementsByClassName('products__item')[0];
-    return elem.offsetWidth;
+function getProductWidth(j) {
+    var elem = document.getElementsByClassName('products-wrapper')[j];
+    return elem.firstElementChild.offsetWidth;
 };
 
-function getLengthWrapper() {
-    var elem = document.getElementsByClassName('products-wrapper')[0];
+function getLengthWrapper(j) {
+    var elem = document.getElementsByClassName('products-wrapper')[j];
     return elem.children.length
 }
 
-function moveCarouselRight() {
-    var elem = document.getElementsByClassName('products-wrapper')[0];
+function moveCarouselRight(j) {
+    var elem = document.getElementsByClassName('products-wrapper')[j];
     //граничное условие, при котором необходимо вернуть карусель в начальное состояние
-    var distanceTolastProduct = (variables.numProducts - variables.numProductsDisp) * getProductWidth();
+    var distanceTolastProduct = (getLengthWrapper(j) - variables.numProductsDisp) * getProductWidth(j);
     var returnToStartCondition = variables.shiftProducts == distanceTolastProduct || variables.shiftProducts > distanceTolastProduct;
     if (returnToStartCondition) {
         variables.shiftProducts = 0;
         elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
     } else {
-        variables.shiftProducts = +variables.shiftProducts + +getProductWidth();
+        variables.shiftProducts = +variables.shiftProducts + +getProductWidth(j);
         elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
     }
 };
-function moveCarouselRightEvent() {
-    var elem = document.getElementById('moveCarouselRight');
-    elem.addEventListener('click', moveCarouselRight);
+function moveCarouselRightEvent(j) {
+    var elem = document.getElementById('moveCarouselRight' + j);
+    elem.addEventListener('click', function() {
+		moveCarouselRight(j);
+	})
 };
-moveCarouselRightEvent();
+moveCarouselRightEvent(0);
+moveCarouselRightEvent(1);
+moveCarouselRightEvent(2);
 
-function moveCarouselLeft() {
-    var elem = document.getElementsByClassName('products-wrapper')[0];
+function moveCarouselLeft(j) {
+    var elem = document.getElementsByClassName('products-wrapper')[j];
     var returnToEndCondition = variables.shiftProducts == 0 || variables.shiftProducts < 0;
     if (returnToEndCondition) {
-        variables.shiftProducts = (variables.numProducts - variables.numProductsDisp) * getProductWidth();
+        variables.shiftProducts = (getLengthWrapper(j) - variables.numProductsDisp) * getProductWidth(j);
         elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
     } else {
-        variables.shiftProducts = +variables.shiftProducts - +getProductWidth();
+        variables.shiftProducts = +variables.shiftProducts - +getProductWidth(j);
         elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
     }
 };
-function moveCarouselLeftEvent() {
-    var elem = document.getElementById('moveCarouselLeft');
-    elem.addEventListener('click', moveCarouselLeft);
+function moveCarouselLeftEvent(j) {
+    var elem = document.getElementById('moveCarouselLeft' + j);
+    elem.addEventListener('click', function() {
+		moveCarouselLeft(j);
+	})
 };
-moveCarouselLeftEvent();
+moveCarouselLeftEvent(0);
+moveCarouselLeftEvent(1);
+moveCarouselLeftEvent(2);
+
+function toggleProductsEvent() {
+	var elems = document.getElementsByClassName('main-nav__item');
+
+	// for (var i = 0; i < elems.length; i++) {
+	// 	elems[i].addEventListener('click', function() {
+	// 		var arr = [0, 1, 2];
+	// 		toggleExistClass('products', 'hidden', arr.splice(i, 1)[0]);
+	// 		toggleNotExistClass('products', 'hidden', arr[0]);
+	// 		toggleNotExistClass('products', 'hidden', arr[1]);
+	// 		returnCarouselBack(0);
+	// 		variables.shiftProducts = 0;
+	// 	})
+	// }
+	// Событие на кнопку "Новинки"
+	elems[0].addEventListener('click', function() {
+		toggleExistClass('products', 'hidden', 0);
+		toggleNotExistClass('products', 'hidden', 1);
+		toggleNotExistClass('products', 'hidden', 2);
+		returnCarouselBack(0);
+		variables.shiftProducts = 0;
+	})
+	// Событие на кнопку "хиты продаж"
+	elems[1].addEventListener('click', function() {
+		toggleExistClass('products', 'hidden', 1);
+		toggleNotExistClass('products', 'hidden', 0);
+		toggleNotExistClass('products', 'hidden', 2);
+		returnCarouselBack(1);
+		variables.shiftProducts = 0;
+	})
+	// Событие на кнопку "Скидки и акции"
+	elems[2].addEventListener('click', function() {
+		toggleExistClass('products', 'hidden', 2);
+		toggleNotExistClass('products', 'hidden', 1);
+		toggleNotExistClass('products', 'hidden', 0);
+		returnCarouselBack(2);
+		variables.shiftProducts = 0;
+	})
+}
+toggleProductsEvent();
 
 //анимация main-nav
 function setClasses() {
@@ -248,20 +297,20 @@ if (window.innerWidth >= constants.SCREEN_MEDIUM) {
 	scrollNavEvent();
 }
 
-function toggleClass(clss1, clss2) {
-	var elem = document.getElementsByClassName(clss1)[0];
+function toggleClass(clss1, clss2, j = 0) {
+	var elem = document.getElementsByClassName(clss1)[j];
 	elem.classList.toggle(clss2);
 }
 
-function toggleNotExistClass(clss1, clss2) {
-	var elem = document.getElementsByClassName(clss1)[0];
+function toggleNotExistClass(clss1, clss2, j = 0) {
+	var elem = document.getElementsByClassName(clss1)[j];
 	if (!elem.classList.contains(clss2)) {
 		elem.classList.toggle(clss2)
 	}
 }
 
-function toggleExistClass(clss1, clss2) {
-	var elem = document.getElementsByClassName(clss1)[0];
+function toggleExistClass(clss1, clss2, j = 0) {
+	var elem = document.getElementsByClassName(clss1)[j];
 	if (elem.classList.contains(clss2)) {
 		elem.classList.toggle(clss2)
 	}
