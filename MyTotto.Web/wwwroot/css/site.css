@@ -214,7 +214,7 @@ ul,
 .header-info-search__button {
   position: absolute;
   right: 5px;
-  top: 4px;
+  top: 0px;
   font-size: 23px;
   border: none;
   background: none;

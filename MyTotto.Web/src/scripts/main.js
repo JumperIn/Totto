@@ -125,41 +125,18 @@ moveCarouselLeftEvent(2);
 
 function toggleProductsEvent() {
 	var elems = document.getElementsByClassName('main-nav__item');
-
-	// for (var i = 0; i < elems.length; i++) {
-	// 	elems[i].addEventListener('click', function() {
-	// 		var arr = [0, 1, 2];
-	// 		toggleExistClass('products', 'hidden', arr.splice(i, 1)[0]);
-	// 		toggleNotExistClass('products', 'hidden', arr[0]);
-	// 		toggleNotExistClass('products', 'hidden', arr[1]);
-	// 		returnCarouselBack(0);
-	// 		variables.shiftProducts = 0;
-	// 	})
-	// }
-	// Событие на кнопку "Новинки"
-	elems[0].addEventListener('click', function() {
-		toggleExistClass('products', 'hidden', 0);
-		toggleNotExistClass('products', 'hidden', 1);
-		toggleNotExistClass('products', 'hidden', 2);
-		returnCarouselBack(0);
-		variables.shiftProducts = 0;
-	})
-	// Событие на кнопку "хиты продаж"
-	elems[1].addEventListener('click', function() {
-		toggleExistClass('products', 'hidden', 1);
-		toggleNotExistClass('products', 'hidden', 0);
-		toggleNotExistClass('products', 'hidden', 2);
-		returnCarouselBack(1);
-		variables.shiftProducts = 0;
-	})
-	// Событие на кнопку "Скидки и акции"
-	elems[2].addEventListener('click', function() {
-		toggleExistClass('products', 'hidden', 2);
-		toggleNotExistClass('products', 'hidden', 1);
-		toggleNotExistClass('products', 'hidden', 0);
-		returnCarouselBack(2);
-		variables.shiftProducts = 0;
-	})
+	// за цикл присваивается три обработчика событий на кнопки: "Новинки", "Хиты продаж", "Скидки и акции"
+	for (let i = 0; i < elems.length; i++) {
+		elems[i].addEventListener('click', function() {
+			var arr = [0, 1, 2];
+			// массив имеет 3 значения, так как есть всего 3 кнопки
+			toggleExistClass('products', 'hidden', arr.splice(i, 1)[0]);
+			toggleNotExistClass('products', 'hidden', arr[0]);
+			toggleNotExistClass('products', 'hidden', arr[1]);
+			returnCarouselBack(0);
+			variables.shiftProducts = 0;
+		})
+	}
 }
 toggleProductsEvent();
 
@@ -297,22 +274,22 @@ if (window.innerWidth >= constants.SCREEN_MEDIUM) {
 	scrollNavEvent();
 }
 
-function toggleClass(clss1, clss2, j = 0) {
-	var elem = document.getElementsByClassName(clss1)[j];
-	elem.classList.toggle(clss2);
+function toggleClass(class1, class2, j = 0) {
+	var elem = document.getElementsByClassName(class1)[j];
+	elem.classList.toggle(class2);
 }
 
-function toggleNotExistClass(clss1, clss2, j = 0) {
-	var elem = document.getElementsByClassName(clss1)[j];
-	if (!elem.classList.contains(clss2)) {
-		elem.classList.toggle(clss2)
+function toggleNotExistClass(class1, class2, j = 0) {
+	var elem = document.getElementsByClassName(class1)[j];
+	if (!elem.classList.contains(class2)) {
+		elem.classList.toggle(class2)
 	}
 }
 
-function toggleExistClass(clss1, clss2, j = 0) {
-	var elem = document.getElementsByClassName(clss1)[j];
-	if (elem.classList.contains(clss2)) {
-		elem.classList.toggle(clss2)
+function toggleExistClass(class1, class2, j = 0) {
+	var elem = document.getElementsByClassName(class1)[j];
+	if (elem.classList.contains(class2)) {
+		elem.classList.toggle(class2)
 	}
 }
 
@@ -329,17 +306,19 @@ dropDownNav();
 //Адаптивность навигации
 
 function dropDownMenu() {
-	adaptDropDownMenu();
+	adaptMenu();
+	// adaptDropDownMenu();
 	dropDownMenuEvent();
 }
 
-function adaptDropDownMenu() {
-	var elem = document.getElementsByClassName('menu-link')[0];
-    if (window.innerWidth < constants.SCREEN_MEDIUM) {
-        elem.nextElementSibling.classList.toggle('hidden');
-        elem.parentElement.parentElement.classList.remove('container_padding');
-    }
+function adaptMenu() {
+	if (window.innerWidth < constants.SCREEN_MEDIUM) {
+		hideMenu();
+	} else if (window.innerWidth >= constants.SCREEN_MEDIUM) {
+		showMenu();
+	}
 }
+
 function dropDownMenuEvent() {
 	var elem = document.getElementsByClassName('menu-link')[0];
 	elem.addEventListener('click', function () {
@@ -354,23 +333,6 @@ function dropDownMenuEvent() {
 }
 
 dropDownMenu();
-
-function dropDownList() {
-	// hideMenu();				// Можно удалить функции adapt.. и вместо них вызывать hide если экран < 768
-	adaptDropDownList();		// и выхзывать show если экран >= 768
-	dropDownListEvent();
-}
-
-function adaptDropDownList() {
-	var elems = document.getElementsByClassName('accordion');
-    for (var i = 0; i < elems.length; i++) {
-        if (window.innerWidth < constants.SCREEN_MEDIUM) {
-            elems[i].parentElement.nextElementSibling.classList.toggle('hidden');
-            elems[i].classList.remove('fa-angle-down');
-            elems[i].classList.add('fa-plus');
-		};
-	}
-}
 
 function dropDownListEvent() {
 	var elems = document.getElementsByClassName('accordion');
@@ -388,30 +350,8 @@ function dropDownListEvent() {
 	}
 }
 
-dropDownList();
+dropDownListEvent();
 
-function dropDownItem() {
-	adaptDropDownItem();
-	dropDownItemEvent();
-}
-
-function adaptDropDownItem() {
-	var elems = document.getElementsByClassName('accordion-list');
-	var elems2 = document.getElementsByClassName('js-menu-wrapper');
-    for (var i = 0; i < elems.length; i++) {
-        if (window.innerWidth < constants.SCREEN_MEDIUM) {
-            elems[i].parentElement.nextElementSibling.classList.toggle('hidden');
-        };
-        if (window.innerWidth >= constants.SCREEN_MEDIUM) {
-			elems[i].classList.toggle('hidden');
-		};
-	}
-	for (var i = 0; i < elems2.length; i++) {
-		if (window.innerWidth < constants.SCREEN_MEDIUM) {
-			elems2[i].classList.remove('container_padding');
-		}
-	}
-}
 function dropDownItemEvent() {
 	var elems = document.getElementsByClassName('accordion-list');
 	for (var i = 0; i < elems.length; i++) {
@@ -424,15 +364,13 @@ function dropDownItemEvent() {
 		})
 	}
 }
-dropDownItem();
+dropDownItemEvent();
 
 function hideMenu() {
 	//menu
-	var elem = document.getElementsByClassName('menu-link')[0];
-	if (!elem.nextElementSibling.classList.contains('hidden')) {
-		elem.nextElementSibling.classList.toggle('hidden');
-        elem.parentElement.parentElement.classList.remove('container_padding');
-	}
+	toggleNotExistClass('menu__list', 'hidden');
+	toggleExistClass('js-nav-wrapper', 'container_padding');
+
 	//list
 	hideList();
 	//item
@@ -442,24 +380,12 @@ function hideMenu() {
 function hideList() {
 	var elems = document.getElementsByClassName('accordion');
     for (var i = 0; i < elems.length; i++) {
-		if (!elems[i].classList.contains('fa-plus')) {
-			elems[i].classList.toggle('fa-plus');
-		}
-		if (elems[i].classList.contains('fa-minus')) {
-			elems[i].classList.toggle('fa-minus');
-		}
-		if (elems[i].classList.contains('fa-angle-down')) {
-			elems[i].classList.toggle('fa-angle-down');
-		}
-		if (elems[i].classList.contains('icon-accordion-active')) {
-			elems[i].classList.toggle('icon-accordion-active');	
-		}
-		if (elems[i].parentElement.classList.contains('accordion-active')) {
-			elems[i].parentElement.classList.toggle('accordion-active');
-		}
-		if (!elems[i].parentElement.nextElementSibling.classList.contains('hidden')) {
-			elems[i].parentElement.nextElementSibling.classList.toggle('hidden');
-		}
+		toggleNotExistClass('accordion', 'fa-plus', i);
+		toggleNotExistClass('menu-drop', 'hidden', i);
+		toggleExistClass('accordion', 'fa-minus', i);
+		toggleExistClass('accordion', 'fa-angle-down', i);
+		toggleExistClass('accordion', 'icon-accordion-active', i);
+		toggleExistClass('menu__wrap', 'accordion-active', i);
 	}
 }
 
@@ -467,27 +393,14 @@ function hideItem() {
 	var elems = document.getElementsByClassName('accordion-list');
 	var elems2 = document.getElementsByClassName('js-menu-wrapper')
     for (var i = 0; i < elems.length; i++) {
-		if (!elems[i].classList.contains('fa-plus')) {
-			elems[i].classList.toggle('fa-plus');
-		}
-		if (elems[i].classList.contains('fa-minus')) {
-			elems[i].classList.toggle('fa-minus');
-		}
-		if (elems[i].classList.contains('sub-accordion-active')) {
-			elems[i].classList.toggle('sub-accordion-active');
-		}
-		if (elems[i].classList.contains('hidden')) {
-			elems[i].classList.toggle('hidden');
-		}
-		if (!elems[i].parentElement.nextElementSibling.classList.contains('hidden')) {
-			elems[i].parentElement.nextElementSibling.classList.toggle('hidden');
-		}
-		
+		toggleNotExistClass('accordion-list', 'fa-plus', i);
+		toggleNotExistClass('menu-drop__list', 'hidden', i);
+		toggleExistClass('accordion-list', 'fa-minus', i);
+		toggleExistClass('accordion-list', 'sub-accordion-active', i);
+		toggleExistClass('accordion-list', 'hidden', i);
 	}
 	for (var i = 0; i < elems2.length; i++) {
-		if (elems2[i].classList.contains('container_padding')) {
-			elems2[i].classList.toggle('container_padding');
-		}
+		toggleExistClass('js-menu-wrapper', 'container_padding', i);
 	}
 }
 
