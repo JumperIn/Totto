@@ -13,12 +13,12 @@ namespace MyTotto.Web.Controllers
 {
     public class HomeController : BaseController
     {
-        public HomeController(ICommonRepository repository) : base(repository)
+        protected ICommonRepository repository;
+
+        public HomeController(ICommonRepository repository)
         {
             this.repository = repository;
         }
-
-
 
 
         public IActionResult Index()
@@ -26,6 +26,11 @@ namespace MyTotto.Web.Controllers
             List<Banner> banners = repository.GetBanners();
 
             return View(banners);
+        }
+
+        public IActionResult NewBanner()
+        {
+            repository.
         }
 
         public IActionResult About()
