@@ -2,7 +2,7 @@
 
 import { module1 } from "./module";
 
-console.log(module1);
+console.log(module1.getModule());
 
 //Константы и переменные
 
