@@ -10,12 +10,7 @@ namespace MyTotto.Data.Abstract
     public class BaseRepository : IDisposable
     {
         protected TottoContext context;
-
-        public BaseRepository(TottoContext context)
-        {
-            this.context = context;
-        }
-
+        
         /// <summary>
         /// Сохраняет изменения в контексте базы данных.
         /// </summary>

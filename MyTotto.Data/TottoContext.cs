@@ -26,17 +26,20 @@ namespace MyTotto.Data
         /// </summary>
         public DbSet<Promo> Promos { get; set; }
 
+        private string databaseConnection;
+
         /// <summary>
         /// Создает экземпляр класса.
         /// </summary>
-        public TottoContext(DbContextOptions<TottoContext> options) : base(options)
+        public TottoContext(string databaseConnection)
         {
+            this.databaseConnection = databaseConnection;
             Database.EnsureCreated();
         }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=tottodb;Trusted_Connection=True;");
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(databaseConnection);
+        }
     }
 }
