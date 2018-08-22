@@ -1,5 +1,9 @@
 'use strict'
 
+import { module1 } from "./module";
+
+console.log(module1);
+
 //Константы и переменные
 
 var constants = {

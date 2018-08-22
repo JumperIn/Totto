@@ -7,7 +7,11 @@
     stylus = require("gulp-stylus"),
     gutil = require('gulp-util'),
     concat = require('gulp-concat'),
-    livereload = require('gulp-livereload');
+	livereload = require('gulp-livereload'),
+	uglify = require('gulp-uglify'),
+	rename = require('gulp-rename'),
+	webpack = require('webpack'),
+	webpackStream = require('webpack-stream');
 
 // пути исходников
 var source = 'src';
@@ -69,24 +73,48 @@ gulp.task("stylus", function () {
 
 // сборка скриптов
 gulp.task("js", function () {
-    gulp.src(srcPaths.js)
-        .pipe(babel({
-            presets: [[
-                'env', {
-                    "targets": {
-                        "browsers": [
-                            "Chrome >= 52",
-                            "FireFox >= 44",
-                            "Safari >= 7",
-                            "Explorer 11",
-                            "last 4 Edge versions"
-                        ]
-                    },
-                    "useBuiltIns": true
-                }
-            ]]
-        }))
-        .pipe(gulp.dest(destPaths.js));
+	gulp.src(srcPaths.js)
+		.pipe(webpackStream({
+			output: {
+				filename: 'main.js',
+			},
+			module: {
+				rules: [
+					{
+						test: /\.(js)$/,
+						exclude: /(node_modules)/,
+						loader: 'babel-loader',
+						query: {
+							presets: ['env']
+						}
+					}
+			]
+			},
+			externals: {
+				jquery: 'jQuery'
+			},
+			mode: 'none',
+		}))
+        // .pipe(babel({
+        //     presets: [[
+        //         'env', {
+        //             "targets": {
+        //                 "browsers": [
+        //                     "Chrome >= 52",
+        //                     "FireFox >= 44",
+        //                     "Safari >= 7",
+        //                     "Explorer 11",
+        //                     "last 4 Edge versions"
+        //                 ]
+        //             },
+        //             "useBuiltIns": true
+        //         }
+        //     ]]
+        // }))
+		.pipe(gulp.dest(destPaths.js))
+		.pipe(uglify())
+		.pipe(rename({ suffix: '.min' }))
+		.pipe(gulp.dest(destPaths.js));
 });
 
 // копирование ресурсов

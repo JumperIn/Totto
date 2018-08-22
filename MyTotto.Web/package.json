@@ -21,6 +21,7 @@
   "homepage": "https://github.com/JumperIn/Totto#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
@@ -29,8 +30,11 @@
     "gulp-cssmin": "^0.2.0",
     "gulp-if": "^2.0.2",
     "gulp-livereload": "^3.8.1",
+    "gulp-rename": "^1.4.0",
     "gulp-stylus": "^2.7.0",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8"
+    "gulp-uglify": "^3.0.1",
+    "gulp-util": "^3.0.8",
+    "webpack": "^4.17.1",
+    "webpack-stream": "^5.1.1"
   }
 }
