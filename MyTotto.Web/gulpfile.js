@@ -88,7 +88,7 @@ gulp.task("js", function () {
 							presets: ['env']
 						}
 					}
-			]
+				]
 			},
 			externals: {
 				jquery: 'jQuery'
