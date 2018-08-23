@@ -1,5 +1,3 @@
-'use strict';
-
 import { constants, variables } from "./constModule";
 import { hideMenu, showMenu } from "./navAdaptiveModule";
 import { hideDropNavAdaptive, scrollNavEvent } from "./scrollNavModule";

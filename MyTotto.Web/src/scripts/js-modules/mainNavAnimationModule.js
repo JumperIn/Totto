@@ -1,5 +1,3 @@
-'use strict';
-
 function setClasses() {
 	var itemsNav = document.getElementsByClassName('main-nav__item');
 	for (var i = 0; i < itemsNav.length; i++) {

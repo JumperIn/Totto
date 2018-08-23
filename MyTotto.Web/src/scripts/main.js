@@ -1,13 +1,13 @@
 'use strict'
 
-import { resize } from "./resizeModule";
-import { scrollNavEvent, dropDownNav } from "./scrollNavModule";
-import { dropDownMenu, dropDownListEvent, dropDownItemEvent } from "./navAdaptiveModule";
-import { moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut } from "./bannerModule";
-import { setClasses } from "./mainNavAnimationModule";
-import { getNumProductDisp, moveCarouselLeftEvent, moveCarouselRightEvent, toggleProductsEvent } from "./carouselModule";
-import { dropDownInfoItems } from "./infoBlockModule";
-import { adaptFooter, dropDownFooterItems } from "./footerModule";
+import { resize } from "./js-modules/resizeModule";
+import { scrollNavEvent, dropDownNav } from "./js-modules/scrollNavModule";
+import { dropDownMenu, dropDownListEvent, dropDownItemEvent } from "./js-modules/navAdaptiveModule";
+import { moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut } from "./js-modules/bannerModule";
+import { setClasses } from "./js-modules/mainNavAnimationModule";
+import { getNumProductDisp, moveCarouselLeftEvent, moveCarouselRightEvent, toggleProductsEvent } from "./js-modules/carouselModule";
+import { dropDownInfoItems } from "./js-modules/infoBlockModule";
+import { adaptFooter, dropDownFooterItems } from "./js-modules/footerModule";
 
 //Адаптивность сайта
 

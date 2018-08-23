@@ -1,5 +1,3 @@
-'use strict';
-
 var constants = (function() {
 	var constants = {
 		SCREEN_SMALL: 576,

@@ -1,5 +1,3 @@
-'use strict';
-
 import { variables } from "./constModule";
 
 function returnBannerBack() {

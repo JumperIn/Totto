@@ -1,5 +1,3 @@
-'use strict';
-
 function dropDownInfoItems() {
 	var elems = document.getElementsByClassName('faq-accordion');
 	for (var i = 0; i < elems.length; i++) {

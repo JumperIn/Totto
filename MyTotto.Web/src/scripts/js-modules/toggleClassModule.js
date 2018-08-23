@@ -1,5 +1,3 @@
-'use strict';
-
 function toggleClass(class1, class2, j = 0) {
 	var elem = document.getElementsByClassName(class1)[j];
 	elem.classList.toggle(class2);

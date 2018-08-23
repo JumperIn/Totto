@@ -1,5 +1,3 @@
-'use strict';
-
 import { constants, variables } from "./constModule";
 import { toggleExistClass, toggleNotExistClass } from "./toggleClassModule";
 
