@@ -1,5 +1,5 @@
-import { constants, variables } from "./constModule";
-import { toggleExistClass, toggleNotExistClass } from "./toggleClassModule";
+import { constants, variables } from "../../../../shared/const/const";
+import { toggleExistClass, toggleNotExistClass } from "../../../../shared/const/toggleClass";
 
 function returnCarouselBack(j = 0) {
 	var elem = document.getElementsByClassName('products-wrapper')[j];

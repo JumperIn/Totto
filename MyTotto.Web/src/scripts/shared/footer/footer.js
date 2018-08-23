@@ -1,5 +1,5 @@
-import { constants } from "./constModule";
-import { toggleExistClass, toggleNotExistClass } from "./toggleClassModule";
+import { constants } from "../const/const";
+import { toggleExistClass, toggleNotExistClass } from "../const/toggleClass";
 
 function hideFooterItems() {
 	var elems = document.getElementsByClassName('footer-block__body');

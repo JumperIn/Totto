@@ -1,13 +1,13 @@
 'use strict'
 
-import { resize } from "./js-modules/resizeModule";
-import { scrollNavEvent, dropDownNav } from "./js-modules/scrollNavModule";
-import { dropDownMenu, dropDownListEvent, dropDownItemEvent } from "./js-modules/navAdaptiveModule";
-import { moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut } from "./js-modules/bannerModule";
-import { setClasses } from "./js-modules/mainNavAnimationModule";
-import { getNumProductDisp, moveCarouselLeftEvent, moveCarouselRightEvent, toggleProductsEvent } from "./js-modules/carouselModule";
-import { dropDownInfoItems } from "./js-modules/infoBlockModule";
-import { adaptFooter, dropDownFooterItems } from "./js-modules/footerModule";
+import { resize } from "../../shared/resize/resize";
+import { scrollNavEvent, dropDownNav } from "../../shared/navigation/scrollNav";
+import { dropDownMenu, dropDownListEvent, dropDownItemEvent } from "../../shared/navigation/navAdaptive";
+import { moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut } from "./modules/banner/banner";
+import { setClasses } from "./modules/carousel/mainNavAnimation";
+import { getNumProductDisp, moveCarouselLeftEvent, moveCarouselRightEvent, toggleProductsEvent } from "./modules/carousel/carousel";
+import { dropDownInfoItems } from "./modules/infoblock/infoBlock";
+import { adaptFooter, dropDownFooterItems } from "../../shared/footer/footer";
 
 //Адаптивность сайта
 

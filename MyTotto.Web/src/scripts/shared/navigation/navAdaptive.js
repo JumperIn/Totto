@@ -1,5 +1,5 @@
-import { toggleExistClass, toggleNotExistClass } from "./toggleClassModule";
-import { constants } from "./constModule";
+import { toggleExistClass, toggleNotExistClass } from "../const/toggleClass";
+import { constants } from "../const/const";
 
 function dropDownMenu() {
 	adaptMenu();

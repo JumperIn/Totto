@@ -1,5 +1,5 @@
-import { constants } from "./constModule";
-import { toggleClass, toggleExistClass, toggleNotExistClass } from "./toggleClassModule";
+import { constants } from "../const/const";
+import { toggleClass, toggleExistClass, toggleNotExistClass } from "../const/toggleClass";
 
 function scrollNavEvent() {	
 	if (window.innerWidth >= constants.SCREEN_MEDIUM) {

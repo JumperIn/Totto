@@ -1,9 +1,9 @@
-import { constants, variables } from "./constModule";
-import { hideMenu, showMenu } from "./navAdaptiveModule";
-import { hideDropNavAdaptive, scrollNavEvent } from "./scrollNavModule";
-import { adaptFooter } from "./footerModule";
-import { getNumProductDisp, returnCarouselBack } from "./carouselModule";
-import { returnBannerBack } from "./bannerModule";
+import { constants, variables } from "../const/const";
+import { hideMenu, showMenu } from "../navigation/navAdaptive";
+import { hideDropNavAdaptive, scrollNavEvent } from "../navigation/scrollNav";
+import { adaptFooter } from "../footer/footer";
+import { getNumProductDisp, returnCarouselBack } from "../../pages/mainPage/modules/carousel/carousel";
+import { returnBannerBack } from "../../pages/mainPage/modules/banner/banner";
 
 
 function resize() {

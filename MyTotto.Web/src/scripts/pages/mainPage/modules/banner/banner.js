@@ -1,4 +1,4 @@
-import { variables } from "./constModule";
+import { variables } from "../../../../shared/const/const";
 
 function returnBannerBack() {
 	var elem = document.getElementsByClassName('banners-wrapper')[0];

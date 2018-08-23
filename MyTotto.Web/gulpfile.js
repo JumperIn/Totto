@@ -11,7 +11,8 @@
 	uglify = require('gulp-uglify'),
 	rename = require('gulp-rename'),
 	webpack = require('webpack'),
-	webpackStream = require('webpack-stream');
+	webpackStream = require('webpack-stream'),
+	named = require('vinyl-named');
 
 // пути исходников
 var source = 'src';
@@ -37,7 +38,10 @@ var srcPaths = {
     stylus: [`./${source}/css/site.styl`],
     img: [`./${source}/img/**`],
     icons: [`./${source}/icons/**`],
-    js: [`./${source}/scripts/*.js`],
+	js: [
+		`./${source}/scripts/pages/mainPage/*.js`,
+		// `./${source}/scripts/pages/somePage/*.js`
+	],
     favicon: [`./${source}/favicon.ico`],
     fonts: [`./${source}/fonts/**`],
     webfonts: webfonts,
@@ -74,10 +78,8 @@ gulp.task("stylus", function () {
 // сборка скриптов
 gulp.task("js", function () {
 	gulp.src(srcPaths.js)
+		.pipe(named())
 		.pipe(webpackStream({
-			output: {
-				filename: 'main.js',
-			},
 			module: {
 				rules: [
 					{
@@ -95,26 +97,10 @@ gulp.task("js", function () {
 			},
 			mode: 'none',
 		}))
-        // .pipe(babel({
-        //     presets: [[
-        //         'env', {
-        //             "targets": {
-        //                 "browsers": [
-        //                     "Chrome >= 52",
-        //                     "FireFox >= 44",
-        //                     "Safari >= 7",
-        //                     "Explorer 11",
-        //                     "last 4 Edge versions"
-        //                 ]
-        //             },
-        //             "useBuiltIns": true
-        //         }
-        //     ]]
-        // }))
 		.pipe(gulp.dest(destPaths.js))
-		.pipe(uglify())
-		.pipe(rename({ suffix: '.min' }))
-		.pipe(gulp.dest(destPaths.js));
+		// .pipe(uglify())
+		// .pipe(rename({ suffix: '.min' }))
+		// .pipe(gulp.dest(destPaths.js));
 });
 
 // копирование ресурсов
