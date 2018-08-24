@@ -13,12 +13,11 @@ namespace MyTotto.Web.AppStart
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
         {
-            string databaseConnection = configuration.GetSection("AppSettings").GetValue<string>("DatabaseConnection");
+            string connection = configuration.GetConnectionString("DefaultConnection");
 
-            //services.AddDbContext<TottoContext>(options => options.UseSqlServer(databaseConnection));
+            services.AddDbContext<TottoContext>(options => options.UseSqlServer(connection));
 
-            //services.AddScoped<ICommonRepository>(provider => new CommonRepository(databaseConnection));
-            services.AddScoped<IBannersRepository>(provider => new BannersRepository(databaseConnection));
+            services.AddScoped<IBannersRepository, BannersRepository>();
 
             return services;
         }

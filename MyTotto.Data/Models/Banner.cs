@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace MyTotto.Data.Models
@@ -17,6 +18,7 @@ namespace MyTotto.Data.Models
         /// <summary>
         /// Заголовок.
         /// </summary>
+        [Required]
         public string Title { get; set; }
 
         /// <summary>
@@ -27,11 +29,13 @@ namespace MyTotto.Data.Models
         /// <summary>
         /// Адрес, куда ведёт кнопка.
         /// </summary>
+        [Required]
         public string Url { get; set; }
 
         /// <summary>
         /// Ссылка на изображение баннера.
         /// </summary>
+        [Required]
         public string ImageUrl { get; set; }
 
         /// <summary>

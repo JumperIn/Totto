@@ -20,6 +20,9 @@ namespace MyTotto.Api.Controllers
             this.bannersRepository = bannersRepository;
         }
 
+        /// <summary>
+        /// Возвращает список баннеров.
+        /// </summary>
         [HttpGet("all")]
         public IEnumerable<Banner> GetAllBanners()
         {
@@ -28,29 +31,34 @@ namespace MyTotto.Api.Controllers
             return banners;
         }
 
-        //// GET api/values/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+        /// <summary>
+        /// Добавляет новый баннер в список.
+        /// </summary>
+        /// <param name="banner">Данные баннера.</param>
+        [HttpPost("banner")]
+        public void AddBanner(Banner banner)
+        {
+            bannersRepository.AddBanner(banner);
+        }
 
-        //// POST api/values
-        //[HttpPost]
-        //public void Post([FromBody]string value)
-        //{
-        //}
+        /// <summary>
+        /// Обновляет данные баннера в списке.
+        /// </summary>
+        /// <param name="banner">Данные баннера.</param>
+        [HttpPost("banner/update")]
+        public void UpdateBanner(Banner banner)
+        {
+            bannersRepository.UpdateBanner(banner);
+        }
 
-        //// PUT api/values/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
-
-        //// DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+        /// <summary>
+        /// Удаляет баннер из списка.
+        /// </summary>
+        /// <param name="id">Идентификатор баннера.</param>
+        [HttpDelete("banner/{id}")]
+        public void UpdateBanner(int id)
+        {
+            bannersRepository.DeleteBanner(id);
+        }
     }
 }

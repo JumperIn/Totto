@@ -12,9 +12,9 @@ namespace MyTotto.Data.Repositories
     /// </summary>
     public class BannersRepository : BaseRepository, IBannersRepository
     {
-        public BannersRepository(string databaseConnection)
+        public BannersRepository(TottoContext context)
         {
-            context = new TottoContext(databaseConnection);
+            this.context = context;
         }
 
         /// <summary>
@@ -26,11 +26,22 @@ namespace MyTotto.Data.Repositories
         }
 
         /// <summary>
+        /// Возвращает баннер по идентификатору.
+        /// </summary>
+        /// <param name="id">Идентификатор баннера.</param>
+        public Banner GetBanner(int id)
+        {
+            return context.Banners.FirstOrDefault(b => b.Id == id);
+        }
+
+        /// <summary>
         /// Добавляет баннер в список.
         /// </summary>
         /// <param name="banner">Данные баннера.</param>
         public void AddBanner(Banner banner)
         {
+            banner.Created = DateTime.Now;
+
             context.Banners.Add(banner);
             Save();
         }
@@ -42,6 +53,23 @@ namespace MyTotto.Data.Repositories
         public void UpdateBanner(Banner banner)
         {
             context.Banners.Update(banner);
+            Save();
+        }
+
+        /// <summary>
+        /// Удаляет баннер по идентификатору.
+        /// </summary>
+        /// <param name="id">Идентификатор баннера.</param>
+        public void DeleteBanner(int id)
+        {
+            Banner banner = GetBanner(id);
+
+            if (banner == null)
+            {
+                return;
+            }
+
+            context.Banners.Remove(banner);
             Save();
         }
     }

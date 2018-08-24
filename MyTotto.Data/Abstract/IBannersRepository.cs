@@ -23,5 +23,11 @@ namespace MyTotto.Data.Abstract
         /// </summary>
         /// <param name="banner">Данные баннера.</param>
         void UpdateBanner(Banner banner);
+
+        /// <summary>
+        /// Удаляет баннер по идентификатору.
+        /// </summary>
+        /// <param name="id">Идентификатор баннера.</param>
+        void DeleteBanner(int id);
     }
 }
