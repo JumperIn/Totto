@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -18,18 +19,26 @@ namespace MyTotto
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
             Configuration = configuration;
+            Environment = environment;
+            contentRootPath = environment.ContentRootPath;
         }
 
         public IConfiguration Configuration { get; }
+        public IHostingEnvironment Environment { get; }
+
+        private readonly string contentRootPath;
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //var connection = Configuration.GetConnectionString("DefaultConnection");
-            //services.AddDbContext<TottoContext>(options => options.UseSqlServer(connection));
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            if (connection.Contains("%CONTENTROOTPATH%"))
+            {
+                connection = connection.Replace("%CONTENTROOTPATH%", contentRootPath);
+            }
 
             services.AddRepositories(Configuration);
             services.AddAndConfigureSwagger();
@@ -38,7 +47,6 @@ namespace MyTotto
                 .AddApplicationPart(Assembly.Load("MyTotto.Api"))
                 .AddControllersAsServices();
 
-            string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<TottoContext>(options => 
                 options.UseSqlServer(connection, optBuilder => 
                     optBuilder.MigrationsAssembly("MyTotto.Web")));
@@ -56,6 +64,14 @@ namespace MyTotto
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+
+
+            //// Set up data directory
+            //string appRoot = env.ContentRootPath;
+            //AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(appRoot, "../", "App_Data"));
+
+
+
 
             app.UseStaticFiles();
 

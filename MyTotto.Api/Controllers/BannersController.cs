@@ -27,14 +27,7 @@ namespace MyTotto.Api.Controllers
         [HttpGet("all")]
         public IEnumerable<Banner> GetAllBanners()
         {
-            //List<Banner> banners = new List<Banner>();
-            //using (TottoContext context = new TottoContext("Server=(localdb)\\mssqllocaldb;Database=tottoappdb;Trusted_Connection=True;"))
-            //{
-            //    banners = context.Banners.ToList();
-            //}
-
             List<Banner> banners = bannersRepository.GetBanners();
-
             return banners;
         }
 
