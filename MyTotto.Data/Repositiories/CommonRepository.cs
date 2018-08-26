@@ -12,9 +12,9 @@ namespace MyTotto.Data.Repositories
     /// </summary>
     public class CommonRepository : BaseRepository, ICommonRepository
     {
-        public CommonRepository(TottoContext context)
+        public CommonRepository()
         {
-            this.context = context;
+            this.context = null;
         }
 
         /// <summary>

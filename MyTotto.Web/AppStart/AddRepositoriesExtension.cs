@@ -13,10 +13,6 @@ namespace MyTotto.Web.AppStart
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services, IConfiguration configuration)
         {
-            string connection = configuration.GetConnectionString("DefaultConnection");
-
-            services.AddDbContext<TottoContext>(options => options.UseSqlServer(connection));
-
             services.AddScoped<IBannersRepository, BannersRepository>();
 
             return services;
