@@ -57,3 +57,6 @@ dropDownInfoItems();
 
 adaptFooter();
 dropDownFooterItems();
+
+// export { moveCarouselLeftEvent };
+// Таким образом можно выносить объекты в глобальную область видимости

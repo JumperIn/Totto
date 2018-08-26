@@ -92,6 +92,10 @@ gulp.task("js", function () {
 					}
 				]
 			},
+			output: {
+				library: "totto"
+			},
+			devtool: "inline-cheap-module-source-map",
 			externals: {
 				jquery: 'jQuery'
 			},
