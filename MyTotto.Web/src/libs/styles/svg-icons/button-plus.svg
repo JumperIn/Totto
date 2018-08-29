@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #95a700;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>button-plus</title>
+  <g id="Слой_2" data-name="Слой 2">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <circle class="cls-1" cx="12.5" cy="12.5" r="12.5"/>
+        <path class="cls-2" d="M6.44,13V12H12V5.85h1V12h5.54V13H13v6.18H12V13Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

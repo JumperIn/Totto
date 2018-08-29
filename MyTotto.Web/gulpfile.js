@@ -12,7 +12,8 @@
 	rename = require('gulp-rename'),
 	webpack = require('webpack'),
 	webpackStream = require('webpack-stream'),
-	named = require('vinyl-named');
+	named = require('vinyl-named'),
+	svgSprite = require('gulp-svg-sprites');
 
 // пути исходников
 var source = 'src';
@@ -47,7 +48,8 @@ var srcPaths = {
     webfonts: webfonts,
     libsCss: libsCss,
     libsJs: libsJs,
-    allStylus: [`./${source}/css/*.styl`]
+	allStylus: [`./${source}/css/*.styl`],
+	svgIcons: [`./${source}/libs/styles/svg-icons/*.svg`]
 }
 
 // пути для сборки
@@ -63,7 +65,8 @@ var destPaths = {
     libFolderJs: `./${destination}/libs/scripts`,
     libFileJs: 'script.js',
     libFolderCss: `./${destination}/libs/styles`,
-    libFileCss: 'style.css'
+	libFileCss: 'style.css',
+	svgIcons: `./${destination}/libs/svg-icons`	
 }
 
 var production = argv.production !== undefined || argv.prod !== undefined;
@@ -132,6 +135,22 @@ gulp.task('libs', function () {
 gulp.task('favicon', function () {
     gulp.src(srcPaths.favicon)
         .pipe(gulp.dest(destPaths.favicon));
+})
+
+gulp.task('svg', function () {
+	return gulp.src(srcPaths.svgIcons)
+		.pipe(svgSprite({
+			selector: "icon-%f",
+			svg: {
+				sprite: "svg.svg",
+				symbols: "symbols.svg"
+			},
+			svgPath: "%f",
+			common: "icon",
+			mode: "symbols",
+			// preview: false,
+		}))
+		.pipe(gulp.dest(destPaths.svgIcons))
 })
 
 gulp.task('watch', function () {

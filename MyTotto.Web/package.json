@@ -33,6 +33,7 @@
     "gulp-livereload": "^3.8.1",
     "gulp-rename": "^1.4.0",
     "gulp-stylus": "^2.7.0",
+    "gulp-svg-sprites": "^4.1.2",
     "gulp-uglify": "^3.0.1",
     "gulp-util": "^3.0.8",
     "webpack": "^4.17.1",

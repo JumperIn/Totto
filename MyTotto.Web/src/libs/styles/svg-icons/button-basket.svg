@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #95a700;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title>button-basket</title>
+  <g id="Слой_2" data-name="Слой 2">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <circle class="cls-1" cx="20" cy="20" r="20"/>
+        <g>
+          <path class="cls-2" d="M31.81,15.27H15.24L13.91,9.75H10.19v.79h3.1l3.84,15.85a2,2,0,1,0,2.12.7h5.53a2,2,0,1,0,1.57-.78H17.92l-.38-1.58H28.6Zm-12.95,13a1.18,1.18,0,1,1-1.18-1.19A1.18,1.18,0,0,1,18.86,28.28Zm8.67,0a1.18,1.18,0,1,1-1.18-1.19A1.18,1.18,0,0,1,27.53,28.28ZM17.35,23.94l-1.91-7.88H30.71L28,23.94Z"/>
+          <g>
+            <rect class="cls-2" x="5.99" y="16.56" width="5.97" height="1"/>
+            <rect class="cls-2" x="7.21" y="19.39" width="5.97" height="1"/>
+            <rect class="cls-2" x="7.97" y="22.23" width="5.97" height="1"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

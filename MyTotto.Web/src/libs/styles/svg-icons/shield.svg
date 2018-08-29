@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="19.11" height="22.08" viewBox="0 0 19.11 22.08">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #c2c4c5;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <title>shield</title>
+  <g id="Слой_2" data-name="Слой 2">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <path class="cls-1" d="M9.55,21.54C4.15,19.2.5,14.76.5,9.67c0-2.61,0-5.22,0-7.83a5.78,5.78,0,0,0,4.32,1.6c2.25,0,4.15-.93,4.7-2.2.56,1.27,2.45,2.2,4.7,2.2a5.8,5.8,0,0,0,4.33-1.6c0,2.61,0,5.22,0,7.83,0,5.09-3.65,9.53-9.06,11.87Z"/>
+        <polyline class="cls-1" points="5.75 10.83 9.25 14.89 14.21 7.32"/>
+      </g>
+    </g>
+  </g>
+</svg>
