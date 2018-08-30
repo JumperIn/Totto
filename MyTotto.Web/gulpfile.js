@@ -13,7 +13,10 @@
 	webpack = require('webpack'),
 	webpackStream = require('webpack-stream'),
 	named = require('vinyl-named'),
-	svgSprite = require('gulp-svg-sprites');
+	svgSprite = require('gulp-svg-sprites'),
+	svgmin = require('gulp-svgmin'),
+	cheerio = require('gulp-cheerio'),
+	replace = require('gulp-replace');
 
 // пути исходников
 var source = 'src';
@@ -66,7 +69,8 @@ var destPaths = {
     libFileJs: 'script.js',
     libFolderCss: `./${destination}/libs/styles`,
 	libFileCss: 'style.css',
-	svgIcons: `./${destination}/libs/svg-icons`	
+	svgIcons: `./Views/Shared`,	
+	// svgIcons: `./${destination}/libs/svg-icons`	
 }
 
 var production = argv.production !== undefined || argv.prod !== undefined;
@@ -139,16 +143,42 @@ gulp.task('favicon', function () {
 
 gulp.task('svg', function () {
 	return gulp.src(srcPaths.svgIcons)
+		// .pipe(svgmin({
+		// 	js2svg: {
+		// 		pretty: true
+		// 	}
+		// }))
+		// .pipe(cheerio({
+		// 	run: function ($, file) {
+				// $('fill').each(function() {
+				// 	var fill = $(this);
+				// 	fill.removeAttr('fill');
+				// })
+				// $('stroke').each(function() {
+				// 	var stroke = $(this);
+				// 	stroke.removeAttr('stroke');
+				// })
+				// $('style').each(function() {
+				// 	var style = $(this);
+				// 	style.removeAttr('style');
+				// })
+
+		// 		$('[fill]').removeAttr('fill');
+		// 		$('[stroke]').removeAttr('stroke');
+		// 		$('[style]').removeAttr('style');
+		// 	},
+		// 	parserOptions: {xmlMode: true}
+		// }))
+		// .pipe(replace('&gt;', '>'))
 		.pipe(svgSprite({
 			selector: "icon-%f",
 			svg: {
-				sprite: "svg.svg",
-				symbols: "symbols.svg"
+				symbols: "_Symbols.cshtml"
 			},
 			svgPath: "%f",
 			common: "icon",
 			mode: "symbols",
-			// preview: false,
+			preview: false,
 		}))
 		.pipe(gulp.dest(destPaths.svgIcons))
 })
