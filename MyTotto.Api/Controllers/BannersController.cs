@@ -36,7 +36,7 @@ namespace MyTotto.Api.Controllers
         /// </summary>
         /// <param name="banner">Данные баннера.</param>
         [HttpPost("banner")]
-        public void AddBanner(Banner banner)
+        public void AddBanner([FromBody] Banner banner)
         {
             bannersRepository.AddBanner(banner);
         }
@@ -46,7 +46,7 @@ namespace MyTotto.Api.Controllers
         /// </summary>
         /// <param name="banner">Данные баннера.</param>
         [HttpPost("banner/update")]
-        public void UpdateBanner(Banner banner)
+        public void UpdateBanner([FromBody] Banner banner)
         {
             bannersRepository.UpdateBanner(banner);
         }

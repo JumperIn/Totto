@@ -65,14 +65,6 @@ namespace MyTotto
                 app.UseExceptionHandler("/Home/Error");
             }
 
-
-            //// Set up data directory
-            //string appRoot = env.ContentRootPath;
-            //AppDomain.CurrentDomain.SetData("DataDirectory", Path.Combine(appRoot, "../", "App_Data"));
-
-
-
-
             app.UseStaticFiles();
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
