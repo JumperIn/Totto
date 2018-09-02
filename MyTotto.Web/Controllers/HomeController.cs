@@ -23,7 +23,26 @@ namespace MyTotto.Web.Controllers
 
         public IActionResult Index()
         {
-            List<Banner> banners = bannersRepository.GetBanners();
+            //List<Banner> banners = bannersRepository.GetBanners();
+            List<Banner> banners = new List<Banner>();
+            var banner1 = new Banner()
+            {
+                Id = 1,
+                Title = "Бесплатная доставка",
+                Content = "Закажите от 300 рублей и получите доставку",
+                ButtonText = "Заказать доставку",
+                Url = "/promo"
+            };
+            var banner2 = new Banner()
+            {
+                Id = 2,
+                Title = "Подпишись на рассылку",
+                Content = "Укажи свой e-mail и получи письмо счастья о наших акциях",
+                ButtonText = "Подписаться",
+                Url = "/subscribe"
+            };
+            banners.Add(banner1);
+            banners.Add(banner2);
 
             return View(banners);
         }
