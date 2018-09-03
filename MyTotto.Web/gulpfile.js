@@ -143,33 +143,20 @@ gulp.task('favicon', function () {
 
 gulp.task('svg', function () {
 	return gulp.src(srcPaths.svgIcons)
-		// .pipe(svgmin({
-		// 	js2svg: {
-		// 		pretty: true
-		// 	}
-		// }))
-		// .pipe(cheerio({
-		// 	run: function ($, file) {
-				// $('fill').each(function() {
-				// 	var fill = $(this);
-				// 	fill.removeAttr('fill');
-				// })
-				// $('stroke').each(function() {
-				// 	var stroke = $(this);
-				// 	stroke.removeAttr('stroke');
-				// })
-				// $('style').each(function() {
-				// 	var style = $(this);
-				// 	style.removeAttr('style');
-				// })
-
-		// 		$('[fill]').removeAttr('fill');
-		// 		$('[stroke]').removeAttr('stroke');
-		// 		$('[style]').removeAttr('style');
-		// 	},
-		// 	parserOptions: {xmlMode: true}
-		// }))
-		// .pipe(replace('&gt;', '>'))
+		.pipe(svgmin({
+			js2svg: {
+				pretty: true
+			}
+		}))
+		.pipe(cheerio({
+			run: function ($) {
+				$('style').remove('style');
+				$('title').remove('title');
+				$('[data-name]').removeAttr('data-name');
+			},
+			// parserOptions: {xmlMode: false}
+		}))
+		.pipe(replace('&gt;', '>'))
 		.pipe(svgSprite({
 			selector: "icon-%f",
 			svg: {
