@@ -1,7 +1,7 @@
 'use strict'
 
 import { resize } from "../../shared/resize/resize";
-import { scrollNavEvent, dropDownNav } from "../../shared/navigation/scrollNav";
+// import { scrollNavEvent, dropDownNav } from "../../shared/navigation/scrollNav";
 import { dropDownMenu, dropDownListEvent, dropDownItemEvent } from "../../shared/navigation/navAdaptive";
 import { moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut } from "./modules/banner/banner";
 import { setClasses } from "./modules/carousel/mainNavAnimation";
@@ -15,8 +15,8 @@ resize();
 
 //scroll-navigation
 
-scrollNavEvent();
-dropDownNav();
+// scrollNavEvent();
+// dropDownNav();
 
 //Адаптивность навигации
 
@@ -28,8 +28,8 @@ dropDownItemEvent();
 
 moveBannerRightEvent();
 moveBannerLeftEvent();
-slideBannerTimer();
-moveBannerMouseOut();
+// slideBannerTimer();
+// moveBannerMouseOut();
 
 //анимация main-nav
 
@@ -37,15 +37,15 @@ setClasses();
 
 //карусель
 
-getNumProductDisp();
+// getNumProductDisp();
 
-moveCarouselRightEvent(0);
-moveCarouselRightEvent(1);
-moveCarouselRightEvent(2);
+// moveCarouselRightEvent(0);
+// moveCarouselRightEvent(1);
+// moveCarouselRightEvent(2);
 
-moveCarouselLeftEvent(0);
-moveCarouselLeftEvent(1);
-moveCarouselLeftEvent(2);
+// moveCarouselLeftEvent(0);
+// moveCarouselLeftEvent(1);
+// moveCarouselLeftEvent(2);
 
 toggleProductsEvent();
 

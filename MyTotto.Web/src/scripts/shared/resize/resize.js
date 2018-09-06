@@ -1,8 +1,8 @@
 import { constants, variables } from "../const/const";
 import { hideMenu, showMenu } from "../navigation/navAdaptive";
-import { hideDropNavAdaptive, scrollNavEvent } from "../navigation/scrollNav";
+// import { hideDropNavAdaptive, scrollNavEvent } from "../navigation/scrollNav";
 import { adaptFooter } from "../footer/footer";
-import { getNumProductDisp, returnCarouselBack } from "../../pages/mainPage/modules/carousel/carousel";
+// import { getNumProductDisp, returnCarouselBack } from "../../pages/mainPage/modules/carousel/carousel";
 import { returnBannerBack } from "../../pages/mainPage/modules/banner/banner";
 
 
@@ -16,12 +16,12 @@ function resize() {
 			//из области от (0 до 768) в область (>= 768) и обратно.
 			if (window.innerWidth > 0 && window.innerWidth < constants.SCREEN_MEDIUM && windowWidth >= constants.SCREEN_MEDIUM) {
 				hideMenu();	
-				hideDropNavAdaptive();
+				// hideDropNavAdaptive();
 				adaptFooter();
 				windowWidth = window.innerWidth;
 			} else if (window.innerWidth >= constants.SCREEN_MEDIUM && window.innerWidth < 1920 && windowWidth < constants.SCREEN_MEDIUM) {
 				showMenu();
-				scrollNavEvent();
+				// scrollNavEvent();
 				adaptFooter();
 				windowWidth = window.innerWidth;
 			}
@@ -29,11 +29,11 @@ function resize() {
 			variables.shiftProducts = 0;
 			variables.shiftBanners = 0;
 			//данные функции выполняются при каждом событии изменения экрана, для адаптивной работы баннеров и карусели
-			getNumProductDisp();
+			// getNumProductDisp();
 			returnBannerBack();
-			returnCarouselBack(0);
-			returnCarouselBack(1);
-			returnCarouselBack(2);
+			// returnCarouselBack(0);
+			// returnCarouselBack(1);
+			// returnCarouselBack(2);
 		}, 200)
 	})
 }
