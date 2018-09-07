@@ -193,27 +193,63 @@
 
 .header-nav
 	display: flex
-	background: #FFE3E0
+	height: 80px
+	background: linear-gradient(to bottom, #f5f9d6, #f9fce7)
 
 .menu
-	height: 56px
+	flex(, flex-start, center)
+	height: 80px
 
 .menu-link
 	display: none
 
+.menu-logo
+	flex()
+	height: 53px
+	width: 229px
+	position: relative
+
+.menu-logo__link
+	position: absolute
+	top: 0
+	left: 0
+	height: 53px
+	width: 229px
+	z-index: 200
+
+.menu-logo_shadow
+	position: absolute
+	// ставим источник тени на середину лого
+	// 53/2 - 17/2
+	top: 18px 
+	// 229/2 - 100/2
+	left: 64px
+	height: 17px
+	width: 100px
+	border-radius: 50%
+	background: #fff
+	box-shadow: 0px 0px 120px 40px rgba(255, 255, 255, 1)
+	z-index: 0
+
+.icon-logo
+	height: 53px
+	width: 229px
+	z-index: 100
+
 .menu__list
 	flex(row, flex-start, center)
 	height: 100%
+	padding-left: 20px
 
 .menu-item
 	flex(row, flex-start, center)
 	flex-wrap: nowrap
 	height: 100%
-	padding: 0px 8px
-	font-size: 13px
+	padding: 0px 15px
+	font-size: 12px
 	text-transform: uppercase
-	font-weight: 400
-	color: #4e2520
+	font-weight: 300
+	color: gray-dark-color
 	list-style-type: none
 
 .menu-item__icon2
@@ -224,10 +260,10 @@
 .menu_drop:hover .menu-drop,
 .menu_drop:hover .menu-item
 	display: flex
-	color: #42201B
+	// color: #42201B
 
 .menu_drop:hover
-	background: red-light
+	background: #F5F9D6
 
 .menu_drop
 	flex(row, center)
@@ -325,11 +361,11 @@
 		display: flex
 		align-items: center
 		padding: 0px 20px
-		height: 56px
+		height: 80px
 		width: 140px
 		cursor: pointer
 		font-size: 14px
-		font-weight: 600
+		font-weight: 500
 		text-transform: uppercase
 		transition: background-color 200ms ease-in-out
 	.menu__wrap:hover,
