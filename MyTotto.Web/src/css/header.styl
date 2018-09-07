@@ -198,7 +198,25 @@
 
 .menu
 	flex(, flex-start, center)
+	position: relative
 	height: 80px
+
+.menu::before
+.menu::after
+	content: ''
+	position: absolute
+	bottom: -25px
+	left: 110px
+	width: 50%
+	max-width: 400px
+	height: 15px
+	box-shadow: 0 -15px 15px 5px rgba(0,0,0,0.035)
+	transform: rotate(3deg)
+	z-index: 1
+.menu::after
+	transform: rotate(-3deg)
+	right: 110px
+	left: auto
 
 .menu-link
 	display: none
