@@ -2,7 +2,7 @@
 
 import { resize } from "../../shared/resize/resize";
 // import { scrollNavEvent, dropDownNav } from "../../shared/navigation/scrollNav";
-import { dropDownMenu, dropDownListEvent, dropDownItemEvent } from "../../shared/navigation/navAdaptive";
+import { dropDownMenu, dropDownListEvent, dropDownItemEvent, toCenterDropMenu } from "../../shared/navigation/navAdaptive";
 import { moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut } from "./modules/banner/banner";
 import { setClasses } from "./modules/carousel/mainNavAnimation";
 import { getNumProductDisp, moveCarouselLeftEvent, moveCarouselRightEvent, toggleProductsEvent } from "./modules/carousel/carousel";
@@ -23,6 +23,8 @@ resize();
 dropDownMenu();
 dropDownListEvent();
 dropDownItemEvent();
+
+toCenterDropMenu();
 
 //слайдер баннера
 

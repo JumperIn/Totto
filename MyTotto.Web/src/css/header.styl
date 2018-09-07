@@ -294,10 +294,29 @@
 	display: none
 	position: absolute
 	top: 100%
-	z-index: 200
+	width: 570px
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 10px 0px
 	background: white
+	border: solid 1px stroke-color
+	z-index: 200
+
+.menu-drop::after
+.menu-drop::before
+	content: ''
+	position: absolute
+	top: -12px
+	width: 0
+	height: 0
+	border-style: solid
+	border-width: 0 12px 12px 12px
+	border-color: transparent transparent #ffffff transparent
+	z-index: 200
+
+.menu-drop::before
+	top: -13px
+	border-color: transparent transparent stroke-color transparent
 	
+
 .menu-drop_padding
 	padding: 40px 0px
 

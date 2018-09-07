@@ -134,4 +134,21 @@ function showItem() {
 	}
 }
 
-export { dropDownMenu, dropDownListEvent, dropDownItemEvent, hideMenu, showMenu };
+// отцентровать выпадающие списки из навигации
+
+function toCenterDropMenu() {
+	var elems1 = document.getElementsByClassName('menu-drop');
+	var elems2 = document.getElementsByClassName('menu__wrap');
+	for ( var i = 0; i < elems1.length; i++) {
+		elems1[i].style.display = "flex";
+
+		var widthMenu = elems1[i].offsetWidth;
+		var widthTitle = elems2[i].offsetWidth;
+
+		elems1[i].style.left = `-${(widthMenu/2) - (widthTitle/2)}px`
+
+		elems1[i].style.display = "";
+	}
+}
+
+export { dropDownMenu, dropDownListEvent, dropDownItemEvent, hideMenu, showMenu, toCenterDropMenu };
