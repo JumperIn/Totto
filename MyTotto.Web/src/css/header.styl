@@ -7,31 +7,29 @@
 
 .header-title
 	flex(row, center, stretch)
+	height: 32px
 	border-bottom: 1px solid #EDEDED
+	background-color: #fafaea
 
 .header-title_height
 	height: 176px
 
 @media (min-width: 768px)
-	.header-info__phone_media
+	.header-info-phone__media
 		display: none
-	.header-info__phone
+	.header-info-phone
 		display: flex
 	.header-info-icons
 		display: flex
-	.header-info-logo
-		padding: 15px 0px
 
 @media (max-width: 991px) 
-	.header-title__name
-		display: none
-	.header-info__phone
+	.header-info-phone
 		font-size: 20px
 	.menu
 		width: 720px
 
 @media (min-width: 992px) 
-	.header-info__phone
+	.header-info-phone
 		font-size: 24px 
 @media (max-width: 1199px)
 	.menu-drop
@@ -48,31 +46,18 @@
 		width: 720px
 		
 @media (max-width: 767px)
-	.header-info__phone_media
+	.header-info-phone__media
 		flex(row, center, center)
 		padding: 5px 0px
 	.header-title__menu
 		display: none
-	.header-info__phone
+	.header-info-phone
 		display: none
-	.header-info-logo
-		padding: 10px 20px 10px 0px
 	.menu
 		width: 100%
 
-
-.header-title__name
-	font-size: 13px
-	color: gray
-	padding: 5px 0px
-
-.header-title__name_h
-	font-size: 13px
-	margin: 0px
-	font-weight: normal
-
 .header-title__menu
-	padding: 5px 0px
+	flex(row, , center)
 
 .header-title__list
 	flex(row, flex-end)
@@ -80,53 +65,98 @@
 	list-style-type: none
 
 .header-title__item
-	padding-left: 10px
-	font-size: 13px
-	color: gray
+	padding-left: 20px
+	font-size: 14px
+	color: gray-dark-color
 
 .header-title__item_h
 	margin: 0px
-	font-size: 13px
-	font-weight: normal
+	font-size: 14px
+	font-weight: 100
 
-.header-info__phone
-	justify-content: center
+.header-info
+	flex(,,center)
+	height: 110px
+
+.header-info-pers-area
+.header-info-basket
+	flex()
+
+.header-info-pers-area__link
+.header-info-basket__link
+	flex(,,center)
+
+.header-info-pers-area__text
+.header-info-basket__text
+	padding-left: 10px
+	font-size: 14px
+	font-weight: 100
+	color: gray-dark-color
+	span
+		font-weight: 700
+
+.icon-pers
+	height: 20px
+	width: 20px
+
+.icon-basket
+	height: 22px
+	width: 22px
+
+.header-info-phone
+	justify-content: space-between
 	align-items: center
 
-.header-info__phone_color
-	color: gray
+.header-info-phone__number
+	color: gray-dark-color
+	span
+		color: main-color
 
+.header-info-phone__link
+	padding-left: 15px
+
+.header-info-phone__link_proportions
+	flex(,center, center)
+	height: 40px
+	width: 170px
+	background-color: main-color
+	border-radius: (@height / 2)
+
+.header-info-phone__link_text
+	font-size: 14px
+	font-weight: 500
+	text-transform: uppercase
+	color: #fff
 
 .header-info-search
 	flex(row, center, center)
+	max-width: 280px
 
-.header-info-search_flex
-	display: flex
 
 .header-info-search__input
 	position: relative
-	height: 35px
+	height: 40px
 	padding-left: 20px
-	text-transform: uppercase
-	font-size: 13px
-	border: 1px solid #ededed
-	border-radius: 22px
-	background: #ededed
-	color: gray
+	font-size: 14px
+	border: 1px solid stroke-color
+	border-radius: (@height / 2)
+	background: #fff
+	color: stroke-color
 	transition: background-color 200ms ease-in-out
 
-.header-info-search__input:hover,
-.header-info-search__input:focus
-	background: #fff
+.header-info-search__input::placeholder
+	font-size: 14px
+	font-weight: 100
+	color: stroke-color
 
-.header-info-search__input:active
-	border: none
+.icon-button-search
+	width: 30px
+	height: 30px
 
 .header-info-search__button
 	position: absolute
-	right: 5px
-	top: 0px
-	font-size: 23px
+	right: 0px
+	top: 4px
 	border: none 
 	background: none 
 	color: gray
@@ -202,6 +232,7 @@
 .menu_drop
 	flex(row, center)
 	height: 100%
+	position: relative
 	transition: background-color 200ms ease-in-out
 
 
@@ -240,7 +271,7 @@
 	display: none
 
 .header-info__wrapper
-	flex(row, , center)
+	flex(row, space-between, center)
 
 .header-info_fixed
 	position: fixed
@@ -258,31 +289,25 @@
 	box-shadow: 0 0 0 2000px rgba(0,0,0,0.4), 0 3px 10px 0 rgba(0,0,0,0.3)
 	z-index: 1
 
-.header-info-logo_padding
-	padding: 0
+// .header-info__icon
+// 	padding: 0
+// 	width: 48px
+// 	height: 48px
+// 	font-size: 28px
+// 	line-height: 48px
+// 	background-color: #EDEDED
+// 	border-radius: 50%
+// 	color: rgba(0, 0, 0, 0.54)
+// 	cursor: pointer
+// 	transition: color 200ms ease-in-out
+// 	transition: transform 200ms ease-in-out
 
-.header-info__icon
-	padding: 0
-	// margin-right: 15px
-	width: 48px
-	height: 48px
-	font-size: 28px
-	line-height: 48px
-	background-color: #EDEDED
-	border-radius: 50%
-	color: rgba(0, 0, 0, 0.54)
-	cursor: pointer
-	transition: color 200ms ease-in-out
-	transition: transform 200ms ease-in-out
+// .header-info__icon_active
+// 	transform: rotate(90deg)
 
-.header-info__icon_active
-	transform: rotate(90deg)
+// .header-info__icon:hover
+// 	color: blue-light
 
-.header-info__icon:hover
-	color: blue-light
-
-.header-info__icon-wrapper
-	text-align: center
 
 @media (max-width: 767px)
 	.menu__list

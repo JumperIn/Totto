@@ -2,17 +2,14 @@
     <div class="header-menu">
 		<div class="header-frame"></div>
         <div class="header-title container-fluid row">
-            <div class="container_padding cover">
-                <div class="row">
-                    <div class="header-title__name col-3">
-                        <h1 class="header-title__name_h">Интернет магазин корейской косметики</h1>
+            <div class="container_padding align-items-center cover">
+                <div class="container-fluid row justify-content-end">
+
+                    <div class="header-info-phone__media justify-content-start col">
+                        <a class="header-info-phone__link" href="tel: +79009595959">+7(900)959-59-59</a>
                     </div>
 
-                    <div class="header-info__phone_media justify-content-start col">
-                        <a class="header-info__phone_color" href="tel: +79009595959">+7(900)959-59-59</a>
-                    </div>
-
-                    <div class="header-title__menu col-12 col-lg-9">
+                    <div class="header-title__menu">
                         <ul class="header-title__list">
                             <a href="#"><li class="header-title__item"><h2 class="header-title__item_h">Бонусные баллы</h2></li></a>
                             <a href="#"><li class="header-title__item"><h2 class="header-title__item_h">Подарочные сертификаты</h2></li></a>
@@ -25,40 +22,56 @@
             </div>
         </div>
         <div class="header-info container-fluid">
-            <div class="row justify-content-center">
+            <div class="container-fluid row justify-content-center">
                 <div class="container_padding cover">
-                    <div class="header-info__wrapper row">
-						<!-- <div class="col-md-1 header-info__icon-wrapper hidden">
-							<i class="header-info__icon fas fa-key"></i>
-						</div> -->
-                        <div class="header-info-logo col-auto col-md-2">
+                    <div class="container-fluid header-info__wrapper row">
+                        <!-- <div class="header-info-logo col-auto col-md-2">
                             <a class="header-info-logo_link" href="#">
-								<!-- <img src="images/logo.png" alt=""> -->
 								<svg class="icon icon-logo" viewBox="0 0 228.59 52.56">
 									<use xlink:href="#icon-logo"></use>
 								</svg>
 							</a>
-                        </div>
-                        <div class="header-info__phone col-3">
-                            <a class="header-info__phone_color" href="tel: +79009595959">+7(900)959-59-59</a>
-                        </div>
-                        <div class="header-info-search_flex col col-md-7">
-                            <div class="header-info-search container-fluid row">
-                                <div class="header-info-search_input col">
-                                    <form action="">
-                                        <input class="header-info-search__input container-fluid" type="text" placeholder="Искать товары">
-                                        <button class="header-info-search__button" title="Найти" type="submit">
-                                            <i class="fas fa-search"></i>
-                                        </button>
-                                    </form>
-                                </div>
-                                <div class="header-info-icons col-auto">
-                                    <a href="#"><i class="header-info-icons__item far fa-heart fa-2x"></i></a>
-                                    <a href="#"><i class="header-info-icons__item far fa-user-circle fa-2x"></i></a>
-                                    <a href="#"><i class="header-info-icons__item fas fa-shopping-cart fa-2x"></i></a>
-                                </div>
-                            </div>
+                        </div> -->
+						<div class="header-info-pers-area">
+							<a class="header-info-pers-area__link" href="">
+								<svg class="icon icon-pers">
+									<use xlink:href="#icon-pers"></use>
+								</svg>
+								<p class="header-info-pers-area__text">Личный кабинет</p>
+							</a>
+						</div>
+						<div class="header-info-basket">
+							<a class="header-info-basket__link" href="">
+								<svg class="icon icon-basket">
+									<use xlink:href="#icon-basket"></use>
+								</svg>
+								<p class="header-info-basket__text">в корзине 
+									<span class="js-number-of-goods">0</span> товар на сумму 
+									<span class="js-cost">0</span>р
+								</p>
+							</a>
 
+						</div>
+                        
+						<div class="header-info-search container-fluid row">
+							<form class="container-fluid relative" action="">
+								<input class="header-info-search__input container-fluid" type="text" placeholder="Попробуйте найти...">
+								<button class="header-info-search__button" title="Найти" type="submit">
+									<svg class="icon icon-button-search">
+										<use xlink:href="#icon-button-search"></use>
+									</svg>
+								</button>
+							</form>
+						</div>
+						<div class="header-info-phone">
+                            <a class="header-info-phone__number" href="tel: +78007077235">8 <span>(800)</span> 707-72-35</a>
+							<a class="header-info-phone__link" href="">
+								<div class="header-info-phone__link_proportions">
+									<p class="header-info-phone__link_text">
+										Заказать звонок
+									</p>
+								</div>
+							</a>
                         </div>
                     </div>
                 </div>
@@ -81,7 +94,7 @@
                                     <i class="menu-item__icon1 fas fa-user-circle"></i>
                                     <div class="col">Уход за лицом</div>
                                 </a>
-                                <i class="menu-item__icon2 fas fa-angle-down accordion"></i>
+                                <i class="menu-item__icon2 fas fa-angle-down accordion hidden"></i>
                             </div>
                             <div class="menu-drop container-fluid justify-content-center row">
                                 <div class="container-fluid container_padding js-menu-wrapper col-12 col-xl-10">
@@ -157,7 +170,7 @@
                                     <i class="menu-item__icon1 fas fa-user-circle"></i>
                                     <div class="col">Уход за телом</div>
                                 </a>
-                                <i class="menu-item__icon2 fas fa-angle-down accordion"></i>
+                                <i class="menu-item__icon2 fas fa-angle-down accordion hidden"></i>
                             </div>
                             <div class="menu-drop container-fluid justify-content-center row">
                                 <div class="container-fluid container_padding js-menu-wrapper col-12 col-xl-10">
@@ -192,7 +205,7 @@
                                     <i class="menu-item__icon1 fas fa-user-circle"></i>
                                     <div class="col">Уход за волосами</div>
                                 </a>
-                                <i class="menu-item__icon2 fas fa-angle-down accordion"></i>
+                                <i class="menu-item__icon2 fas fa-angle-down accordion hidden"></i>
                             </div>
                             <div class="menu-drop container-fluid justify-content-center row">
                                 <div class="container-fluid container_padding js-menu-wrapper col-12 col-xl-10">
@@ -239,7 +252,7 @@
                                     <i class="menu-item__icon1 fas fa-user-circle"></i>
                                     <div class="col">Декоративная косметика</div>
                                 </a>
-                                <i class="menu-item__icon2 fas fa-angle-down accordion"></i>
+                                <i class="menu-item__icon2 fas fa-angle-down accordion hidden"></i>
                             </div>
                             <div class="menu-drop container-fluid justify-content-center row">
                                 <div class="container-fluid container_padding js-menu-wrapper col-12 col-xl-10">
@@ -277,7 +290,7 @@
                                     <i class="menu-item__icon1 fas fa-user-circle"></i>
                                     <div class="col">Дом & семья</div>
                                 </a>
-                                <i class="menu-item__icon2 fas fa-angle-down accordion"></i>
+                                <i class="menu-item__icon2 fas fa-angle-down accordion hidden"></i>
                             </div>
                             <div class="menu-drop container-fluid justify-content-center row">
                                 <div class="container-fluid container_padding js-menu-wrapper col-12 col-xl-10">
@@ -353,7 +366,7 @@
                                     <i class="menu-item__icon1 fas fa-user-circle"></i>
                                     <div class="col">Наборы</div>
                                 </a>
-                                <i class="menu-item__icon2 fas fa-angle-down accordion"></i>
+                                <i class="menu-item__icon2 fas fa-angle-down accordion hidden"></i>
                             </div>
                             <div class="menu-drop container-fluid justify-content-center row">
                                 <div class="container-fluid container_padding js-menu-wrapper col-12 col-xl-10">

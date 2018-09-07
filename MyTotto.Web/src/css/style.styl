@@ -4,6 +4,10 @@ body {
 	font-size: fontsize ;
 }
 
+:active, :hover, :focus
+    outline: 0
+    outline-offset: 0
+
 a, a:hover, a:focus, a:active
 	text-decoration: none
 
@@ -27,8 +31,12 @@ p, ul,
 
 // класс для создания обёртки с максимальной шириной 1180px
 .cover
+	display: flex
 	max-width: 1180px
 	width: 100%
+
+.relative
+	position: relative
 
 .hidden
 	display: none !important
