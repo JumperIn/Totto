@@ -16,7 +16,10 @@
 	svgSprite = require('gulp-svg-sprites'),
 	svgmin = require('gulp-svgmin'),
 	cheerio = require('gulp-cheerio'),
-	replace = require('gulp-replace');
+	replace = require('gulp-replace'),
+	imagemin = require('gulp-imagemin'),
+	mozjpeg = require('imagemin-mozjpeg');
+
 
 // пути исходников
 var source = 'src';
@@ -78,9 +81,12 @@ var production = argv.production !== undefined || argv.prod !== undefined;
 // сборка стилей
 gulp.task("stylus", function () {
     return gulp.src(srcPaths.stylus)
-        .pipe(stylus())
-        .pipe(gulp.dest(destPaths.css));
-});
+		.pipe(stylus())
+		.pipe(gulp.dest(destPaths.css));
+		// .pipe(cssmin())
+		// .pipe(rename({ suffix: '.min' }))
+		// .pipe(gulp.dest(destPaths.css));
+	});
 
 // сборка скриптов
 gulp.task("js", function () {
@@ -108,7 +114,7 @@ gulp.task("js", function () {
 			},
 			mode: 'none',
 		}))
-		.pipe(gulp.dest(destPaths.js))
+		.pipe(gulp.dest(destPaths.js));
 		// .pipe(uglify())
 		// .pipe(rename({ suffix: '.min' }))
 		// .pipe(gulp.dest(destPaths.js));
@@ -118,7 +124,10 @@ gulp.task("js", function () {
 gulp.task('copy', function () {
     gulp.src(srcPaths.icons)
         .pipe(gulp.dest(destPaths.icons));
-    gulp.src(srcPaths.img)
+	gulp.src(srcPaths.img)
+		.pipe(imagemin([mozjpeg({
+			quality: 85
+		})]))
         .pipe(gulp.dest(destPaths.img));
     gulp.src(srcPaths.fonts)
         .pipe(gulp.dest(destPaths.fonts));
@@ -129,11 +138,17 @@ gulp.task('copy', function () {
 gulp.task('libs', function () {
     gulp.src(srcPaths.libsJs)
         .pipe(concat(destPaths.libFileJs))
-        .pipe(gulp.dest(destPaths.libFolderJs));
+		.pipe(gulp.dest(destPaths.libFolderJs));
+		// .pipe(uglify())
+		// .pipe(rename({ suffix: '.min'}))
+		// .pipe(gulp.dest(destPaths.libFolderJs));
 
     gulp.src(srcPaths.libsCss)
-        .pipe(concat(destPaths.libFileCss))
+		.pipe(concat(destPaths.libFileCss))
         .pipe(gulp.dest(destPaths.libFolderCss));
+		// .pipe(cssmin())
+		// .pipe(rename({ suffix: '.min' }))
+        // .pipe(gulp.dest(destPaths.libFolderCss));
 });
 
 gulp.task('favicon', function () {
@@ -183,5 +198,6 @@ gulp.task('default', [
     'libs',
     'js',
     'stylus',
-    'favicon'
+	'favicon',
+	'svg'
 ]);
