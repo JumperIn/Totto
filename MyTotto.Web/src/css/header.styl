@@ -295,7 +295,7 @@
 	position: absolute
 	top: 100%
 	width: 570px
-	// min-height: 420px
+	min-height: 420px
 	background: white
 	border: solid 1px stroke-color
 	z-index: 200
@@ -346,6 +346,10 @@
 
 .menu-drop__body_hover:hover .menu-drop__list
 	flex(column, flex-start)
+
+.menu-drop__body_hover:hover ~ .menu-drop-img
+	display: none
+
 
 .menu-drop__list-header
 	display: block
@@ -412,7 +416,30 @@
 	right: 0px
 	border-color: transparent stroke-color transparent transparent
 
+.menu-drop-img
+	flex(column)
+	position: absolute
+	top: 0
+	right: -100%
 
+.menu-drop-img__face
+	height: 200px
+	width: 200px
+	background-image: url(../images/cream.jpg)
+	background-size: 100% 100%
+	background-repeat: no-repeat
+
+.menu-drop-img__sale
+	flex(, center, center)
+	padding: 0 20px
+	height: 100px
+	width: 200px
+	background-color: #e9e7a0
+
+.menu-drop-img__text
+	font-size: 14px
+	font-weight: 300
+	color: gray-dark-color
 
 .menu-item__icon1
 	display: none
