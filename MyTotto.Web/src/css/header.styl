@@ -396,11 +396,11 @@
 .menu-drop__wrap
 	position: relative
 
-.menu-drop__wrap:hover
+.menu-drop__body_hover:hover
 	background-color: #e9e7a0
 
-.menu-drop__wrap:hover::before
-.menu-drop__wrap:hover::after
+.menu-drop__body_hover:hover .menu-drop__wrap::before
+.menu-drop__body_hover:hover .menu-drop__wrap::after
 	content: ''
 	position: absolute
 	top: 5px
@@ -412,7 +412,7 @@
 	border-color: transparent #fff transparent transparent
 	z-index: 200
 
-.menu-drop__wrap:hover::before
+.menu-drop__body_hover:hover .menu-drop__wrap::before
 	right: 0px
 	border-color: transparent stroke-color transparent transparent
 
