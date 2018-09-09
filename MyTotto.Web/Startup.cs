@@ -47,9 +47,12 @@ namespace MyTotto
                 .AddApplicationPart(Assembly.Load("MyTotto.Api"))
                 .AddControllersAsServices();
 
-            services.AddDbContext<TottoContext>(options => 
-                options.UseSqlServer(connection, optBuilder => 
-                    optBuilder.MigrationsAssembly("MyTotto.Web")));
+            //services.AddDbContext<TottoContext>(options => 
+            //    options.UseSqlServer(connection, optBuilder => 
+            //        optBuilder.MigrationsAssembly("MyTotto.Web")));
+
+            services.AddDbContext<TottoContext>(options =>
+                options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -28,6 +28,7 @@ namespace MyTotto.Data
 
         public TottoContext(DbContextOptions<TottoContext> options) : base(options)
         {
+            Database.EnsureCreated();
         }
     }
 }
