@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace MyTotto.Data.Models
 {
     /// <summary>
-    /// Модель новостного баннера.
+    /// Модель промо-блока.
     /// </summary>
-    public class Banner
+    public class Promo
     {
         /// <summary>
         /// Идентификатор.
@@ -18,7 +17,6 @@ namespace MyTotto.Data.Models
         /// <summary>
         /// Заголовок.
         /// </summary>
-        [Required]
         public string Title { get; set; }
 
         /// <summary>
@@ -27,26 +25,17 @@ namespace MyTotto.Data.Models
         public string Content { get; set; }
 
         /// <summary>
-        /// Адрес, куда ведёт кнопка.
+        /// URL-адрес.
         /// </summary>
-        [Required]
         public string Url { get; set; }
 
         /// <summary>
-        /// Ссылка на изображение баннера.
+        /// Ссылка на изображение.
         /// </summary>
-        [Required]
         public string ImageUrl { get; set; }
 
         /// <summary>
-        /// Текст кнопки.
-        /// Если не пустое значение - кнопка есть.
-        /// Иначе - кнопки нет.
-        /// </summary>
-        public string ButtonText { get; set; }
-
-        /// <summary>
-        /// Порядок, в котором выводится баннер.
+        /// Порядок, в котором выводится элемент.
         /// </summary>
         public int Order { get; set; }
 
@@ -54,12 +43,7 @@ namespace MyTotto.Data.Models
         /// Признак активного элемента.
         /// </summary>
         public bool IsActive { get; set; }
-
-        /// <summary>
-        /// Дата акции.
-        /// </summary>
-        public DateTime? ActionDate { get; set; }
-
+        
         /// <summary>
         /// Дата создания.
         /// </summary>

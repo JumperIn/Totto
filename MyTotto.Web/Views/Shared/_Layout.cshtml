@@ -14,15 +14,13 @@
     @Html.Partial("_Header")
 
     <main class="main container-fluid">
-        @Html.Partial("_Banners")
 
-        @Html.Partial("_Products")
+        @RenderBody()
 
     </main>
+
     @Html.Partial("_Info")
     @Html.Partial("_Footer")
-    @RenderBody()
-
 
     <script src="js/main.js"></script>
 
