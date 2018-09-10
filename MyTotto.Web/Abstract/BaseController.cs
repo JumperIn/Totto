@@ -10,12 +10,6 @@ namespace MyTotto.Web.Abstract
 {
     public class BaseController : Controller
     {
-        protected ICommonRepository repository;
-
-        public BaseController(ICommonRepository repository)
-        {
-            this.repository = repository;
-        }
 
     }
 }

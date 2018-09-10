@@ -8,14 +8,17 @@ using MyTotto.Data.Abstract;
 using MyTotto.Data.Models;
 using MyTotto.Web.Models;
 using MyTotto.Web.Abstract;
+using MyTotto.Data;
 
 namespace MyTotto.Web.Controllers
 {
     public class HomeController : BaseController
     {
-        public HomeController(ICommonRepository repository) : base(repository)
+        TottoContext context;
+
+        public HomeController(TottoContext context)
         {
-            this.repository = repository;
+            this.context = context;
         }
 
 
@@ -23,7 +26,7 @@ namespace MyTotto.Web.Controllers
 
         public IActionResult Index()
         {
-            List<Banner> banners = repository.GetBanners();
+            List<Banner> banners = context.Banners.ToList();
 
             return View(banners);
         }
