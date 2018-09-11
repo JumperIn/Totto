@@ -82,7 +82,7 @@
 	transition: transform 500ms ease-in-out
 
 .products__item
-	padding: 0 15px
+	padding: 0 15px 30px 15px
 
 .product
 	flex(column, center, center)
@@ -183,3 +183,31 @@
 .icon-button-heart
 	width: 42px
 	height: 42px
+
+.products__link-wrapper
+	flex(, center)
+	position: relative
+	width: 100%
+	padding-top: 15px
+
+.products__link
+	flex(, center, center)
+	width: 154px
+	height: 36px
+	font-size: 14px
+	font-weight: 100
+	border-radius: 18px
+	background-color: main-color
+	color: #fff
+	z-index: 2
+
+.products__link:hover
+	background-color: secondary-color
+
+.products__link-wrapper::before
+	content: ''
+	position: absolute
+	top: 34px
+	border-top: solid 1px main-color
+	width: 100%
+	z-index: 1
