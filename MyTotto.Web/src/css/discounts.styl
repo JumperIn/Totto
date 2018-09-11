@@ -1,0 +1,67 @@
+.discounts
+	flex(column, center, center)
+	width: 100%
+	background-color: #fafaea
+	z-index: 1
+
+.discounts__wrapper
+	flex(column, center)
+
+.discounts__img
+	width: 100%
+	height: 400px
+	background-position: 100%
+	background-size: cover
+
+.discounts__text
+	padding-top: 20px
+	font-size: 18px
+	font-weight: 700
+	text-align: center
+	color: gray-dark-color
+
+.discounts__promocode
+	padding-top: 20px
+	font-size: 14px
+	font-weight: 300
+	text-align: center
+	color: gray-dark-color
+
+.discounts_indent
+	width: 40px
+
+.discounts__shadow-start
+.discounts__shadow-end
+	position: relative
+	height: 60px
+	width: 100%
+
+.discounts__shadow-start:before
+.discounts__shadow-start:after
+.discounts__shadow-end::before
+.discounts__shadow-end::after
+	content: ''
+	position: absolute
+	bottom: -25px
+	left: 110px
+	width: 50%
+	max-width: 400px
+	height: 15px
+	box-shadow: 0 -15px 15px 5px rgba(0,0,0,0.035)
+	transform: rotate(3deg)
+	z-index: 1
+
+.discounts__shadow-start:after
+.discounts__shadow-end::after
+	transform: rotate(-3deg)
+	right: 110px
+	left: auto
+
+.discounts__shadow-start:before
+.discounts__shadow-start:after
+	top: -25px
+	box-shadow: 0 15px 15px 5px rgba(0,0,0,0.035)
+	transform: rotate(-3deg)
+
+.discounts__shadow-start:after
+	transform: rotate(3deg)
