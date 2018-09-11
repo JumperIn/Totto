@@ -1,15 +1,22 @@
 .main-content
 	flex(column, flex-start, center)
-	padding: 40px 0
+	padding: 20px 0 40px 0
 	min-width: 290px
 	background: #fff
+
+.main-nav
+	padding-bottom: 20px
+	border-bottom: solid 1px stroke-color
+
+.main-nav__wrapper
+	flex(, space-between)
+	width: 100%
 
 .main-nav__list
 	flex(row, center)
 	flex-wrap: wrap
 	list-style-type: none
 	margin: 0
-	padding-bottom: 20px
 
 .main-nav_center
 	padding-right: 10px
@@ -17,24 +24,44 @@
 .main-nav__item
 	flex(row, flex-start, center)
 	// height: 50px
-	padding: 0px 15px
-	border: 2px solid #e0e0e0
+	padding: 8px 20px
+	border: 2px solid #fff
 	border-radius: 20px
-	font-size: 12px
-	font-weight: 700
-	line-height: 39px
+	font-size: 16px
+	font-weight: 300
+	// line-height: 39px
 	text-transform: uppercase
-	color: gray
+	color: #4d4d4d
 	transition: color 200ms ease-in-out
 	cursor: pointer
 
-.main-nav__item:hover
-	color: blue-light
+// .main-nav__item:hover
+// 	color: blue-light
 
-.main-nav__item_active,
-.main-nav__item_active:hover
-	color: blue-light
-	border: 2px solid blue-light
+.main-nav__item_active
+// .main-nav__item_active:hover
+	border: 2px solid #eeeeb1
+
+.main-nav__selection
+	flex(row, center, center)
+	width: 240px
+	height: 40px
+	background-color: main-color
+	border-radius: 20px
+
+.main-nav__selection:hover
+	background-color: secondary-color
+
+.icon-menu
+	width: 20px
+	height: 20px
+
+.main-nav__selection_text
+	padding-left: 12px
+	font-size: 14px
+	font-weight: 500
+	text-transform: uppercase
+	color: #fff
 
 .button-left,
 .button-right
