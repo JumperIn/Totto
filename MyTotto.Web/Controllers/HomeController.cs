@@ -14,19 +14,16 @@ namespace MyTotto.Web.Controllers
 {
     public class HomeController : BaseController
     {
-        TottoContext context;
+        IBannersRepository bannersRepository;
 
-        public HomeController(TottoContext context)
+        public HomeController(IBannersRepository bannersRepository)
         {
-            this.context = context;
+            this.bannersRepository = bannersRepository;
         }
-
-
-
 
         public IActionResult Index()
         {
-            List<Banner> banners = context.Banners.ToList();
+            List<Banner> banners = bannersRepository.GetBanners();
 
             return View(banners);
         }
