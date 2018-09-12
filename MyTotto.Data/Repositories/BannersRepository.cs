@@ -63,10 +63,12 @@ namespace MyTotto.Data.Repositories
         public void DeleteBanner(int id)
         {
             Banner banner = GetBanner(id);
+
             if (banner == null)
             {
                 return;
             }
+
             context.Banners.Remove(banner);
             Save();
         }

@@ -16,6 +16,16 @@ namespace MyTotto.Data
         /// </summary>
         public DbSet<Banner> Banners { get; set; }
 
+        ///// <summary>
+        ///// Таблица карточек продуктов.
+        ///// </summary>
+        //public DbSet<ProductCard> ProductCards { get; set; }
+
+        ///// <summary>
+        ///// Таблица промо-блоков, которые находятся на главной странице.
+        ///// </summary>
+        //public DbSet<Promo> Promos { get; set; }
+
         public TottoContext(DbContextOptions<TottoContext> options) : base(options)
         {
             Database.EnsureCreated();
