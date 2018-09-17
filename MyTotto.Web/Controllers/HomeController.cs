@@ -45,51 +45,51 @@ namespace MyTotto.Web.Controllers
 
 
 
-        /// <summary>
-        /// Страница с Бонусными баллами.
-        /// </summary>
-        [Route("bonus-points")]
-        public IActionResult BonusPoints()
-        {
-            return View();
-        }
+        ///// <summary>
+        ///// Страница с Бонусными баллами.
+        ///// </summary>
+        //[Route("bonus-points")]
+        //public IActionResult BonusPoints()
+        //{
+        //    return View();
+        //}
 
-        /// <summary>
-        /// Страница с Подарочными сертификатами.
-        /// </summary>
-        [Route("gift-certificate")]
-        public IActionResult GiftCertificates()
-        {
-            return View();
-        }
+        ///// <summary>
+        ///// Страница с Подарочными сертификатами.
+        ///// </summary>
+        //[Route("gift-certificate")]
+        //public IActionResult GiftCertificates()
+        //{
+        //    return View();
+        //}
 
-        /// <summary>
-        /// Страница Оплаты и доставки.
-        /// </summary>
-        [Route("payment-and-delivery")]
-        public IActionResult PaymentAndDelivery()
-        {
-            return View();
-        }
+        ///// <summary>
+        ///// Страница Оплаты и доставки.
+        ///// </summary>
+        //[Route("payment-and-delivery")]
+        //public IActionResult PaymentAndDelivery()
+        //{
+        //    return View();
+        //}
 
-        /// <summary>
-        /// Страница Пункты самовывоза.
-        /// </summary>
-        [Route("pickup-points")]
-        public IActionResult PickupPoints()
-        {
-            return View();
-        }
+        ///// <summary>
+        ///// Страница Пункты самовывоза.
+        ///// </summary>
+        //[Route("pickup-points")]
+        //public IActionResult PickupPoints()
+        //{
+        //    return View();
+        //}
 
-        /// <summary>
-        /// Страница Контакты
-        /// </summary>
-        [Route("contacts")]
-        public IActionResult Contacts()
-        {
-            ViewData["Message"] = "Your contact page.";
+        ///// <summary>
+        ///// Страница Контакты
+        ///// </summary>
+        //[Route("contacts")]
+        //public IActionResult Contacts()
+        //{
+        //    ViewData["Message"] = "Your contact page.";
 
-            return View();
-        }
+        //    return View();
+        //}
     }
 }

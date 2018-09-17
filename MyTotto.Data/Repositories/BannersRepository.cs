@@ -19,11 +19,15 @@ namespace MyTotto.Data.Repositories
         }
 
         /// <summary>
-        /// Возвращает список баннеров.
+        /// Возвращает список баннеров в порядке сортировки Order.
         /// </summary>
         public List<Banner> GetBanners()
         {
-            return context.Banners.ToList();
+            List<Banner> banners = context.Banners
+                .OrderBy(b => b.Order)
+                .ToList();
+
+            return banners;
         }
 
         /// <summary>

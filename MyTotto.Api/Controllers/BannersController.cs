@@ -55,7 +55,7 @@ namespace MyTotto.Api.Controllers
         /// Удаляет баннер из списка.
         /// </summary>
         /// <param name="id">Идентификатор баннера.</param>
-        [HttpDelete("banner/{id}")]
+        [HttpPost("banner/delete/{id}")]
         public void UpdateBanner(int id)
         {
             bannersRepository.DeleteBanner(id);

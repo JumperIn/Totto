@@ -8,7 +8,7 @@ namespace MyTotto.Data.Abstract
     public interface IBannersRepository
     {
         /// <summary>
-        /// Возвращает список баннеров.
+        /// Возвращает список баннеров в порядке сортировки Order.
         /// </summary>
         List<Banner> GetBanners();
 

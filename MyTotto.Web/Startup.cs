@@ -41,7 +41,8 @@ namespace MyTotto
                 (options => options.UseSqlServer(connection));
 
             services.AddRepositories(Configuration);
-            
+            services.AddAndConfigureSwagger();
+
             services.AddMvc()
                 .AddApplicationPart(Assembly.Load("MyTotto.Api"))
                 .AddControllersAsServices();
@@ -64,6 +65,15 @@ namespace MyTotto
             //}
 
             app.UseStaticFiles();
+
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("../swagger/v1/swagger.json", "MyTotto API V1");
+            });
 
             app.UseMvc(routes =>
             {
