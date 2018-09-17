@@ -24,6 +24,7 @@ namespace MyTotto.Data.Repositories
         public List<Banner> GetBanners()
         {
             List<Banner> banners = context.Banners
+                .Where(b => b.IsActive)
                 .OrderBy(b => b.Order)
                 .ToList();
 
