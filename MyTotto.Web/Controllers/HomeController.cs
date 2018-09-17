@@ -8,88 +8,45 @@ using MyTotto.Data.Abstract;
 using MyTotto.Data.Models;
 using MyTotto.Web.Models;
 using MyTotto.Web.Abstract;
+using MyTotto.Data;
 
 namespace MyTotto.Web.Controllers
 {
     public class HomeController : BaseController
     {
-        public HomeController(ICommonRepository repository) : base(repository)
+        IBannersRepository bannersRepository;
+
+        public HomeController(IBannersRepository bannersRepository)
         {
-            this.repository = repository;
+            this.bannersRepository = bannersRepository;
         }
 
-
-
-
+        /// <summary>
+        /// Отображает главную страницу.
+        /// </summary>
         public IActionResult Index()
         {
-            List<Banner> banners = repository.GetBanners();
+            List<Banner> banners = bannersRepository.GetBanners();
 
             return View(banners);
         }
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
 
 
 
+        ///// Страница с Бонусными баллами.
+        //[Route("bonus-points")]
 
-        /// <summary>
-        /// Страница с Бонусными баллами.
-        /// </summary>
-        [Route("bonus-points")]
-        public IActionResult BonusPoints()
-        {
-            return View();
-        }
+        ///// Страница с Подарочными сертификатами.
+        //[Route("gift-certificate")]
 
-        /// <summary>
-        /// Страница с Подарочными сертификатами.
-        /// </summary>
-        [Route("gift-certificate")]
-        public IActionResult GiftCertificates()
-        {
-            return View();
-        }
+        ///// Страница Оплаты и доставки.
+        //[Route("payment-and-delivery")]
 
-        /// <summary>
-        /// Страница Оплаты и доставки.
-        /// </summary>
-        [Route("payment-and-delivery")]
-        public IActionResult PaymentAndDelivery()
-        {
-            return View();
-        }
-
-        /// <summary>
-        /// Страница Пункты самовывоза.
-        /// </summary>
-        [Route("pickup-points")]
-        public IActionResult PickupPoints()
-        {
-            return View();
-        }
-
-        /// <summary>
-        /// Страница Контакты
-        /// </summary>
-        [Route("contacts")]
-        public IActionResult Contacts()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
+        ///// Страница Пункты самовывоза.
+        //[Route("pickup-points")]
+        
+        ///// Страница Контакты
+        //[Route("contacts")]
     }
 }

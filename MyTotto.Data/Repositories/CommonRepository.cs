@@ -7,12 +7,6 @@ namespace MyTotto.Data.Repositories
 {
     public class CommonRepository : ICommonRepository
     {
-        /// <summary>
-        /// Получает список баннеров.
-        /// </summary>
-        public List<Banner> GetBanners()
-        {
-            return new List<Banner>();
-        }
+        
     }
 }

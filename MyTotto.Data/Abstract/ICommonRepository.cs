@@ -7,9 +7,6 @@ namespace MyTotto.Data.Abstract
 {
     public interface ICommonRepository
     {
-        /// <summary>
-        /// Получает список баннеров.
-        /// </summary>
-        List<Banner> GetBanners();
+        
     }
 }
