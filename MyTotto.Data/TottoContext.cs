@@ -29,13 +29,14 @@ namespace MyTotto.Data
 
         public TottoContext(DbContextOptions<TottoContext> options) : base(options)
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
             //Database.Migrate();
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.ApplyConfiguration(new BannersConfiguration());
             modelBuilder.ApplyConfiguration(new ProductsConfiguration());
         }
     }

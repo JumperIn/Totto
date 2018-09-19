@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace MyTotto.Data.Models
@@ -60,8 +61,14 @@ namespace MyTotto.Data.Models
         public DateTime Created { get; set; }
 
         /// <summary>
+        /// Строка, хранящая ссылки на изображения продукта.
+        /// </summary>
+        public string Images { get; set; }
+
+        /// <summary>
         /// Ссылки на изображения продукта.
         /// </summary>
-        List<string> Images { get; set; }
+        [NotMapped]
+        public string[] ImagesArray { get; set; }
     }
 }
