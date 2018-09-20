@@ -19,14 +19,14 @@ namespace MyTotto
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+        public IHostingEnvironment Environment { get; }
+
         public Startup(IConfiguration configuration, IHostingEnvironment environment)
         {
             Configuration = configuration;
             Environment = environment;
         }
-
-        public IConfiguration Configuration { get; }
-        public IHostingEnvironment Environment { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -37,8 +37,12 @@ namespace MyTotto
                 connection = connection.Replace("%CONTENTROOTPATH%", Environment.ContentRootPath);
             }
 
-            services.AddDbContext<TottoContext>
-                (options => options.UseSqlServer(connection));
+            //services.AddDbContext<TottoContext>(options => 
+            //    options.UseSqlServer(connection));
+
+            services.AddDbContext<TottoContext>(options =>
+               options.UseSqlServer(connection, builder =>
+                   builder.MigrationsAssembly("MyTotto.Data")));
 
             services.AddRepositories(Configuration);
             services.AddAndConfigureSwagger();

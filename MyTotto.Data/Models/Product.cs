@@ -5,9 +5,9 @@ using System.Text;
 namespace MyTotto.Data.Models
 {
     /// <summary>
-    /// Модель карточки продукта.
+    /// Модель продукта.
     /// </summary>
-    public class ProductCard
+    public class Product
     {
         /// <summary>
         /// Идентификатор.
@@ -58,5 +58,10 @@ namespace MyTotto.Data.Models
         /// Дата создания.
         /// </summary>
         public DateTime Created { get; set; }
+
+        /// <summary>
+        /// Строка с массивом ссылок на изображения.
+        /// </summary>
+        public string ImageUrls { get; set; }
     }
 }

@@ -14,11 +14,20 @@ namespace MyTotto.Web.Controllers
 {
     public class HomeController : BaseController
     {
-        IBannersRepository bannersRepository;
+        private IBannersRepository bannersRepository;
+        private IProductsRepository productsRepository;
+        private IPromosRepository promosRepository;
 
-        public HomeController(IBannersRepository bannersRepository)
+        public HomeController
+        (
+            IBannersRepository bannersRepository,
+            IProductsRepository productsRepository,
+            IPromosRepository promosRepository
+        )
         {
             this.bannersRepository = bannersRepository;
+            this.productsRepository = productsRepository;
+            this.promosRepository = promosRepository;
         }
 
         /// <summary>
@@ -27,6 +36,8 @@ namespace MyTotto.Web.Controllers
         public IActionResult Index()
         {
             List<Banner> banners = bannersRepository.GetBanners();
+            List<Product> products = productsRepository.GetAllProducts();
+            List<Promo> promos = promosRepository.GetAllPromos();
 
             return View(banners);
         }
