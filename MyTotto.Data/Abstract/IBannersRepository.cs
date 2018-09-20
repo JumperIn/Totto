@@ -5,6 +5,9 @@ using MyTotto.Data.Models;
 
 namespace MyTotto.Data.Abstract
 {
+    /// <summary>
+    /// Интерфейс для работы с баннерами.
+    /// </summary>
     public interface IBannersRepository
     {
         /// <summary>

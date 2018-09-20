@@ -56,7 +56,7 @@ namespace MyTotto.Api.Controllers
         /// </summary>
         /// <param name="id">Идентификатор баннера.</param>
         [HttpPost("banner/delete/{id}")]
-        public void UpdateBanner(int id)
+        public void DeleteBanner(int id)
         {
             bannersRepository.DeleteBanner(id);
         }
