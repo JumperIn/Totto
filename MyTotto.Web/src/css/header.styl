@@ -66,13 +66,10 @@
 
 .header-title__item
 	padding-left: 20px
-	font-size: 14px
-	color: gray-dark-color
 
 .header-title__item_h
 	margin: 0px
-	font-size: 14px
-	font-weight: 100
+	font(14px, 100)
 
 .header-info
 	flex(,,center)
@@ -89,9 +86,7 @@
 .header-info-pers-area__text
 .header-info-basket__text
 	padding-left: 10px
-	font-size: 14px
-	font-weight: 100
-	color: gray-dark-color
+	font(14px, 100)
 	span
 		font-weight: 700
 
@@ -120,10 +115,8 @@
 	border-radius: (@height / 2)
 
 .header-info-phone__link_text
-	font-size: 14px
-	font-weight: 500
+	font(14px, 500, #fff)
 	text-transform: uppercase
-	color: #fff
 
 .header-info-search
 	flex(row, center, center)
@@ -134,17 +127,14 @@
 	position: relative
 	height: 40px
 	padding-left: 20px
-	font-size: 14px
+	font(14px, 100, stroke-color)
 	border: 1px solid stroke-color
 	border-radius: (@height / 2)
 	background: #fff
-	color: stroke-color
 	transition: background-color 200ms ease-in-out
 
 .header-info-search__input::placeholder
-	font-size: 14px
-	font-weight: 100
-	color: stroke-color
+	font(14px, 100, stroke-color)
 
 .icon-button-search
 	size(30px, 30px)
@@ -255,10 +245,8 @@
 	flex-wrap: nowrap
 	height: 100%
 	padding: 0px 15px
-	font-size: 12px
+	font(12px)
 	text-transform: uppercase
-	font-weight: 300
-	color: gray-dark-color
 	list-style-type: none
 
 .menu-item__icon2
@@ -315,16 +303,12 @@
 	border-bottom: solid 1px stroke-color
 
 .menu-drop__catalog
-	font-size: 15px
-	font-weight: 500
+	font(15px, 500)
 	text-transform: uppercase
-	color: gray-dark-color
 
 .menu-drop__see-all
-	font-size: 14px
-	font-weight: 300
+	font(14px)
 	text-transform: uppercase
-	color: gray-dark-color
 
 .menu-drop__body
 	flex(column, flex-start)
@@ -344,9 +328,7 @@
 .menu-drop__list-header
 	display: block
 	padding: 8px 0
-	font-size: 16px
-	font-weight: 300
-	color: #464647
+	font(16px,, #464647)
 
 .menu-drop__list
 	display: none
@@ -362,9 +344,7 @@
 	display: block
 	position: relative
 	padding: 8px 0px
-	font-size: 16px
-	font-weight: 100
-	color: #676767
+	font(16px, 100, #676767)
 
 .menu-drop__item:hover
 	color: main-color
@@ -423,9 +403,7 @@
 	background-color: #e9e7a0
 
 .menu-drop-img__text
-	font-size: 14px
-	font-weight: 300
-	color: gray-dark-color
+	font(14px)
 
 .menu-item__icon1
 	display: none
@@ -542,11 +520,9 @@
 	.menu-drop__list-header
 		size(100%, 100%)
 		padding: 0px 0px 0px 20px
-		font-size: 12px
-		font-weight: 400
+		font(12px, 300, #000)
 		line-height: 48px
 		text-transform: uppercase
-		color: #000
 		transition: color 200ms ease-in-out
 	.menu-item__icon2,
 	.menu-drop__icon

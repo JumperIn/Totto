@@ -29,13 +29,11 @@
 	flex(row, flex-start, center)
 	// height: 50px
 	padding: 8px 20px
+	font(,, #4d4d4d)
 	border: 2px solid #fff
 	border-radius: 20px
-	font-size: 16px
-	font-weight: 300
 	// line-height: 39px
 	text-transform: uppercase
-	color: #4d4d4d
 	transition: color 200ms ease-in-out
 	cursor: pointer
 
@@ -60,10 +58,8 @@
 
 .main-nav__selection_text
 	padding-left: 12px
-	font-size: 14px
-	font-weight: 500
+	font(14px, 500, #fff)
 	text-transform: uppercase
-	color: #fff
 
 .button-left,
 .button-right
@@ -106,25 +102,19 @@
 	display: block
 	height: 45px
 	margin-bottom: 15px
-	font-size: 13px
-	font-weight: 500
+	font(13px, 500)
 	text-align: start
-	color: gray-dark-color
 	overflow: hidden
 
 .product__price-before
-	font-size: 14px
-	font-weight: 300
-	color: gray-dark-color
+	font(14px)
 
 .product__price-before-strike
 	text-decoration: line-through
 	color: main-color
 
 .product__price-after
-	font-size: 22px
-	font-weight: 500
-	color: gray-dark-color
+	font(22px, 500)
 
 .product-sale
 	flex(column, space-around, center)
@@ -163,12 +153,10 @@
 .product__inbasket_buy
 	flex(, center, center)
 	size(100%, 40px)
+	font(14px, 500, #fff)
 	text-transform: uppercase
-	font-size: 14px
-	font-weight: 500
 	border-radius: 20px
 	background-color: main-color
-	color: #fff
 	
 .product__inbasket_buy:hover
 	background-color: secondary-color
@@ -190,11 +178,9 @@
 .products__link
 	flex(, center, center)
 	size(154px, 36px)
-	font-size: 14px
-	font-weight: 100
+	font(14px, 100, #fff)
 	border-radius: 18px
 	background-color: main-color
-	color: #fff
 	z-index: 2
 
 .products__link:hover
