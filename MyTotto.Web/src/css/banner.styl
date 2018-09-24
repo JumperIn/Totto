@@ -16,8 +16,7 @@
 	justify-content: center
 	align-items: center
 	position: absolute
-	height: 72px
-	width: 40px
+	size(40px, 72px)
 	top: 189px
 	background: #fff
 	color: #acacac
@@ -36,8 +35,6 @@
 
 .banner
 	display: flex
-	// width: 100%
-	// height: 100%
 	background-position: center
 	background-size: cover
 
@@ -48,9 +45,7 @@
 
 .banner-body
 	flex(row, center, center)
-	// max-width: 1500px
-	width: 100%
-	height: auto
+	size(100%, auto)
 
 .banner_padding
 	padding: 0 80px
@@ -85,8 +80,7 @@
 
 .banner__timer
 	margin-top: 20px
-	width: 250px
-	height: 50px
+	size(250px, 50px)
 	background-color: #cdcdcd
 
 .banner__content_link
@@ -103,8 +97,7 @@
 @media (max-width: 767px)
 	.banner__wrapper
 		display: block
-		height: 180px
-		width: 305px
+		size(305px, 180px)
 		margin: 0 auto
 	.banner__img
 		display: block

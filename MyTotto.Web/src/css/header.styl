@@ -96,12 +96,10 @@
 		font-weight: 700
 
 .icon-pers
-	height: 20px
-	width: 20px
+	size(20px, 20px)
 
 .icon-basket
-	height: 22px
-	width: 22px
+	size(22px, 22px)
 
 .header-info-phone
 	justify-content: space-between
@@ -117,8 +115,7 @@
 
 .header-info-phone__link_proportions
 	flex(,center, center)
-	height: 40px
-	width: 170px
+	size(170px, 40px)
 	background-color: main-color
 	border-radius: (@height / 2)
 
@@ -150,8 +147,7 @@
 	color: stroke-color
 
 .icon-button-search
-	width: 30px
-	height: 30px
+	size(30px, 30px)
 
 .header-info-search__button
 	position: absolute
@@ -205,11 +201,10 @@
 .menu::after
 	content: ''
 	position: absolute
+	size(50%, 15px)
 	bottom: -25px
 	left: 110px
-	width: 50%
 	max-width: 400px
-	height: 15px
 	box-shadow: 0 -15px 15px 5px rgba(0,0,0,0.035)
 	transform: rotate(3deg)
 	z-index: 1
@@ -223,35 +218,31 @@
 
 .menu-logo
 	flex()
-	height: 53px
-	width: 229px
+	size(229px, 53px)
 	position: relative
 
 .menu-logo__link
 	position: absolute
+	size(229px, 53px)
 	top: 0
 	left: 0
-	height: 53px
-	width: 229px
 	z-index: 200
 
 .menu-logo_shadow
 	position: absolute
+	size(100px, 17px)
 	// ставим источник тени на середину лого
 	// 53/2 - 17/2
 	top: 18px 
 	// 229/2 - 100/2
 	left: 64px
-	height: 17px
-	width: 100px
 	border-radius: 50%
 	background: #fff
 	box-shadow: 0px 0px 120px 40px rgba(255, 255, 255, 1)
 	z-index: 0
 
 .icon-logo
-	height: 53px
-	width: 229px
+	size(229px, 53px)
 	z-index: 100
 
 .menu__list
@@ -304,9 +295,8 @@
 .menu-drop::before
 	content: ''
 	position: absolute
+	size(0, 0)
 	top: -12px
-	width: 0
-	height: 0
 	border-style: solid
 	border-width: 0 12px 12px 12px
 	border-color: transparent transparent #ffffff transparent
@@ -382,8 +372,7 @@
 .menu-drop__item:hover::before
 	position: absolute
 	content: ''
-	width: 24px
-	height: 19px
+	size(24px, 19px)
 	fill: black
 	top: 8px
 	left: -30px
@@ -403,10 +392,9 @@
 .menu-drop__body_hover:hover .menu-drop__wrap::after
 	content: ''
 	position: absolute
+	size(0, 0)
 	top: 5px
 	right: -1px
-	width: 0
-	height: 0
 	border-style: solid
 	border-width: 12px 12px 12px 0
 	border-color: transparent #fff transparent transparent
@@ -423,17 +411,15 @@
 	right: -100%
 
 .menu-drop-img__face
-	height: 200px
-	width: 200px
+	size(200px, 200px)
 	background-image: url(../images/cream.jpg)
 	background-size: 100% 100%
 	background-repeat: no-repeat
 
 .menu-drop-img__sale
 	flex(, center, center)
+	size(200px, 100px)
 	padding: 0 20px
-	height: 100px
-	width: 200px
 	background-color: #e9e7a0
 
 .menu-drop-img__text
@@ -490,17 +476,15 @@
 		position: absolute
 		top: 100%
 		left: 0px
-		height: auto
-		width 100%
+		size(100%, auto)
 		align-items: start
 		background: white
 		z-index: 200
 	.menu-link
 		display: flex
 		align-items: center
+		size(140px, 80px)
 		padding: 0px 20px
-		height: 80px
-		width: 140px
 		cursor: pointer
 		font-size: 14px
 		font-weight: 500
@@ -537,8 +521,7 @@
 	.menu__wrap
 		display: flex
 		flex-direction: row
-		height: 48px
-		width: 100%
+		size(100%, 48px)
 		padding: 0px
 		border-top: solid 1px red-light
 		background-color: #FFFAFA
@@ -547,8 +530,7 @@
 		display: flex
 		flex-direction: row
 		align-items: center
-		height: 48px
-		width: 100%
+		size(100%, 48px)
 		padding: 0px
 		border-top: solid 1px #ededed
 		background-color: #fff
@@ -558,8 +540,7 @@
 		font-size: 14px
 		color: #000
 	.menu-drop__list-header
-		height: 100%
-		width: 100%
+		size(100%, 100%)
 		padding: 0px 0px 0px 20px
 		font-size: 12px
 		font-weight: 400
@@ -569,8 +550,7 @@
 		transition: color 200ms ease-in-out
 	.menu-item__icon2,
 	.menu-drop__icon
-		height: 48px
-		width: 50px
+		size(50px, 48px)
 		padding: 0px
 		line-height: 48px
 		text-align: center
