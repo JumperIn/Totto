@@ -15,7 +15,7 @@ namespace MyTotto.Data.Configurations
             builder.ToTable("Products");
 
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Created).ValueGeneratedOnAdd();
+            builder.Property(x => x.Created).HasDefaultValue(DateTime.Now);
 
             builder.HasData(
                new Product()

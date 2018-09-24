@@ -15,7 +15,7 @@ namespace MyTotto.Data.Configurations
             builder.ToTable("Banners");
 
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Created).ValueGeneratedOnAdd();
+            builder.Property(x => x.Created).HasDefaultValue(DateTime.Now);
 
             builder.HasData(
                new Banner()

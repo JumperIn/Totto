@@ -29,7 +29,7 @@ namespace MyTotto.Data
 
         public TottoContext(DbContextOptions<TottoContext> options) : base(options)
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 

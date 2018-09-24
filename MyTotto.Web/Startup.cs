@@ -40,9 +40,14 @@ namespace MyTotto
             //services.AddDbContext<TottoContext>(options => 
             //    options.UseSqlServer(connection));
 
+            //services.AddDbContext<TottoContext>(options =>
+            //   options.UseSqlServer(connection, builder =>
+            //       builder.MigrationsAssembly("MyTotto.Data")));
+
             services.AddDbContext<TottoContext>(options =>
                options.UseSqlServer(connection, builder =>
-                   builder.MigrationsAssembly("MyTotto.Data")));
+                   builder.MigrationsAssembly(typeof(TottoContext).GetTypeInfo().Assembly.GetName().Name)));
+
 
             services.AddRepositories(Configuration);
             services.AddAndConfigureSwagger();
