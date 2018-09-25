@@ -14,6 +14,9 @@ namespace MyTotto.Data.Configurations
         {
             builder.ToTable("Banners");
 
+            // Индекс на таблицу
+            builder.HasIndex(x => x.Id).IsUnique();
+
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Created).HasDefaultValue(DateTime.Now);
 

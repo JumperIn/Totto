@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using MyTotto.Data.Configurations;
@@ -29,8 +30,15 @@ namespace MyTotto.Data
 
         public TottoContext(DbContextOptions<TottoContext> options) : base(options)
         {
-            //Database.EnsureDeleted();
-            Database.EnsureCreated();
+            // Ниже включаю для миграций. Вроде должно быть ок.
+
+            //Database.EnsureCreated();
+
+            //var pendingMigrations = Database.GetPendingMigrations().ToList();
+            //if (pendingMigrations.Any())
+            //{
+            //    Database.Migrate();
+            //}
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
