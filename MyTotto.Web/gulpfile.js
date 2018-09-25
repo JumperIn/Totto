@@ -27,6 +27,7 @@ var source = 'src';
 // сюда указываем пути у подключаемых библиотек
 var libsCss = [
     `./${source}/libs/styles/bootstrap-grid.min.css`,
+    `./${source}/libs/styles/normalize.css`,
     `./${source}/libs/styles/fontawesome/fontawesome-all.min.css`,
     `./${source}/libs/styles/fontawesome/fontawesome.min.css`,
     `./${source}/libs/styles/fontawesome/fa-brands.min.css`,
