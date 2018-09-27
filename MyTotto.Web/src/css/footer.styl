@@ -1,8 +1,9 @@
 .footer
+	flex(column, center, center)
 	background-color: #fff
 
-.footer-menu
-	padding: 30px 80px
+.footer__wrapper
+	padding: 45px 0 40px 0
 
 .footer-block
 	padding-right: 5px
@@ -64,12 +65,35 @@
 	text-transform: uppercase
 
 .footer-copyright
-	padding: 0 80px
+	flex(, center)
+	width: 100%
+	background-color: main-color
+
+.footer-copyright__wrapper
+	flex(, space-between)
+	padding: 35px 0
 
 .footer-copyright__text
-	margin-top: 10px
-	padding: 5px 0
-	font(13px,, gray-darken)
+	flex(,,center)
+	font(14px, 100, #c6dd7e)
+
+.footer-copyright__link
+	font(14px, 100, #fff)
+
+.footer-copyright__icons
+	flex(, flex-end, center)
+
+.footer-copyright__icon
+	flex(center, center)
+	margin-left: 5px
+
+.footer-icon
+	size(25px, 25px)
+	color: icon-color
+
+.footer-icon:hover
+	color: icon-color-hover
+	stroke: icon-color
 
 @media (max-width: 767px)
 	.footer-block
@@ -87,6 +111,6 @@
 	.footer-block__body
 		padding-bottom: 10px
 
-@media (max-width: 1199px)
-	.footer-menu
-		padding: 20px 20px
+// @media (max-width: 1199px)
+// 	.footer__wrapper
+// 		padding: 20px 20px
