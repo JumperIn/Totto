@@ -136,34 +136,21 @@
 .header-info-search__input::placeholder
 	font(14px, 100, stroke-color)
 
-.icon-button-search
+.header-icon-button-search
 	size(30px, 30px)
+	color: main-color
+	transition: color 200ms ease-in-out
+
+.header-icon-button-search:hover
+	color: secondary-color
 
 .header-info-search__button
 	position: absolute
 	right: 0px
 	top: 4px
-	border: none 
-	background: none 
-	color: gray
+	border: none
+	background: none
 	cursor: pointer
-
-
-.header-info-icons
-	justify-content: center
-	align-items: center
-
-.header-info-icons__item
-	padding-left: 10px
-	color: gray
-	transition: color 200ms ease-in-out
-
-.header-info-search__button
-	transition: color 200ms ease-in-out
-
-.header-info-icons__item:hover,
-.header-info-search__button:hover
-	color: blue-light
 
 @media(max-width: 767px)
 	.header-info-icons

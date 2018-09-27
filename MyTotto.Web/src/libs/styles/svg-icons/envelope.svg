@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="31.81" height="31.81" viewBox="0 0 31.81 31.81">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #95a700;
+      }
+    </style>
+  </defs>
+  <title>envelope</title>
+  <g id="Слой_2" data-name="Слой 2">
+    <g id="Layer_1" data-name="Layer 1">
+      <g id="circle">
+        <path class="cls-1" d="M16.64,18.22a1,1,0,0,1-1.41,0l-.78-.79-3,2.95h9l-3-2.92ZM22,11.43H9.89l6,6Zm-13,.5v8.45h1l3.74-3.68Zm13,8.45h1V12l-4.7,4.71ZM15.91,0a15.91,15.91,0,1,0,15.9,15.91A15.91,15.91,0,0,0,15.91,0Zm8,20.38a1,1,0,0,1-1,1H9a1,1,0,0,1-1-1V11.43a1,1,0,0,1,1-1H22.86a1,1,0,0,1,1,1Z"/>
+      </g>
+    </g>
+  </g>
+</svg>
