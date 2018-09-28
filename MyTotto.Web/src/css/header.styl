@@ -14,48 +14,6 @@
 .header-title_height
 	height: 176px
 
-@media (min-width: 768px)
-	.header-info-phone__media
-		display: none
-	.header-info-phone
-		display: flex
-	.header-info-icons
-		display: flex
-
-@media (max-width: 991px) 
-	.header-info-phone
-		font-size: 20px
-	.menu
-		width: 720px
-
-@media (min-width: 992px) 
-	.header-info-phone
-		font-size: 24px 
-@media (max-width: 1199px)
-	.menu-drop
-		width: 100%
-		left: 0
-		
-@media (min-width: 1200px) 
-	.menu-drop
-		width: 120%
-		left: -10%
-
-@media (max-width: 1280px)
-	.menu
-		width: 720px
-		
-@media (max-width: 767px)
-	.header-info-phone__media
-		flex(row, center, center)
-		padding: 5px 0px
-	.header-title__menu
-		display: none
-	.header-info-phone
-		display: none
-	.menu
-		width: 100%
-
 .header-title__menu
 	flex(row, , center)
 
@@ -97,11 +55,10 @@
 	size(22px, 22px)
 
 .header-info-phone
-	justify-content: space-between
-	align-items: center
+	flex(, space-between, center)
 
 .header-info-phone__number
-	color: gray-dark-color
+	font(26px, 300)
 	span
 		color: main-color
 
@@ -155,18 +112,6 @@
 	border: none
 	background: none
 	cursor: pointer
-
-@media(max-width: 767px)
-	.header-info-icons
-		position: absolute
-		top: 73px
-		right: 0px
-		z-index: 1
-	.header-info-icons__item
-		font-size: 26px
-		color: #fff
-	.header-info-icons__item:hover
-		color: #fff
 
 .header-nav
 	display: flex
