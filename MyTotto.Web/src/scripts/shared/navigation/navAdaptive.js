@@ -74,8 +74,8 @@ function hideList() {
 		toggleNotExistClass('accordion', 'fa-plus', i);
 		toggleNotExistClass('menu-drop', 'hidden', i);
 		toggleExistClass('accordion', 'fa-minus', i);
-		toggleExistClass('accordion', 'fa-angle-down', i);
 		toggleExistClass('accordion', 'icon-accordion-active', i);
+		toggleExistClass('accordion', 'hidden', i);
 		toggleExistClass('menu__wrap', 'accordion-active', i);
 	}
 }
@@ -114,7 +114,6 @@ function showList() {
 		elems[i].classList.remove('icon-accordion-active');
 		elems[i].classList.remove('fa-plus');
 		elems[i].classList.remove('fa-minus');
-		elems[i].classList.add('fa-angle-down');
 	}
 }
 

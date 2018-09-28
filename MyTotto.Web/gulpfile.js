@@ -94,6 +94,7 @@ gulp.task("js", function () {
 	gulp.src(srcPaths.js)
 		.pipe(named())
 		.pipe(webpackStream({
+			watch: true,
 			module: {
 				rules: [
 					{
@@ -189,8 +190,11 @@ gulp.task('svg', function () {
 gulp.task('watch', function () {
     livereload.listen();
     gulp.watch(
-        [...srcPaths.allStylus, ...srcPaths.js, ...srcPaths.icons, ...srcPaths.img, ...srcPaths.libsJs, ...srcPaths.libsCss],
-        [ 'stylus', 'js', 'copy', 'libs' ])
+        // [...srcPaths.allStylus, ...srcPaths.js, ...srcPaths.icons, ...srcPaths.img, ...srcPaths.libsJs, ...srcPaths.libsCss],
+		// [ 'stylus', 'js', 'copy', 'libs' ])
+		// убрал js из watch, так как watch есть в gulp js отдельно
+        [...srcPaths.allStylus, ...srcPaths.icons, ...srcPaths.img, ...srcPaths.libsJs, ...srcPaths.libsCss],
+        [ 'stylus', 'copy', 'libs' ])
         .on('change', livereload.changed);
 });
 
