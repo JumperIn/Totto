@@ -107,6 +107,28 @@
 	color: icon-color-hover
 	stroke: icon-color
 
+.footer-anchor
+	flex(column, center, center)
+	position: absolute
+	top: 0
+	right: 0
+	size(90px, 42px)
+	background-color: main-color
+	border-radius: 25px
+	transition: background-color 200ms ease-in-out
+
+.footer-anchor:hover
+	background-color: secondary-color
+
+.footer-icon-arrow-top
+	size(17px, 9px)
+	color: #fff
+
+.footer-anchor__text
+	padding-top: 6px
+	font(12px, 500, #fff)
+	text-transform: uppercase
+
 @media (max-width: 767px)
 	.footer-block
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1)
