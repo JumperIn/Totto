@@ -1,5 +1,5 @@
 import { constants, variables } from "../const/const";
-import { hideMenu, showMenu } from "../navigation/navAdaptive";
+import { hideMenu, showMenu, toCenterDropMenu } from "../navigation/navAdaptive";
 // import { hideDropNavAdaptive, scrollNavEvent } from "../navigation/scrollNav";
 import { adaptFooter } from "../footer/footer";
 // import { getNumProductDisp, returnCarouselBack } from "../../pages/mainPage/modules/carousel/carousel";
@@ -31,6 +31,7 @@ function resize() {
 			//данные функции выполняются при каждом событии изменения экрана, для адаптивной работы баннеров и карусели
 			// getNumProductDisp();
 			returnBannerBack();
+			toCenterDropMenu();
 			// returnCarouselBack(0);
 			// returnCarouselBack(1);
 			// returnCarouselBack(2);

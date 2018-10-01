@@ -15,13 +15,13 @@ function adaptMenu() {
 }
 
 function dropDownMenuEvent() {
-	var elem = document.getElementsByClassName('menu-link')[0];
-	elem.addEventListener('click', function () {
-		var panel = this.nextElementSibling;
-		if (!panel.classList.contains('hidden')) {
+	var elem1 = document.getElementsByClassName('menu-link')[0];
+	var elem2 = document.getElementsByClassName('menu__list')[0];
+	elem1.addEventListener('click', function () {
+		if (!elem2.classList.contains('hidden')) {
 			hideMenu();
 		} else {
-			panel.classList.toggle('hidden');
+			elem2.classList.toggle('hidden');
 		}
 	})
 }
@@ -73,6 +73,8 @@ function hideList() {
     for (var i = 0; i < elems.length; i++) {
 		toggleNotExistClass('accordion', 'fa-plus', i);
 		toggleNotExistClass('menu-drop', 'hidden', i);
+		toggleNotExistClass('menu-drop__title', 'hidden', i);
+		toggleNotExistClass('menu-drop-img', 'hidden', i);
 		toggleExistClass('accordion', 'fa-minus', i);
 		toggleExistClass('accordion', 'icon-accordion-active', i);
 		toggleExistClass('accordion', 'hidden', i);
@@ -114,6 +116,8 @@ function showList() {
 		elems[i].classList.remove('icon-accordion-active');
 		elems[i].classList.remove('fa-plus');
 		elems[i].classList.remove('fa-minus');
+		toggleExistClass('menu-drop__title', 'hidden', i);
+		toggleExistClass('menu-drop-img', 'hidden', i);
 	}
 }
 
@@ -138,15 +142,21 @@ function showItem() {
 function toCenterDropMenu() {
 	var elems1 = document.getElementsByClassName('menu-drop');
 	var elems2 = document.getElementsByClassName('menu__wrap');
-	for ( var i = 0; i < elems1.length; i++) {
-		elems1[i].style.display = "flex";
-
-		var widthMenu = elems1[i].offsetWidth;
-		var widthTitle = elems2[i].offsetWidth;
-
-		elems1[i].style.left = `-${(widthMenu/2) - (widthTitle/2)}px`
-
-		elems1[i].style.display = "";
+	if (window.innerWidth < constants.SCREEN_MEDIUM) {
+		for ( var i = 0; i < elems1.length; i++) {
+			elems1[i].style.left = `0px`
+		}
+	} else if (window.innerWidth >= constants.SCREEN_MEDIUM) {
+		for ( var i = 0; i < elems1.length; i++) {
+			elems1[i].style.display = "flex";
+	
+			var widthMenu = elems1[i].offsetWidth;
+			var widthTitle = elems2[i].offsetWidth;
+	
+			elems1[i].style.left = `-${(widthMenu/2) - (widthTitle/2)}px`
+	
+			elems1[i].style.display = "";
+		}
 	}
 }
 

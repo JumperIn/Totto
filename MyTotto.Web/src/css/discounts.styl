@@ -58,3 +58,22 @@
 
 .discounts__shadow-start:after
 	transform: rotate(3deg)
+
+@media (max-width: 767px)
+	.discounts__shadow-start:before
+	.discounts__shadow-start:after
+	.discounts__shadow-end::before
+	.discounts__shadow-end::after
+		content: none
+
+@media (max-width: 1199px)
+	.discounts__shadow-start:before
+	.discounts__shadow-start:after
+	.discounts__shadow-end::before
+	.discounts__shadow-end::after
+		left: 0
+
+	.discounts__shadow-start:after
+	.discounts__shadow-end::after
+		right: 0
+		left: auto
