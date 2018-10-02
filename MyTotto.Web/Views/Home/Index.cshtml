@@ -1,7 +1,7 @@
-﻿@model List<Banner>
+﻿@model MainPageViewModel
 
-@Html.Partial("_Banners", Model)
+@Html.Partial("_Banners", Model.Banners)
 
-@Html.Partial("_Products")
+@Html.Partial("_Products", Model.Products)
 
 @Html.Partial("_Info")

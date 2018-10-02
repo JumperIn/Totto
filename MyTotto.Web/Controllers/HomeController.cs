@@ -39,7 +39,9 @@ namespace MyTotto.Web.Controllers
             List<Product> products = productsRepository.GetAllProducts();
             List<Promo> promos = promosRepository.GetAllPromos();
 
-            return View(banners);
+            var mainPage = new MainPageViewModel(banners, products, promos);
+
+            return View(mainPage);
         }
 
 

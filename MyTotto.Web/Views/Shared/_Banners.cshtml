@@ -1,10 +1,10 @@
-﻿@model List<Banner>
+﻿@model List<BannerViewModel>
 
 <section class="main-section-banners container-fluid">
     <div class="banners container-fluid">
         <div class="banners-wrapper row">
 
-            @for (int i = 0; i < Model.Count; i++)
+            @for (int i = 0; i < Model.Count(); i++)
             {
                 var banner = Model[i];
                 string bgImageBanner = $"/images/bg_img{banner.Id}.png";
