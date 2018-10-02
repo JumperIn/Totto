@@ -177,7 +177,11 @@ publish/
 # but database connection strings (with potential passwords) will be unencrypted
 #*.pubxml
 *.publishproj
-*/appsettings.json
+
+# ASP.NET Core appsettings
+appsettings.json
+appsettings.production.json
+appsettings.development.json
 
 # Microsoft Azure Web App publish settings. Comment the next line if you want to
 # checkin your Azure Web App publish settings, but sensitive information contained

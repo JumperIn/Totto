@@ -1,4 +1,6 @@
-﻿<div class="container-fluid">
+﻿@model List<ProductCardViewModel>
+
+<div class="container-fluid">
 	<div class="container-fluid row justify-content-center">
 		<section class="main-section-content main-section-content_padding col-10">
 			<div class="main-content container-fluid">
@@ -16,276 +18,69 @@
 					<div class="products container-fluid row">
 						<div id="moveCarouselLeft0" class="button-left col-1"><i class="fas fa-angle-left fa-3x"></i></div>
 						<div class="carousel col-10">
-							<div class="products-wrapper row">
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream1.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
+                            <div class="products-wrapper row">
 
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream2.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
+                                @for (int i = 0; i < Model.Count; i++)
+                                {
+                                    var product = Model[i];
 
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream3.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
+                                    <div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <div class="products__item_padding ">
+                                            <div class="product">
+                                                <a href="@product.Url">
+                                                    <img class="product_img" src="images/cream1.png" alt="Крем">
+                                                </a>
+                                                <div class="product__info">
+                                                    <a class="product__name" href="@product.Url">@product.Title</a>
+                                                    <div class="product__price">
+                                                        @product.DiscountPrice  <s>(@product.Price)</s>
+                                                        <i class="fas fa-ruble-sign"></i>
+                                                    </div>
+                                                    <div class="product__inbasket">
+                                                        <a class="product__inbasket_buy" href="#">В корзину</a>
+                                                    </div>
+                                                </div>
 
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream4.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
 
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream5.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream6.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream7.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-							</div>
+                            </div>
 						</div>
 						<div id="moveCarouselRight0" class="button-right col-1"><i class="fas fa-angle-right fa-3x"></i></div>
 					</div>
 					<div class="products container-fluid row hidden">
 						<div id="moveCarouselLeft1" class="button-left col-1"><i class="fas fa-angle-left fa-3x"></i></div>
 						<div class="carousel col-10">
-							<div class="products-wrapper row">
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream1.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
+                            <div class="products-wrapper row">
 
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream2.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
+                                @for (int i = 0; i < Model.Count; i++)
+                                {
+                                    var product = Model[i];
 
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream3.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream4.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream5.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream6.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
-							</div>
+                                    <div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
+                                        <div class="products__item_padding ">
+                                            <div class="product">
+                                                <a href="@product.Url">
+                                                    <img class="product_img" src="images/cream1.png" alt="Крем">
+                                                </a>
+                                                <div class="product__info">
+                                                    <a class="product__name" href="@product.Url">@product.Title</a>
+                                                    <div class="product__price">
+                                                        @product.DiscountPrice  <s>(@product.Price)</s>
+                                                        <i class="fas fa-ruble-sign"></i>
+                                                    </div>
+                                                    <div class="product__inbasket">
+                                                        <a class="product__inbasket_buy" href="#">В корзину</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                                
+                            </div>
 						</div>
 						<div id="moveCarouselRight1" class="button-right col-1"><i class="fas fa-angle-right fa-3x"></i></div>
 					</div>
@@ -293,106 +88,35 @@
 						<div id="moveCarouselLeft2" class="button-left col-1"><i class="fas fa-angle-left fa-3x"></i></div>
 						<div class="carousel col-10">
 							<div class="products-wrapper row">
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream1.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
+                                <div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
 
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream2.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
+                                    @for (int i = 0; i < Model.Count; i++)
+                                    {
+                                        var product = Model[i];
 
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream3.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
+                                        <div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
+                                            <div class="products__item_padding ">
+                                                <div class="product">
+                                                    <a href="@product.Url">
+                                                        <img class="product_img" src="images/cream1.png" alt="Крем">
+                                                    </a>
+                                                    <div class="product__info">
+                                                        <a class="product__name" href="@product.Url">@product.Title</a>
+                                                        <div class="product__price">
+                                                            @product.DiscountPrice  <s>(@product.Price)</s>
+                                                            <i class="fas fa-ruble-sign"></i>
+                                                        </div>
+                                                        <div class="product__inbasket">
+                                                            <a class="product__inbasket_buy" href="#">В корзину</a>
+                                                        </div>
+                                                    </div>
 
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream4.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
 
-										</div>
-									</div>
-								</div>
-								<div class="products__item col-12 col-sm-6 col-md-4 col-lg-3">
-									<div class="products__item_padding ">
-										<div class="product">
-											<a href="#">
-												<img class="product_img" src="images/cream5.png" alt="Крем">
-											</a>
-											<div class="product__info">
-												<a class="product__name" href="#">Многослойные хлопковые салфетки 80шт Magic Tool Multi (5-layer) Cotton Pads 80</a>
-												<div class="product__price">
-													290
-													<i class="fas fa-ruble-sign"></i>
-												</div>
-												<div class="product__inbasket">
-													<a class="product__inbasket_buy" href="#">В корзину</a>
-												</div>
-											</div>
-
-										</div>
-									</div>
-								</div>
+                                </div>
 							</div>
 						</div>
 						<div id="moveCarouselRight2" class="button-right col-1"><i class="fas fa-angle-right fa-3x"></i></div>

@@ -1,13 +1,15 @@
-﻿using System;
+﻿using MyTotto.Data.Models;
+using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace MyTotto.Data.Models
+namespace MyTotto.Web.Models
 {
     /// <summary>
-    /// Модель карточки продукта.
+    /// Модель представления карточки продукта.
     /// </summary>
-    public class ProductCard
+    public class ProductCardViewModel
     {
         /// <summary>
         /// Идентификатор.
@@ -37,12 +39,12 @@ namespace MyTotto.Data.Models
         /// <summary>
         /// Цена продукта.
         /// </summary>
-        public decimal Price { get; set; }
+        public string Price { get; set; }
 
         /// <summary>
-        /// Скидка на продукт в %.
+        /// Цена с учётом % скидки.
         /// </summary>
-        public decimal Discount { get; set; }
+        public string DiscountPrice { get; set; }
 
         /// <summary>
         /// Тип продукта.
@@ -50,13 +52,25 @@ namespace MyTotto.Data.Models
         public ProductType ProductType { get; set; }
 
         /// <summary>
-        /// Признак активного элемента.
+        /// Создает экземпляр.
         /// </summary>
-        public bool IsActive { get; set; }
+        public ProductCardViewModel()
+        {
+        }
 
         /// <summary>
-        /// Дата создания.
+        /// Создает экземпляр и инициализирует поля класса.
         /// </summary>
-        public DateTime Created { get; set; }
+        public ProductCardViewModel(Product product)
+        {
+            Id = product.Id;
+            Title = product.Title;
+            Manufacturer = product.Title;
+            Url = product.Title;
+            ImageUrl = product.Title;
+            Price = product.Price.ToString("0.00");
+            DiscountPrice = ((100 - product.Discount) / 100 * product.Price).ToString("0.00");
+            ProductType = product.ProductType;
+        }
     }
 }
