@@ -1,5 +1,5 @@
 import { constants } from "../const/const";
-import { toggleExistClass, toggleNotExistClass } from "../const/toggleClass";
+import { toggleExistClass, toggleNotExistClass, toggleIcon } from "../const/toggleClass";
 
 function hideFooterItems() {
 	var elems = document.getElementsByClassName('footer-block__body');
@@ -49,12 +49,15 @@ function adaptFooter() {
 	}
 }
 function dropDownFooterItems() {
-	var elems = document.getElementsByClassName('footer-accordion');
-	for (var i = 0; i < elems.length; i++) {
-		elems[i].addEventListener('click', function() {
+	var elems1 = document.getElementsByClassName('footer-accordion');
+	var elems2 = document.getElementsByClassName('footer-block__icon-toggle');
+	for (var i = 0; i < elems1.length; i++) {
+		let elem = elems2[i];
+		elems1[i].addEventListener('click', function() {
 			this.nextElementSibling.classList.toggle('hidden');
 			this.lastElementChild.classList.toggle('fa-angle-down');
 			this.lastElementChild.classList.toggle('fa-angle-up');
+			toggleIcon(elem, '#icon-angle-bottom', '#icon-angle-top')
 		})
 	}
 }

@@ -8,7 +8,6 @@ import { setClasses } from "./modules/carousel/mainNavAnimation";
 import { getNumProductDisp, moveCarouselLeftEvent, moveCarouselRightEvent, toggleProductsEvent } from "./modules/carousel/carousel";
 import { dropDownInfoItems } from "./modules/infoblock/infoBlock";
 import { adaptFooter, dropDownFooterItems } from "../../shared/footer/footer";
-import { toggleIcon } from "../../shared/const/toggleClass";
 
 //Адаптивность сайта
 
@@ -26,11 +25,6 @@ dropDownListEvent();
 dropDownItemEvent();
 
 toCenterDropMenu();
-
-toggleIcon('accordion', 'menu-item__icon-drop-toggle', '#icon-plus', '#icon-minus');
-toggleIcon('accordion-list', 'menu-drop__icon-toggle', '#icon-plus', '#icon-minus');
-
-toggleIcon('menu-title', 'menu-title__icon-toggle', '#icon-angle-bottom', '#icon-angle-top');
 
 //слайдер баннера
 
@@ -65,8 +59,6 @@ dropDownInfoItems();
 
 adaptFooter();
 dropDownFooterItems();
-
-toggleIcon('footer-accordion', 'footer-block__icon-toggle', '#icon-angle-bottom', '#icon-angle-top');
 
 // export { moveCarouselLeftEvent };
 // Таким образом можно выносить объекты в глобальную область видимости

@@ -19,19 +19,28 @@ function toggleExistClass(class1, class2, j = 0) {
 
 //	Переключение иконки при нажатии блок
 
-function toggleIcon(classClick, classToggle, icon1, icon2) {
+function toggleIconClick(classClick, classToggle, icon1, icon2) {
 	var elems1 = document.getElementsByClassName(classClick);
 	var elems2 = document.getElementsByClassName(classToggle);
 	for ( var i = 0; i < elems1.length; i++) {
 		let elem = elems2[i];
-		elems1[i].addEventListener('click', function() {
-			if (elem.getAttribute('xlink:href') === icon1) {
-				elem.setAttribute('xlink:href', icon2);
-			} else if (elem.getAttribute('xlink:href') === icon2) {
-				elem.setAttribute('xlink:href', icon1);
-			}
+		elems1[i].addEventListener('click', () => {
+			toggleIcon(elem, icon1, icon2, i)
+		// 	if (elem.getAttribute('xlink:href') === icon1) {
+		// 		elem.setAttribute('xlink:href', icon2);
+		// 	} else if (elem.getAttribute('xlink:href') === icon2) {
+		// 		elem.setAttribute('xlink:href', icon1);
+		// 	}
 		})
 	}
 }
 
-export { toggleClass, toggleExistClass, toggleNotExistClass, toggleIcon };
+function toggleIcon(elem, icon1, icon2) {
+	if (elem.getAttribute('xlink:href') === icon1) {
+		elem.setAttribute('xlink:href', icon2);
+	} else if (elem.getAttribute('xlink:href') === icon2) {
+		elem.setAttribute('xlink:href', icon1);
+	}
+}
+
+export { toggleClass, toggleExistClass, toggleNotExistClass, toggleIconClick, toggleIcon };
