@@ -1,5 +1,5 @@
 import { constants } from "../const/const";
-import { toggleExistClass, toggleNotExistClass, toggleIcon } from "../const/toggleClass";
+import { toggleExistClass, toggleNotExistClass, toggleIcon, toggleExistIcon } from "../const/toggleClass";
 
 function hideFooterItems() {
 	var elems = document.getElementsByClassName('footer-block__body');
@@ -32,8 +32,7 @@ function showFooterIcons() {
 function toggleFooterIcons() {
 	var elems = document.getElementsByClassName('footer-block__icon');
 	for (var i = 0; i < elems.length; i++) {
-		toggleNotExistClass('footer-block__icon', 'fa-angle-down', i);
-		toggleExistClass('footer-block__icon', 'fa-angle-up', i);
+		toggleExistIcon('footer-block__icon-toggle', '#icon-angle-bottom', '#icon-angle-top', i);
 	}
 }
 
@@ -55,9 +54,7 @@ function dropDownFooterItems() {
 		let elem = elems2[i];
 		elems1[i].addEventListener('click', function() {
 			this.nextElementSibling.classList.toggle('hidden');
-			this.lastElementChild.classList.toggle('fa-angle-down');
-			this.lastElementChild.classList.toggle('fa-angle-up');
-			toggleIcon(elem, '#icon-angle-bottom', '#icon-angle-top')
+			toggleIcon(elem, '#icon-angle-bottom', '#icon-angle-top');
 		})
 	}
 }

@@ -1,4 +1,4 @@
-import { toggleExistClass, toggleNotExistClass, toggleIcon } from "../const/toggleClass";
+import { toggleExistClass, toggleNotExistClass, toggleIcon, toggleExistIcon } from "../const/toggleClass";
 import { constants } from "../const/const";
 
 function dropDownMenu() {
@@ -39,8 +39,6 @@ function dropDownListEvent() {
             if (window.innerWidth < constants.SCREEN_MEDIUM) {
 				this.classList.toggle('icon-accordion-active');
 				this.parentElement.classList.toggle('accordion-active');
-                this.classList.toggle('fa-plus');
-                this.classList.toggle('fa-minus');
 				panel.classList.toggle('hidden');
 				toggleIcon(elem, '#icon-plus', '#icon-minus');
             }
@@ -56,8 +54,6 @@ function dropDownItemEvent() {
 		let elem = elems2[i];
 		elems1[i].addEventListener('click', function () {
 			this.classList.toggle('sub-accordion-active');
-			this.classList.toggle('fa-plus');
-			this.classList.toggle('fa-minus');
 			var panel = this.parentElement.nextElementSibling;
 			panel.classList.toggle('hidden');
 			toggleIcon(elem, '#icon-plus', '#icon-minus');
@@ -69,6 +65,7 @@ function hideMenu() {
 	//menu
 	toggleNotExistClass('menu__list', 'hidden');
 	toggleExistClass('js-nav-wrapper', 'container_padding');
+	toggleExistIcon('menu-title__icon-toggle', '#icon-angle-bottom', '#icon-angle-top')
 
 	//list
 	hideList();
@@ -79,14 +76,13 @@ function hideMenu() {
 function hideList() {
 	var elems = document.getElementsByClassName('accordion');
     for (var i = 0; i < elems.length; i++) {
-		toggleNotExistClass('accordion', 'fa-plus', i);
 		toggleNotExistClass('menu-drop', 'hidden', i);
 		toggleNotExistClass('menu-drop__title', 'hidden', i);
 		toggleNotExistClass('menu-drop-img', 'hidden', i);
-		toggleExistClass('accordion', 'fa-minus', i);
 		toggleExistClass('accordion', 'icon-accordion-active', i);
 		toggleExistClass('accordion', 'hidden', i);
 		toggleExistClass('menu__wrap', 'accordion-active', i);
+		toggleExistIcon('menu-item__icon-drop-toggle', '#icon-plus', '#icon-minus', i);
 	}
 }
 
@@ -94,11 +90,10 @@ function hideItem() {
 	var elems = document.getElementsByClassName('accordion-list');
 	var elems2 = document.getElementsByClassName('js-menu-wrapper')
     for (var i = 0; i < elems.length; i++) {
-		toggleNotExistClass('accordion-list', 'fa-plus', i);
 		toggleNotExistClass('menu-drop__list', 'hidden', i);
-		toggleExistClass('accordion-list', 'fa-minus', i);
 		toggleExistClass('accordion-list', 'sub-accordion-active', i);
 		toggleExistClass('accordion-list', 'hidden', i);
+		toggleExistIcon('menu-drop__icon-toggle', '#icon-plus', '#icon-minus', i);
 	}
 	for (var i = 0; i < elems2.length; i++) {
 		toggleExistClass('js-menu-wrapper', 'container_padding', i);
@@ -122,8 +117,6 @@ function showList() {
 		elems[i].parentElement.nextElementSibling.classList.remove('hidden');
 		elems[i].parentElement.classList.remove('accordion-active');
 		elems[i].classList.remove('icon-accordion-active');
-		elems[i].classList.remove('fa-plus');
-		elems[i].classList.remove('fa-minus');
 		toggleExistClass('menu-drop__title', 'hidden', i);
 		toggleExistClass('menu-drop-img', 'hidden', i);
 		toggleNotExistClass('accordion', 'hidden', i);
@@ -136,9 +129,6 @@ function showItem() {
     for (var i = 0; i < elems.length; i++) {
 		elems[i].parentElement.nextElementSibling.classList.remove('hidden');
 		elems[i].classList.remove('sub-accordion-active');
-		elems[i].classList.remove('fa-plus');
-		elems[i].classList.remove('fa-minus');
-		elems[i].classList.add('fa-plus');
 		elems[i].classList.toggle('hidden');
 	}
 	for (var i = 0; i < elems2.length; i++) {

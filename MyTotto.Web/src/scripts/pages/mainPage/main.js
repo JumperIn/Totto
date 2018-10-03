@@ -6,7 +6,6 @@ import { dropDownMenu, dropDownListEvent, dropDownItemEvent, toCenterDropMenu } 
 import { moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut } from "./modules/banner/banner";
 import { setClasses } from "./modules/carousel/mainNavAnimation";
 import { getNumProductDisp, moveCarouselLeftEvent, moveCarouselRightEvent, toggleProductsEvent } from "./modules/carousel/carousel";
-import { dropDownInfoItems } from "./modules/infoblock/infoBlock";
 import { adaptFooter, dropDownFooterItems } from "../../shared/footer/footer";
 
 //Адаптивность сайта
@@ -37,23 +36,9 @@ moveBannerLeftEvent();
 
 setClasses();
 
-//карусель
-
-// getNumProductDisp();
-
-// moveCarouselRightEvent(0);
-// moveCarouselRightEvent(1);
-// moveCarouselRightEvent(2);
-
-// moveCarouselLeftEvent(0);
-// moveCarouselLeftEvent(1);
-// moveCarouselLeftEvent(2);
+//переключатель продуктов
 
 toggleProductsEvent();
-
-//инфо-блок
-
-dropDownInfoItems();
 
 //Адаптация футера
 
