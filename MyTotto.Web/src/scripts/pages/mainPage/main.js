@@ -2,12 +2,13 @@
 
 import { resize } from "../../shared/resize/resize";
 // import { scrollNavEvent, dropDownNav } from "../../shared/navigation/scrollNav";
-import { dropDownMenu, dropDownListEvent, dropDownItemEvent, toCenterDropMenu, toggleIcon } from "../../shared/navigation/navAdaptive";
+import { dropDownMenu, dropDownListEvent, dropDownItemEvent, toCenterDropMenu } from "../../shared/navigation/navAdaptive";
 import { moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut } from "./modules/banner/banner";
 import { setClasses } from "./modules/carousel/mainNavAnimation";
 import { getNumProductDisp, moveCarouselLeftEvent, moveCarouselRightEvent, toggleProductsEvent } from "./modules/carousel/carousel";
 import { dropDownInfoItems } from "./modules/infoblock/infoBlock";
 import { adaptFooter, dropDownFooterItems } from "../../shared/footer/footer";
+import { toggleIcon } from "../../shared/const/toggleClass";
 
 //Адаптивность сайта
 
@@ -64,6 +65,8 @@ dropDownInfoItems();
 
 adaptFooter();
 dropDownFooterItems();
+
+toggleIcon('footer-accordion', 'footer-block__icon-toggle', '#icon-angle-bottom', '#icon-angle-top');
 
 // export { moveCarouselLeftEvent };
 // Таким образом можно выносить объекты в глобальную область видимости

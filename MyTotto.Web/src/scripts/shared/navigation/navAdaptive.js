@@ -161,21 +161,4 @@ function toCenterDropMenu() {
 	}
 }
 
-//	Переключение иконки при нажатии блок
-
-function toggleIcon(classClick, classToggle, icon1, icon2) {
-	var elems1 = document.getElementsByClassName(classClick);
-	var elems2 = document.getElementsByClassName(classToggle);
-	for ( var i = 0; i < elems1.length; i++) {
-		let elem = elems2[i];
-		elems1[i].addEventListener('click', function() {
-			if (elem.getAttribute('xlink:href') === icon1) {
-				elem.setAttribute('xlink:href', icon2);
-			} else if (elem.getAttribute('xlink:href') === icon2) {
-				elem.setAttribute('xlink:href', icon1);
-			}
-		})
-	}
-}
-
-export { dropDownMenu, dropDownListEvent, dropDownItemEvent, hideMenu, showMenu, toCenterDropMenu, toggleIcon };
+export { dropDownMenu, dropDownListEvent, dropDownItemEvent, hideMenu, showMenu, toCenterDropMenu };
