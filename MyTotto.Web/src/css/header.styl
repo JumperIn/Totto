@@ -139,7 +139,7 @@
 	right: 110px
 	left: auto
 
-.menu-link
+.menu-title
 	display: none
 
 .menu-logo
@@ -336,9 +336,6 @@
 .menu-drop-img__text
 	font(14px)
 
-.menu-item__icon1
-	display: none
-
 .header-info__wrapper
 	flex(row, space-between, center)
 
@@ -390,28 +387,26 @@
 		background: white
 		z-index: 200
 
-	.menu-link
-		display: flex
-		align-items: center
+	.menu-title
+		flex(,,center)
 		size(140px, 80px)
 		padding: 0px 20px
-		cursor: pointer
-		font-size: 14px
-		font-weight: 500
+		font(14px)
 		text-transform: uppercase
+		cursor: pointer
 		transition: background-color 200ms ease-in-out
 
 	.menu__wrap:hover,
-	.menu-link:hover
+	.menu-title:hover
 		background-color: #f5f9d6
 
-	.menu-link__icon1
-		padding-right: 10px
-		font-size: 24px
+	.menu-title__icon1
+		size(20px, 20px)
+		margin-right: 10px
 
-	.menu-link__icon2
-		padding-left: 5px
-		font-size: 16px
+	.menu-title__icon2
+		size(15px, 15px)
+		margin-left: 5px
 
 	.menu_drop
 		width: 100%
@@ -489,26 +484,12 @@
 		text-transform: uppercase
 		transition: color 200ms ease-in-out
 
-	.menu-item__icon2,
+	.menu-item__icon-drop
 	.menu-drop__icon
 		size(50px, 48px)
-		padding: 0px
-		line-height: 48px
-		text-align: center
-		font-size: 18px
+		padding: 15px
 		cursor: pointer
-
-	.menu-item__icon2
-		color: #fff
-
-	.menu-drop__icon
 		color: #bfbfbf
-
-	.menu-item__icon1
-		display: flex
-		padding-right: 10px
-		font-size: 24px
-		color: #a8a8a8
 
 	.accordion-active
 		background-color: #f5f9d6
@@ -535,3 +516,6 @@
 		right: 0
 		left: auto
 
+@media (min-width: 768px)
+	.menu-item__icon-drop
+		display: none

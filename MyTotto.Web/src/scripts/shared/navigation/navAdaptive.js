@@ -15,7 +15,7 @@ function adaptMenu() {
 }
 
 function dropDownMenuEvent() {
-	var elem1 = document.getElementsByClassName('menu-link')[0];
+	var elem1 = document.getElementsByClassName('menu-title')[0];
 	var elem2 = document.getElementsByClassName('menu__list')[0];
 	elem1.addEventListener('click', function () {
 		if (!elem2.classList.contains('hidden')) {
@@ -99,7 +99,7 @@ function hideItem() {
 
 function showMenu() {
 	//menu
-	var elem = document.getElementsByClassName('menu-link')[0];
+	var elem = document.getElementsByClassName('menu-title')[0];
 	elem.nextElementSibling.classList.remove('hidden');
 	elem.parentElement.parentElement.classList.add('container_padding');
 	//list
@@ -118,6 +118,7 @@ function showList() {
 		elems[i].classList.remove('fa-minus');
 		toggleExistClass('menu-drop__title', 'hidden', i);
 		toggleExistClass('menu-drop-img', 'hidden', i);
+		toggleNotExistClass('accordion', 'hidden', i);
 	}
 }
 
@@ -160,4 +161,21 @@ function toCenterDropMenu() {
 	}
 }
 
-export { dropDownMenu, dropDownListEvent, dropDownItemEvent, hideMenu, showMenu, toCenterDropMenu };
+//	Переключение иконки при нажатии блок
+
+function toggleIcon(classClick, classToggle, icon1, icon2) {
+	var elems1 = document.getElementsByClassName(classClick);
+	var elems2 = document.getElementsByClassName(classToggle);
+	for ( var i = 0; i < elems1.length; i++) {
+		let elem = elems2[i];
+		elems1[i].addEventListener('click', function() {
+			if (elem.getAttribute('xlink:href') === icon1) {
+				elem.setAttribute('xlink:href', icon2);
+			} else if (elem.getAttribute('xlink:href') === icon2) {
+				elem.setAttribute('xlink:href', icon1);
+			}
+		})
+	}
+}
+
+export { dropDownMenu, dropDownListEvent, dropDownItemEvent, hideMenu, showMenu, toCenterDropMenu, toggleIcon };
