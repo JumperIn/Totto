@@ -1,5 +1,4 @@
 import { constants, variables } from "../../../../shared/const/const";
-import { toggleExistClass, toggleNotExistClass } from "../../../../shared/const/toggleClass";
 
 function returnCarouselBack(j = 0) {
 	var elem = document.getElementsByClassName('products-wrapper')[j];
@@ -63,20 +62,4 @@ function moveCarouselLeftEvent(j) {
 	})
 };
 
-function toggleProductsEvent() {
-	var elems = document.getElementsByClassName('main-nav__item');
-	// за цикл присваивается три обработчика событий на кнопки: "Новинки", "Хиты продаж", "Скидки и акции"
-	for (let i = 0; i < elems.length; i++) {
-		elems[i].addEventListener('click', function() {
-			var arr = [0, 1, 2];
-			// массив имеет 3 значения, так как есть всего 3 кнопки
-			toggleExistClass('products', 'hidden', arr.splice(i, 1)[0]);
-			toggleNotExistClass('products', 'hidden', arr[0]);
-			toggleNotExistClass('products', 'hidden', arr[1]);
-			returnCarouselBack(0);
-			variables.shiftProducts = 0;
-		})
-	}
-}
-
-export { getNumProductDisp, moveCarouselRightEvent, moveCarouselLeftEvent, toggleProductsEvent, returnCarouselBack };
+export { getNumProductDisp, moveCarouselRightEvent, moveCarouselLeftEvent, returnCarouselBack };
