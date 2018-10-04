@@ -117,7 +117,7 @@
 .header-nav
 	display: flex
 	height: 80px
-	background: linear-gradient(to bottom, #f5f9d6, #f9fce7)
+	background: linear-gradient(to bottom, third-color, #f9fce7)
 
 .menu
 	flex(, flex-start, center)
@@ -188,10 +188,9 @@
 .menu_drop:hover .menu-drop,
 .menu_drop:hover .menu-item
 	display: flex
-	// color: #42201B
 
 .menu_drop:hover
-	background: #F5F9D6
+	background: third-color
 
 .menu_drop
 	flex(row, center)
@@ -199,14 +198,13 @@
 	position: relative
 	transition: background-color 200ms ease-in-out
 
-
 .menu-drop
 	display: none
 	position: absolute
 	top: 100%
 	width: 570px
 	min-height: 420px
-	background: white
+	background: #fff
 	border: solid 1px stroke-color
 	z-index: 200
 
@@ -255,7 +253,6 @@
 .menu-drop__body_hover:hover ~ .menu-drop-img
 	display: none
 
-
 .menu-drop__list-header
 	display: block
 	padding: 8px 0
@@ -284,7 +281,7 @@
 	position: absolute
 	content: ''
 	size(24px, 19px)
-	fill: black
+	fill: #000
 	top: 8px
 	left: -30px
 	background-image: url('../images/logo-head.svg')
@@ -355,36 +352,15 @@
 	box-shadow: 0 0 0 2000px rgba(0,0,0,0.4), 0 3px 10px 0 rgba(0,0,0,0.3)
 	z-index: 1
 
-// .header-info__icon
-// 	padding: 0
-// 	width: 48px
-// 	height: 48px
-// 	font-size: 28px
-// 	line-height: 48px
-// 	background-color: #EDEDED
-// 	border-radius: 50%
-// 	color: rgba(0, 0, 0, 0.54)
-// 	cursor: pointer
-// 	transition: color 200ms ease-in-out
-// 	transition: transform 200ms ease-in-out
-
-// .header-info__icon_active
-// 	transform: rotate(90deg)
-
-// .header-info__icon:hover
-// 	color: blue-light
-
-
 @media (max-width: 767px)
 	.menu__list
-		// display: none
 		flex-direction: column
 		position: absolute
 		top: 100%
 		left: 0px
 		size(100%, auto)
 		align-items: start
-		background: white
+		background: #fff
 		z-index: 200
 
 	.menu-title
@@ -398,7 +374,7 @@
 
 	.menu__wrap:hover,
 	.menu-title:hover
-		background-color: #f5f9d6
+		background-color: third-color
 
 	.menu-title__icon1
 		size(20px, 20px)
@@ -457,7 +433,7 @@
 		flex-direction: row
 		size(100%, 48px)
 		padding: 0px
-		border-top: solid 1px #f5f9d6
+		border-top: solid 1px third-color
 		background-color: #f9fce7
 		transition: background-color 200ms ease-in-out
 
@@ -492,10 +468,10 @@
 		color: #bfbfbf
 
 	.accordion-active
-		background-color: #f5f9d6
+		background-color: third-color
 
 	.icon-accordion-active
-		background-color: #f5f9d6
+		background-color: third-color
 
 	.sub-accordion-active
 		background-color: #E0E0E0
