@@ -64,7 +64,6 @@ function dropDownItemEvent() {
 function hideMenu() {
 	//menu
 	toggleNotExistClass('menu__list', 'hidden');
-	toggleExistClass('js-nav-wrapper', 'container_padding');
 	toggleExistIcon('menu-title__icon-toggle', '#icon-angle-bottom', '#icon-angle-top')
 
 	//list
@@ -88,15 +87,11 @@ function hideList() {
 
 function hideItem() {
 	var elems = document.getElementsByClassName('accordion-list');
-	var elems2 = document.getElementsByClassName('js-menu-wrapper')
     for (var i = 0; i < elems.length; i++) {
 		toggleNotExistClass('menu-drop__list', 'hidden', i);
 		toggleExistClass('accordion-list', 'sub-accordion-active', i);
 		toggleExistClass('accordion-list', 'hidden', i);
 		toggleExistIcon('menu-drop__icon-toggle', '#icon-plus', '#icon-minus', i);
-	}
-	for (var i = 0; i < elems2.length; i++) {
-		toggleExistClass('js-menu-wrapper', 'container_padding', i);
 	}
 }
 
@@ -104,7 +99,6 @@ function showMenu() {
 	//menu
 	var elem = document.getElementsByClassName('menu-title')[0];
 	elem.nextElementSibling.classList.remove('hidden');
-	elem.parentElement.parentElement.classList.add('container_padding');
 	//list
 	showList();
 	//item
@@ -125,14 +119,10 @@ function showList() {
 
 function showItem() {
 	var elems = document.getElementsByClassName('accordion-list');
-	var elems2 = document.getElementsByClassName('js-menu-wrapper');
     for (var i = 0; i < elems.length; i++) {
 		elems[i].parentElement.nextElementSibling.classList.remove('hidden');
 		elems[i].classList.remove('sub-accordion-active');
 		elems[i].classList.toggle('hidden');
-	}
-	for (var i = 0; i < elems2.length; i++) {
-		elems2[i].classList.add('container_padding');
 	}
 }
 
