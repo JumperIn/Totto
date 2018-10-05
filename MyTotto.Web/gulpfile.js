@@ -28,14 +28,8 @@ var source = 'src';
 var libsCss = [
     `./${source}/libs/styles/bootstrap-grid.min.css`,
     `./${source}/libs/styles/normalize.css`,
-    `./${source}/libs/styles/fontawesome/fontawesome-all.min.css`,
-    `./${source}/libs/styles/fontawesome/fontawesome.min.css`,
-    `./${source}/libs/styles/fontawesome/fa-brands.min.css`,
-    `./${source}/libs/styles/fontawesome/fa-regular.min.css`,
-    `./${source}/libs/styles/fontawesome/fa-solid.min.css`
 ];
 
-var webfonts = `./${source}/libs/styles/fontawesome/webfonts/**`;
 
 // сюда указываем пути у подключаемых библиотек
 var libsJs = [
@@ -52,7 +46,6 @@ var srcPaths = {
 	],
     favicon: [`./${source}/favicon.ico`],
     fonts: [`./${source}/fonts/**`],
-    webfonts: webfonts,
     libsCss: libsCss,
     libsJs: libsJs,
 	allStylus: [`./${source}/css/*.styl`],
@@ -68,7 +61,6 @@ var destPaths = {
     js: `./${destination}/js`,
     favicon: `./${destination}`,
     fonts: `./${destination}/fonts`,
-    webfonts: `./${destination}/libs/webfonts`,
     libFolderJs: `./${destination}/libs/scripts`,
     libFileJs: 'script.js',
     libFolderCss: `./${destination}/libs/styles`,
@@ -133,8 +125,6 @@ gulp.task('copy', function () {
         .pipe(gulp.dest(destPaths.img));
     gulp.src(srcPaths.fonts)
         .pipe(gulp.dest(destPaths.fonts));
-    gulp.src(srcPaths.webfonts)
-        .pipe(gulp.dest(destPaths.webfonts));
 });
 
 gulp.task('libs', function () {

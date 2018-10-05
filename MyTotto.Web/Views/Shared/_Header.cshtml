@@ -2,7 +2,7 @@
     <div class="header-menu">
 		<div class="header-frame"></div>
         <div class="header-title container-fluid row">
-            <div class="container_padding align-items-center cover">
+            <div class="align-items-center cover">
                 <div class="container-fluid row justify-content-end">
 
                     <!-- <div class="header-info-phone__media justify-content-start col">
@@ -23,7 +23,7 @@
         </div>
         <div class="header-info container-fluid">
             <div class="container-fluid row justify-content-center">
-                <div class="container_padding cover">
+                <div class="cover">
                     <div class="container-fluid header-info__wrapper row">
 						<div class="header-info-pers-area">
 							<a class="header-info-pers-area__link" href="">
@@ -73,7 +73,7 @@
     </div>
     <nav class="header-nav container-fluid">
         <div class="container-fluid justify-content-center row">
-            <div class="container-fluid container_padding cover js-nav-wrapper">
+            <div class="container-fluid cover js-nav-wrapper relative">
                 <nav class="menu container-fluid">
 					<div class="menu-logo">
 						<a class="menu-logo__link" href="#">
@@ -83,22 +83,25 @@
 						</a>
 						<div class="menu-logo_shadow"></div>
 					</div>
-                    <div class="menu-link">
-                        <i class="menu-link__icon1 fas fa-bars"></i>
+                    <div class="menu-title">
+						<svg class="menu-title__icon1">
+							<use xlink:href="#icon-menu"></use>
+						</svg>
                         Меню
-                        <i class="fas fa-angle-down menu-link__icon2"></i>
+						<svg class="menu-title__icon2">
+							<use class="menu-title__icon-toggle" xlink:href="#icon-angle-bottom"></use>
+						</svg>
                     </div>
                     <ul class="menu__list">
                         <li class="menu_padding menu_drop">
                             <div class="menu__wrap">
                                 <a class="menu-item row" href="#">
-                                    <i class="menu-item__icon1 fas fa-user-circle"></i>
                                     <div class="col">Лицо</div>
                                 </a>
-                                <i class="menu-item__icon2 fas accordion hidden"></i>
+								<svg class="menu-item__icon-drop accordion hidden"><use class="menu-item__icon-drop-toggle" xlink:href="#icon-plus"></use></svg>
                             </div>
                             <div class="menu-drop container-fluid justify-content-center row">
-                                <div class="menu-drop__container container-fluid container_padding js-menu-wrapper col-12 col-xl-10">
+                                <div class="menu-drop__container container-fluid js-menu-wrapper col-12 col-xl-10">
                                     <div class="menu-drop__title">
 										<a class="menu-drop__catalog" href="">Каталог</a>
 										<a class="menu-drop__see-all" href="">Смотреть все</a>
@@ -107,7 +110,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Очищение</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+												<svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Пенки и гели</a></li>
@@ -119,7 +122,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Уход</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+												<svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Крем для лица</a></li>
@@ -132,7 +135,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Маски</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+												<svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Патчи</a></li>
@@ -145,7 +148,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Глаза и губы</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+												<svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Бальзам для губ</a></li>
@@ -155,7 +158,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Салфетки и диски</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+												<svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Ватные палочки и диски</a></li>
@@ -176,13 +179,12 @@
                         <li class="menu_padding menu_drop">
                             <div class="menu__wrap">
                                 <a class="menu-item row" href="#">
-                                    <i class="menu-item__icon1 fas fa-user-circle"></i>
                                     <div class="col">Тело</div>
                                 </a>
-                                <i class="menu-item__icon2 fas accordion hidden"></i>
+                                <svg class="menu-item__icon-drop accordion hidden"><use class="menu-item__icon-drop-toggle" xlink:href="#icon-plus"></use></svg>
                             </div>
                             <div class="menu-drop container-fluid justify-content-center row">
-                                <div class="container-fluid container_padding js-menu-wrapper col-12 col-xl-10">
+                                <div class="container-fluid js-menu-wrapper col-12 col-xl-10">
 									<div class="menu-drop__title">
 										<a class="menu-drop__catalog" href="">Каталог</a>
 										<a class="menu-drop__see-all" href="">Смотреть все</a>
@@ -191,7 +193,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Уход</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Крем для тела</a></li>
@@ -202,7 +204,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Уход для тела</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Уход для рук</a></li>
@@ -221,13 +223,12 @@
                         <li class="menu_padding menu_drop">
                             <div class="menu__wrap">
                                 <a class="menu-item row" href="#">
-                                    <i class="menu-item__icon1 fas fa-user-circle"></i>
                                     <div class="col">Волосы</div>
                                 </a>
-                                <i class="menu-item__icon2 fas accordion hidden"></i>
+                                <svg class="menu-item__icon-drop accordion hidden"><use class="menu-item__icon-drop-toggle" xlink:href="#icon-plus"></use></svg>
                             </div>
                             <div class="menu-drop container-fluid justify-content-center row">
-                                <div class="container-fluid container_padding js-menu-wrapper col-12 col-xl-10">
+                                <div class="container-fluid js-menu-wrapper col-12 col-xl-10">
 									<div class="menu-drop__title">
 										<a class="menu-drop__catalog" href="">Каталог</a>
 										<a class="menu-drop__see-all" href="">Смотреть все</a>
@@ -236,7 +237,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Очищение</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Шампунь</a></li>
@@ -247,7 +248,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Уход</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Масло для волос</a></li>
@@ -258,7 +259,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Укладка</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Аксессуары для волос</a></li>
@@ -278,13 +279,12 @@
                         <li class="menu_padding menu_drop">
                             <div class="menu__wrap">
                                 <a class="menu-item row" href="#">
-                                    <i class="menu-item__icon1 fas fa-user-circle"></i>
                                     <div class="col">Макияж</div>
                                 </a>
-                                <i class="menu-item__icon2 fas accordion hidden"></i>
+                                <svg class="menu-item__icon-drop accordion hidden"><use class="menu-item__icon-drop-toggle" xlink:href="#icon-plus"></use></svg>
                             </div>
                             <div class="menu-drop container-fluid justify-content-center row">
-                                <div class="container-fluid container_padding js-menu-wrapper col-12 col-xl-10">
+                                <div class="container-fluid js-menu-wrapper col-12 col-xl-10">
 									<div class="menu-drop__title">
 										<a class="menu-drop__catalog" href="">Каталог</a>
 										<a class="menu-drop__see-all" href="">Смотреть все</a>
@@ -293,7 +293,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Рыба</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Рыбка</a></li>
@@ -304,7 +304,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Очищение</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Рыбка</a></li>
@@ -324,13 +324,12 @@
                         <li class="menu_padding menu_drop">
                             <div class="menu__wrap">
                                 <a class="menu-item row" href="#">
-                                    <i class="menu-item__icon1 fas fa-user-circle"></i>
                                     <div class="col">Дом&семья</div>
                                 </a>
-                                <i class="menu-item__icon2 fas accordion hidden"></i>
+                                <svg class="menu-item__icon-drop accordion hidden"><use class="menu-item__icon-drop-toggle" xlink:href="#icon-plus"></use></svg>
                             </div>
                             <div class="menu-drop container-fluid justify-content-center row">
-                                <div class="container-fluid container_padding js-menu-wrapper col-12 col-xl-10">
+                                <div class="container-fluid js-menu-wrapper col-12 col-xl-10">
 									<div class="menu-drop__title">
 										<a class="menu-drop__catalog" href="">Каталог</a>
 										<a class="menu-drop__see-all" href="">Смотреть все</a>
@@ -339,7 +338,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Очищение</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Рыба</a></li>
@@ -351,20 +350,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Очищение</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
-                                            </div>
-                                            <ul class="menu-drop__list">
-                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
-                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
-                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
-                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
-                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="menu-drop__body_hover">
-                                            <div class="menu-drop__wrap">
-                                                <a href="#" class="menu-drop__list-header">Очищение</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Рыбка</a></li>
@@ -377,7 +363,20 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Очищение</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
+                                            </div>
+                                            <ul class="menu-drop__list">
+                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
+                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
+                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
+                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
+                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="menu-drop__body_hover">
+                                            <div class="menu-drop__wrap">
+                                                <a href="#" class="menu-drop__list-header">Очищение</a>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Рыбка</a></li>
@@ -387,7 +386,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Очищение</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Рыбка</a></li>
@@ -409,13 +408,12 @@
                         <li class="menu_padding menu_drop">
                             <div class="menu__wrap">
                                 <a class="menu-item row" href="#">
-                                    <i class="menu-item__icon1 fas fa-user-circle"></i>
                                     <div class="col">Наборы</div>
                                 </a>
-                                <i class="menu-item__icon2 fas accordion hidden"></i>
+                                <svg class="menu-item__icon-drop accordion hidden"><use class="menu-item__icon-drop-toggle" xlink:href="#icon-plus"></use></svg>
                             </div>
                             <div class="menu-drop container-fluid justify-content-center row">
-                                <div class="container-fluid container_padding js-menu-wrapper col-12 col-xl-10">
+                                <div class="container-fluid js-menu-wrapper col-12 col-xl-10">
 									<div class="menu-drop__title">
 										<a class="menu-drop__catalog" href="">Каталог</a>
 										<a class="menu-drop__see-all" href="">Смотреть все</a>
@@ -424,7 +422,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Очищение</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Рыбка</a></li>
@@ -436,20 +434,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Очищение</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
-                                            </div>
-                                            <ul class="menu-drop__list">
-                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
-                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
-                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
-                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
-                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="menu-drop__body_hover">
-                                            <div class="menu-drop__wrap">
-                                                <a href="#" class="menu-drop__list-header">Очищение</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Рыбка</a></li>
@@ -462,7 +447,20 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Очищение</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
+                                            </div>
+                                            <ul class="menu-drop__list">
+                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
+                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
+                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
+                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
+                                                <li><a href="#" class="menu-drop__item">Рыбка</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="menu-drop__body_hover">
+                                            <div class="menu-drop__wrap">
+                                                <a href="#" class="menu-drop__list-header">Очищение</a>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Рыбка</a></li>
@@ -472,7 +470,7 @@
                                         <div class="menu-drop__body_hover">
                                             <div class="menu-drop__wrap">
                                                 <a href="#" class="menu-drop__list-header">Очищение</a>
-                                                <i class="menu-drop__icon fas fa-plus accordion-list"></i>
+                                                <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
                                             </div>
                                             <ul class="menu-drop__list">
                                                 <li><a href="#" class="menu-drop__item">Рыбка</a></li>

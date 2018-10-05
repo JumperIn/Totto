@@ -29,12 +29,17 @@
 .banners-button_right
 	right: 0
 
+.banners-buttons__angle-left
+.banners-buttons__angle-right
+	padding: 10px
+
 .banners:hover .banners-button
 	display: flex
 
 
 .banner
 	display: flex
+	height: 480px
 	background-position: center
 	background-size: cover
 
@@ -94,21 +99,22 @@
 		display: block
 		size(305px, 180px)
 		margin: 0 auto
+
 	.banner__img
 		display: block
 		height: 180px
 		max-width: none
-	// .banner_direction
-	// 	display: flex
-	// 	flex-direction: column
-	// 	flex-wrap: nowrap
+
 	.banner_width
 		float: left
 		display: block
 		padding: 20px
+
 	.banner__content
 		height: 180px
+
 	.banner__title
 		font-size: 28px
+		
 	.banner__text
 		font-size: 12px
