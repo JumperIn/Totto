@@ -8,88 +8,58 @@ using MyTotto.Data.Abstract;
 using MyTotto.Data.Models;
 using MyTotto.Web.Models;
 using MyTotto.Web.Abstract;
+using MyTotto.Data;
 
 namespace MyTotto.Web.Controllers
 {
     public class HomeController : BaseController
     {
-        public HomeController(ICommonRepository repository) : base(repository)
+        private IBannersRepository bannersRepository;
+        private IProductsRepository productsRepository;
+        private IPromosRepository promosRepository;
+
+        public HomeController
+        (
+            IBannersRepository bannersRepository,
+            IProductsRepository productsRepository,
+            IPromosRepository promosRepository
+        )
         {
-            this.repository = repository;
+            this.bannersRepository = bannersRepository;
+            this.productsRepository = productsRepository;
+            this.promosRepository = promosRepository;
         }
 
-
-
-
+        /// <summary>
+        /// Отображает главную страницу.
+        /// </summary>
         public IActionResult Index()
         {
-            List<Banner> banners = repository.GetBanners();
+            List<Banner> banners = bannersRepository.GetBanners();
+            List<Product> products = productsRepository.GetAllProducts();
+            List<Promo> promos = promosRepository.GetAllPromos();
 
-            return View(banners);
-        }
+            var mainPage = new MainPageViewModel(banners, products, promos);
 
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            return View(mainPage);
         }
 
 
 
 
-        /// <summary>
-        /// Страница с Бонусными баллами.
-        /// </summary>
-        [Route("bonus-points")]
-        public IActionResult BonusPoints()
-        {
-            return View();
-        }
+        ///// Страница с Бонусными баллами.
+        //[Route("bonus-points")]
 
-        /// <summary>
-        /// Страница с Подарочными сертификатами.
-        /// </summary>
-        [Route("gift-certificate")]
-        public IActionResult GiftCertificates()
-        {
-            return View();
-        }
+        ///// Страница с Подарочными сертификатами.
+        //[Route("gift-certificate")]
 
-        /// <summary>
-        /// Страница Оплаты и доставки.
-        /// </summary>
-        [Route("payment-and-delivery")]
-        public IActionResult PaymentAndDelivery()
-        {
-            return View();
-        }
+        ///// Страница Оплаты и доставки.
+        //[Route("payment-and-delivery")]
 
-        /// <summary>
-        /// Страница Пункты самовывоза.
-        /// </summary>
-        [Route("pickup-points")]
-        public IActionResult PickupPoints()
-        {
-            return View();
-        }
-
-        /// <summary>
-        /// Страница Контакты
-        /// </summary>
-        [Route("contacts")]
-        public IActionResult Contacts()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
+        ///// Страница Пункты самовывоза.
+        //[Route("pickup-points")]
+        
+        ///// Страница Контакты
+        //[Route("contacts")]
     }
 }

@@ -6,9 +6,9 @@
     <title>MyTotto - Онлайн-магазин косметики</title>
     <meta name="description" content="Косметика купить">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="stylesheet" href="~/libs/styles/style.css">
-    <link rel="stylesheet" href="~/css/site.css">
-    <script src="~/libs/scripts/script.js" async></script>
+    <link rel="stylesheet" href="~/libs/styles/style.css" asp-append-version="true">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
+    <script src="~/libs/scripts/script.js" asp-append-version="true" async></script>
 </head>
 <body>
 	<div style="display: none">
@@ -17,21 +17,18 @@
     @Html.Partial("_Header")
 
     <main class="main container-fluid">
-        @Html.Partial("_Banners")
-
-        @Html.Partial("_Products")
+        
+        @RenderBody()
 
         @Html.Partial("_Discounts")
 
         @Html.Partial("_NewProducts")
 
     </main>
-    @Html.Partial("_Info")
+    
     @Html.Partial("_Footer")
-    @RenderBody()
 
-
-    <script src="js/main.js"></script>
+    <script src="js/main.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 </body>

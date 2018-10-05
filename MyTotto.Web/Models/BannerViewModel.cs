@@ -1,14 +1,15 @@
-﻿using System;
+﻿using MyTotto.Data.Models;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
-namespace MyTotto.Data.Models
+namespace MyTotto.Web.Models
 {
     /// <summary>
-    /// Модель новостного баннера.
+    /// Модель представления новостного баннера.
     /// </summary>
-    public class Banner
+    public class BannerViewModel
     {
         /// <summary>
         /// Идентификатор.
@@ -18,7 +19,6 @@ namespace MyTotto.Data.Models
         /// <summary>
         /// Заголовок.
         /// </summary>
-        [Required]
         public string Title { get; set; }
 
         /// <summary>
@@ -29,13 +29,11 @@ namespace MyTotto.Data.Models
         /// <summary>
         /// Адрес, куда ведёт кнопка.
         /// </summary>
-        [Required]
         public string Url { get; set; }
 
         /// <summary>
         /// Ссылка на изображение баннера.
         /// </summary>
-        [Required]
         public string ImageUrl { get; set; }
 
         /// <summary>
@@ -46,31 +44,29 @@ namespace MyTotto.Data.Models
         public string ButtonText { get; set; }
 
         /// <summary>
-        /// Порядок, в котором выводится баннер.
-        /// </summary>
-        [Required]
-        public int Order { get; set; }
-
-        /// <summary>
-        /// Признак активного элемента.
-        /// </summary>
-        public bool IsActive { get; set; }
-
-        /// <summary>
         /// Дата акции.
         /// </summary>
         public DateTime? ActionDate { get; set; }
 
         /// <summary>
-        /// Дата создания.
-        /// </summary>
-        public DateTime Created { get; set; }
-
-        /// <summary>
         /// Создает экземпляр.
         /// </summary>
-        public Banner()
+        public BannerViewModel()
         {
+        }
+
+        /// <summary>
+        /// Создает экземпляр и инициализирует поля.
+        /// </summary>
+        public BannerViewModel(Banner banner)
+        {
+            Id = banner.Id;
+            Title = banner.Title;
+            Content = banner.Content;
+            Url = banner.Url;
+            ImageUrl = banner.ImageUrl;
+            ButtonText = banner.ButtonText;
+            ActionDate = banner.ActionDate;
         }
     }
 }
