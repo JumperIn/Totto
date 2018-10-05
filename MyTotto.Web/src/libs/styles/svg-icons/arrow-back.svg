@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.4" height="15.8" viewBox="0 0 16.4 15.8">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #c2c4c5;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <title>arrow-back</title>
+  <g id="Слой_2" data-name="Слой 2">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <path class="cls-1" d="M2.11,5H9.83c3.34,0,6.07,2.29,6.07,5.08v.12c0,2.8-2.73,5.09-6.07,5.09H2.11"/>
+        <polyline class="cls-1" points="7.81 0.42 0.9 5.03 7.81 9.65"/>
+      </g>
+    </g>
+  </g>
+</svg>

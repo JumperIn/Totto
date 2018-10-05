@@ -1,0 +1,82 @@
+.discounts
+	flex(column, center, center)
+	width: 100%
+	background-color: #fafaea
+	z-index: 1
+
+.discounts__wrapper
+	flex(column, center)
+
+.discounts__wrapper_margin
+	margin: 0 40px
+
+.discounts__img
+	size(100%, 400px)
+	background-position: 100%
+	background-size: cover
+
+.discounts__text
+	padding-top: 20px
+	font(18px, 700)
+	text-align: center
+
+.discounts__promocode
+	padding-top: 20px
+	font(14px)
+	text-align: center
+
+.discounts_indent
+	width: 40px
+
+.discounts__shadow-start
+.discounts__shadow-end
+	position: relative
+	size(100%, 60px)
+
+.discounts__shadow-start:before
+.discounts__shadow-start:after
+.discounts__shadow-end::before
+.discounts__shadow-end::after
+	content: ''
+	position: absolute
+	bottom: -25px
+	left: 110px
+	size(50%, 15px)
+	max-width: 400px
+	box-shadow: 0 -15px 15px 5px rgba(0,0,0,0.035)
+	transform: rotate(3deg)
+	z-index: 1
+
+.discounts__shadow-start:after
+.discounts__shadow-end::after
+	transform: rotate(-3deg)
+	right: 110px
+	left: auto
+
+.discounts__shadow-start:before
+.discounts__shadow-start:after
+	top: -25px
+	box-shadow: 0 15px 15px 5px rgba(0,0,0,0.035)
+	transform: rotate(-3deg)
+
+.discounts__shadow-start:after
+	transform: rotate(3deg)
+
+@media (max-width: 767px)
+	.discounts__shadow-start:before
+	.discounts__shadow-start:after
+	.discounts__shadow-end::before
+	.discounts__shadow-end::after
+		content: none
+
+@media (max-width: 1199px)
+	.discounts__shadow-start:before
+	.discounts__shadow-start:after
+	.discounts__shadow-end::before
+	.discounts__shadow-end::after
+		left: 0
+
+	.discounts__shadow-start:after
+	.discounts__shadow-end::after
+		right: 0
+		left: auto

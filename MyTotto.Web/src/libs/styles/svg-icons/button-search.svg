@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #95a700;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        opacity: 0.89;
+      }
+    </style>
+  </defs>
+  <title>button-search</title>
+  <g id="Слой_2" data-name="Слой 2">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <circle class="cls-1" cx="15" cy="15" r="15" transform="translate(-4.6 6.88) rotate(-22.5)"/>
+        <path class="cls-2" d="M23.29,22.53,18.36,17.6a6.88,6.88,0,1,0-.89.89l4.92,4.93ZM6.93,13.21a6.15,6.15,0,1,1,6.15,6.15A6.15,6.15,0,0,1,6.93,13.21Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

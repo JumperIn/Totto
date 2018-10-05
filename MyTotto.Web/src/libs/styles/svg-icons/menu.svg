@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20.02" height="14.18" viewBox="0 0 20.02 14.18">
+  <title>menu</title>
+  <g id="Слой_2" data-name="Слой 2">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <path d="M0,0V3.34H20V0ZM19.19,2.5H.83V.83H19.19Z"/>
+        <path d="M0,8.76H20V5.42H0Zm.83-2.5H19.19V7.93H.83Z"/>
+        <path d="M0,14.18H20V10.85H0Zm.83-2.5H19.19v1.67H.83Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

@@ -1,90 +1,143 @@
 .footer
+	flex(column, center, center)
 	background-color: #fff
 
-.footer-menu
-	padding: 30px 80px
+.footer__wrapper
+	padding: 45px 0 40px 0
 
+.footer-connection
 .footer-block
-	padding-right: 5px
+	padding: 0 15px
 
-.connection__title,
+.footer-connection__title
 .footer-block__title
-	padding: 10px 0
-	font-weight: 700
-	font-size: 16px
-	color: gray-darken
-
-.footer-block__title
-	margin: 0
-	color: gray-darken
-
-.connection__text,
-.contacts-text
-	padding-bottom: 10px
-	font-weight: 400
-	font-size: 13px
+	padding-bottom: 20px
+	font(14px, 300, #4e4e4e)
 	text-transform: uppercase
-	color: gray
 
-.contacts__text
-	text-transform: none
+.footer-connection__form
+	padding-bottom: 20px
 
-.connection__form
-	flex(row)
+.footer-connection__input
+	height: 40px
+	padding-left: 20px
+	font(14px, 100, stroke-color)
+	border: 1px solid stroke-color
+	border-radius: (@height / 2)
+	background: #fff
+	transition: background-color 200ms ease-in-out
 
-.connection__input
-	height: 36px
-	width: 100%
-	padding: 4px 35px 4px 8px
-	font-size: 13px
-	border: 1px solid #CFCFCF
-	border-top-left-radius: 4px
-	border-bottom-left-radius: 4px
-	color: #C9C9C9
+.footer-connection__input::placeholder
+	font(14px, 100, stroke-color)
 
-.connection__button
-	height: 36px
-	width: 35px
-	border: 1px solid #CFCFCF
-	border-left: 0px
-	border-top-right-radius: 4px
-	border-bottom-right-radius: 4px
-	background-color: #fff
+.footer-icon-button-search
+.footer-icon-envelope
+	size(30px, 30px)
+	color: main-color
+	transition: color 200ms ease-in-out
+
+.footer-icon-button-search:hover
+.footer-icon-envelope:hover
+	color: secondary-color
+
+.footer-connection__button
+	position: absolute
+	right: 0px
+	top: 5px
+	padding: 0 6px
+	border: none
+	background: none
 	cursor: pointer
-
-.connection__button_icon
-	font-size: 10px
-	color: #808080
 
 .footer-block__item
 	margin: 0
 	padding: 3px 0
-	font-size: 16px
 	list-style-type: none
 
 .footer-block__link
-	font-size: 13px
-	color: #178e9d
+	position: relative
+	font(14px, 100, #4e4e4e)
 	transition: color 200ms ease-in-out
 
 .footer-block__link:hover
-	color: #0D535C
+	text-decoration: underline
+	color: #464647
 
-.categories-item
-	text-transform: uppercase
+.footer-icon-location
+.footer-icon-message
+.footer-icon-phone
+	size(15px, 15px)
+	position: absolute
+	left: -30px
 
 .footer-copyright
-	padding: 0 80px
+	flex(, center)
+	width: 100%
+	background-color: main-color
+
+.footer-copyright__wrapper
+	flex(, space-between)
+	padding: 35px 0
 
 .footer-copyright__text
-	margin-top: 10px
-	padding: 5px 0
-	font-size: 13px
-	color: gray-darken
+	flex(,,center)
+	font(14px, 100, #c6dd7e)
+
+.footer-copyright__link
+	font(14px, 100, #fff)
+
+.footer-copyright__icons
+	flex(, flex-end, center)
+
+.footer-copyright__icon
+	flex(center, center)
+	margin-left: 5px
+
+.footer-icon-whatsapp
+.footer-icon-fb
+.footer-icon-vk
+.footer-icon-telegram
+.footer-icon-inst
+.footer-icon-youtube
+	size(25px, 25px)
+	color: icon-color
+	transition: color 200ms ease-in-out
+
+.footer-icon-whatsapp:hover
+.footer-icon-fb:hover
+.footer-icon-vk:hover
+.footer-icon-telegram:hover
+.footer-icon-inst:hover
+.footer-icon-youtube:hover
+	color: #fff
+	stroke: icon-color
+
+.footer-anchor
+	flex(column, center, center)
+	position: absolute
+	top: 0
+	right: 0
+	size(90px, 42px)
+	background-color: main-color
+	border-radius: 25px
+	transition: background-color 200ms ease-in-out
+
+.footer-anchor:hover
+	background-color: secondary-color
+
+.footer-icon-arrow-top
+	size(17px, 9px)
+	color: #fff
+
+.footer-anchor__text
+	padding-top: 6px
+	font(12px, 500, #fff)
+	text-transform: uppercase
 
 @media (max-width: 767px)
 	.footer-block
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+		
 	.footer-block__title-wrapper
 		flex(row, space-between, center)
 		cursor: pointer
@@ -93,13 +146,15 @@
 		display: flex
 		margin: 0
 		padding-right: 15px
-		font-size: 16px
-		font-weight: 700
-		color: grey-darken
+		font(16px, 700, grey-darken)
+
+	.footer-block__icon
+		size(15px, 15px)
+		color: gray-dark-color
 
 	.footer-block__body
 		padding-bottom: 10px
 
-@media (max-width: 1199px)
-	.footer-menu
-		padding: 20px 20px
+@media (min-width: 768px)
+	.footer-block__icon
+		display: none

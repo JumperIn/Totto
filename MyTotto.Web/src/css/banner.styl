@@ -1,5 +1,5 @@
 .banners
-	height: 450px
+	height: 480px
 	overflow: hidden
 
 .banners-wrapper
@@ -9,17 +9,14 @@
 
 .banners-buttons
 	display: inline-block
-	position: relative
 	width: 100%
-	top: -450px
 
 .banners-button
 	display: none
 	justify-content: center
 	align-items: center
 	position: absolute
-	height: 72px
-	width: 40px
+	size(40px, 72px)
 	top: 189px
 	background: #fff
 	color: #acacac
@@ -32,13 +29,17 @@
 .banners-button_right
 	right: 0
 
+.banners-buttons__angle-left
+.banners-buttons__angle-right
+	padding: 10px
+
 .banners:hover .banners-button
 	display: flex
 
 
 .banner
-	width: 100%
-	height: 100%
+	display: flex
+	height: 480px
 	background-position: center
 	background-size: cover
 
@@ -47,10 +48,9 @@
 	margin: 0 auto
 	height: 100%
 
-.banner_width
-	max-width: 1500px
-	width: 100%
-	height: 450px
+.banner-body
+	flex(row, center, center)
+	size(100%, auto)
 
 .banner_padding
 	padding: 0 80px
@@ -59,7 +59,7 @@
 .banner__wrapper
 	flex(row, center, center)
 	display: flex
-	height: 450px
+	height: 480px
 
 .banner__img
 	max-width: 100%
@@ -67,54 +67,54 @@
 
 .banner__content
 	flex(column, center, flex-start)
-	padding: 0 40px
+	padding: 30px 0 35px 85px
+	background-color: #faffe4
 
 .banner__title
-	margin: 0 0 10px 0
-	font-size: 42px
-	font-weight: 900
-	line-height: 120%
-	color: #28282f
+	font(42px)
+	span
+		color: #6c9e00
 
-.banner__content_description
-	margin: 0 0 10px 0
-	font-size: 15px
-	font-weight: 400
-	line-height: 140%
-	color: #28282f
+.banner__text
+	margin-top: 30px
+	font(18px,, #4d4d4d)
+
+.banner__timer
+	margin-top: 20px
+	size(250px, 50px)
+	background-color: #cdcdcd
 
 .banner__content_link
 	display: inline-block
 	height: 44px
 	padding: 0 20px
-	font-size: 12px
+	font(12px,, #fff)
 	line-height: 44px
 	border-radius: 22px
 	background: #0067b7
-	color: #fff
 	text-transform: uppercase
 
 @media (max-width: 767px)
 	.banner__wrapper
 		display: block
-		height: 180px
-		width: 305px
+		size(305px, 180px)
 		margin: 0 auto
+
 	.banner__img
 		display: block
 		height: 180px
 		max-width: none
-	.banner_direction
-		display: flex
-		flex-direction: column
-		flex-wrap: nowrap
+
 	.banner_width
 		float: left
 		display: block
 		padding: 20px
+
 	.banner__content
 		height: 180px
+
 	.banner__title
 		font-size: 28px
-	.banner__content_description
+		
+	.banner__text
 		font-size: 12px

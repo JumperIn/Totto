@@ -11,11 +11,18 @@
     <script src="~/libs/scripts/script.js" asp-append-version="true" async></script>
 </head>
 <body>
+	<div style="display: none">
+    	@Html.Partial("_Symbols")
+	</div>
     @Html.Partial("_Header")
 
     <main class="main container-fluid">
         
         @RenderBody()
+
+        @Html.Partial("_Discounts")
+
+        @Html.Partial("_NewProducts")
 
     </main>
     

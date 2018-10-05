@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21" height="18.87" viewBox="0 0 21 18.87">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #c2c4c5;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <title>pers-info</title>
+  <g id="Слой_2" data-name="Слой 2">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <polyline class="cls-1" points="15.5 2.12 20.5 2.12 20.5 18.36 0.5 18.36 0.5 2.12 5.5 2.12"/>
+        <polygon class="cls-1" points="5.88 0.5 15.13 0.5 15.13 3.57 5.88 3.57 5.88 0.5 5.88 0.5"/>
+        <line class="cls-1" x1="12.46" y1="7.85" x2="17.77" y2="7.85"/>
+        <line class="cls-1" x1="12.46" y1="10" x2="17.77" y2="10"/>
+        <line class="cls-1" x1="12.46" y1="12.14" x2="17.77" y2="12.14"/>
+        <line class="cls-1" x1="12.46" y1="14.29" x2="15.81" y2="14.29"/>
+        <path class="cls-1" d="M6.17,11.14A2,2,0,0,1,4.73,9,1.48,1.48,0,0,1,6.17,7.46,1.48,1.48,0,0,1,7.6,9a2,2,0,0,1-1.43,2.1Z"/>
+        <path class="cls-1" d="M4.84,11.39H7.49A1.61,1.61,0,0,1,9.1,13v1.29H3.23V13a1.62,1.62,0,0,1,1.61-1.61Z"/>
+      </g>
+    </g>
+  </g>
+</svg>

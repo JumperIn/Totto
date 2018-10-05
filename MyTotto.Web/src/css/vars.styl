@@ -1,11 +1,30 @@
 //Миксины
 
 flex(direction = row, justify = flex-start, align = stretch)
-	display flex
+	display: flex
 	flex-direction: direction
 	justify-content: justify
 	align-items: align
 	
+sale(color)
+	flex(, center, center)
+	width: 48px
+	height: 20px
+	text-transform: uppercase
+	font-size: 10px
+	font-weight: 500
+	border-radius: 10px
+	background-color: color
+	color: #fff
+
+size(width, height)
+	width: width
+	height: height
+
+font(size = 16px, weight = 300, color = gray-dark-color)
+	font-size: size
+	font-weight: weight
+	color: color
 
 /* 
   Переменные дозволительно писать без символов, но не все редакторы дают подсветку.
@@ -14,18 +33,21 @@ flex(direction = row, justify = flex-start, align = stretch)
   - $head-color
   - $container-width
 */
-fontsize = 16px
 
 // colors
-body-color = #fff
-product-name-color = #7a7a7a
-basket-color = #7a7a7a
+// Основной цвет
+main-color = #95a700
+// Дополнительный цвет или наведенный элемент
+secondary-color = #bacd1d
+// Более светлый основной цвет
+third-color = #f5f9d6
+// цвет однопиксельных обводок и разделителей и серых стрелок
+stroke-color = #c2c4c5
+// серые плашки в личном кабинете
+gray-color = #f3f3f3
+// цвет всех темно-серых шрифтов
+gray-dark-color = #333333
+// цвет иконок в футере bacd1d
+icon-color = #b9cd1d
 
-blue-light = #1db6ca
-
-red-light = #FFCAC4
-
-gray-light = #DDDDDD // не используется
-gray = #89899a
-gray-dark = #585858 // не используется
-gray-darken = #28282f 
+// Цвета градиента навигации шапки #f5f9d6 #f9fce7

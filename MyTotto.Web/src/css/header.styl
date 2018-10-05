@@ -1,74 +1,21 @@
 .header
 	background: #ffffff
 
+.header-frame
+	height: 30px
+	background-color: #e9e7a1
+
 .header-title
 	flex(row, center, stretch)
+	height: 32px
 	border-bottom: 1px solid #EDEDED
+	background-color: #fafaea
 
 .header-title_height
 	height: 176px
 
-@media (min-width: 768px)
-	.header-info__phone_media
-		display: none
-	.header-info__phone
-		display: flex
-	.header-info-icons
-		display: flex
-	.header-info-logo
-		padding: 15px 0px
-
-@media (max-width: 991px) 
-	.header-title__name
-		display: none
-	.header-info__phone
-		font-size: 20px
-	.menu
-		width: 720px
-
-@media (min-width: 992px) 
-	.header-info__phone
-		font-size: 24px 
-@media (max-width: 1199px)
-	.menu-drop
-		width: 100%
-		left: 0
-		
-@media (min-width: 1200px) 
-	.menu-drop
-		width: 120%
-		left: -10%
-
-@media (max-width: 1280px)
-	.menu
-		width: 720px
-		
-@media (max-width: 767px)
-	.header-info__phone_media
-		flex(row, center, center)
-		padding: 5px 0px
-	.header-title__menu
-		display: none
-	.header-info__phone
-		display: none
-	.header-info-logo
-		padding: 10px 20px 10px 0px
-	.menu
-		width: 100%
-
-
-.header-title__name
-	font-size: 13px
-	color: gray
-	padding: 5px 0px
-
-.header-title__name_h
-	font-size: 13px
-	margin: 0px
-	font-weight: normal
-
 .header-title__menu
-	padding: 5px 0px
+	flex(row, , center)
 
 .header-title__list
 	flex(row, flex-end)
@@ -76,96 +23,154 @@
 	list-style-type: none
 
 .header-title__item
-	padding-left: 10px
-	font-size: 13px
-	color: gray
+	padding-left: 20px
 
 .header-title__item_h
 	margin: 0px
-	font-size: 13px
-	font-weight: normal
+	font(14px, 100)
 
-.header-info__phone
-	justify-content: center
-	align-items: center
+.header-info
+	flex(,,center)
+	height: 110px
 
-.header-info__phone_color
-	color: gray
+.header-info-pers-area
+.header-info-basket
+	flex()
 
+.header-info-pers-area__link
+.header-info-basket__link
+	flex(,,center)
+
+.header-info-pers-area__text
+.header-info-basket__text
+	padding-left: 10px
+	font(14px, 100)
+	span
+		font-weight: 700
+
+.header-icon-pers
+	size(20px, 20px)
+
+.header-icon-basket
+	size(22px, 22px)
+
+.header-info-phone
+	flex(, space-between, center)
+
+.header-info-phone__number
+	font(26px, 300)
+	span
+		color: main-color
+
+.header-info-phone__link
+	padding-left: 15px
+
+.header-info-phone__link_proportions
+	flex(,center, center)
+	size(170px, 40px)
+	background-color: main-color
+	border-radius: (@height / 2)
+	transition: background-color 200ms ease-in-out
+
+.header-info-phone__link_proportions:hover
+	background-color: secondary-color
+
+.header-info-phone__link_text
+	font(14px, 500, #fff)
+	text-transform: uppercase
 
 .header-info-search
 	flex(row, center, center)
+	max-width: 280px
 
-.header-info-search_flex
-	display: flex
 
 .header-info-search__input
 	position: relative
-	height: 35px
+	height: 40px
 	padding-left: 20px
-	text-transform: uppercase
-	font-size: 13px
-	border: 1px solid #ededed
-	border-radius: 22px
-	background: #ededed
-	color: gray
+	font(14px, 100, stroke-color)
+	border: 1px solid stroke-color
+	border-radius: (@height / 2)
+	background: #fff
 	transition: background-color 200ms ease-in-out
 
-.header-info-search__input:hover,
-.header-info-search__input:focus
-	background: #fff
+.header-info-search__input::placeholder
+	font(14px, 100, stroke-color)
 
-.header-info-search__input:active
-	border: none
+.header-icon-button-search
+	size(30px, 30px)
+	color: main-color
+	transition: color 200ms ease-in-out
+
+.header-icon-button-search:hover
+	color: secondary-color
 
 .header-info-search__button
 	position: absolute
-	right: 5px
-	top: 0px
-	font-size: 23px
-	border: none 
-	background: none 
-	color: gray
+	right: 0px
+	top: 5px
+	padding: 0 6px
+	border: none
+	background: none
 	cursor: pointer
-
-
-.header-info-icons
-	justify-content: center
-	align-items: center
-
-.header-info-icons__item
-	padding-left: 10px
-	color: gray
-	transition: color 200ms ease-in-out
-
-.header-info-search__button
-	transition: color 200ms ease-in-out
-
-.header-info-icons__item:hover,
-.header-info-search__button:hover
-	color: blue-light
-
-@media(max-width: 767px)
-	.header-info-icons
-		position: absolute
-		top: 73px
-		right: 0px
-		z-index: 1
-	.header-info-icons__item
-		font-size: 26px
-		color: #fff
-	.header-info-icons__item:hover
-		color: #fff
 
 .header-nav
 	display: flex
-	background: #FFE3E0
+	height: 80px
+	background: linear-gradient(to bottom, third-color, #f9fce7)
 
 .menu
-	height: 56px
+	flex(, flex-start, center)
+	height: 80px
 
-.menu-link
+.menu::before
+.menu::after
+	content: ''
+	position: absolute
+	size(50%, 15px)
+	bottom: -25px
+	left: 110px
+	max-width: 400px
+	box-shadow: 0 -15px 15px 5px rgba(0,0,0,0.035)
+	transform: rotate(3deg)
+	z-index: 1
+.menu::after
+	transform: rotate(-3deg)
+	right: 110px
+	left: auto
+
+.menu-title
 	display: none
+
+.menu-logo
+	flex()
+	size(229px, 53px)
+	margin-right: 20px
+	position: relative
+
+.menu-logo__link
+	position: absolute
+	size(229px, 53px)
+	top: 0
+	left: 0
+	z-index: 200
+
+.menu-logo_shadow
+	position: absolute
+	size(100px, 17px)
+	// ставим источник тени на середину лого
+	// 53/2 - 17/2
+	top: 18px 
+	// 229/2 - 100/2
+	left: 64px
+	border-radius: 50%
+	background: #fff
+	box-shadow: 0px 0px 120px 40px rgba(255, 255, 255, 1)
+	z-index: 0
+
+.header-icon-logo
+	size(229px, 53px)
+	z-index: 100
 
 .menu__list
 	flex(row, flex-start, center)
@@ -175,68 +180,161 @@
 	flex(row, flex-start, center)
 	flex-wrap: nowrap
 	height: 100%
-	padding: 0px 8px
-	font-size: 13px
+	padding: 0px 15px
+	font(12px)
 	text-transform: uppercase
-	font-weight: 400
-	color: #4e2520
 	list-style-type: none
-
-.menu-item__icon2
-	padding-left: 3px
-	font-size: 12px
-	color: #8B4339
 
 .menu_drop:hover .menu-drop,
 .menu_drop:hover .menu-item
 	display: flex
-	color: #42201B
 
 .menu_drop:hover
-	background: red-light
+	background: third-color
 
 .menu_drop
 	flex(row, center)
 	height: 100%
+	position: relative
 	transition: background-color 200ms ease-in-out
-
 
 .menu-drop
 	display: none
 	position: absolute
 	top: 100%
+	width: 570px
+	min-height: 420px
+	background: #fff
+	border: solid 1px stroke-color
 	z-index: 200
-	box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 10px 0px
-	background: white
-	
-.menu-drop_padding
-	padding: 40px 0px
+
+.menu-drop::after
+.menu-drop::before
+	content: ''
+	position: absolute
+	size(0, 0)
+	top: -12px
+	border-style: solid
+	border-width: 0 12px 12px 12px
+	border-color: transparent transparent #ffffff transparent
+	z-index: 200
+
+.menu-drop::before
+	top: -13px
+	border-color: transparent transparent stroke-color transparent
+
+.menu-drop__container
+	flex(column)
+
+.menu-drop__title
+	flex(row, space-between, center)
+	padding: 36px 0 15px 0
+	border-bottom: solid 1px stroke-color
+
+.menu-drop__catalog
+	font(15px, 500)
+	text-transform: uppercase
+
+.menu-drop__see-all
+	font(14px)
+	text-transform: uppercase
+
+.menu-drop__body
+	flex(column, flex-start)
+	position: relative
+	width: 50%
+	margin: 15px 0 25px 0
+	padding: 5px 0 25px 0
+	border-right: solid 1px stroke-color
+
+.menu-drop__body_hover:hover .menu-drop__list
+	flex(column, flex-start)
+
+.menu-drop__body_hover:hover ~ .menu-drop-img
+	display: none
 
 .menu-drop__list-header
 	display: block
-	padding-bottom: 10px
-	font-size: 15px
-	font-weight: 700
-	color: gray-darken
+	padding: 8px 0
+	font(16px,, #464647)
 
 .menu-drop__list
-	padding-right: 5px
+	display: none
+	position: absolute
+	top: 0
+	right: -100%
+	width: 100%
+	min-height: 200px
+	padding: 5px 5px 0 40px
 	list-style-type: none
 
 .menu-drop__item
 	display: block
-	padding: 4px 0px
-	font-size: 13px
-	color: #4b4b58
+	position: relative
+	padding: 8px 0px
+	font(16px, 100, #676767)
+
+.menu-drop__item:hover
+	color: main-color
+
+.menu-drop__item:hover::before
+	position: absolute
+	content: ''
+	size(24px, 19px)
+	fill: #000
+	top: 8px
+	left: -30px
+	background-image: url('../images/logo-head.svg')
+	background-repeat: no-repeat
 
 .menu__wrap
 	flex(row, flex-start, center)
 
-.menu-item__icon1
-	display: none
+.menu-drop__wrap
+	position: relative
+
+.menu-drop__body_hover:hover
+	background-color: #e9e7a0
+
+.menu-drop__body_hover:hover .menu-drop__wrap::before
+.menu-drop__body_hover:hover .menu-drop__wrap::after
+	content: ''
+	position: absolute
+	size(0, 0)
+	top: 5px
+	right: -1px
+	border-style: solid
+	border-width: 12px 12px 12px 0
+	border-color: transparent #fff transparent transparent
+	z-index: 200
+
+.menu-drop__body_hover:hover .menu-drop__wrap::before
+	right: 0px
+	border-color: transparent stroke-color transparent transparent
+
+.menu-drop-img
+	flex(column)
+	position: absolute
+	top: 0
+	right: -100%
+
+.menu-drop-img__face
+	size(200px, 200px)
+	background-image: url(../images/cream.jpg)
+	background-size: 100% 100%
+	background-repeat: no-repeat
+
+.menu-drop-img__sale
+	flex(, center, center)
+	size(200px, 100px)
+	padding: 0 20px
+	background-color: #e9e7a0
+
+.menu-drop-img__text
+	font(14px)
 
 .header-info__wrapper
-	flex(row, , center)
+	flex(row, space-between, center)
 
 .header-info_fixed
 	position: fixed
@@ -254,140 +352,146 @@
 	box-shadow: 0 0 0 2000px rgba(0,0,0,0.4), 0 3px 10px 0 rgba(0,0,0,0.3)
 	z-index: 1
 
-.header-info-logo_padding
-	padding: 0
-
-.header-info__icon
-	padding: 0
-	// margin-right: 15px
-	width: 48px
-	height: 48px
-	font-size: 28px
-	line-height: 48px
-	background-color: #EDEDED
-	border-radius: 50%
-	color: rgba(0, 0, 0, 0.54)
-	cursor: pointer
-	transition: color 200ms ease-in-out
-	transition: transform 200ms ease-in-out
-
-.header-info__icon_active
-	transform: rotate(90deg)
-
-.header-info__icon:hover
-	color: blue-light
-
-.header-info__icon-wrapper
-	text-align: center
-
 @media (max-width: 767px)
 	.menu__list
-		// display: none
 		flex-direction: column
 		position: absolute
 		top: 100%
 		left: 0px
-		height: auto
-		width 100%
+		size(100%, auto)
 		align-items: start
-		background: white
+		background: #fff
 		z-index: 200
-	.menu-link
-		display: flex
-		align-items: center
+
+	.menu-title
+		flex(,,center)
+		size(140px, 80px)
 		padding: 0px 20px
-		height: 56px
-		width: 140px
-		cursor: pointer
-		font-size: 14px
-		font-weight: 600
+		font(14px)
 		text-transform: uppercase
+		cursor: pointer
 		transition: background-color 200ms ease-in-out
+
 	.menu__wrap:hover,
-	.menu-link:hover
-		background-color: red-light
-	.menu-link__icon1
-		padding-right: 10px
-		font-size: 24px
-	.menu-link__icon2
-		padding-left: 5px
-		font-size: 16px
+	.menu-title:hover
+		background-color: third-color
+
+	.menu-title__icon1
+		size(20px, 20px)
+		margin-right: 10px
+
+	.menu-title__icon2
+		size(15px, 15px)
+		margin-left: 5px
+
 	.menu_drop
 		width: 100%
 		display: flex
 		flex-direction: column
+
 	.menu-drop
 		display: flex
 		position: relative
 		box-shadow: none
+		width: 100%
+		min-height: auto
+		border: none
+
+	.menu-drop::after
+	.menu-drop::before
+		display: none
+
 	.menu-drop__list
+		position: inherit
 		display: flex
 		flex-direction: column
+		min-height: auto
 		padding: 0px 0px 15px 0px
+
 	.menu-drop__item
 		padding-left: 20px
-		color: blue-light
-	.menu-drop_padding
+		color: #000
+		transition: color 200ms ease-in-out
+
+	.menu-drop__body
 		display: flex
 		flex-direction: column
-		padding: 0px
+		width: 100%
+		margin: 0
+		padding: 0
+		border: none
+
+	.menu-drop__body_hover:hover
+		background-color: #fff
+
+	.menu-drop__body_hover:hover .menu-drop__wrap::before
+	.menu-drop__body_hover:hover .menu-drop__wrap::after
+		display: none
+
 	.menu__wrap
 		display: flex
 		flex-direction: row
-		height: 48px
-		width: 100%
+		size(100%, 48px)
 		padding: 0px
-		border-top: solid 1px red-light
-		background-color: #FFFAFA
+		border-top: solid 1px third-color
+		background-color: #f9fce7
 		transition: background-color 200ms ease-in-out
+
 	.menu-drop__wrap
 		display: flex
 		flex-direction: row
 		align-items: center
-		height: 48px
-		width: 100%
+		size(100%, 48px)
 		padding: 0px
 		border-top: solid 1px #ededed
 		background-color: #fff
+
 	.menu-item
 		width: 100%
 		padding: 0px 0px 0px 20px
 		font-size: 14px
 		color: #000
+
 	.menu-drop__list-header
-		height: 100%
-		width: 100%
+		size(100%, 100%)
 		padding: 0px 0px 0px 20px
-		font-size: 12px
-		font-weight: 400
+		font(12px, 300, #000)
 		line-height: 48px
 		text-transform: uppercase
-		color: #000
 		transition: color 200ms ease-in-out
-	.menu-item__icon2,
+
+	.menu-item__icon-drop
 	.menu-drop__icon
-		height: 48px
-		width: 50px
-		padding: 0px
-		line-height: 48px
-		text-align: center
-		font-size: 18px
+		size(50px, 48px)
+		padding: 15px
 		cursor: pointer
-	.menu-item__icon2
-		color: #fff
-	.menu-drop__icon
 		color: #bfbfbf
-	.menu-item__icon1
-		display: flex
-		padding-right: 10px
-		font-size: 24px
-		color: #a8a8a8
+
 	.accordion-active
-		background-color: red-light
+		background-color: third-color
+
 	.icon-accordion-active
-		background-color: #FFD5D1
+		background-color: third-color
+
 	.sub-accordion-active
 		background-color: #E0E0E0
+
 	.menu-drop__list-header:hover
-		color: blue-light
-		
+		color: main-color
+
+	.menu::before
+	.menu::after
+		content: none
+
+@media (max-width: 1199px)
+	.menu::before
+	.menu::after
+		left: 0
+
+	.menu::after
+		right: 0
+		left: auto
+
+@media (min-width: 768px)
+	.menu-item__icon-drop
+		display: none

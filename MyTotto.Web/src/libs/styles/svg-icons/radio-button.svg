@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f3f3f3;
+      }
+
+      .cls-2 {
+        fill: #c2c4c5;
+      }
+
+      .cls-3 {
+        fill: #95a700;
+      }
+    </style>
+  </defs>
+  <title>radio-button</title>
+  <g id="Слой_2" data-name="Слой 2">
+    <g id="Layer_1" data-name="Layer 1">
+      <g>
+        <g>
+          <circle class="cls-1" cx="7.5" cy="7.5" r="7"/>
+          <path class="cls-2" d="M7.5,1A6.5,6.5,0,1,1,1,7.5,6.51,6.51,0,0,1,7.5,1m0-1A7.5,7.5,0,1,0,15,7.5,7.5,7.5,0,0,0,7.5,0Z"/>
+        </g>
+        <circle class="cls-3" cx="7.5" cy="7.5" r="5"/>
+      </g>
+    </g>
+  </g>
+</svg>
