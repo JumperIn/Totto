@@ -3,7 +3,38 @@
 <section class="main-section-banners container-fluid">
     <div class="banners container-fluid">
         <div class="banners-wrapper row">
-			<div class="banner container-fluid col-12" style="background-image: url(images/banner.jpg);">
+            @for (int i = 0; i < Model.Count; i++)
+            {
+                var banner = Model[i];
+                string bgImage = $"/images/bg_img{i+1}.png";    // TODO: banner.ImageUrl
+                string image = $"/images/{i + 1}.png";          // TODO: banner.ImageUrl
+
+                <div class="banner container-fluid col-12" style="background-image: url(@bgImage);">
+                    <div class="banner_margin container-fluid justify-content-center">
+                        <div class="banner_width banner_direction row">
+                            <div class="banner__wrapper col-md-6">
+                                <img class="banner__img" src="@image" alt="">
+                            </div>
+                            <div class="banner__content col-12 col-md-6">
+                                <h3 class="banner__title">@banner.Title</h3>
+                                <div class="banner__text">@banner.Content</div>
+
+                                @if (string.IsNullOrWhiteSpace(banner.ButtonText))
+                                {
+                                    <a class="banner__content_link" href="#">@banner.ButtonText</a>
+                                }
+
+                                @if (banner.ActionDate != null)
+                                {
+                                    <div class="banner__timer">@banner.ActionDate?.ToString("dd MM yyyy HH:mm:ss")</div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+			@*<div class="banner container-fluid col-12" style="background-image: url(images/banner.jpg);">
 				<div class="banner_margin container-fluid justify-content-center">
                     <div class="banner-body row">
                         <div class="col-md-6"></div>
@@ -70,7 +101,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>*@
         </div>
         <div class="banners-buttons">
             <div id="moveBannerLeft" class="banners-button banners-button_left">
