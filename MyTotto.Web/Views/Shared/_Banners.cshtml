@@ -19,9 +19,9 @@
                                 <h3 class="banner__title">@banner.Title</h3>
                                 <div class="banner__text">@banner.Content</div>
 
-                                @if (string.IsNullOrWhiteSpace(banner.ButtonText))
+                                @if (!string.IsNullOrWhiteSpace(banner.ButtonText))
                                 {
-                                    <a class="banner__content_link" href="#">@banner.ButtonText</a>
+                                    <a class="banner__content_link" href="@banner.Url">@banner.ButtonText</a>
                                 }
 
                                 @if (banner.ActionDate != null)

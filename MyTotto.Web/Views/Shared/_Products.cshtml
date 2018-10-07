@@ -1,298 +1,316 @@
 ﻿@model List<ProductCardViewModel>
 
 <div class="container-fluid">
-	<div class="container-fluid row justify-content-center">
-		<section class="main-section-content main-section-content_padding">
-			<div class="main-content container-fluid">
-				<div class="container-fluid">
-					<nav class="main-nav">
-						<div class="main-nav__wrapper cover">
-							<ul class="main-nav__list">
-								<li class="main-nav_center"><a class="main-nav__item js-main-nav__item-all">Все</a></li>
-								<li class="main-nav_center"><a class="main-nav__item js-main-nav__item-new main-nav__item_active">Новинки</a></li>
-								<li class="main-nav_center"><a class="main-nav__item js-main-nav__item-hits">Хиты продаж</a></li>
-								<li class="main-nav_center"><a class="main-nav__item js-main-nav__item-stocks">Скидки и акции</a></li>
-							</ul>
-							<a href="" class="main-nav__selection">
-								<svg class="product-icon-menu">
-									<use xlink:href="#icon-menu"></use>
-								</svg>
-								<p class="main-nav__selection_text">Расширенный подбор</p>
-							</a>
+    <div class="container-fluid row justify-content-center">
+        <section class="main-section-content main-section-content_padding">
+            <div class="main-content container-fluid">
+                <div class="container-fluid">
+                    <nav class="main-nav">
+                        <div class="main-nav__wrapper cover">
+                            <ul class="main-nav__list">
+                                <li class="main-nav_center"><a class="main-nav__item js-main-nav__item-all">Все</a></li>
+                                <li class="main-nav_center"><a class="main-nav__item js-main-nav__item-new main-nav__item_active">Новинки</a></li>
+                                <li class="main-nav_center"><a class="main-nav__item js-main-nav__item-hits">Хиты продаж</a></li>
+                                <li class="main-nav_center"><a class="main-nav__item js-main-nav__item-stocks">Скидки и акции</a></li>
+                            </ul>
+                            <a href="" class="main-nav__selection">
+                                <svg class="product-icon-menu">
+                                    <use xlink:href="#icon-menu"></use>
+                                </svg>
+                                <p class="main-nav__selection_text">Расширенный подбор</p>
+                            </a>
 
-						</div>
-					</nav>
-				</div>
-				<div class="container-fluid justify-content-center row">
-					<div class="products cover row">
-						<div class="products__item js-products__item-hit js-products__item-stock col-12 col-sm-6 col-md-4 col-lg-3">
-							<div class="product">
-								<a class="product__link" href="#"></a>
-								<div class="product__img" data-title="Крем для лица" style="background-image: url(images/cream8.jpg)" alt="Крем"></div>
-								<div class="product__info">
-									<p class="product__name">Elizavecca Крем для лица улиточный антивозрастной Glutinous Cream</p>
-									<div class="container">
-										<div class="row">
-											<div class="col-5">
-												<div class="product__price-before-strike">
-													<p class="product__price-before">2294 Р</p>
-												</div>
-												<p class="product__price-after">1294 Р</p>
-											</div>
-											<div class="product-sale col-4">
-												<div class="js-product-sale__stock product-sale_red">Акция</div>
-												<div class="js-product-sale__hit product-sale_orange">Хит</div>
-											</div>
-											<div class="col-3 product__inbasket-icon_position">
-												<button class="js-product-inbasket" type="button" data-id="12345">
-													<svg class="product-icon-button-basket">
-														<use xlink:href="#icon-button-basket"></use>
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="product__inbasket">
-										<button class="product__inbasket_buy js-product-inbasket" type="button" data-id="12345">добавить в корзину</button>
-									</div>
-								</div>
-								<button class="product__favorites">
-									<svg class="product-icon-button-heart">
-										<use xlink:href="#icon-button-heart"></use>
-									</svg>
-								</button>
-							</div>
-						</div>
-						<div class="products__item js-products__item-new col-12 col-sm-6 col-md-4 col-lg-3">
-							<div class="product">
-								<a class="product__link" href="#"></a>
-								<div class="product__img" data-title="Крем для лица" style="background-image: url(images/cream2.png)" alt="Крем"></div>
-								<div class="product__info">
-									<p class="product__name">Elizavecca Крем для лица улиточный антивозрастной Glutinous Cream</p>
-									<div class="container">
-										<div class="row">
-											<div class="col-5">
-												<div class="product__price-before-strike">
-													<p class="product__price-before">2294 Р</p>
-												</div>
-												<p class="product__price-after">1294 Р</p>
-											</div>
-											<div class="product-sale col-4">
-												<div class="js-product-sale__new product-sale_light-blue">New</div>
-											</div>
-											<div class="col-3 product__inbasket-icon_position">
-												<button class="js-product-inbasket" type="button" data-id="12345">
-													<svg class="product-icon-button-basket">
-														<use xlink:href="#icon-button-basket"></use>
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="product__inbasket">
-										<button class="product__inbasket_buy js-product-inbasket" type="button" data-id="12345">добавить в корзину</button>
-									</div>
-								</div>
-								<button class="product__favorites">
-									<svg class="product-icon-button-heart">
-										<use xlink:href="#icon-button-heart"></use>
-									</svg>
-								</button>
-							</div>
-						</div>
-						<div class="products__item js-products__item-stock col-12 col-sm-6 col-md-4 col-lg-3">
-							<div class="product">
-								<a class="product__link" href="#"></a>
-								<div class="product__img" data-title="Крем для лица" style="background-image: url(images/cream3.png)" alt="Крем"></div>
-								<div class="product__info">
-									<p class="product__name">Elizavecca Крем для лица улиточный антивозрастной Glutinous Cream</p>
-									<div class="container">
-										<div class="row">
-											<div class="col-5">
-												<div class="product__price-before-strike">
-													<p class="product__price-before">2294 Р</p>
-												</div>
-												<p class="product__price-after">1294 Р</p>
-											</div>
-											<div class="product-sale col-4">
-												<div class="js-product-sale__discount product-sale_blue">-30%</div>
-											</div>
-											<div class="col-3 product__inbasket-icon_position">
-												<button class="js-product-inbasket" type="button" data-id="12345">
-													<svg class="product-icon-button-basket">
-														<use xlink:href="#icon-button-basket"></use>
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="product__inbasket">
-										<button class="product__inbasket_buy js-product-inbasket" type="button" data-id="12345">добавить в корзину</button>
-									</div>
-								</div>
-								<button class="product__favorites">
-									<svg class="product-icon-button-heart">
-										<use xlink:href="#icon-button-heart"></use>
-									</svg>
-								</button>
-							</div>
-						</div>
-						<div class="products__item js-products__item-stock col-12 col-sm-6 col-md-4 col-lg-3">
-							<div class="product">
-								<a class="product__link" href="#"></a>
-								<div class="product__img" data-title="Крем для лица" style="background-image: url(images/cream4.png)" alt="Крем"></div>
-								<div class="product__info">
-									<p class="product__name">Elizavecca Крем для лица улиточный антивозрастной Glutinous Cream</p>
-									<div class="container">
-										<div class="row">
-											<div class="col-5">
-												<div class="product__price-before-strike">
-													<p class="product__price-before">2294 Р</p>
-												</div>
-												<p class="product__price-after">1294 Р</p>
-											</div>
-											<div class="product-sale col-4">
-												<div class="js-product-sale__2+1 product-sale_purple">2+1</div>
-											</div>
-											<div class="col-3 product__inbasket-icon_position">
-												<button class="js-product-inbasket" type="button" data-id="12345">
-													<svg class="product-icon-button-basket">
-														<use xlink:href="#icon-button-basket"></use>
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="product__inbasket">
-										<button class="product__inbasket_buy js-product-inbasket" type="button" data-id="12345">добавить в корзину</button>
-									</div>
-								</div>
-								<button class="product__favorites">
-									<svg class="product-icon-button-heart">
-										<use xlink:href="#icon-button-heart"></use>
-									</svg>
-								</button>
-							</div>
-						</div>
-						<div class="products__item js-products__item-hit js-products__item-stock col-12 col-sm-6 col-md-4 col-lg-3">
-							<div class="product">
-								<a class="product__link" href="#"></a>
-								<div class="product__img" data-title="Крем для лица" style="background-image: url(images/cream8.jpg)" alt="Крем"></div>
-								<div class="product__info">
-									<p class="product__name">Elizavecca Крем для лица улиточный антивозрастной Glutinous Cream</p>
-									<div class="container">
-										<div class="row">
-											<div class="col-5">
-												<div class="product__price-before-strike">
-													<p class="product__price-before">2294 Р</p>
-												</div>
-												<p class="product__price-after">1294 Р</p>
-											</div>
-											<div class="product-sale col-4">
-												<div class="js-product-sale__stock product-sale_red">Акция</div>
-												<div class="js-product-sale__hit product-sale_orange">Хит</div>
-											</div>
-											<div class="col-3 product__inbasket-icon_position">
-												<button class="js-product-inbasket" type="button" data-id="12345">
-													<svg class="product-icon-button-basket">
-														<use xlink:href="#icon-button-basket"></use>
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="product__inbasket">
-										<button class="product__inbasket_buy js-product-inbasket" type="button" data-id="12345">добавить в корзину</button>
-									</div>
-								</div>
-								<button class="product__favorites">
-									<svg class="product-icon-button-heart">
-										<use xlink:href="#icon-button-heart"></use>
-									</svg>
-								</button>
-							</div>
-						</div>
-						<div class="products__item js-products__item-new col-12 col-sm-6 col-md-4 col-lg-3">
-							<div class="product">
-								<a class="product__link" href="#"></a>
-								<div class="product__img" data-title="Крем для лица" style="background-image: url(images/cream2.png)" alt="Крем"></div>
-								<div class="product__info">
-									<p class="product__name">Elizavecca Крем для лица улиточный антивозрастной Glutinous Cream</p>
-									<div class="container">
-										<div class="row">
-											<div class="col-5">
-												<div class="product__price-before-strike">
-													<p class="product__price-before">2294 Р</p>
-												</div>
-												<p class="product__price-after">1294 Р</p>
-											</div>
-											<div class="product-sale col-4">
-												<div class="js-product-sale__new product-sale_light-blue">New</div>
-											</div>
-											<div class="col-3 product__inbasket-icon_position">
-												<button class="js-product-inbasket" type="button" data-id="12345">
-													<svg class="product-icon-button-basket">
-														<use xlink:href="#icon-button-basket"></use>
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="product__inbasket">
-										<button class="product__inbasket_buy js-product-inbasket" type="button" data-id="12345">добавить в корзину</button>
-									</div>
-								</div>
-								<button class="product__favorites">
-									<svg class="product-icon-button-heart">
-										<use xlink:href="#icon-button-heart"></use>
-									</svg>
-								</button>
-							</div>
-						</div>
-						<div class="products__item js-products__item-stock col-12 col-sm-6 col-md-4 col-lg-3">
-							<div class="product">
-								<a class="product__link" href="#"></a>
-								<div class="product__img" data-title="Крем для лица" style="background-image: url(images/cream3.png)" alt="Крем"></div>
-								<div class="product__info">
-									<p class="product__name">Elizavecca Крем для лица улиточный антивозрастной Glutinous Cream</p>
-									<div class="container">
-										<div class="row">
-											<div class="col-5">
-												<div class="product__price-before-strike">
-													<p class="product__price-before">2294 Р</p>
-												</div>
-												<p class="product__price-after">1294 Р</p>
-											</div>
-											<div class="product-sale col-4">
-												<div class="js-product-sale__discount product-sale_blue">-30%</div>
-											</div>
-											<div class="col-3 product__inbasket-icon_position">
-												<button class="js-product-inbasket" type="button" data-id="12345">
-													<svg class="product-icon-button-basket">
-														<use xlink:href="#icon-button-basket"></use>
-													</svg>
-												</button>
-											</div>
-										</div>
-									</div>
-									<div class="product__inbasket">
-										<button class="product__inbasket_buy js-product-inbasket" type="button">добавить в корзину</button>
-									</div>
-								</div>
-								<button class="product__favorites">
-									<svg class="product-icon-button-heart">
-										<use xlink:href="#icon-button-heart"></use>
-									</svg>
-								</button>
-							</div>
-						</div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="container-fluid justify-content-center row">
+                    <div class="products cover row">
 
-						<div class="products__link-wrapper">
-							<a class="products__link" href="">Смотреть все</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-	</div>
+                        @for (int i = 0; i < Model.Count; i++)
+                        {
+                            var product = Model[i];
+                            string image = product.ImageUrl;
+
+                            <div class="products__item js-products__item-hit js-products__item-stock col-12 col-sm-6 col-md-4 col-lg-3">
+                                <div class="product">
+                                    <a class="product__link" href="@product.Url"></a>
+                                    <div class="product__img" data-title="@product.Title" style="background-image: url(@image)" alt="@product.Title"></div>
+                                    <div class="product__info">
+                                        <p class="product__name">@product.Title</p>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-5">
+                                                    <div class="product__price-before-strike">
+                                                        <p class="product__price-before">@product.Price</p>
+                                                    </div>
+                                                    <p class="product__price-after">@product.DiscountPrice</p>
+                                                </div>
+                                                <div class="product-sale col-4">
+                                                    @if (product.ProductType == ProductType.Discount)
+                                                    {
+                                                        <div class="js-product-sale__stock product-sale_red">Акция</div>
+                                                    }
+                                                    @if (product.ProductType == ProductType.Hit)
+                                                    {
+                                                        <div class="js-product-sale__hit product-sale_orange">Хит</div>
+                                                    }
+                                                    @if (product.ProductType == ProductType.New)
+                                                    {
+                                                        <div class="js-product-sale__new product-sale_light-blue">New</div>
+                                                    }
+                                                </div>
+                                                <div class="col-3 product__inbasket-icon_position">
+                                                    <button class="js-product-inbasket" type="button" data-id="@product.Id">
+                                                        <svg class="product-icon-button-basket">
+                                                            <use xlink:href="#icon-button-basket"></use>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="product__inbasket">
+                                            <button class="product__inbasket_buy js-product-inbasket" type="button" data-id="@product.Id">добавить в корзину</button>
+                                        </div>
+                                    </div>
+                                    <button class="product__favorites">
+                                        <svg class="product-icon-button-heart">
+                                            <use xlink:href="#icon-button-heart"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        }
+
+                        @*<div class="products__item js-products__item-new col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="product">
+                                <a class="product__link" href="#"></a>
+                                <div class="product__img" data-title="Крем для лица" style="background-image: url(images/cream2.png)" alt="Крем"></div>
+                                <div class="product__info">
+                                    <p class="product__name">Elizavecca Крем для лица улиточный антивозрастной Glutinous Cream</p>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="product__price-before-strike">
+                                                    <p class="product__price-before">2294 Р</p>
+                                                </div>
+                                                <p class="product__price-after">1294 Р</p>
+                                            </div>
+                                            <div class="product-sale col-4">
+                                                <div class="js-product-sale__new product-sale_light-blue">New</div>
+                                            </div>
+                                            <div class="col-3 product__inbasket-icon_position">
+                                                <button class="js-product-inbasket" type="button" data-id="12345">
+                                                    <svg class="product-icon-button-basket">
+                                                        <use xlink:href="#icon-button-basket"></use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product__inbasket">
+                                        <button class="product__inbasket_buy js-product-inbasket" type="button" data-id="12345">добавить в корзину</button>
+                                    </div>
+                                </div>
+                                <button class="product__favorites">
+                                    <svg class="product-icon-button-heart">
+                                        <use xlink:href="#icon-button-heart"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="products__item js-products__item-stock col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="product">
+                                <a class="product__link" href="#"></a>
+                                <div class="product__img" data-title="Крем для лица" style="background-image: url(images/cream3.png)" alt="Крем"></div>
+                                <div class="product__info">
+                                    <p class="product__name">Elizavecca Крем для лица улиточный антивозрастной Glutinous Cream</p>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="product__price-before-strike">
+                                                    <p class="product__price-before">2294 Р</p>
+                                                </div>
+                                                <p class="product__price-after">1294 Р</p>
+                                            </div>
+                                            <div class="product-sale col-4">
+                                                <div class="js-product-sale__discount product-sale_blue">-30%</div>
+                                            </div>
+                                            <div class="col-3 product__inbasket-icon_position">
+                                                <button class="js-product-inbasket" type="button" data-id="12345">
+                                                    <svg class="product-icon-button-basket">
+                                                        <use xlink:href="#icon-button-basket"></use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product__inbasket">
+                                        <button class="product__inbasket_buy js-product-inbasket" type="button" data-id="12345">добавить в корзину</button>
+                                    </div>
+                                </div>
+                                <button class="product__favorites">
+                                    <svg class="product-icon-button-heart">
+                                        <use xlink:href="#icon-button-heart"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="products__item js-products__item-stock col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="product">
+                                <a class="product__link" href="#"></a>
+                                <div class="product__img" data-title="Крем для лица" style="background-image: url(images/cream4.png)" alt="Крем"></div>
+                                <div class="product__info">
+                                    <p class="product__name">Elizavecca Крем для лица улиточный антивозрастной Glutinous Cream</p>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="product__price-before-strike">
+                                                    <p class="product__price-before">2294 Р</p>
+                                                </div>
+                                                <p class="product__price-after">1294 Р</p>
+                                            </div>
+                                            <div class="product-sale col-4">
+                                                <div class="js-product-sale__2+1 product-sale_purple">2+1</div>
+                                            </div>
+                                            <div class="col-3 product__inbasket-icon_position">
+                                                <button class="js-product-inbasket" type="button" data-id="12345">
+                                                    <svg class="product-icon-button-basket">
+                                                        <use xlink:href="#icon-button-basket"></use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product__inbasket">
+                                        <button class="product__inbasket_buy js-product-inbasket" type="button" data-id="12345">добавить в корзину</button>
+                                    </div>
+                                </div>
+                                <button class="product__favorites">
+                                    <svg class="product-icon-button-heart">
+                                        <use xlink:href="#icon-button-heart"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="products__item js-products__item-hit js-products__item-stock col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="product">
+                                <a class="product__link" href="#"></a>
+                                <div class="product__img" data-title="Крем для лица" style="background-image: url(images/cream8.jpg)" alt="Крем"></div>
+                                <div class="product__info">
+                                    <p class="product__name">Elizavecca Крем для лица улиточный антивозрастной Glutinous Cream</p>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="product__price-before-strike">
+                                                    <p class="product__price-before">2294 Р</p>
+                                                </div>
+                                                <p class="product__price-after">1294 Р</p>
+                                            </div>
+                                            <div class="product-sale col-4">
+                                                <div class="js-product-sale__stock product-sale_red">Акция</div>
+                                                <div class="js-product-sale__hit product-sale_orange">Хит</div>
+                                            </div>
+                                            <div class="col-3 product__inbasket-icon_position">
+                                                <button class="js-product-inbasket" type="button" data-id="12345">
+                                                    <svg class="product-icon-button-basket">
+                                                        <use xlink:href="#icon-button-basket"></use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product__inbasket">
+                                        <button class="product__inbasket_buy js-product-inbasket" type="button" data-id="12345">добавить в корзину</button>
+                                    </div>
+                                </div>
+                                <button class="product__favorites">
+                                    <svg class="product-icon-button-heart">
+                                        <use xlink:href="#icon-button-heart"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="products__item js-products__item-new col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="product">
+                                <a class="product__link" href="#"></a>
+                                <div class="product__img" data-title="Крем для лица" style="background-image: url(images/cream2.png)" alt="Крем"></div>
+                                <div class="product__info">
+                                    <p class="product__name">Elizavecca Крем для лица улиточный антивозрастной Glutinous Cream</p>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="product__price-before-strike">
+                                                    <p class="product__price-before">2294 Р</p>
+                                                </div>
+                                                <p class="product__price-after">1294 Р</p>
+                                            </div>
+                                            <div class="product-sale col-4">
+                                                <div class="js-product-sale__new product-sale_light-blue">New</div>
+                                            </div>
+                                            <div class="col-3 product__inbasket-icon_position">
+                                                <button class="js-product-inbasket" type="button" data-id="12345">
+                                                    <svg class="product-icon-button-basket">
+                                                        <use xlink:href="#icon-button-basket"></use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product__inbasket">
+                                        <button class="product__inbasket_buy js-product-inbasket" type="button" data-id="12345">добавить в корзину</button>
+                                    </div>
+                                </div>
+                                <button class="product__favorites">
+                                    <svg class="product-icon-button-heart">
+                                        <use xlink:href="#icon-button-heart"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="products__item js-products__item-stock col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="product">
+                                <a class="product__link" href="#"></a>
+                                <div class="product__img" data-title="Крем для лица" style="background-image: url(images/cream3.png)" alt="Крем"></div>
+                                <div class="product__info">
+                                    <p class="product__name">Elizavecca Крем для лица улиточный антивозрастной Glutinous Cream</p>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-5">
+                                                <div class="product__price-before-strike">
+                                                    <p class="product__price-before">2294 Р</p>
+                                                </div>
+                                                <p class="product__price-after">1294 Р</p>
+                                            </div>
+                                            <div class="product-sale col-4">
+                                                <div class="js-product-sale__discount product-sale_blue">-30%</div>
+                                            </div>
+                                            <div class="col-3 product__inbasket-icon_position">
+                                                <button class="js-product-inbasket" type="button" data-id="12345">
+                                                    <svg class="product-icon-button-basket">
+                                                        <use xlink:href="#icon-button-basket"></use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product__inbasket">
+                                        <button class="product__inbasket_buy js-product-inbasket" type="button">добавить в корзину</button>
+                                    </div>
+                                </div>
+                                <button class="product__favorites">
+                                    <svg class="product-icon-button-heart">
+                                        <use xlink:href="#icon-button-heart"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>*@
+
+                        <div class="products__link-wrapper">
+                            <a class="products__link" href="/katalog">Смотреть все</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 </div>
