@@ -28,6 +28,11 @@ namespace MyTotto.Data
         /// </summary>
         public DbSet<Promo> Promos { get; set; }
 
+        /// <summary>
+        /// Таблица промо товаров с главной страницы.
+        /// </summary>
+        public DbSet<PromoProduct> PromoProducts { get; set; }
+
         public TottoContext(DbContextOptions<TottoContext> options) : base(options)
         {
             // Ниже включаю для миграций. Вроде должно быть ок.
@@ -46,6 +51,7 @@ namespace MyTotto.Data
             modelBuilder.ApplyConfiguration(new BannersEntityConfiguration());
             modelBuilder.ApplyConfiguration(new ProductsEntityConfiguration());
             modelBuilder.ApplyConfiguration(new PromosEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new PromoProductsEntityConfiguration());
         }
     }
 }

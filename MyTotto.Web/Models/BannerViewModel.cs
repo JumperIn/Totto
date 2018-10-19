@@ -25,28 +25,16 @@ namespace MyTotto.Web.Models
         /// Содержание.
         /// </summary>
         public string Content { get; set; }
-
-        /// <summary>
-        /// Адрес, куда ведёт кнопка.
-        /// </summary>
-        public string Url { get; set; }
-
+        
         /// <summary>
         /// Ссылка на изображение баннера.
         /// </summary>
         public string ImageUrl { get; set; }
-
-        /// <summary>
-        /// Текст кнопки.
-        /// Если не пустое значение - кнопка есть.
-        /// Иначе - кнопки нет.
-        /// </summary>
-        public string ButtonText { get; set; }
-
+        
         /// <summary>
         /// Дата акции.
         /// </summary>
-        public DateTime? ActionDate { get; set; }
+        public string ActionDate { get; set; }
 
         /// <summary>
         /// Создает экземпляр.
@@ -63,10 +51,8 @@ namespace MyTotto.Web.Models
             Id = banner.Id;
             Title = banner.Title;
             Content = banner.Content;
-            Url = banner.Url;
             ImageUrl = banner.ImageUrl;
-            ButtonText = banner.ButtonText;
-            ActionDate = banner.ActionDate;
+            ActionDate = banner.ActionDate?.ToString("dd.MM.yyyy HH:mm:ss");
         }
     }
 }
