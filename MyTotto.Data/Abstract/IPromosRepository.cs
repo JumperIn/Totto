@@ -37,5 +37,34 @@ namespace MyTotto.Data.Abstract
         /// </summary>
         /// <param name="id">Идентификатор промо-блока.</param>
         void DeletePromo(int id);
+
+        /// <summary>
+        /// Возвращает весь список промо товаров.
+        /// </summary>
+        List<PromoProduct> GetAllPromoProducts();
+
+        /// <summary>
+        /// Возвращает промо товара по ID.
+        /// </summary>
+        /// <param name="id">Идентификатор.</param>
+        PromoProduct GetPromoProduct(int id);
+
+        /// <summary>
+        /// Добавляет промо товара в список.
+        /// </summary>
+        /// <param name="promoProduct">Данные промо.</param>
+        void AddPromoProduct(PromoProduct promoProduct);
+
+        /// <summary>
+        /// Обновляет промо товар в списке.
+        /// </summary>
+        /// <param name="promoProduct">Данные промо.</param>
+        void UpdatePromoProduct(PromoProduct promoProduct);
+
+        /// <summary>
+        /// Удаляет промо товара по ID.
+        /// </summary>
+        /// <param name="id">Идентификатор промо.</param>
+        void DeletePromoProduct(int id);
     }
 }
