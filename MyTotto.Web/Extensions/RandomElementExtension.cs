@@ -34,7 +34,7 @@ namespace MyTotto.Web.Extensions
         {
             var list = new List<T>();
 
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < items.Count() && i < count; i++)
             {
                 list.Add(items.RandomElement());
             }

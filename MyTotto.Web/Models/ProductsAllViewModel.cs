@@ -45,28 +45,34 @@ namespace MyTotto.Web.Models
         public ProductsAllViewModel(List<Product> products)
         {
             int maxCount = 12;
+            int multipleCount = 4;
 
             NewProducts = products
                 .Where(p => p.ProductType == ProductType.New)
                 .RandomElements(maxCount)
+                .TakeMultiple(multipleCount)
                 .Select(p => new ProductCardViewModel(p))
                 .ToList();
 
             HitProducts = products
                 .Where(p => p.ProductType == ProductType.Hit)
                 .RandomElements(maxCount)
+                .TakeMultiple(multipleCount)
                 .Select(p => new ProductCardViewModel(p))
                 .ToList();
 
             DiscountProducts = products
                 .Where(p => p.ProductType == ProductType.Discount)
                 .RandomElements(maxCount)
+                .TakeMultiple(multipleCount)
                 .Select(p => new ProductCardViewModel(p))
                 .ToList();
 
             AllProducts = NewProducts
                 .Concat(DiscountProducts)
                 .Concat(HitProducts)
+                .RandomElements(maxCount)
+                .TakeMultiple(multipleCount)
                 .ToList();
         }
     }
