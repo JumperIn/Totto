@@ -11,7 +11,7 @@
                                 <li class="main-nav_center"><a class="main-nav__item js-main-nav__item-all">Все</a></li>
                                 <li class="main-nav_center"><a class="main-nav__item js-main-nav__item-new main-nav__item_active">Новинки</a></li>
                                 <li class="main-nav_center"><a class="main-nav__item js-main-nav__item-hits">Хиты продаж</a></li>
-                                <li class="main-nav_center"><a class="main-nav__item js-main-nav__item-stocks">Скидки и акции</a></li>
+                                <li class="main-nav_center"><a class="main-nav__item js-main-nav__item-discount">Скидки и акции</a></li>
                             </ul>
                             <a href="" class="main-nav__selection">
                                 <svg class="product-icon-menu">
@@ -24,37 +24,35 @@
                     </nav>
                 </div>
                 <div class="container-fluid justify-content-center row">
-                    <div class="products cover row">
-                        <div class="js-products_all">
-                            @foreach (var product in Model.AllProducts)
-                            {
-                                @Html.Partial("_ProductCard", product)
-                            }
-                        </div>
-                        <div class="js-products_new">
-                            @foreach (var product in Model.NewProducts)
-                            {
-                                @Html.Partial("_ProductCard", product)
-                            }
-                        </div>
-                        <div class="js-products_hit">
-                            @foreach (var product in Model.HitProducts)
-                            {
-                                @Html.Partial("_ProductCard", product)
-                            }
-                        </div>
-                        <div class="js-products_discount">
-                            @foreach (var product in Model.NewProducts)
-                            {
-                                @Html.Partial("_ProductCard", product)
-                            }
-                        </div>
+					<div class="products cover row js-products_all hidden">
+						@foreach (var product in Model.AllProducts)
+						{
+							@Html.Partial("_ProductCard", product)
+						}
+					</div>
+					<div class="products cover row js-products_new">
+						@foreach (var product in Model.NewProducts)
+						{
+							@Html.Partial("_ProductCard", product)
+						}
+					</div>
+					<div class="products cover row js-products_hit hidden">
+						@foreach (var product in Model.HitProducts)
+						{
+							@Html.Partial("_ProductCard", product)
+						}
+					</div>
+					<div class="products cover row js-products_discount hidden">
+						@foreach (var product in Model.DiscountProducts)
+						{
+							@Html.Partial("_ProductCard", product)
+						}
+					</div>
 
-                        <div class="products__link-wrapper">
-                            <button class="products__link js-products_all">Смотреть все</button>
-                        </div>
-                    </div>
-                </div>
+					<div class="products__link-wrapper">
+						<button class="products__link js-products_all">Смотреть все</button>
+					</div>
+			</div>
             </div>
         </section>
     </div>
