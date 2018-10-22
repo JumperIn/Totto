@@ -5,7 +5,7 @@ import { resize } from "../../shared/resize/resize";
 import { dropDownMenu, dropDownListEvent, dropDownItemEvent, toCenterDropMenu } from "../../shared/navigation/navAdaptive";
 import { moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut } from "./modules/banner/banner";
 import { setClasses } from "./modules/products/mainNavAnimation";
-import { toggleProductsEventAll, toggleProductsEventItems } from "./modules/products/productToggle";
+import { toggleProductsEventItems } from "./modules/products/productToggle";
 import { adaptFooter, dropDownFooterItems } from "../../shared/footer/footer";
 
 //Адаптивность сайта
@@ -32,16 +32,16 @@ moveBannerLeftEvent();
 // slideBannerTimer();
 // moveBannerMouseOut();
 
+//переключатель продуктов
+
+toggleProductsEventItems('js-main-nav__item-all', 'js-products_all');
+toggleProductsEventItems('js-main-nav__item-new', 'js-products_new');
+toggleProductsEventItems('js-main-nav__item-hits', 'js-products_hit');
+toggleProductsEventItems('js-main-nav__item-discount', 'js-products_discount');
+
 //анимация main-nav
 
 setClasses();
-
-//переключатель продуктов
-
-toggleProductsEventAll();
-toggleProductsEventItems('js-main-nav__item-new', 'js-products__item-new');
-toggleProductsEventItems('js-main-nav__item-hits', 'js-products__item-hit');
-toggleProductsEventItems('js-main-nav__item-stocks', 'js-products__item-stock');
 
 //Адаптация футера
 
