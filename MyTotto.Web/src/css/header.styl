@@ -62,6 +62,9 @@
 	span
 		color: main-color
 
+.header-info-phone__media
+	display: none
+
 .header-info-phone__link
 	padding-left: 15px
 
@@ -353,6 +356,21 @@
 	z-index: 1
 
 @media (max-width: 767px)
+	.header-title__menu
+		display: none
+
+	.header-info-phone__media
+		display: flex
+
+	.header-info-phone__link
+		padding: 0
+		font()
+		span
+			color: main-color
+	
+	.header-info-phone
+		display: none
+
 	.menu__list
 		flex-direction: column
 		position: absolute
