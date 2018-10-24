@@ -32,6 +32,9 @@ namespace MyTotto.Web.Models
         /// </summary>
         public List<ProductCardViewModel> DiscountProducts { get; set; }
 
+        private int maxCount = 12;
+        private int multipleCount = 4;
+
         /// <summary>
         /// Создает экземпляр.
         /// </summary>
@@ -44,35 +47,23 @@ namespace MyTotto.Web.Models
         /// </summary>
         public ProductsAllViewModel(List<Product> products)
         {
-            int maxCount = 12;
-            int multipleCount = 4;
+            NewProducts = SelectProductCardByType(products, ProductType.New);
+            HitProducts = SelectProductCardByType(products, ProductType.Hit);
+            DiscountProducts = SelectProductCardByType(products, ProductType.Discount);
 
-            NewProducts = products
-                .Where(p => p.ProductType == ProductType.New)
+            AllProducts = NewProducts.Concat(DiscountProducts).Concat(HitProducts)
+                .RandomElements(maxCount)
+                .TakeMultiple(multipleCount)
+                .ToList();
+        }
+
+        private List<ProductCardViewModel> SelectProductCardByType(List<Product> products, ProductType type)
+        {
+            return products
+                .Where(p => p.ProductType == type)
                 .RandomElements(maxCount)
                 .TakeMultiple(multipleCount)
                 .Select(p => new ProductCardViewModel(p))
-                .ToList();
-
-            HitProducts = products
-                .Where(p => p.ProductType == ProductType.Hit)
-                .RandomElements(maxCount)
-                .TakeMultiple(multipleCount)
-                .Select(p => new ProductCardViewModel(p))
-                .ToList();
-
-            DiscountProducts = products
-                .Where(p => p.ProductType == ProductType.Discount)
-                .RandomElements(maxCount)
-                .TakeMultiple(multipleCount)
-                .Select(p => new ProductCardViewModel(p))
-                .ToList();
-
-            AllProducts = NewProducts
-                .Concat(DiscountProducts)
-                .Concat(HitProducts)
-                .RandomElements(maxCount)
-                .TakeMultiple(multipleCount)
                 .ToList();
         }
     }
