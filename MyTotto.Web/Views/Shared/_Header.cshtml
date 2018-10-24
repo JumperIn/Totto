@@ -25,28 +25,36 @@
             <div class="container-fluid row justify-content-center">
                 <div class="cover">
                     <div class="container-fluid header-info__wrapper row">
-						<div class="header-info-pers-area">
-							<a class="header-info-pers-area__link" href="">
-								<svg class="header-icon-pers">
-									<use xlink:href="#icon-pers"></use>
-								</svg>
-								<p class="header-info-pers-area__text">Личный кабинет</p>
-							</a>
-						</div>
-						<div class="header-info-basket">
-							<a class="header-info-basket__link" href="">
-								<svg class="header-icon-basket">
-									<use xlink:href="#icon-basket"></use>
-								</svg>
-								<p class="header-info-basket__text">в корзине 
-									<span class="js-number-of-goods">0</span> товар на сумму 
-									<span class="js-cost">0</span>р
-								</p>
-							</a>
+						<div class="header-info__links">
+							<div class="header-info-pers-area">
+								<a class="header-info-pers-area__link" href="">
+									<svg class="header-icon-pers">
+										<use xlink:href="#icon-pers"></use>
+									</svg>
+								</a>
+							</div>
+							<div class="header-info-favorites">
+								<a href="" class="header-info-favorites__link">
+									<svg class="header-icon-heart">
+										<use xlink:href="#icon-heart"></use>
+									</svg>
+								</a>
+							</div>
+							<div class="header-info-basket">
+								<a class="header-info-basket__link" href="">
+									<svg class="header-icon-basket">
+										<use xlink:href="#icon-basket"></use>
+									</svg>
+									<p class="header-info-basket__text">в корзине 
+										<span class="js-number-of-goods">0</span> товар на сумму 
+										<span class="js-cost">0</span>р
+									</p>
+								</a>
 
+							</div>
 						</div>
                         
-						<div class="header-info-search container-fluid row">
+						<div class="header-info-search row">
 							<form class="container-fluid relative" action="">
 								<input class="header-info-search__input container-fluid" type="text" placeholder="Попробуйте найти...">
 								<button class="header-info-search__button" title="Найти" type="submit">

@@ -33,15 +33,20 @@
 	flex(,,center)
 	height: 110px
 
-.header-info-pers-area
-.header-info-basket
+.header-info__links
 	flex()
 
+.header-info-pers-area
+.header-info-favorites
+.header-info-basket
+	flex()
+	padding-right: 10px
+
 .header-info-pers-area__link
+.header-info-favorites__link
 .header-info-basket__link
 	flex(,,center)
 
-.header-info-pers-area__text
 .header-info-basket__text
 	padding-left: 10px
 	font(14px, 100)
@@ -49,6 +54,7 @@
 		font-weight: 700
 
 .header-icon-pers
+.header-icon-heart
 	size(20px, 20px)
 
 .header-icon-basket
@@ -84,7 +90,8 @@
 
 .header-info-search
 	flex(row, center, center)
-	max-width: 280px
+	padding: 0 20px
+	flex-grow: 2
 
 
 .header-info-search__input
@@ -371,6 +378,9 @@
 	.header-info-phone
 		display: none
 
+	.header-info-search
+		padding: 0 0 0 20px
+
 	.menu__list
 		flex-direction: column
 		position: absolute
@@ -501,7 +511,14 @@
 	.menu::after
 		content: none
 
+@media (max-width: 991px)
+	.header-info-basket__text
+		display: none
+
 @media (max-width: 1199px)
+	.header-info-phone__number
+		font(20px)
+
 	.menu::before
 	.menu::after
 		left: 0
