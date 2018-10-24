@@ -68,7 +68,7 @@
 	span
 		color: main-color
 
-.header-info-phone__media
+.header-title-phone
 	display: none
 
 .header-info-phone__link
@@ -154,16 +154,12 @@
 
 .menu-logo
 	flex()
-	size(229px, 53px)
 	margin-right: 20px
 	position: relative
 
 .menu-logo__link
-	position: absolute
-	size(229px, 53px)
-	top: 0
-	left: 0
-	z-index: 200
+	position: relative
+	z-index: 1
 
 .menu-logo_shadow
 	position: absolute
@@ -181,6 +177,7 @@
 .header-icon-logo
 	size(229px, 53px)
 	z-index: 100
+	transition: width 200ms ease
 
 .menu__list
 	flex(row, flex-start, center)
@@ -194,6 +191,9 @@
 	font(12px)
 	text-transform: uppercase
 	list-style-type: none
+
+.menu-item__icon-drop
+	display: none
 
 .menu_drop:hover .menu-drop,
 .menu_drop:hover .menu-item
@@ -366,20 +366,46 @@
 	.header-title__menu
 		display: none
 
-	.header-info-phone__media
+	.header-title-phone
 		display: flex
 
-	.header-info-phone__link
-		padding: 0
+	.header-title-phone__link
 		font()
 		span
 			color: main-color
+
+	.header-info-basket__text
+		display: none
 	
 	.header-info-phone
 		display: none
 
 	.header-info-search
 		padding: 0 0 0 20px
+
+	.header-icon-logo
+		size(170px, 53px)
+
+	
+
+@media (max-width: 991px)
+	.header-info-phone__link
+		display: none
+
+@media (max-width: 1199px)
+	.header-info-phone__number
+		font(20px)
+
+	.menu::before
+	.menu::after
+		left: 0
+
+	.menu::after
+		right: 0
+		left: auto
+
+	.menu
+		justify-content: space-between
 
 	.menu__list
 		flex-direction: column
@@ -392,25 +418,17 @@
 		z-index: 200
 
 	.menu-title
-		flex(,,center)
-		size(140px, 80px)
-		padding: 0px 20px
-		font(14px)
-		text-transform: uppercase
+		flex(,center,center)
 		cursor: pointer
 		transition: background-color 200ms ease-in-out
 
-	.menu__wrap:hover,
+	.menu__wrap:hover
 	.menu-title:hover
 		background-color: third-color
 
-	.menu-title__icon1
-		size(20px, 20px)
-		margin-right: 10px
-
-	.menu-title__icon2
-		size(15px, 15px)
-		margin-left: 5px
+	.menu-title__icon
+		size(32px, 32px)
+		color:gray-dark-color
 
 	.menu_drop
 		width: 100%
@@ -490,6 +508,7 @@
 
 	.menu-item__icon-drop
 	.menu-drop__icon
+		display: flex
 		size(50px, 48px)
 		padding: 15px
 		cursor: pointer
@@ -511,22 +530,4 @@
 	.menu::after
 		content: none
 
-@media (max-width: 991px)
-	.header-info-basket__text
-		display: none
-
-@media (max-width: 1199px)
-	.header-info-phone__number
-		font(20px)
-
-	.menu::before
-	.menu::after
-		left: 0
-
-	.menu::after
-		right: 0
-		left: auto
-
-@media (min-width: 768px)
-	.menu-item__icon-drop
-		display: none
+	

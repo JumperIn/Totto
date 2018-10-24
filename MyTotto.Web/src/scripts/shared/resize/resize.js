@@ -14,12 +14,12 @@ function resize() {
 		timeOut = setTimeout(() => {
 			//условия нужны для отслеживания события, когда ширина экрана переходит
 			//из области от (0 до 768) в область (>= 768) и обратно.
-			if (window.innerWidth > 0 && window.innerWidth < constants.SCREEN_MEDIUM && windowWidth >= constants.SCREEN_MEDIUM) {
+			if (window.innerWidth > 0 && window.innerWidth < constants.SCREEN_EXTRA_LARGE && windowWidth >= constants.SCREEN_EXTRA_LARGE) {
 				hideMenu();	
 				// hideDropNavAdaptive();
 				adaptFooter();
 				windowWidth = window.innerWidth;
-			} else if (window.innerWidth >= constants.SCREEN_MEDIUM && window.innerWidth < 1920 && windowWidth < constants.SCREEN_MEDIUM) {
+			} else if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE && window.innerWidth < 1920 && windowWidth < constants.SCREEN_EXTRA_LARGE) {
 				showMenu();
 				// scrollNavEvent();
 				adaptFooter();
