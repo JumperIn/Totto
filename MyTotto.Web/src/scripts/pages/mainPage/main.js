@@ -34,7 +34,8 @@ moveBannerLeftEvent();
 
 //переключатель продуктов
 
-toggleProductsEventItems('js-main-nav__item-all', 'js-products_all');
+toggleProductsEventItems('js-main-nav__item-all', 'js-products_all', true);
+toggleProductsEventItems('js-products__watch-all', 'js-products_all', true);
 toggleProductsEventItems('js-main-nav__item-new', 'js-products_new');
 toggleProductsEventItems('js-main-nav__item-hits', 'js-products_hit');
 toggleProductsEventItems('js-main-nav__item-discount', 'js-products_discount');
