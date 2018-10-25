@@ -95,17 +95,18 @@
 	background-size: cover
 	background-repeat: no-repeat
 
-.product:hover .product__img::after
-	content: attr(data-title)
-	position: absolute
-	left: 5%
-	top: 5%
-	padding: 5px 10px
-	background-color: secondary-color
-	font(16px, 300)
-	border: 1px solid main-color
-	border-radius: 5px
-	opacity: .85
+// .product:hover .product__img::after
+// 	content: attr(data-title)
+// 	position: absolute
+// 	left: 5%
+// 	top: 5%
+// 	padding: 5px 10px
+// 	background-color: secondary-color
+// 	font(16px, 300)
+// 	border: 1px solid main-color
+// 	border-radius: 5px
+// 	opacity: .85
+//  TODO: удалить если тултип для изображения продукта не нужен будет
 
 .product__info
 	flex(column, flex-start, center)
@@ -183,6 +184,16 @@
 
 .product-icon-button-heart
 	size(42px, 42px)
+
+.product__favorites:hover::before
+	content: attr(data-title)
+	position: absolute
+	top: 110%
+	padding: 5px 10px
+	background-color: rgba(186, 205, 29, .7)
+	font(12px, 300)
+	border: 1px solid rgba(149, 167, 0, .7)
+	border-radius: 5px
 
 .products__link-wrapper
 	flex(, center)

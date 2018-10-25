@@ -25,7 +25,7 @@
 <div class="@productsClasses">
     <div class="@productClasses">
         <a class="product__link" href="@Model.Url"></a>
-        <div class="product__img" data-title="@Model.Title" style="background-image: url(@Model.ImageUrl)" alt="@Model.Title"></div>
+        <div class="product__img" style="background-image: url(@Model.ImageUrl)" alt="@Model.Title"></div>
         <div class="product__info">
             <p class="product__name">@Model.Title</p>
             <div class="container">
@@ -63,7 +63,7 @@
                 <button class="product__inbasket_buy js-product-inbasket" type="button" data-id="@Model.Id">добавить в корзину</button>
             </div>
         </div>
-        <button class="product__favorites">
+        <button class="product__favorites" data-title="Добавить в избранное">
             <svg class="product-icon-button-heart">
                 <use xlink:href="#icon-button-heart"></use>
             </svg>
