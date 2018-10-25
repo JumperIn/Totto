@@ -1,5 +1,4 @@
 .banners
-	height: 480px
 	overflow: hidden
 
 .banners-wrapper
@@ -8,7 +7,6 @@
 	transition: transform 500ms ease-in-out
 
 .banners-buttons
-	display: inline-block
 	width: 100%
 
 .banners-button
@@ -67,8 +65,9 @@
 
 .banner__content
 	flex(column, center, flex-start)
-	padding: 30px 0 35px 85px
-	background-color: #faffe4
+	padding: 30px 85px 35px 85px
+	width: 50%
+	margin-left: 50%
 
 .banner__title
 	font(42px)
@@ -94,7 +93,23 @@
 	background: #0067b7
 	text-transform: uppercase
 
+@media (max-width: 1199px)
+	.banner
+		background-position: -480px
+
+@media (max-width: 991px)
+	.banner
+		background-position: -610px
+
 @media (max-width: 767px)
+	.banners-button
+		top: 89px
+		//изменить значение, как будет известна высота баннера для мобилки
+
+	.banner
+		height: auto
+		background-image: none !important
+
 	.banner__wrapper
 		display: block
 		size(305px, 180px)
@@ -111,7 +126,10 @@
 		padding: 20px
 
 	.banner__content
-		height: 180px
+		margin: 0
+		padding: 30px
+		width: 100%
+		height: 250px
 
 	.banner__title
 		font-size: 28px
