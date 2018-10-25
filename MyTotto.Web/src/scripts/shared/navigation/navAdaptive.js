@@ -7,9 +7,9 @@ function dropDownMenu() {
 }
 
 function adaptMenu() {
-	if (window.innerWidth < constants.SCREEN_MEDIUM) {
+	if (window.innerWidth < constants.SCREEN_EXTRA_LARGE) {
 		hideMenu();
-	} else if (window.innerWidth >= constants.SCREEN_MEDIUM) {
+	} else if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) {
 		showMenu();
 	}
 }
@@ -17,14 +17,12 @@ function adaptMenu() {
 function dropDownMenuEvent() {
 	var elem1 = document.getElementsByClassName('menu-title')[0];
 	var elem2 = document.getElementsByClassName('menu__list')[0];
-	var elem3 = document.getElementsByClassName('menu-title__icon-toggle')[0];
 	elem1.addEventListener('click', function () {
 		if (!elem2.classList.contains('hidden')) {
 			hideMenu();
 		} else {
 			elem2.classList.toggle('hidden');
 		}
-		toggleIcon(elem3, '#icon-angle-bottom', '#icon-angle-top');
 	})
 }
 
@@ -36,7 +34,7 @@ function dropDownListEvent() {
 		let elem = elems2[i];
 		elems1[i].addEventListener('click', function () {
             var panel = this.parentElement.nextElementSibling;
-            if (window.innerWidth < constants.SCREEN_MEDIUM) {
+            if (window.innerWidth < constants.SCREEN_EXTRA_LARGE) {
 				this.classList.toggle('icon-accordion-active');
 				this.parentElement.classList.toggle('accordion-active');
 				panel.classList.toggle('hidden');
@@ -64,7 +62,6 @@ function dropDownItemEvent() {
 function hideMenu() {
 	//menu
 	toggleNotExistClass('menu__list', 'hidden');
-	toggleExistIcon('menu-title__icon-toggle', '#icon-angle-bottom', '#icon-angle-top')
 
 	//list
 	hideList();
@@ -131,11 +128,11 @@ function showItem() {
 function toCenterDropMenu() {
 	var elems1 = document.getElementsByClassName('menu-drop');
 	var elems2 = document.getElementsByClassName('menu__wrap');
-	if (window.innerWidth < constants.SCREEN_MEDIUM) {
+	if (window.innerWidth < constants.SCREEN_EXTRA_LARGE) {
 		for ( var i = 0; i < elems1.length; i++) {
 			elems1[i].style.left = `0px`;
 		}
-	} else if (window.innerWidth >= constants.SCREEN_MEDIUM) {
+	} else if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) {
 		for ( var i = 0; i < elems1.length; i++) {
 			elems1[i].style.display = "flex";
 	
