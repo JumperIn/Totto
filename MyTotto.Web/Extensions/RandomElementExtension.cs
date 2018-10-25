@@ -32,11 +32,31 @@ namespace MyTotto.Web.Extensions
         /// <returns></returns>
         public static IEnumerable<T> RandomElements<T>(this IEnumerable<T> items, int count)
         {
+            int itemsCount = items.Count();
+            int maxCount = itemsCount > count ? count : itemsCount;
+            var indexes = new List<int>();
+
+            // Набираем из полного списка количество для страницы
+            for (int i = 0; i < maxCount; i++)
+            {
+                int index = random.Next(itemsCount);
+                bool isExistIndex = indexes.Contains(index);
+
+                // Перебираем вперед по массиву, пока не найдём не выбранный индекс
+                while (isExistIndex)
+                {
+                    index = index >= itemsCount - 1 ? 0 : index + 1;
+                    isExistIndex = indexes.Contains(index);
+                }
+
+                indexes.Add(index);
+            }
+
             var list = new List<T>();
 
-            for (int i = 0; i < count; i++)
+            foreach (var index in indexes)
             {
-                list.Add(items.RandomElement());
+                list.Add(items.ElementAt(index));
             }
 
             return list;
