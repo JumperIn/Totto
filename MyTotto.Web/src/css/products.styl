@@ -73,6 +73,7 @@
 	transition: transform 500ms ease-in-out
 
 .products__item
+	flex(column,center, center)
 	padding: 0 15px 30px 15px
 
 .product
@@ -81,9 +82,13 @@
 	padding: 25px
 	border: solid 1px stroke-color
 
+.product__img-wrapper
+	flex(,center)
+
 .product__img
 	position: relative
 	size(100%, 230px)
+	max-width: 250px
 	margin-bottom: 10px
 	background-position: center
 	background-size: cover
@@ -102,8 +107,11 @@
 // 	opacity: .85
 //  TODO: удалить если тултип для изображения продукта не нужен будет
 
-.product__info
+.product__wrapper
 	flex(column, flex-start, center)
+
+.product__info
+	flex(column)
 
 .product__name
 	display: block
@@ -112,6 +120,9 @@
 	font(13px, 500)
 	text-align: start
 	overflow: hidden
+
+.product__description
+	display: none
 
 .product__price-before
 	font(14px)
@@ -172,8 +183,8 @@
 
 .product__favorites
 	position: absolute
-	top: 25px
-	right: 25px
+	top: 10px
+	right: 10px
 	z-index: 2
 
 .product-icon-button-heart
@@ -219,6 +230,30 @@
 @media (max-width: 1199px)
 	.main-section-content
 		width: 100%
+	
+	.product
+		flex(row, center, center)
+
+	.product__wrapper
+		flex(row, center, center)
+
+	.product__img-wrapper
+		padding-right: 15px
+
+	.product__info
+		padding-right: 15px
+
+	.product__name
+		height: 45px
+		font(14px, 300)
+		text-transform: uppercase
+
+	.product__buttons
+		padding-left: 15px
+
+	.product__description
+		display: flex
+		font(15px, 100, #464647)
 
 @media (max-width: 767px)
 	.main-nav__wrapper
@@ -226,3 +261,24 @@
 
 	.main-nav_center
 		padding-bottom: 10px
+
+	.product
+		flex(column, center, center)
+		max-width: 320px
+
+	.product__wrapper
+		flex(column, center, center)
+
+	.product__info
+		padding-right: 0
+
+	.product__name
+		height: 43px
+		font(13px, 500)
+		text-transform: none
+
+	.product__buttons
+		padding-left: 0
+
+	.product__description
+		display: none
