@@ -1,65 +1,77 @@
 import { constants, variables } from "../../../../shared/const/const";
 
-function returnCarouselBack(j = 0) {
-	var elem = document.getElementsByClassName('products-wrapper')[j];
+function returnCarouselBack(classWrapper) {
+	var elem = document.getElementsByClassName(classWrapper)[0];
 	elem.style.transform = 'translateX(0px)';
 }
 
-function getNumProductDisp() {
-	if (window.innerWidth > 0) { variables.numProductsDisp = 1; };
-	if (window.innerWidth >= constants.SCREEN_SMALL) { variables.numProductsDisp = 2; };
-	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numProductsDisp = 3; };
-	if (window.innerWidth >= constants.SCREEN_LARGE) { variables.numProductsDisp = 4; };
-	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numProductsDisp = 4; };
+function getNumNewProductDisp(i) {
+	if (window.innerWidth > 0) { variables.numProductsDisp[i] = 1; };
+	if (window.innerWidth >= constants.SCREEN_SMALL) { variables.numProductsDisp[i] = 2; };
+	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numProductsDisp[i] = 3; };
+	if (window.innerWidth >= constants.SCREEN_LARGE) { variables.numProductsDisp[i] = 4; };
+	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numProductsDisp[i] = 4; };
 }
 
-function getProductWidth(j) {
-    var elem = document.getElementsByClassName('products-wrapper')[j];
-    return elem.firstElementChild.offsetWidth;
+function getNumPromoProductDisp(i) {
+	if (window.innerWidth > 0) { variables.numProductsDisp[i] = 1; };
+	if (window.innerWidth >= constants.SCREEN_SMALL) { variables.numProductsDisp[i] = 2; };
+	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numProductsDisp[i] = 2; };
+	if (window.innerWidth >= constants.SCREEN_LARGE) { variables.numProductsDisp[i] = 3; };
+	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numProductsDisp[i] = 3; };
+}
+
+function getProductWidth(classWrapper) {
+	var elem = document.getElementsByClassName(classWrapper)[0];
+	return elem.firstElementChild.offsetWidth;
 };
 
-function getLengthWrapper(j) {
-    var elem = document.getElementsByClassName('products-wrapper')[j];
-    return elem.children.length
+function getLengthWrapper(classWrapper) {
+	var elem = document.getElementsByClassName(classWrapper)[0];
+    return elem.children.length;
 }
 
-function moveCarouselRight(j) {
-    var elem = document.getElementsByClassName('products-wrapper')[j];
+function moveCarouselRight(classWrapper, i) {
+    var elem = document.getElementsByClassName(classWrapper)[0];
     //граничное условие, при котором необходимо вернуть карусель в начальное состояние
-    var distanceTolastProduct = (getLengthWrapper(j) - variables.numProductsDisp) * getProductWidth(j);
-    var returnToStartCondition = variables.shiftProducts == distanceTolastProduct || variables.shiftProducts > distanceTolastProduct;
+    var distanceTolastProduct = (getLengthWrapper(classWrapper) - variables.numProductsDisp[i]) * getProductWidth(classWrapper);
+    var returnToStartCondition = variables.shift[i] == distanceTolastProduct || variables.shift[i] > distanceTolastProduct;
     if (returnToStartCondition) {
-        variables.shiftProducts = 0;
-        elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
+        variables.shift[i] = 0;
+        elem.style.transform = 'translateX(-' + +variables.shift[i] + 'px)';
     } else {
-        variables.shiftProducts = +variables.shiftProducts + +getProductWidth(j);
-        elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
-    }
+        variables.shift[i] = +variables.shift[i] + +getProductWidth(classWrapper);
+        elem.style.transform = 'translateX(-' + +variables.shift[i] + 'px)';
+	}
 };
-function moveCarouselRightEvent(j) {
-    var elem = document.getElementById('moveCarouselRight' + j);
+function moveCarouselRightEvent(classButtonRight, classWrapper, i) {
+	var elem = document.getElementsByClassName(classButtonRight)[0];
     elem.addEventListener('click', function() {
-		moveCarouselRight(j);
+		moveCarouselRight(classWrapper, i);
 	})
 };
 
-
-function moveCarouselLeft(j) {
-    var elem = document.getElementsByClassName('products-wrapper')[j];
-    var returnToEndCondition = variables.shiftProducts == 0 || variables.shiftProducts < 0;
+function moveCarouselLeft(classWrapper, i) {
+    var elem = document.getElementsByClassName(classWrapper)[0];
+    var returnToEndCondition = variables.shift[i] == 0 || variables.shift[i] < 0;
     if (returnToEndCondition) {
-        variables.shiftProducts = (getLengthWrapper(j) - variables.numProductsDisp) * getProductWidth(j);
-        elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
+        variables.shift[i] = (getLengthWrapper(classWrapper) - variables.numProductsDisp[i]) * getProductWidth(classWrapper);
+        elem.style.transform = 'translateX(-' + +variables.shift[i] + 'px)';
     } else {
-        variables.shiftProducts = +variables.shiftProducts - +getProductWidth(j);
-        elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
-    }
+        variables.shift[i] = +variables.shift[i] - +getProductWidth(classWrapper);
+        elem.style.transform = 'translateX(-' + +variables.shift[i] + 'px)';
+	}
 };
-function moveCarouselLeftEvent(j) {
-    var elem = document.getElementById('moveCarouselLeft' + j);
+function moveCarouselLeftEvent(classButtonLeft, classWrapper, i) {
+    var elem = document.getElementsByClassName(classButtonLeft)[0];
     elem.addEventListener('click', function() {
-		moveCarouselLeft(j);
+		moveCarouselLeft(classWrapper, i);
 	})
 };
 
-export { getNumProductDisp, moveCarouselRightEvent, moveCarouselLeftEvent, returnCarouselBack };
+function moveCarouselEvent(classButtonRight, classButtonLeft, classWrapper, i) {
+	moveCarouselRightEvent(classButtonRight, classWrapper, i);
+	moveCarouselLeftEvent(classButtonLeft, classWrapper, i);
+}
+
+export { getNumNewProductDisp, getNumPromoProductDisp, moveCarouselEvent, returnCarouselBack };

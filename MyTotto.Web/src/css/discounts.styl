@@ -4,11 +4,20 @@
 	background-color: #fafaea
 	z-index: 1
 
-.discounts__wrapper
-	flex(column, center)
+.discounts__container
+	overflow: hidden
+	position: relative
 
-.discounts__wrapper_margin
-	margin: 0 40px
+.discounts__wrapper
+	flex(,,flex-start)
+	flex-wrap: nowrap
+	transition: transform 400ms ease-in-out
+
+.discounts__body-wrapper
+	padding: 0 15px
+
+.discounts__body
+	flex(column, center)
 
 .discounts__img
 	size(100%, 400px)
@@ -61,6 +70,35 @@
 
 .discounts__shadow-start:after
 	transform: rotate(3deg)
+
+
+.discounts-buttons
+	width: 100%
+
+.discounts-button
+	display: none
+	justify-content: center
+	align-items: center
+	position: absolute
+	size(40px, 72px)
+	top: 189px
+	background: #fff
+	color: #acacac
+	opacity: 0.7
+	cursor: pointer
+
+.discounts-button_left
+	left: 15px
+
+.discounts-button_right
+	right: 15px
+
+.discounts-buttons__angle-left
+.discounts-buttons__angle-right
+	padding: 10px
+
+.discounts:hover .discounts-button
+	display: flex
 
 @media (max-width: 767px)
 	.discounts__shadow-start:before

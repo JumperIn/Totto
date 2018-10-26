@@ -14,8 +14,8 @@ var variables = (function() {
 		return elem.children.length
 	}
 	var variables = {
-		numProductsDisp: 1,
-		shiftProducts: 0,
+		numProductsDisp: [0, 0],
+		shift: [0, 0],
 		shiftBanners: 0,
 		numBanners: getBannersLengthWrapper(),
 	}

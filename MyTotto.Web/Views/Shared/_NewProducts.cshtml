@@ -2,34 +2,50 @@
 
 <section class="new-products">
 	<div class="cover">
-		<div class="container-fluid">
+		<div class="new-product__container container-fluid">
             <div class="row new-products__wrapper">
 
                 @foreach (var promo in Model)
                 {
                     if (string.IsNullOrEmpty(promo.Url))
                     {
-                        <div class="new-product col-6 col-lg-3">
-                            <div class="new-product__img" style="background-image: url(@promo.ImageUrl)"></div>
-                            <div class="new-product__wrapper">
-                                <h3 class="new-product__title">@promo.Title</h3>
-                                <p class="new-product__text">@promo.Content</p>
-                            </div>
-                        </div>
+						<div class="new-product__body col-12 col-sm-6 col-md-4 col-lg-3">
+							<div class="new-product">
+								<div class="new-product__img" style="background-image: url(@promo.ImageUrl)"></div>
+								<div class="new-product__wrapper">
+									<h3 class="new-product__title">@promo.Title</h3>
+									<p class="new-product__text">@promo.Content</p>
+								</div>
+							</div>
+						</div>
                     }
                     else
                     {
-                        <a href="@promo.Url" class="new-product col-6 col-lg-3">
-                            <div class="new-product__img" style="background-image: url(@promo.ImageUrl)"></div>
-                            <div class="new-product__wrapper">
-                                <h3 class="new-product__title">@promo.Title</h3>
-                                <p class="new-product__text">@promo.Content</p>
-                            </div>
-                        </a>
+						<div class="new-product__body col-12 col-sm-6 col-md-4 col-lg-3">
+							<a href="@promo.Url" class="new-product">
+								<div class="new-product__img" style="background-image: url(@promo.ImageUrl)"></div>
+								<div class="new-product__wrapper">
+									<h3 class="new-product__title">@promo.Title</h3>
+									<p class="new-product__text">@promo.Content</p>
+								</div>
+							</a>
+						</div>
                     }
                 }
 
             </div>
+			<div class="new-products-buttons">
+				<div class="new-products-button new-products-button_left js-move-new-products-left">
+					<svg class="new-products-buttons__angle-left">
+						<use xlink:href="#icon-angle-left"></use>
+					</svg>
+				</div>
+				<div class="new-products-button new-products-button_right js-move-new-products-right">
+					<svg class="new-products-buttons__angle-right">
+						<use xlink:href="#icon-angle-right"></use>
+					</svg>
+				</div>
+        	</div>
 		</div>
 	</div>
 </section>
