@@ -53,8 +53,8 @@ getNumPromoProductDisp();
 
 //Карусель для Новых товаров
 
-moveCarouselNewProductEvent('js-move-discounts-right', 'js-move-discounts-left', 'discounts__wrapper');
-moveCarouselPromoProductEvent('js-move-new-products-right', 'js-move-new-products-left', 'new-products__wrapper');
+moveCarouselPromoProductEvent('js-move-discounts-right', 'js-move-discounts-left', 'discounts__wrapper');
+moveCarouselNewProductEvent('js-move-new-products-right', 'js-move-new-products-left', 'new-products__wrapper');
 
 //Карусель для Промо
 

@@ -8,17 +8,17 @@ function returnCarouselBack(classWrapper) {
 function getNumNewProductDisp() {
 	if (window.innerWidth > 0) { variables.numNewProductsDisp = 1; };
 	if (window.innerWidth >= constants.SCREEN_SMALL) { variables.numNewProductsDisp = 2; };
-	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numNewProductsDisp = 2; };
-	if (window.innerWidth >= constants.SCREEN_LARGE) { variables.numNewProductsDisp = 3; };
-	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numNewProductsDisp = 3; };
+	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numNewProductsDisp = 3; };
+	if (window.innerWidth >= constants.SCREEN_LARGE) { variables.numNewProductsDisp = 4; };
+	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numNewProductsDisp = 4; };
 }
 
 function getNumPromoProductDisp() {
 	if (window.innerWidth > 0) { variables.numPromoProductsDisp = 1; };
 	if (window.innerWidth >= constants.SCREEN_SMALL) { variables.numPromoProductsDisp = 2; };
-	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numPromoProductsDisp = 3; };
-	if (window.innerWidth >= constants.SCREEN_LARGE) { variables.numPromoProductsDisp = 4; };
-	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numPromoProductsDisp = 4; };
+	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numPromoProductsDisp = 2; };
+	if (window.innerWidth >= constants.SCREEN_LARGE) { variables.numPromoProductsDisp = 3; };
+	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numPromoProductsDisp = 3; };
 }
 
 function getProductWidth(classWrapper) {
