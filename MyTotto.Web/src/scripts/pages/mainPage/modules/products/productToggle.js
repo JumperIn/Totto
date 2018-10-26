@@ -1,6 +1,14 @@
 import { toggleExistClass, toggleNotExistClass } from "../../../../shared/const/toggleClass";
 
-function toggleProductsEventItems(classButton, classProduct) {
+function addConditionHidden(clss, condition) {
+	if (condition === true) {
+		toggleNotExistClass(clss, 'hidden');
+	} else {
+		toggleExistClass(clss, 'hidden');
+	}
+}
+
+function toggleProductsEventItems(classButton, classProduct, condition = false) {
 	var elem = document.getElementsByClassName(classButton)[0];
 	var elems1 = document.getElementsByClassName('products');
 	elem.addEventListener('click', function() {
@@ -11,6 +19,7 @@ function toggleProductsEventItems(classButton, classProduct) {
 			// для ограничения, можно добавить в условие для && i < 8 чтоб, не выводить слишком много товаров
 			toggleExistClass(classProduct, 'hidden', 0);
 		}
+		addConditionHidden('js-products__watch-all', condition);
 	})
 }
 

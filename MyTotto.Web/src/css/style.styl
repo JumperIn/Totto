@@ -23,7 +23,7 @@ button
 	cursor: pointer
 
 p, ul,
-.col, .col-auto, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12,
+[class*="col-"],
 .row,
 .container,
 .container-fluid
@@ -47,6 +47,10 @@ p, ul,
 
 .hidden
 	display: none !important
+
+@media (min-width: 1200px)
+	.cover
+		min-width: 1180px
 
 @media (max-width: 1199px)
 	.cover

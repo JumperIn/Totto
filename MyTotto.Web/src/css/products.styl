@@ -73,6 +73,7 @@
 	transition: transform 500ms ease-in-out
 
 .products__item
+	flex(column,center, center)
 	padding: 0 15px 30px 15px
 
 .product
@@ -81,34 +82,36 @@
 	padding: 25px
 	border: solid 1px stroke-color
 
-.product__link
-	position: absolute
-	display: block
-	size(100%, 100%)
-	z-index: 1
+.product__img-wrapper
+	flex(,center)
 
 .product__img
 	position: relative
 	size(100%, 230px)
+	max-width: 250px
 	margin-bottom: 10px
 	background-position: center
 	background-size: cover
 	background-repeat: no-repeat
 
-.product:hover .product__img::after
-	content: attr(data-title)
-	position: absolute
-	left: 5%
-	top: 5%
-	padding: 5px 10px
-	background-color: secondary-color
-	font(16px, 300)
-	border: 1px solid main-color
-	border-radius: 5px
-	opacity: .85
+// .product:hover .product__img::after
+// 	content: attr(data-title)
+// 	position: absolute
+// 	left: 5%
+// 	top: 5%
+// 	padding: 5px 10px
+// 	background-color: secondary-color
+// 	font(16px, 300)
+// 	border: 1px solid main-color
+// 	border-radius: 5px
+// 	opacity: .85
+//  TODO: удалить если тултип для изображения продукта не нужен будет
+
+.product__wrapper
+	flex(column, flex-start, center)
 
 .product__info
-	flex(column, flex-start, center)
+	flex(column)
 
 .product__name
 	display: block
@@ -117,6 +120,9 @@
 	font(13px, 500)
 	text-align: start
 	overflow: hidden
+
+.product__description
+	display: none
 
 .product__price-before
 	font(14px)
@@ -177,17 +183,28 @@
 
 .product__favorites
 	position: absolute
-	top: 25px
-	right: 25px
+	top: 10px
+	right: 10px
 	z-index: 2
 
 .product-icon-button-heart
 	size(42px, 42px)
 
+.product__inbasket-icon:hover::before
+.product__favorites:hover::before
+	content: attr(data-title)
+	position: absolute
+	left: 110%
+	padding: 5px 10px
+	background-color: rgba(186, 205, 29, .7)
+	font(12px, 300)
+	border: 1px solid rgba(149, 167, 0, .7)
+	border-radius: 5px
+
 .products__link-wrapper
 	flex(, center)
 	position: relative
-	width: 100%
+	size(100%, 51px)
 	padding-top: 15px
 
 .products__link
@@ -209,3 +226,75 @@
 	border-top: solid 1px main-color
 	width: 100%
 	z-index: 1
+
+@media (max-width: 1199px)
+	.main-section-content
+		width: 100%
+	
+	.product
+		flex(row, center, center)
+
+	.product__wrapper
+		flex(row, center, center)
+
+	.product__img-wrapper
+		padding-right: 15px
+
+	.product__info
+		padding-right: 15px
+
+	.product__name
+		height: 45px
+		font(14px, 300)
+		text-transform: uppercase
+
+	.product__buttons
+		padding-left: 15px
+
+	.product__description
+		display: flex
+		font(15px, 100, #464647)
+
+@media (max-width: 767px)
+	.main-nav__wrapper
+		flex(column, center, center)
+
+	.main-nav_center
+		padding-bottom: 10px
+
+	.product
+		flex(row, center, center)
+
+	.product__wrapper
+		flex(column, center, center)
+
+	.product__info
+		padding-right: 0
+
+	.product__buttons
+		padding-left: 0
+
+	.product__description
+		display: none
+
+@media (max-width: 575px)
+	.product
+		flex(column, center, center)
+		max-width: 320px
+
+	.product__wrapper
+		flex(column, center, center)
+
+	.product__info
+		padding-right: 0
+
+	.product__name
+		height: 43px
+		font(13px, 500)
+		text-transform: none
+
+	.product__buttons
+		padding-left: 0
+
+	.product__description
+		display: none
