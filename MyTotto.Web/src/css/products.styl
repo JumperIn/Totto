@@ -263,6 +263,22 @@
 		padding-bottom: 10px
 
 	.product
+		flex(row, center, center)
+
+	.product__wrapper
+		flex(column, center, center)
+
+	.product__info
+		padding-right: 0
+
+	.product__buttons
+		padding-left: 0
+
+	.product__description
+		display: none
+
+@media (max-width: 575px)
+	.product
 		flex(column, center, center)
 		max-width: 320px
 
