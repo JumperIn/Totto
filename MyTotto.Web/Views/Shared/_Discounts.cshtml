@@ -3,14 +3,14 @@
 <section class="discounts">
 	<div class="discounts__shadow-start"></div>
 	<div class="cover">
-		<div class="container-fluid">
-            <div class="row align-items-start">
+		<div class="discounts__container container-fluid">
+            <div class="discounts__wrapper">
 
                 @foreach (var promo in Model)
                 {
                     if (string.IsNullOrEmpty(promo.Url))
                     {
-                        <div class="discounts__wrapper col">
+                        <div class="discounts__body col-4">
                             <div class="discounts__img" style="background-image: url(@promo.ImageUrl)"></div>
                             <p class="discounts__text">@promo.Title</p>
                             <p class="discounts__promocode">@promo.Content</p>
@@ -18,7 +18,7 @@
                     }
                     else
                     {
-                        <a href="@promo.Url" class="discounts__wrapper col">
+                        <a href="@promo.Url" class="discounts__body col-4">
                             <div class="discounts__img" style="background-image: url(@promo.ImageUrl)"></div>
                             <p class="discounts__text">@promo.Title</p>
                             <p class="discounts__promocode">@promo.Content</p>
@@ -27,6 +27,18 @@
                 }
 
             </div>
+			<div class="discounts-buttons">
+				<div class="discounts-button discounts-button_left js-move-discounts-left">
+					<svg class="discounts-buttons__angle-left">
+						<use xlink:href="#icon-angle-left"></use>
+					</svg>
+				</div>
+				<div class="discounts-button discounts-button_right js-move-discounts-right">
+					<svg class="discounts-buttons__angle-right">
+						<use xlink:href="#icon-angle-right"></use>
+					</svg>
+				</div>
+        	</div>
 		</div>
 	</div>
 	<div class="discounts__shadow-end"></div>
