@@ -5,10 +5,9 @@ import { resize } from "../../shared/resize/resize";
 import { dropDownMenu, dropDownListEvent, dropDownItemEvent, toCenterDropMenu } from "../../shared/navigation/navAdaptive";
 import { moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut } from "./modules/banner/banner";
 import { setClasses } from "./modules/products/mainNavAnimation";
-import { moveCarouselNewProductEvent, moveCarouselPromoProductEvent, getNumNewProductDisp, getNumPromoProductDisp } from "./modules/products/carousel";
+import { moveCarouselEvent, getNumNewProductDisp, getNumPromoProductDisp } from "./modules/products/carousel";
 import { toggleProductsEventItems } from "./modules/products/productToggle";
 import { adaptFooter, dropDownFooterItems } from "../../shared/footer/footer";
-import { variables } from "../../shared/const/const";
 
 //Адаптивность сайта
 
@@ -48,13 +47,13 @@ setClasses();
 
 // получить числа отображаемых новых товаров и промо товаров
 
-getNumNewProductDisp();
-getNumPromoProductDisp();
+getNumPromoProductDisp(0);
+getNumNewProductDisp(1);
 
 //Карусель для Новых товаров
 
-moveCarouselPromoProductEvent('js-move-discounts-right', 'js-move-discounts-left', 'discounts__wrapper');
-moveCarouselNewProductEvent('js-move-new-products-right', 'js-move-new-products-left', 'new-products__wrapper');
+moveCarouselEvent('js-move-discounts-right', 'js-move-discounts-left', 'discounts__wrapper', 0);
+moveCarouselEvent('js-move-new-products-right', 'js-move-new-products-left', 'new-products__wrapper', 1);
 
 //Карусель для Промо
 

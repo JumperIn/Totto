@@ -26,12 +26,12 @@ function resize() {
 				windowWidth = window.innerWidth;
 			}
 			//для нормального отображения банеров и карусели, при изменении ширины экрана они плавно возвращаются в начальное положение
-			variables.shiftNewProducts = 0;
-			variables.shiftPromoProducts = 0;
+			variables.shift[0] = 0;
+			variables.shift[1] = 0;
 			variables.shiftBanners = 0;
 			//данные функции выполняются при каждом событии изменения экрана, для адаптивной работы баннеров и карусели
-			getNumNewProductDisp();
-			getNumPromoProductDisp();
+			getNumPromoProductDisp(0);
+			getNumNewProductDisp(1);
 			returnBannerBack();
 			toCenterDropMenu();
 			returnCarouselBack('discounts__wrapper');
