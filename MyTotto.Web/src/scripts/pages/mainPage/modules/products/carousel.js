@@ -23,17 +23,17 @@ function getNumPromoProductDisp() {
 
 function getProductWidth(classWrapper) {
 	var elem = document.getElementsByClassName(classWrapper)[0];
-	console.log('widthProduct: ' +elem.firstElementChild.offsetWidth);
 	return elem.firstElementChild.offsetWidth;
 };
 
 function getLengthWrapper(classWrapper) {
 	var elem = document.getElementsByClassName(classWrapper)[0];
-	console.log('LengthWrapper: ' +elem.children.length)
     return elem.children.length
 }
 
-function moveCarouselRight(classWrapper) {
+// Карусель для новых продуктов
+
+function moveCarouselNewProductRight(classWrapper) {
     var elem = document.getElementsByClassName(classWrapper)[0];
     //граничное условие, при котором необходимо вернуть карусель в начальное состояние
     var distanceTolastProduct = (getLengthWrapper(classWrapper) - variables.numNewProductsDisp) * getProductWidth(classWrapper);
@@ -46,14 +46,14 @@ function moveCarouselRight(classWrapper) {
         elem.style.transform = 'translateX(-' + +variables.shiftNewProducts + 'px)';
 	}
 };
-function moveCarouselRightEvent(classButtonRight, classWrapper) {
+function moveCarouselNewProductRightEvent(classButtonRight, classWrapper) {
 	var elem = document.getElementsByClassName(classButtonRight)[0];
     elem.addEventListener('click', function() {
-		moveCarouselRight(classWrapper);
+		moveCarouselNewProductRight(classWrapper);
 	})
 };
 
-function moveCarouselLeft(classWrapper) {
+function moveCarouselNewProductLeft(classWrapper) {
     var elem = document.getElementsByClassName(classWrapper)[0];
     var returnToEndCondition = variables.shiftNewProducts == 0 || variables.shiftNewProducts < 0;
     if (returnToEndCondition) {
@@ -64,16 +64,62 @@ function moveCarouselLeft(classWrapper) {
         elem.style.transform = 'translateX(-' + +variables.shiftNewProducts + 'px)';
 	}
 };
-function moveCarouselLeftEvent(classButtonLeft, classWrapper) {
+function moveCarouselNewProductLeftEvent(classButtonLeft, classWrapper) {
     var elem = document.getElementsByClassName(classButtonLeft)[0];
     elem.addEventListener('click', function() {
-		moveCarouselLeft(classWrapper);
+		moveCarouselNewProductLeft(classWrapper);
 	})
 };
 
-function moveCarouselEvent(classButtonRight, classButtonLeft, classWrapper) {
-	moveCarouselRightEvent(classButtonRight, classWrapper);
-	moveCarouselLeftEvent(classButtonLeft, classWrapper);
+function moveCarouselNewProductEvent(classButtonRight, classButtonLeft, classWrapper) {
+	moveCarouselNewProductRightEvent(classButtonRight, classWrapper);
+	moveCarouselNewProductLeftEvent(classButtonLeft, classWrapper);
 }
 
-export { getNumNewProductDisp, getNumPromoProductDisp, moveCarouselEvent, returnCarouselBack };
+// Карусель для промо продуктов
+
+
+function moveCarouselPromoProductRight(classWrapper) {
+    var elem = document.getElementsByClassName(classWrapper)[0];
+    //граничное условие, при котором необходимо вернуть карусель в начальное состояние
+    var distanceTolastProduct = (getLengthWrapper(classWrapper) - variables.numPromoProductsDisp) * getProductWidth(classWrapper);
+    var returnToStartCondition = variables.shiftPromoProducts == distanceTolastProduct || variables.shiftPromoProducts > distanceTolastProduct;
+    if (returnToStartCondition) {
+        variables.shiftPromoProducts = 0;
+        elem.style.transform = 'translateX(-' + +variables.shiftPromoProducts + 'px)';
+    } else {
+        variables.shiftPromoProducts = +variables.shiftPromoProducts + +getProductWidth(classWrapper);
+        elem.style.transform = 'translateX(-' + +variables.shiftPromoProducts + 'px)';
+	}
+};
+function moveCarouselPromoProductRightEvent(classButtonRight, classWrapper) {
+	var elem = document.getElementsByClassName(classButtonRight)[0];
+    elem.addEventListener('click', function() {
+		moveCarouselPromoProductRight(classWrapper);
+	})
+};
+
+function moveCarouselPromoProductLeft(classWrapper) {
+    var elem = document.getElementsByClassName(classWrapper)[0];
+    var returnToEndCondition = variables.shiftPromoProducts == 0 || variables.shiftPromoProducts < 0;
+    if (returnToEndCondition) {
+        variables.shiftPromoProducts = (getLengthWrapper(classWrapper) - variables.numPromoProductsDisp) * getProductWidth(classWrapper);
+        elem.style.transform = 'translateX(-' + +variables.shiftPromoProducts + 'px)';
+    } else {
+        variables.shiftPromoProducts = +variables.shiftPromoProducts - +getProductWidth(classWrapper);
+        elem.style.transform = 'translateX(-' + +variables.shiftPromoProducts + 'px)';
+	}
+};
+function moveCarouselPromoProductLeftEvent(classButtonLeft, classWrapper) {
+    var elem = document.getElementsByClassName(classButtonLeft)[0];
+    elem.addEventListener('click', function() {
+		moveCarouselPromoProductLeft(classWrapper);
+	})
+};
+
+function moveCarouselPromoProductEvent(classButtonRight, classButtonLeft, classWrapper) {
+	moveCarouselPromoProductRightEvent(classButtonRight, classWrapper);
+	moveCarouselPromoProductLeftEvent(classButtonLeft, classWrapper);
+}
+
+export { getNumNewProductDisp, getNumPromoProductDisp, moveCarouselNewProductEvent, moveCarouselPromoProductEvent, returnCarouselBack };

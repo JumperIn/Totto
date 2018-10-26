@@ -4,12 +4,21 @@
 	background-color: #fff
 	z-index: 2
 
+.new-product__container
+	position: relative
+	overflow: hidden
+
 .new-products__wrapper
+	flex()
+	flex-wrap: nowrap
 	padding: 50px 0
+	transition: transform 400ms ease-in-out
 
 .new-product
 	flex(column, center, center)
-	padding: 15px
+
+.new-product__body
+	padding: 0 15px
 
 .new-product__img
 	size(100%, 322px)
@@ -31,3 +40,31 @@
 	font(14px)
 	text-align: center
 	padding: 0 15px 20px 15px
+
+.new-products-buttons
+	width: 100%
+
+.new-products-button
+	display: none
+	justify-content: center
+	align-items: center
+	position: absolute
+	size(40px, 72px)
+	top: 189px
+	background: #fff
+	color: #acacac
+	opacity: 0.7
+	cursor: pointer
+
+.new-products-button_left
+	left: 15px
+
+.new-products-button_right
+	right: 15px
+
+.new-products-buttons__angle-left
+.new-products-buttons__angle-right
+	padding: 10px
+
+.new-products:hover .new-products-button
+	display: flex
