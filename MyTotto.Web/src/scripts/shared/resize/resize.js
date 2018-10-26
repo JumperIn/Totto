@@ -2,7 +2,7 @@ import { constants, variables } from "../const/const";
 import { hideMenu, showMenu, toCenterDropMenu } from "../navigation/navAdaptive";
 // import { hideDropNavAdaptive, scrollNavEvent } from "../navigation/scrollNav";
 import { adaptFooter } from "../footer/footer";
-// import { getNumProductDisp, returnCarouselBack } from "../../pages/mainPage/modules/carousel/carousel";
+import { getNumNewProductDisp, getNumPromoProductDisp, returnCarouselBack } from "../../pages/mainPage/modules/products/carousel";
 import { returnBannerBack } from "../../pages/mainPage/modules/banner/banner";
 
 
@@ -29,10 +29,11 @@ function resize() {
 			variables.shiftProducts = 0;
 			variables.shiftBanners = 0;
 			//данные функции выполняются при каждом событии изменения экрана, для адаптивной работы баннеров и карусели
-			// getNumProductDisp();
+			getNumNewProductDisp();
+			getNumPromoProductDisp();
 			returnBannerBack();
 			toCenterDropMenu();
-			// returnCarouselBack(0);
+			returnCarouselBack('discounts__wrapper');
 			// returnCarouselBack(1);
 			// returnCarouselBack(2);
 		}, 200)

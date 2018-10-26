@@ -1,65 +1,79 @@
 import { constants, variables } from "../../../../shared/const/const";
 
-function returnCarouselBack(j = 0) {
-	var elem = document.getElementsByClassName('products-wrapper')[j];
+function returnCarouselBack(classWrapper) {
+	var elem = document.getElementsByClassName(classWrapper)[0];
 	elem.style.transform = 'translateX(0px)';
 }
 
-function getNumProductDisp() {
-	if (window.innerWidth > 0) { variables.numProductsDisp = 1; };
-	if (window.innerWidth >= constants.SCREEN_SMALL) { variables.numProductsDisp = 2; };
-	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numProductsDisp = 3; };
-	if (window.innerWidth >= constants.SCREEN_LARGE) { variables.numProductsDisp = 4; };
-	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numProductsDisp = 4; };
+function getNumNewProductDisp() {
+	if (window.innerWidth > 0) { variables.numNewProductsDisp = 1; };
+	if (window.innerWidth >= constants.SCREEN_SMALL) { variables.numNewProductsDisp = 2; };
+	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numNewProductsDisp = 2; };
+	if (window.innerWidth >= constants.SCREEN_LARGE) { variables.numNewProductsDisp = 3; };
+	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numNewProductsDisp = 3; };
 }
 
-function getProductWidth(j) {
-    var elem = document.getElementsByClassName('products-wrapper')[j];
-    return elem.firstElementChild.offsetWidth;
+function getNumPromoProductDisp() {
+	if (window.innerWidth > 0) { variables.numPromoProductsDisp = 1; };
+	if (window.innerWidth >= constants.SCREEN_SMALL) { variables.numPromoProductsDisp = 2; };
+	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numPromoProductsDisp = 3; };
+	if (window.innerWidth >= constants.SCREEN_LARGE) { variables.numPromoProductsDisp = 4; };
+	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numPromoProductsDisp = 4; };
+}
+
+function getProductWidth(classWrapper) {
+	var elem = document.getElementsByClassName(classWrapper)[0];
+	console.log('widthProduct: ' +elem.firstElementChild.offsetWidth);
+	return elem.firstElementChild.offsetWidth;
 };
 
-function getLengthWrapper(j) {
-    var elem = document.getElementsByClassName('products-wrapper')[j];
+function getLengthWrapper(classWrapper) {
+	var elem = document.getElementsByClassName(classWrapper)[0];
+	console.log('LengthWrapper: ' +elem.children.length)
     return elem.children.length
 }
 
-function moveCarouselRight(j) {
-    var elem = document.getElementsByClassName('products-wrapper')[j];
+function moveCarouselRight(classWrapper) {
+    var elem = document.getElementsByClassName(classWrapper)[0];
     //граничное условие, при котором необходимо вернуть карусель в начальное состояние
-    var distanceTolastProduct = (getLengthWrapper(j) - variables.numProductsDisp) * getProductWidth(j);
-    var returnToStartCondition = variables.shiftProducts == distanceTolastProduct || variables.shiftProducts > distanceTolastProduct;
+    var distanceTolastProduct = (getLengthWrapper(classWrapper) - variables.numNewProductsDisp) * getProductWidth(classWrapper);
+    var returnToStartCondition = variables.shiftNewProducts == distanceTolastProduct || variables.shiftNewProducts > distanceTolastProduct;
     if (returnToStartCondition) {
-        variables.shiftProducts = 0;
-        elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
+        variables.shiftNewProducts = 0;
+        elem.style.transform = 'translateX(-' + +variables.shiftNewProducts + 'px)';
     } else {
-        variables.shiftProducts = +variables.shiftProducts + +getProductWidth(j);
-        elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
-    }
+        variables.shiftNewProducts = +variables.shiftNewProducts + +getProductWidth(classWrapper);
+        elem.style.transform = 'translateX(-' + +variables.shiftNewProducts + 'px)';
+	}
 };
-function moveCarouselRightEvent(j) {
-    var elem = document.getElementById('moveCarouselRight' + j);
+function moveCarouselRightEvent(classButtonRight, classWrapper) {
+	var elem = document.getElementsByClassName(classButtonRight)[0];
     elem.addEventListener('click', function() {
-		moveCarouselRight(j);
+		moveCarouselRight(classWrapper);
 	})
 };
 
-
-function moveCarouselLeft(j) {
-    var elem = document.getElementsByClassName('products-wrapper')[j];
-    var returnToEndCondition = variables.shiftProducts == 0 || variables.shiftProducts < 0;
+function moveCarouselLeft(classWrapper) {
+    var elem = document.getElementsByClassName(classWrapper)[0];
+    var returnToEndCondition = variables.shiftNewProducts == 0 || variables.shiftNewProducts < 0;
     if (returnToEndCondition) {
-        variables.shiftProducts = (getLengthWrapper(j) - variables.numProductsDisp) * getProductWidth(j);
-        elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
+        variables.shiftNewProducts = (getLengthWrapper(classWrapper) - variables.numNewProductsDisp) * getProductWidth(classWrapper);
+        elem.style.transform = 'translateX(-' + +variables.shiftNewProducts + 'px)';
     } else {
-        variables.shiftProducts = +variables.shiftProducts - +getProductWidth(j);
-        elem.style.transform = 'translateX(-' + +variables.shiftProducts + 'px)';
-    }
+        variables.shiftNewProducts = +variables.shiftNewProducts - +getProductWidth(classWrapper);
+        elem.style.transform = 'translateX(-' + +variables.shiftNewProducts + 'px)';
+	}
 };
-function moveCarouselLeftEvent(j) {
-    var elem = document.getElementById('moveCarouselLeft' + j);
+function moveCarouselLeftEvent(classButtonLeft, classWrapper) {
+    var elem = document.getElementsByClassName(classButtonLeft)[0];
     elem.addEventListener('click', function() {
-		moveCarouselLeft(j);
+		moveCarouselLeft(classWrapper);
 	})
 };
 
-export { getNumProductDisp, moveCarouselRightEvent, moveCarouselLeftEvent, returnCarouselBack };
+function moveCarouselEvent(classButtonRight, classButtonLeft, classWrapper) {
+	moveCarouselRightEvent(classButtonRight, classWrapper);
+	moveCarouselLeftEvent(classButtonLeft, classWrapper);
+}
+
+export { getNumNewProductDisp, getNumPromoProductDisp, moveCarouselEvent, returnCarouselBack };
