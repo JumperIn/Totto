@@ -30,7 +30,12 @@ namespace MyTotto.Web.Models
         /// Ссылка на изображение баннера.
         /// </summary>
         public string ImageUrl { get; set; }
-        
+
+        /// <summary>
+        /// Цвет фона для контента.
+        /// </summary>
+        public string BackgroundColor { get; set; }
+
         /// <summary>
         /// Дата акции.
         /// </summary>
@@ -52,6 +57,7 @@ namespace MyTotto.Web.Models
             Title = banner.Title;
             Content = banner.Content;
             ImageUrl = banner.ImageUrl;
+            BackgroundColor = !string.IsNullOrWhiteSpace(banner.BackgroundColor) ? $"#{banner.BackgroundColor}" : "#ffffff";
             ActionDate = banner.ActionDate?.ToString("dd.MM.yyyy HH:mm:ss");
         }
     }
