@@ -6,14 +6,13 @@
             @for (int i = 0; i < Model.Count; i++)
             {
                 var banner = Model[i];
-                string bgImage = $"/images/bg_img{i + 1}.png";    // TODO: banner.ImageUrl
-                //string image = $"/images/{i + 1}.png";          // TODO: banner.ImageUrl
-                string image = "/images/banner.jpg";
+                string bgColor = $"background-color: {banner.BackgroundColor}";
+                string image = "/images/banner.jpg";    // TODO: убрать заглушку, как будут нормальные изображения
 
                 <div class="banner container-fluid col-12" style="background-image: url(@image);">
                     <div class="banner_margin container-fluid justify-content-center">
                         <div class="banner-body row">
-                            <div class="banner__content" style="background-color: #faffe4">
+                            <div class="banner__content" style="@bgColor">
                                 <h3 class="banner__title">@banner.Title</h3>
                                 <div class="banner__text">@banner.Content</div>
 

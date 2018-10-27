@@ -33,6 +33,11 @@ namespace MyTotto.Data.Models
         public string ImageUrl { get; set; }
 
         /// <summary>
+        /// Цвет фона для контента.
+        /// </summary>
+        public string BackgroundColor { get; set; }
+
+        /// <summary>
         /// Порядок, в котором выводится баннер.
         /// </summary>
         [Required]

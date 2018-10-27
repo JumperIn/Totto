@@ -27,9 +27,11 @@ namespace MyTotto.Data.Configurations
                    Title = "Бесплатная доставка",
                    Content = "При заказе на сумму от 300 рублей предоставляем бесплатную доставку в любой район Новосибирска",
                    ImageUrl = @"/files/banners/banner-1.jpg",
+                   BackgroundColor = "#faffe4",
                    Order = 10,
                    IsActive = true,
-                   ActionDate = null
+                   ActionDate = null,
+                   Created = DateTime.Now
                },
                new Banner()
                {
@@ -37,9 +39,11 @@ namespace MyTotto.Data.Configurations
                    Title = "Подпишись на новости",
                    Content = "чтобы узнавать самым первым все последние новости и акции!",
                    ImageUrl = @"/files/banners/banner-2.jpg",
+                   BackgroundColor = "#faffe4",
                    Order = 20,
                    IsActive = true,
-                   ActionDate = null
+                   ActionDate = null,
+                   Created = DateTime.Now
                },
                new Banner()
                {
@@ -47,9 +51,11 @@ namespace MyTotto.Data.Configurations
                    Title = "Скидка на первый заказ",
                    Content = "Чтобы получить скидку на первый заказ необходимо зарегистрироваться и заполнить анкету первооткрывателя сайта",
                    ImageUrl = @"/files/banners/banner-3.jpg",
+                   BackgroundColor = "#faffe4",
                    Order = 15,
                    IsActive = true,
-                   ActionDate = null
+                   ActionDate = null,
+                   Created = DateTime.Now
                });
         }
     }
