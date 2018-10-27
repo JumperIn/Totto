@@ -57,7 +57,7 @@ namespace MyTotto.Web.Models
             Title = banner.Title;
             Content = banner.Content;
             ImageUrl = banner.ImageUrl;
-            BackgroundColor = !string.IsNullOrWhiteSpace(banner.BackgroundColor) ? banner.BackgroundColor : "#ffffff";
+            BackgroundColor = !string.IsNullOrWhiteSpace(banner.BackgroundColor) ? $"#{banner.BackgroundColor}" : "#ffffff";
             ActionDate = banner.ActionDate?.ToString("dd.MM.yyyy HH:mm:ss");
         }
     }

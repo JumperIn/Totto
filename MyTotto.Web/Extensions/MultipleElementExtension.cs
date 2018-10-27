@@ -20,7 +20,7 @@ namespace MyTotto.Web.Extensions
         public static IEnumerable<T> TakeMultiple<T>(this IEnumerable<T> items, int multipleCount)
         {
             int itemsCount = items.Count();
-            int itemsRow = itemsCount / multipleCount == 0 ? 1 : itemsCount / multipleCount;
+            int itemsRow = itemsCount < multipleCount ? 1 : itemsCount / multipleCount;
             int itemsMultipleCount = itemsRow * multipleCount;
 
             return items.Take(itemsMultipleCount);
