@@ -57,6 +57,11 @@ namespace MyTotto.Web.Models
                 .ToList();
         }
 
+        /// <summary>
+        /// Выборка карточек продукта по типу.
+        /// </summary>
+        /// <param name="products">Список продуктов.</param>
+        /// <param name="type">Тип продукта.</param>
         private List<ProductCardViewModel> SelectProductCardByType(List<Product> products, ProductType type)
         {
             return products

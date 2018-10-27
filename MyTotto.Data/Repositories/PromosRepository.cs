@@ -28,7 +28,6 @@ namespace MyTotto.Data.Repositories
             List<Promo> promos = context.Promos
                 .Where(p => p.IsActive)
                 .OrderBy(p => p.Order)
-                .Take(3)
                 .ToList();
 
             return promos;
@@ -90,7 +89,6 @@ namespace MyTotto.Data.Repositories
             List<PromoProduct> promoProducts = context.PromoProducts
                 .Where(p => p.IsActive)
                 .OrderBy(p => p.Order)
-                .Take(4)
                 .ToList();
 
             return promoProducts;
