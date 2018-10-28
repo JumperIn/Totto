@@ -33,6 +33,21 @@ namespace MyTotto.Data
         /// </summary>
         public DbSet<PromoProduct> PromoProducts { get; set; }
 
+        /// <summary>
+        /// Таблица с категориями товаров.
+        /// </summary>
+        public DbSet<ProductCategory> ProductCategories { get; set; }
+
+        /// <summary>
+        /// Таблица с подкатегориями товаров.
+        /// </summary>
+        public DbSet<ProductSubcategory> ProductSubcategories { get; set; }
+
+        /// <summary>
+        /// Таблица с группами товаров.
+        /// </summary>
+        public DbSet<ProductGroup> ProductGroups { get; set; }
+
         public TottoContext(DbContextOptions<TottoContext> options) : base(options)
         {
             // Ниже включаю для миграций. Вроде должно быть ок.
@@ -52,6 +67,9 @@ namespace MyTotto.Data
             modelBuilder.ApplyConfiguration(new ProductsEntityConfiguration());
             modelBuilder.ApplyConfiguration(new PromosEntityConfiguration());
             modelBuilder.ApplyConfiguration(new PromoProductsEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new CategoriesEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new SubcategoriesEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new GroupsEntityConfiguration());
         }
     }
 }

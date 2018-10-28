@@ -24,10 +24,40 @@ namespace MyTotto.Data.Models
         /// </summary>
         public string Manufacturer { get; set; }
 
+        ///// <summary>
+        ///// URL-адрес продукта.
+        ///// </summary>
+        //public string Url { get; set; }
+
         /// <summary>
-        /// URL-адрес продукта.
+        /// Идентификатор категории продукта.
         /// </summary>
-        public string Url { get; set; }
+        public int ProductCategoryId { get; set; }
+
+        /// <summary>
+        /// Категория продукта.
+        /// </summary>
+        public ProductCategory ProductCategory { get; set; }
+
+        /// <summary>
+        /// Идентификатор подкатегории продукта.
+        /// </summary>
+        public int ProductSubcategoryId { get; set; }
+
+        /// <summary>
+        /// Подкатегория продукта.
+        /// </summary>
+        public ProductSubcategory ProductSubcategory { get; set; }
+
+        /// <summary>
+        /// Идентификатор группы продукта.
+        /// </summary>
+        public int? ProductGroupId { get; set; }
+
+        /// <summary>
+        /// Группа продукта.
+        /// </summary>
+        public ProductGroup ProductGroup { get; set; }
 
         /// <summary>
         /// Ссылка на картинку.
@@ -50,6 +80,11 @@ namespace MyTotto.Data.Models
         public ProductType ProductType { get; set; }
 
         /// <summary>
+        /// Строка с массивом ссылок на изображения.
+        /// </summary>
+        public string ImageUrls { get; set; }
+
+        /// <summary>
         /// Признак активного элемента.
         /// </summary>
         public bool IsActive { get; set; }
@@ -58,10 +93,5 @@ namespace MyTotto.Data.Models
         /// Дата создания.
         /// </summary>
         public DateTime Created { get; set; }
-
-        /// <summary>
-        /// Строка с массивом ссылок на изображения.
-        /// </summary>
-        public string ImageUrls { get; set; }
     }
 }
