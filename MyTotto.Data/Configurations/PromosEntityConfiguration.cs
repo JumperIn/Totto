@@ -30,7 +30,8 @@ namespace MyTotto.Data.Configurations
                    Url = @"/promo/akciya-1",
                    ImageUrl = @"/files/promos/promo-1/main.jpg",
                    Order = 10,
-                   IsActive = true
+                   IsActive = true,
+                   Created = DateTime.Now
                },
                 new Promo()
                 {
@@ -40,7 +41,8 @@ namespace MyTotto.Data.Configurations
                     Url = @"/promo/akciya-2",
                     ImageUrl = @"/files/promos/promo-2/main.jpg",
                     Order = 20,
-                    IsActive = true
+                    IsActive = true,
+                    Created = DateTime.Now
                 },
                 new Promo()
                 {
@@ -50,7 +52,8 @@ namespace MyTotto.Data.Configurations
                     Url = @"/promo/akciya-3",
                     ImageUrl = @"/files/promos/promo-3/main.jpg",
                     Order = 30,
-                    IsActive = true
+                    IsActive = true,
+                    Created = DateTime.Now
                 },
                 new Promo()
                 {
@@ -60,7 +63,8 @@ namespace MyTotto.Data.Configurations
                     Url = @"/promo/akciya-4",
                     ImageUrl = @"/files/promos/promo-4/main.jpg",
                     Order = 15,
-                    IsActive = true
+                    IsActive = true,
+                    Created = DateTime.Now
                 },
                 new Promo()
                 {
@@ -70,7 +74,8 @@ namespace MyTotto.Data.Configurations
                     Url = @"/promo/akciya-5",
                     ImageUrl = @"/files/promos/promo-5/main.jpg",
                     Order = 25,
-                    IsActive = true
+                    IsActive = true,
+                    Created = DateTime.Now
                 },
                 new Promo()
                 {
@@ -80,7 +85,8 @@ namespace MyTotto.Data.Configurations
                     Url = @"/promo/akciya-6",
                     ImageUrl = @"/files/promos/promo-6/main.jpg",
                     Order = 35,
-                    IsActive = true
+                    IsActive = true,
+                    Created = DateTime.Now
                 });
         }
     }

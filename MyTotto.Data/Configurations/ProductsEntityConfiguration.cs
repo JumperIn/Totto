@@ -17,21 +17,39 @@ namespace MyTotto.Data.Configurations
             // Индекс на таблицу
             builder.HasIndex(x => x.Id).IsUnique();
 
+            builder.HasOne(x => x.ProductCategory)
+                .WithMany()
+                .HasForeignKey(x => x.ProductCategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.ProductSubcategory)
+                .WithMany()
+                .HasForeignKey(x => x.ProductSubcategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder.HasOne(x => x.ProductGroup)
+                .WithMany() 
+                .HasForeignKey(x => x.ProductGroupId)
+                .OnDelete(DeleteBehavior.SetNull);
+
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Created).HasDefaultValue(DateTime.Now);
 
             builder.HasData(
                new Product()
                {
-                   Id = Guid.NewGuid(),
+                   Id = 1,
                    Title = "ESTHETIC HOUSE Несмываемая кератиновая сыворотка для волос СР-1 Keratin Silk Injection, 5мл",
                    Manufacturer = "ESTHETIC HOUSE",
-                   Url = @"/katalog/category-1/subcategory-1/group-1/1",
-                   ImageUrl = @"/files/products/product-1/card.jpg",
+                   ProductCategoryId = 1,
+                   ProductSubcategoryId = 1,
+                   ProductGroupId = 1,
+                   ImageUrl = @"/images/cream2.png",
                    Price = 22.00m,
                    Discount = 78.0m,
                    ProductType = ProductType.Discount,
                    IsActive = true,
+                   Created = DateTime.Now,
                    ImageUrls =                   
                         @"/files/products/product-1/1.jpg;" +
                         @"/files/products/product-1/2.jpg;" +
@@ -41,15 +59,18 @@ namespace MyTotto.Data.Configurations
                },
                 new Product()
                 {
-                    Id = Guid.NewGuid(),
+                    Id = 2,
                     Title = "ELIZAVECCA Крем для лица увлажняющий гиалуроновый Aqua Hyaluronic Acid Water Drop Cream, 50 мл",
                     Manufacturer = "ELIZAVECCA",
-                    Url = @"/katalog/category-1/subcategory-1/group-2/2",
-                    ImageUrl = @"/files/products/product-2/card.jpg",
+                    ProductCategoryId = 1,
+                    ProductSubcategoryId = 1,
+                    ProductGroupId = 2,
+                    ImageUrl = @"/images/cream2.png",
                     Price = 660.00m,
                     Discount = 50.0m,
                     ProductType = ProductType.Hit,
                     IsActive = true,
+                    Created = DateTime.Now,
                     ImageUrls =
                         @"/files/products/product-2/1.jpg;" +
                         @"/files/products/product-2/2.jpg;" +
@@ -58,15 +79,18 @@ namespace MyTotto.Data.Configurations
                 },
                 new Product()
                 {
-                    Id = Guid.NewGuid(),
+                    Id = 3,
                     Title = "ESTHETIC HOUSE Кондиц.ополас. на основе малинового уксуса CP-1 Rasberry Treatment Vinegar, 500 мл",
                     Manufacturer = "ESTHETIC HOUSE",
-                    Url = @"/katalog/category-1/subcategory-2/group-1/3",
-                    ImageUrl = @"/files/products/product-3/card.jpg",
+                    ProductCategoryId = 1,
+                    ProductSubcategoryId = 1,
+                    ProductGroupId = 3,
+                    ImageUrl = @"/images/cream2.png",
                     Price = 895.00m,
                     Discount = 44.0m,
                     ProductType = ProductType.New,
                     IsActive = true,
+                    Created = DateTime.Now,
                     ImageUrls =
                         @"/files/products/product-3/1.jpg;" +
                         @"/files/products/product-3/2.jpg;" +
@@ -75,15 +99,18 @@ namespace MyTotto.Data.Configurations
                 },
                 new Product()
                 {
-                    Id = Guid.NewGuid(),
+                    Id = 4,
                     Title = "KOELF Гидрогелевая маска для лица с жемчугом и маслом Ши Pearl & Shea Butter, 30гр",
                     Manufacturer = "KOELF",
-                    Url = @"/katalog/category-4/subcategory-1/group-4/4",
-                    ImageUrl = @"/files/products/product-4/card.jpg",
+                    ProductCategoryId = 2,
+                    ProductSubcategoryId = 1,
+                    ProductGroupId = 1,
+                    ImageUrl = @"/images/cream3.png",
                     Price = 245.00m,
                     Discount = 35.0m,
                     ProductType = ProductType.Normal,
                     IsActive = true,
+                    Created = DateTime.Now,
                     ImageUrls =
                         @"/files/products/product-4/1.jpg;" +
                         @"/files/products/product-4/2.jpg;" +
@@ -92,15 +119,18 @@ namespace MyTotto.Data.Configurations
                 },
                 new Product()
                 {
-                    Id = Guid.NewGuid(),
+                    Id = 5,
                     Title = "THE SAEM Маска тканевая с экстрактом масла ши Natural Shea Butter Mask Sheet, 21мл",
                     Manufacturer = "THE SAEM",
-                    Url = @"/katalog/category-2/subcategory-3/group-1/5",
-                    ImageUrl = @"/files/products/product-5/card.jpg",
+                    ProductCategoryId = 2,
+                    ProductSubcategoryId = 2,
+                    ProductGroupId = 1,
+                    ImageUrl = @"/images/cream4.png",
                     Price = 92.00m,
                     Discount = 38.0m,
                     ProductType = ProductType.Discount,
                     IsActive = true,
+                    Created = DateTime.Now,
                     ImageUrls =
                         @"/files/products/product-5/1.jpg;" +
                         @"/files/products/product-5/2.jpg;" +
@@ -109,19 +139,112 @@ namespace MyTotto.Data.Configurations
                 },
                 new Product()
                 {
-                    Id = Guid.NewGuid(),
+                    Id = 6,
                     Title = "Innisfree Листовая маска для лица с экстрактом томата My Real Squeeze Mask Tomato",
                     Manufacturer = "Innisfree",
-                    Url = @"/katalog/category-3/subcategory-2/group-2/6",
-                    ImageUrl = @"/files/products/product-6/card.jpg",
+                    ProductCategoryId = 2,
+                    ProductSubcategoryId = 1,
+                    ProductGroupId = 2,
+                    ImageUrl = @"/images/cream5.png",
                     Price = 120.00m,
                     Discount = 0m,
                     ProductType = ProductType.Normal,
                     IsActive = true,
+                    Created = DateTime.Now,
                     ImageUrls =
                         @"/files/products/product-6/1.jpg;" +
                         @"/files/products/product-6/2.jpg;" +
                         @"/files/products/product-6/3.jpg;" +
+                        @"/files/products/product-6/4.jpg;"
+                },
+                new Product()
+                {
+                    Id = 7,
+                    Title = "ESTHETIC HOUSE Патчи гидрогелевые Красное вино Red Wine Hydrogel Eyepatch, 60шт.",
+                    Manufacturer = "ESTHETIC HOUSE",
+                    ProductCategoryId = 2,
+                    ProductSubcategoryId = 1,
+                    ProductGroupId = 2,
+                    ImageUrl = @"/images/cream3.png",
+                    Price = 1365.00m,
+                    Discount = 0m,
+                    ProductType = ProductType.Hit,
+                    IsActive = true,
+                    Created = DateTime.Now,
+                    ImageUrls =
+                        @"/files/products/product-6/1.jpg;" +
+                        @"/files/products/product-6/4.jpg;"
+                },
+                new Product()
+                {
+                    Id = 8,
+                    Title = "A'PIEU Спрей для волос защитный Super Protein Hair Guard Mist, 105мл",
+                    Manufacturer = "A'PIEU",
+                    ProductCategoryId = 1,
+                    ProductSubcategoryId = 1,
+                    ProductGroupId = 1,
+                    ImageUrl = @"/images/cream1.png",
+                    Price = 730m,
+                    Discount = 0m,
+                    ProductType = ProductType.Hit,
+                    IsActive = true,
+                    Created = DateTime.Now,
+                    ImageUrls =
+                        @"/files/products/product-6/1.jpg;" +
+                        @"/files/products/product-6/4.jpg;"
+                },
+                new Product()
+                {
+                    Id = 9,
+                    Title = "ELIZAVECCA Маска для лица глиняно-пузырьковая Carbonated Bubble Clay Mask, 100гр",
+                    Manufacturer = "ELIZAVECCA",
+                    ProductCategoryId = 1,
+                    ProductSubcategoryId = 1,
+                    ProductGroupId = 1,
+                    ImageUrl = @"/images/cream3.png",
+                    Price = 1220m,
+                    Discount = 0m,
+                    ProductType = ProductType.Hit,
+                    IsActive = true,
+                    Created = DateTime.Now,
+                    ImageUrls =
+                        @"/files/products/product-6/1.jpg;" +
+                        @"/files/products/product-6/4.jpg;"
+                },
+                new Product()
+                {
+                    Id = 10,
+                    Title = "ESTHETIC HOUSE Протеиновый кондиционер д/волос CP-1 BС Intense Nourishing Conditioner, 100 мл",
+                    Manufacturer = "ESTHETIC HOUSE",
+                    ProductCategoryId = 1,
+                    ProductSubcategoryId = 1,
+                    ProductGroupId = 1,
+                    ImageUrl = @"/images/cream2.png",
+                    Price = 330m,
+                    Discount = 22m,
+                    ProductType = ProductType.New,
+                    IsActive = true,
+                    Created = DateTime.Now,
+                    ImageUrls =
+                        @"/files/products/product-6/1.jpg;" +
+                        @"/files/products/product-6/4.jpg;"
+                },
+                new Product()
+                {
+                    Id = 11,
+                    Title = "FARMSTAY Тканевая маска с натуральным экстрактом граната Visible Difference Pomegranate Mask, 23мл",
+                    Manufacturer = "FARMSTAY",
+                    ProductCategoryId = 1,
+                    ProductSubcategoryId = 1,
+                    ProductGroupId = 1,
+                    ImageUrl = @"/images/cream5.png",
+                    Price = 58m,
+                    Discount = 0m,
+                    ProductType = ProductType.Hit,
+                    IsActive = true,
+                    Created = DateTime.Now,
+                    ImageUrls =
+                        @"/files/products/product-6/1.jpg;" +
                         @"/files/products/product-6/4.jpg;"
                 });
         }
