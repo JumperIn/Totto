@@ -104,6 +104,186 @@ namespace MyTotto.Data.Configurations
                     ProductCategoryId = 3,
                     IsActive = true,
                     Order = 30
+                },
+                new ProductSubcategory()
+                {
+                    Id = 10,
+                    Title = "Основа под макияж",
+                    SectionUrl = "osnova-pod-makiyazh",
+                    ProductCategoryId = 4,
+                    IsActive = true,
+                    Order = 10
+                },
+                new ProductSubcategory()
+                {
+                    Id = 11,
+                    Title = "Тональный крем",
+                    SectionUrl = "tonalnyj-krem",
+                    ProductCategoryId = 4,
+                    IsActive = true,
+                    Order = 20
+                },
+                new ProductSubcategory()
+                {
+                    Id = 12,
+                    Title = "Консилеры",
+                    SectionUrl = "konsilery",
+                    ProductCategoryId = 4,
+                    IsActive = true,
+                    Order = 30
+                },
+                new ProductSubcategory()
+                {
+                    Id = 13,
+                    Title = "Пудра и хайлайтеры",
+                    SectionUrl = "pudra-i-hajlajtery",
+                    ProductCategoryId = 4,
+                    IsActive = true,
+                    Order = 40
+                },
+                new ProductSubcategory()
+                {
+                    Id = 14,
+                    Title = "Тени и румяна",
+                    SectionUrl = "teni-i-rumyana",
+                    ProductCategoryId = 4,
+                    IsActive = true,
+                    Order = 50
+                },
+                new ProductSubcategory()
+                {
+                    Id = 15,
+                    Title = "Средства для бровей",
+                    SectionUrl = "sredstva-dlya-brovej",
+                    ProductCategoryId = 4,
+                    IsActive = true,
+                    Order = 60
+                },
+                new ProductSubcategory()
+                {
+                    Id = 16,
+                    Title = "Тушь, контур и подводка для глаз",
+                    SectionUrl = "tush-kontur-i-podvodka-dlya-glaz",
+                    ProductCategoryId = 4,
+                    IsActive = true,
+                    Order = 70
+                },
+                new ProductSubcategory()
+                {
+                    Id = 17,
+                    Title = "Макияж для губ",
+                    SectionUrl = "makiyazh-dlya-gub",
+                    ProductCategoryId = 4,
+                    IsActive = true,
+                    Order = 80
+                },
+                new ProductSubcategory()
+                {
+                    Id = 18,
+                    Title = "Зубные пасты",
+                    SectionUrl = "zubnye-pasty",
+                    ProductCategoryId = 5,
+                    IsActive = true,
+                    Order = 30
+                },
+                new ProductSubcategory()
+                {
+                    Id = 19,
+                    Title = "Зубные щетки",
+                    SectionUrl = "zubnye-shchetki",
+                    ProductCategoryId = 5,
+                    IsActive = true,
+                    Order = 30
+                },
+                new ProductSubcategory()
+                {
+                    Id = 20,
+                    Title = "Пены для ванн",
+                    SectionUrl = "peny-dlya-vann",
+                    ProductCategoryId = 5,
+                    IsActive = true,
+                    Order = 30
+                },
+                new ProductSubcategory()
+                {
+                    Id = 21,
+                    Title = "Морская соль",
+                    SectionUrl = "morskaya-solj",
+                    ProductCategoryId = 5,
+                    IsActive = true,
+                    Order = 40
+                },
+                new ProductSubcategory()
+                {
+                    Id = 22,
+                    Title = "Мочалки",
+                    SectionUrl = "mochalki",
+                    ProductCategoryId = 5,
+                    IsActive = true,
+                    Order = 50
+                },
+                new ProductSubcategory()
+                {
+                    Id = 23,
+                    Title = "Бритвы",
+                    SectionUrl = "britvy",
+                    ProductCategoryId = 5,
+                    IsActive = true,
+                    Order = 60
+                },
+                new ProductSubcategory()
+                {
+                    Id = 24,
+                    Title = "Бритвенные станки",
+                    SectionUrl = "britvennye-stanki",
+                    ProductCategoryId = 5,
+                    IsActive = true,
+                    Order = 70
+                },
+                new ProductSubcategory()
+                {
+                    Id = 25,
+                    Title = "Дезодоранты",
+                    SectionUrl = "dezodoranty",
+                    ProductCategoryId = 5,
+                    IsActive = true,
+                    Order = 80
+                },
+                new ProductSubcategory()
+                {
+                    Id = 26,
+                    Title = "Стиральные порошки",
+                    SectionUrl = "stiralnye-poroshki",
+                    ProductCategoryId = 5,
+                    IsActive = true,
+                    Order = 90
+                },
+                new ProductSubcategory()
+                {
+                    Id = 27,
+                    Title = "Кондиционеры для белья",
+                    SectionUrl = "kondicionery-dly-belya",
+                    ProductCategoryId = 5,
+                    IsActive = true,
+                    Order = 100
+                },
+                new ProductSubcategory()
+                {
+                    Id = 28,
+                    Title = "Пятновыводители и отбеливатели",
+                    SectionUrl = "pyatnovyvoditeli-i-otbelivateli",
+                    ProductCategoryId = 5,
+                    IsActive = true,
+                    Order = 110
+                },
+                new ProductSubcategory()
+                {
+                    Id = 29,
+                    Title = "Чистящие средства для ванной и кухни",
+                    SectionUrl = "chistyashchie-sredstva-dly-vannoj-i-kuhni",
+                    ProductCategoryId = 5,
+                    IsActive = true,
+                    Order = 120
                 });
         }
     }
