@@ -56,7 +56,7 @@ namespace MyTotto.Api.Controllers
         /// </summary>
         /// <param name="id">Идентификатор продукта.</param>
         [HttpPost("product/delete/{id}")]
-        public void DeleteProduct(Guid id)
+        public void DeleteProduct(int id)
         {
             productsRepository.DeleteProduct(id);
         }

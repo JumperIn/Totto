@@ -12,7 +12,7 @@ namespace MyTotto.Data.Models
         /// <summary>
         /// Идентификатор.
         /// </summary>
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Название.

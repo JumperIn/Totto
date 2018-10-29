@@ -14,7 +14,7 @@ namespace MyTotto.Web.Models
         /// <summary>
         /// Идентификатор.
         /// </summary>
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         /// <summary>
         /// Название.
@@ -66,11 +66,16 @@ namespace MyTotto.Web.Models
             Id = product.Id;
             Title = product.Title;
             Manufacturer = product.Manufacturer;
-            Url = product.Url;
+            Url = SetUrl();
             ImageUrl = product.ImageUrl;
             Price = product.Price.ToString("0.00");
             DiscountPrice = ((100 - product.Discount) / 100 * product.Price).ToString("0.00");
             ProductType = product.ProductType;
+        }
+
+        private string SetUrl()
+        {
+            return $"/catalog/products/id{Id}";
         }
     }
 }

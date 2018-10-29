@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 
+using Microsoft.EntityFrameworkCore;
+
 using MyTotto.Data.Abstract;
 using MyTotto.Data.Models;
 
@@ -24,6 +26,9 @@ namespace MyTotto.Data.Repositories
         public List<Product> GetAllProducts()
         {
             List<Product> products = context.Products
+                .Include(p => p.ProductCategory)
+                .Include(p => p.ProductSubcategory)
+                .Include(p => p.ProductGroup)
                 .Where(p => p.IsActive)
                 .ToList();
 
@@ -34,7 +39,7 @@ namespace MyTotto.Data.Repositories
         /// Возвращает продукт по идентификатору.
         /// </summary>
         /// <param name="id">Идентификатор продукта.</param>
-        public Product GetProduct(Guid id)
+        public Product GetProduct(int id)
         {
             return context.Products.FirstOrDefault(p => p.Id == id);
         }
@@ -63,7 +68,7 @@ namespace MyTotto.Data.Repositories
         /// Удаляет продукт по идентификатору.
         /// </summary>
         /// <param name="id">Идентификатор продукта.</param>
-        public void DeleteProduct(Guid id)
+        public void DeleteProduct(int id)
         {
             Product product = GetProduct(id);
             if (product == null)

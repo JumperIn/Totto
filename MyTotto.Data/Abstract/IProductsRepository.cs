@@ -18,7 +18,7 @@ namespace MyTotto.Data.Abstract
         /// Возвращает продукт по идентификатору.
         /// </summary>
         /// <param name="id">Идентификатор продукта.</param>
-        Product GetProduct(Guid id);
+        Product GetProduct(int id);
 
         /// <summary>
         /// Добавляет продукт в список.
@@ -36,6 +36,6 @@ namespace MyTotto.Data.Abstract
         /// Удаляет продукт по идентификатору.
         /// </summary>
         /// <param name="id">Идентификатор продукта.</param>
-        void DeleteProduct(Guid id);
+        void DeleteProduct(int id);
     }
 }

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyTotto.Data;
 
 namespace MyTotto.Data.Migrations
 {
     [DbContext(typeof(TottoContext))]
-    partial class TottoContextModelSnapshot : ModelSnapshot
+    [Migration("20181029045920_Add-Categories-Products")]
+    partial class AddCategoriesProducts
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
