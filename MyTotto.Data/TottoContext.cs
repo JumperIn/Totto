@@ -52,7 +52,7 @@ namespace MyTotto.Data
         {
             // Ниже включаю для миграций. Вроде должно быть ок.
 
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
 
             //var pendingMigrations = Database.GetPendingMigrations().ToList();
             //if (pendingMigrations.Any())

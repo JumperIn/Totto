@@ -18,8 +18,12 @@ namespace MyTotto.Data.Configurations
             builder.HasIndex(x => x.Id).IsUnique();
             builder.HasKey(x => x.Id);
 
+            builder.HasMany(x => x.Groups)
+                .WithOne(x => x.ProductSubcategory)
+                .HasForeignKey(x => x.ProductSubcategoryId);
+
             builder.HasOne(x => x.ProductCategory)
-                .WithMany()
+                .WithMany(x => x.Subcategories)
                 .HasForeignKey(x => x.ProductCategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
 

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyTotto.Data;
 
 namespace MyTotto.Data.Migrations
 {
     [DbContext(typeof(TottoContext))]
-    partial class TottoContextModelSnapshot : ModelSnapshot
+    [Migration("20181031093339_Add-TitleUrl-Product")]
+    partial class AddTitleUrlProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +35,7 @@ namespace MyTotto.Data.Migrations
 
                     b.Property<DateTime>("Created")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2018, 10, 31, 16, 49, 12, 694, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2018, 10, 31, 16, 33, 39, 371, DateTimeKind.Local));
 
                     b.Property<string>("ImageUrl")
                         .IsRequired();
@@ -53,9 +55,9 @@ namespace MyTotto.Data.Migrations
                     b.ToTable("Banners");
 
                     b.HasData(
-                        new { Id = 1, BackgroundColor = "faffe4", Content = "При заказе на сумму от 300 рублей предоставляем бесплатную доставку в любой район Новосибирска", Created = new DateTime(2018, 10, 31, 16, 49, 12, 696, DateTimeKind.Local), ImageUrl = "/files/banners/banner-1.jpg", IsActive = true, Order = 10, Title = "Бесплатная доставка" },
-                        new { Id = 2, BackgroundColor = "ffffff", Content = "чтобы узнавать самым первым все последние новости и акции!", Created = new DateTime(2018, 10, 31, 16, 49, 12, 696, DateTimeKind.Local), ImageUrl = "/files/banners/banner-2.jpg", IsActive = true, Order = 20, Title = "Подпишись на новости" },
-                        new { Id = 3, BackgroundColor = "84cad0", Content = "Чтобы получить скидку на первый заказ необходимо зарегистрироваться и заполнить анкету первооткрывателя сайта", Created = new DateTime(2018, 10, 31, 16, 49, 12, 696, DateTimeKind.Local), ImageUrl = "/files/banners/banner-3.jpg", IsActive = true, Order = 15, Title = "Скидка на первый заказ" }
+                        new { Id = 1, BackgroundColor = "faffe4", Content = "При заказе на сумму от 300 рублей предоставляем бесплатную доставку в любой район Новосибирска", Created = new DateTime(2018, 10, 31, 16, 33, 39, 373, DateTimeKind.Local), ImageUrl = "/files/banners/banner-1.jpg", IsActive = true, Order = 10, Title = "Бесплатная доставка" },
+                        new { Id = 2, BackgroundColor = "ffffff", Content = "чтобы узнавать самым первым все последние новости и акции!", Created = new DateTime(2018, 10, 31, 16, 33, 39, 373, DateTimeKind.Local), ImageUrl = "/files/banners/banner-2.jpg", IsActive = true, Order = 20, Title = "Подпишись на новости" },
+                        new { Id = 3, BackgroundColor = "84cad0", Content = "Чтобы получить скидку на первый заказ необходимо зарегистрироваться и заполнить анкету первооткрывателя сайта", Created = new DateTime(2018, 10, 31, 16, 33, 39, 373, DateTimeKind.Local), ImageUrl = "/files/banners/banner-3.jpg", IsActive = true, Order = 15, Title = "Скидка на первый заказ" }
                     );
                 });
 
@@ -67,7 +69,7 @@ namespace MyTotto.Data.Migrations
 
                     b.Property<DateTime>("Created")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2018, 10, 31, 16, 49, 12, 702, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2018, 10, 31, 16, 33, 39, 379, DateTimeKind.Local));
 
                     b.Property<decimal>("Discount");
 
@@ -107,17 +109,17 @@ namespace MyTotto.Data.Migrations
                     b.ToTable("Products");
 
                     b.HasData(
-                        new { Id = 1, Created = new DateTime(2018, 10, 31, 16, 49, 12, 704, DateTimeKind.Local), Discount = 78.0m, ImageUrl = "/images/cream2.png", ImageUrls = "/files/products/product-1/1.jpg;/files/products/product-1/2.jpg;/files/products/product-1/3.jpg;/files/products/product-1/4.jpg;", IsActive = true, Manufacturer = "ESTHETIC HOUSE", Price = 22.00m, ProductCategoryId = 1, ProductGroupId = 1, ProductSubcategoryId = 1, ProductType = 2, Title = "ESTHETIC HOUSE Несмываемая кератиновая сыворотка для волос СР-1 Keratin Silk Injection, 5мл", TitleUrl = "1-esthetic-house-name-product" },
-                        new { Id = 2, Created = new DateTime(2018, 10, 31, 16, 49, 12, 704, DateTimeKind.Local), Discount = 50.0m, ImageUrl = "/images/cream2.png", ImageUrls = "/files/products/product-2/1.jpg;/files/products/product-2/2.jpg;/files/products/product-2/3.jpg;/files/products/product-2/4.jpg;", IsActive = true, Manufacturer = "ELIZAVECCA", Price = 660.00m, ProductCategoryId = 1, ProductGroupId = 2, ProductSubcategoryId = 1, ProductType = 0, Title = "ELIZAVECCA Крем для лица увлажняющий гиалуроновый Aqua Hyaluronic Acid Water Drop Cream, 50 мл", TitleUrl = "2-elizavecca-name-product" },
-                        new { Id = 3, Created = new DateTime(2018, 10, 31, 16, 49, 12, 704, DateTimeKind.Local), Discount = 44.0m, ImageUrl = "/images/cream2.png", ImageUrls = "/files/products/product-3/1.jpg;/files/products/product-3/2.jpg;/files/products/product-3/3.jpg;/files/products/product-3/4.jpg;", IsActive = true, Manufacturer = "ESTHETIC HOUSE", Price = 895.00m, ProductCategoryId = 1, ProductGroupId = 3, ProductSubcategoryId = 1, ProductType = 1, Title = "ESTHETIC HOUSE Кондиц.ополас. на основе малинового уксуса CP-1 Rasberry Treatment Vinegar, 500 мл", TitleUrl = "3-esthetic-house-name-product" },
-                        new { Id = 4, Created = new DateTime(2018, 10, 31, 16, 49, 12, 704, DateTimeKind.Local), Discount = 35.0m, ImageUrl = "/images/cream3.png", ImageUrls = "/files/products/product-4/1.jpg;/files/products/product-4/2.jpg;/files/products/product-4/3.jpg;/files/products/product-4/4.jpg;", IsActive = true, Manufacturer = "KOELF", Price = 245.00m, ProductCategoryId = 2, ProductGroupId = 1, ProductSubcategoryId = 1, ProductType = 3, Title = "KOELF Гидрогелевая маска для лица с жемчугом и маслом Ши Pearl & Shea Butter, 30гр", TitleUrl = "4-koelf-name-product" },
-                        new { Id = 5, Created = new DateTime(2018, 10, 31, 16, 49, 12, 704, DateTimeKind.Local), Discount = 38.0m, ImageUrl = "/images/cream4.png", ImageUrls = "/files/products/product-5/1.jpg;/files/products/product-5/2.jpg;/files/products/product-5/3.jpg;/files/products/product-5/4.jpg;", IsActive = true, Manufacturer = "THE SAEM", Price = 92.00m, ProductCategoryId = 2, ProductGroupId = 1, ProductSubcategoryId = 2, ProductType = 2, Title = "THE SAEM Маска тканевая с экстрактом масла ши Natural Shea Butter Mask Sheet, 21мл", TitleUrl = "5-the-saem-name-product" },
-                        new { Id = 6, Created = new DateTime(2018, 10, 31, 16, 49, 12, 704, DateTimeKind.Local), Discount = 0m, ImageUrl = "/images/cream5.png", ImageUrls = "/files/products/product-6/1.jpg;/files/products/product-6/2.jpg;/files/products/product-6/3.jpg;/files/products/product-6/4.jpg;", IsActive = true, Manufacturer = "Innisfree", Price = 120.00m, ProductCategoryId = 2, ProductGroupId = 2, ProductSubcategoryId = 1, ProductType = 3, Title = "Innisfree Листовая маска для лица с экстрактом томата My Real Squeeze Mask Tomato", TitleUrl = "6-innisfree-name-product" },
-                        new { Id = 7, Created = new DateTime(2018, 10, 31, 16, 49, 12, 704, DateTimeKind.Local), Discount = 0m, ImageUrl = "/images/cream3.png", ImageUrls = "/files/products/product-6/1.jpg;/files/products/product-6/4.jpg;", IsActive = true, Manufacturer = "ESTHETIC HOUSE", Price = 1365.00m, ProductCategoryId = 2, ProductGroupId = 2, ProductSubcategoryId = 1, ProductType = 0, Title = "ESTHETIC HOUSE Патчи гидрогелевые Красное вино Red Wine Hydrogel Eyepatch, 60шт.", TitleUrl = "7-esthetic-house-name-product" },
-                        new { Id = 8, Created = new DateTime(2018, 10, 31, 16, 49, 12, 704, DateTimeKind.Local), Discount = 0m, ImageUrl = "/images/cream1.png", ImageUrls = "/files/products/product-6/1.jpg;/files/products/product-6/4.jpg;", IsActive = true, Manufacturer = "A'PIEU", Price = 730m, ProductCategoryId = 1, ProductGroupId = 1, ProductSubcategoryId = 1, ProductType = 0, Title = "A'PIEU Спрей для волос защитный Super Protein Hair Guard Mist, 105мл", TitleUrl = "8-apieu-name-product" },
-                        new { Id = 9, Created = new DateTime(2018, 10, 31, 16, 49, 12, 704, DateTimeKind.Local), Discount = 0m, ImageUrl = "/images/cream3.png", ImageUrls = "/files/products/product-6/1.jpg;/files/products/product-6/4.jpg;", IsActive = true, Manufacturer = "ELIZAVECCA", Price = 1220m, ProductCategoryId = 1, ProductGroupId = 1, ProductSubcategoryId = 1, ProductType = 0, Title = "ELIZAVECCA Маска для лица глиняно-пузырьковая Carbonated Bubble Clay Mask, 100гр", TitleUrl = "9-elizavecca-name-product" },
-                        new { Id = 10, Created = new DateTime(2018, 10, 31, 16, 49, 12, 704, DateTimeKind.Local), Discount = 22m, ImageUrl = "/images/cream2.png", ImageUrls = "/files/products/product-6/1.jpg;/files/products/product-6/4.jpg;", IsActive = true, Manufacturer = "ESTHETIC HOUSE", Price = 330m, ProductCategoryId = 1, ProductGroupId = 1, ProductSubcategoryId = 1, ProductType = 1, Title = "ESTHETIC HOUSE Протеиновый кондиционер д/волос CP-1 BС Intense Nourishing Conditioner, 100 мл", TitleUrl = "10-esthetic-house-name-product" },
-                        new { Id = 11, Created = new DateTime(2018, 10, 31, 16, 49, 12, 704, DateTimeKind.Local), Discount = 0m, ImageUrl = "/images/cream5.png", ImageUrls = "/files/products/product-6/1.jpg;/files/products/product-6/4.jpg;", IsActive = true, Manufacturer = "FARMSTAY", Price = 58m, ProductCategoryId = 1, ProductGroupId = 1, ProductSubcategoryId = 1, ProductType = 0, Title = "FARMSTAY Тканевая маска с натуральным экстрактом граната Visible Difference Pomegranate Mask, 23мл", TitleUrl = "11-farmstay-name-product" }
+                        new { Id = 1, Created = new DateTime(2018, 10, 31, 16, 33, 39, 380, DateTimeKind.Local), Discount = 78.0m, ImageUrl = "/images/cream2.png", ImageUrls = "/files/products/product-1/1.jpg;/files/products/product-1/2.jpg;/files/products/product-1/3.jpg;/files/products/product-1/4.jpg;", IsActive = true, Manufacturer = "ESTHETIC HOUSE", Price = 22.00m, ProductCategoryId = 1, ProductGroupId = 1, ProductSubcategoryId = 1, ProductType = 2, Title = "ESTHETIC HOUSE Несмываемая кератиновая сыворотка для волос СР-1 Keratin Silk Injection, 5мл", TitleUrl = "1-esthetic-house-name-product" },
+                        new { Id = 2, Created = new DateTime(2018, 10, 31, 16, 33, 39, 380, DateTimeKind.Local), Discount = 50.0m, ImageUrl = "/images/cream2.png", ImageUrls = "/files/products/product-2/1.jpg;/files/products/product-2/2.jpg;/files/products/product-2/3.jpg;/files/products/product-2/4.jpg;", IsActive = true, Manufacturer = "ELIZAVECCA", Price = 660.00m, ProductCategoryId = 1, ProductGroupId = 2, ProductSubcategoryId = 1, ProductType = 0, Title = "ELIZAVECCA Крем для лица увлажняющий гиалуроновый Aqua Hyaluronic Acid Water Drop Cream, 50 мл", TitleUrl = "2-elizavecca-name-product" },
+                        new { Id = 3, Created = new DateTime(2018, 10, 31, 16, 33, 39, 380, DateTimeKind.Local), Discount = 44.0m, ImageUrl = "/images/cream2.png", ImageUrls = "/files/products/product-3/1.jpg;/files/products/product-3/2.jpg;/files/products/product-3/3.jpg;/files/products/product-3/4.jpg;", IsActive = true, Manufacturer = "ESTHETIC HOUSE", Price = 895.00m, ProductCategoryId = 1, ProductGroupId = 3, ProductSubcategoryId = 1, ProductType = 1, Title = "ESTHETIC HOUSE Кондиц.ополас. на основе малинового уксуса CP-1 Rasberry Treatment Vinegar, 500 мл", TitleUrl = "3-esthetic-house-name-product" },
+                        new { Id = 4, Created = new DateTime(2018, 10, 31, 16, 33, 39, 380, DateTimeKind.Local), Discount = 35.0m, ImageUrl = "/images/cream3.png", ImageUrls = "/files/products/product-4/1.jpg;/files/products/product-4/2.jpg;/files/products/product-4/3.jpg;/files/products/product-4/4.jpg;", IsActive = true, Manufacturer = "KOELF", Price = 245.00m, ProductCategoryId = 2, ProductGroupId = 1, ProductSubcategoryId = 1, ProductType = 3, Title = "KOELF Гидрогелевая маска для лица с жемчугом и маслом Ши Pearl & Shea Butter, 30гр", TitleUrl = "4-koelf-name-product" },
+                        new { Id = 5, Created = new DateTime(2018, 10, 31, 16, 33, 39, 380, DateTimeKind.Local), Discount = 38.0m, ImageUrl = "/images/cream4.png", ImageUrls = "/files/products/product-5/1.jpg;/files/products/product-5/2.jpg;/files/products/product-5/3.jpg;/files/products/product-5/4.jpg;", IsActive = true, Manufacturer = "THE SAEM", Price = 92.00m, ProductCategoryId = 2, ProductGroupId = 1, ProductSubcategoryId = 2, ProductType = 2, Title = "THE SAEM Маска тканевая с экстрактом масла ши Natural Shea Butter Mask Sheet, 21мл", TitleUrl = "5-the-saem-name-product" },
+                        new { Id = 6, Created = new DateTime(2018, 10, 31, 16, 33, 39, 380, DateTimeKind.Local), Discount = 0m, ImageUrl = "/images/cream5.png", ImageUrls = "/files/products/product-6/1.jpg;/files/products/product-6/2.jpg;/files/products/product-6/3.jpg;/files/products/product-6/4.jpg;", IsActive = true, Manufacturer = "Innisfree", Price = 120.00m, ProductCategoryId = 2, ProductGroupId = 2, ProductSubcategoryId = 1, ProductType = 3, Title = "Innisfree Листовая маска для лица с экстрактом томата My Real Squeeze Mask Tomato", TitleUrl = "6-innisfree-name-product" },
+                        new { Id = 7, Created = new DateTime(2018, 10, 31, 16, 33, 39, 380, DateTimeKind.Local), Discount = 0m, ImageUrl = "/images/cream3.png", ImageUrls = "/files/products/product-6/1.jpg;/files/products/product-6/4.jpg;", IsActive = true, Manufacturer = "ESTHETIC HOUSE", Price = 1365.00m, ProductCategoryId = 2, ProductGroupId = 2, ProductSubcategoryId = 1, ProductType = 0, Title = "ESTHETIC HOUSE Патчи гидрогелевые Красное вино Red Wine Hydrogel Eyepatch, 60шт.", TitleUrl = "7-esthetic-house-name-product" },
+                        new { Id = 8, Created = new DateTime(2018, 10, 31, 16, 33, 39, 380, DateTimeKind.Local), Discount = 0m, ImageUrl = "/images/cream1.png", ImageUrls = "/files/products/product-6/1.jpg;/files/products/product-6/4.jpg;", IsActive = true, Manufacturer = "A'PIEU", Price = 730m, ProductCategoryId = 1, ProductGroupId = 1, ProductSubcategoryId = 1, ProductType = 0, Title = "A'PIEU Спрей для волос защитный Super Protein Hair Guard Mist, 105мл", TitleUrl = "8-apieu-name-product" },
+                        new { Id = 9, Created = new DateTime(2018, 10, 31, 16, 33, 39, 380, DateTimeKind.Local), Discount = 0m, ImageUrl = "/images/cream3.png", ImageUrls = "/files/products/product-6/1.jpg;/files/products/product-6/4.jpg;", IsActive = true, Manufacturer = "ELIZAVECCA", Price = 1220m, ProductCategoryId = 1, ProductGroupId = 1, ProductSubcategoryId = 1, ProductType = 0, Title = "ELIZAVECCA Маска для лица глиняно-пузырьковая Carbonated Bubble Clay Mask, 100гр", TitleUrl = "9-elizavecca-name-product" },
+                        new { Id = 10, Created = new DateTime(2018, 10, 31, 16, 33, 39, 380, DateTimeKind.Local), Discount = 22m, ImageUrl = "/images/cream2.png", ImageUrls = "/files/products/product-6/1.jpg;/files/products/product-6/4.jpg;", IsActive = true, Manufacturer = "ESTHETIC HOUSE", Price = 330m, ProductCategoryId = 1, ProductGroupId = 1, ProductSubcategoryId = 1, ProductType = 1, Title = "ESTHETIC HOUSE Протеиновый кондиционер д/волос CP-1 BС Intense Nourishing Conditioner, 100 мл", TitleUrl = "10-esthetic-house-name-product" },
+                        new { Id = 11, Created = new DateTime(2018, 10, 31, 16, 33, 39, 380, DateTimeKind.Local), Discount = 0m, ImageUrl = "/images/cream5.png", ImageUrls = "/files/products/product-6/1.jpg;/files/products/product-6/4.jpg;", IsActive = true, Manufacturer = "FARMSTAY", Price = 58m, ProductCategoryId = 1, ProductGroupId = 1, ProductSubcategoryId = 1, ProductType = 0, Title = "FARMSTAY Тканевая маска с натуральным экстрактом граната Visible Difference Pomegranate Mask, 23мл", TitleUrl = "11-farmstay-name-product" }
                     );
                 });
 
@@ -166,7 +168,11 @@ namespace MyTotto.Data.Migrations
 
                     b.Property<int>("ProductCategoryId");
 
+                    b.Property<int?>("ProductCategoryId1");
+
                     b.Property<int>("ProductSubcategoryId");
+
+                    b.Property<int?>("ProductSubcategoryId1");
 
                     b.Property<string>("SectionUrl");
 
@@ -179,7 +185,11 @@ namespace MyTotto.Data.Migrations
 
                     b.HasIndex("ProductCategoryId");
 
+                    b.HasIndex("ProductCategoryId1");
+
                     b.HasIndex("ProductSubcategoryId");
+
+                    b.HasIndex("ProductSubcategoryId1");
 
                     b.ToTable("ProductGroups");
 
@@ -295,7 +305,7 @@ namespace MyTotto.Data.Migrations
 
                     b.Property<DateTime>("Created")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2018, 10, 31, 16, 49, 12, 706, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2018, 10, 31, 16, 33, 39, 382, DateTimeKind.Local));
 
                     b.Property<string>("ImageUrl");
 
@@ -315,12 +325,12 @@ namespace MyTotto.Data.Migrations
                     b.ToTable("Promos");
 
                     b.HasData(
-                        new { Id = 1, Content = "Набор из 3-х этапного ухода за кожей лица с увлажняющим эффектом", Created = new DateTime(2018, 10, 31, 16, 49, 12, 706, DateTimeKind.Local), ImageUrl = "/images/discount-1.jpg", IsActive = true, Order = 10, Title = "3-х шаговая маска", Url = "/promo/akciya-1" },
-                        new { Id = 2, Content = "широкий выбор патчей", Created = new DateTime(2018, 10, 31, 16, 49, 12, 706, DateTimeKind.Local), ImageUrl = "/images/discount-2.jpg", IsActive = true, Order = 20, Title = "Гидрогелевые патчи", Url = "/promo/akciya-2" },
-                        new { Id = 3, Content = "с экстрактом ласточкиного гнезда", Created = new DateTime(2018, 10, 31, 16, 49, 12, 706, DateTimeKind.Local), ImageUrl = "/images/discount-3.jpg", IsActive = true, Order = 30, Title = "Сыворотка CF-nest 97%", Url = "/promo/akciya-3" },
-                        new { Id = 4, Content = "для глубокого очищения кожи лица", Created = new DateTime(2018, 10, 31, 16, 49, 12, 706, DateTimeKind.Local), ImageUrl = "/images/discount-1.jpg", IsActive = true, Order = 15, Title = "Глиняная маска", Url = "/promo/akciya-4" },
-                        new { Id = 5, Content = "с экстрактом масла ши", Created = new DateTime(2018, 10, 31, 16, 49, 12, 706, DateTimeKind.Local), ImageUrl = "/images/discount-2.jpg", IsActive = true, Order = 25, Title = "Маска теневая", Url = "/promo/akciya-5" },
-                        new { Id = 6, Content = "для лица Aqua Hyalorunic Acid Water", Created = new DateTime(2018, 10, 31, 16, 49, 12, 706, DateTimeKind.Local), ImageUrl = "/images/discount-3.jpg", IsActive = true, Order = 35, Title = "Крем гиалуроновый", Url = "/promo/akciya-6" }
+                        new { Id = 1, Content = "Набор из 3-х этапного ухода за кожей лица с увлажняющим эффектом", Created = new DateTime(2018, 10, 31, 16, 33, 39, 383, DateTimeKind.Local), ImageUrl = "/images/discount-1.jpg", IsActive = true, Order = 10, Title = "3-х шаговая маска", Url = "/promo/akciya-1" },
+                        new { Id = 2, Content = "широкий выбор патчей", Created = new DateTime(2018, 10, 31, 16, 33, 39, 383, DateTimeKind.Local), ImageUrl = "/images/discount-2.jpg", IsActive = true, Order = 20, Title = "Гидрогелевые патчи", Url = "/promo/akciya-2" },
+                        new { Id = 3, Content = "с экстрактом ласточкиного гнезда", Created = new DateTime(2018, 10, 31, 16, 33, 39, 383, DateTimeKind.Local), ImageUrl = "/images/discount-3.jpg", IsActive = true, Order = 30, Title = "Сыворотка CF-nest 97%", Url = "/promo/akciya-3" },
+                        new { Id = 4, Content = "для глубокого очищения кожи лица", Created = new DateTime(2018, 10, 31, 16, 33, 39, 383, DateTimeKind.Local), ImageUrl = "/images/discount-1.jpg", IsActive = true, Order = 15, Title = "Глиняная маска", Url = "/promo/akciya-4" },
+                        new { Id = 5, Content = "с экстрактом масла ши", Created = new DateTime(2018, 10, 31, 16, 33, 39, 383, DateTimeKind.Local), ImageUrl = "/images/discount-2.jpg", IsActive = true, Order = 25, Title = "Маска теневая", Url = "/promo/akciya-5" },
+                        new { Id = 6, Content = "для лица Aqua Hyalorunic Acid Water", Created = new DateTime(2018, 10, 31, 16, 33, 39, 383, DateTimeKind.Local), ImageUrl = "/images/discount-3.jpg", IsActive = true, Order = 35, Title = "Крем гиалуроновый", Url = "/promo/akciya-6" }
                     );
                 });
 
@@ -334,7 +344,7 @@ namespace MyTotto.Data.Migrations
 
                     b.Property<DateTime>("Created")
                         .ValueGeneratedOnAdd()
-                        .HasDefaultValue(new DateTime(2018, 10, 31, 16, 49, 12, 708, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2018, 10, 31, 16, 33, 39, 385, DateTimeKind.Local));
 
                     b.Property<string>("ImageUrl");
 
@@ -354,11 +364,11 @@ namespace MyTotto.Data.Migrations
                     b.ToTable("PromoProducts");
 
                     b.HasData(
-                        new { Id = 1, Content = "Введите код HAIR20 при оформлении заказа", Created = new DateTime(2018, 10, 31, 16, 49, 12, 709, DateTimeKind.Local), ImageUrl = "/images/new1.png", IsActive = true, Order = 10, Title = "Новая антивозрастная косметика", Url = "/promo/akciya-1" },
-                        new { Id = 2, Content = "Волосы становятся шелковистее", Created = new DateTime(2018, 10, 31, 16, 49, 12, 709, DateTimeKind.Local), ImageUrl = "/images/new2.png", IsActive = true, Order = 20, Title = "Новинка: сыворотка от бабушки Агафьи", Url = "/promo/akciya-2" },
-                        new { Id = 3, Content = "с экстрактом ласточкиного гнезда", Created = new DateTime(2018, 10, 31, 16, 49, 12, 709, DateTimeKind.Local), ImageUrl = "/images/new3.png", IsActive = true, Order = 30, Title = "Инновационная сыворотка CF-nest 97%", Url = "/promo/akciya-3" },
-                        new { Id = 4, Content = "для глубокого очищения кожи лица", Created = new DateTime(2018, 10, 31, 16, 49, 12, 709, DateTimeKind.Local), ImageUrl = "/images/new4.png", IsActive = true, Order = 15, Title = "Глиняная маска", Url = "/promo/akciya-4" },
-                        new { Id = 5, Content = "Огуречная маска сохранит свежесть", Created = new DateTime(2018, 10, 31, 16, 49, 12, 709, DateTimeKind.Local), ImageUrl = "/images/new1.png", IsActive = true, Order = 25, Title = "Лучшая маска всех времён", Url = "/promo/akciya-5" }
+                        new { Id = 1, Content = "Введите код HAIR20 при оформлении заказа", Created = new DateTime(2018, 10, 31, 16, 33, 39, 385, DateTimeKind.Local), ImageUrl = "/images/new1.png", IsActive = true, Order = 10, Title = "Новая антивозрастная косметика", Url = "/promo/akciya-1" },
+                        new { Id = 2, Content = "Волосы становятся шелковистее", Created = new DateTime(2018, 10, 31, 16, 33, 39, 385, DateTimeKind.Local), ImageUrl = "/images/new2.png", IsActive = true, Order = 20, Title = "Новинка: сыворотка от бабушки Агафьи", Url = "/promo/akciya-2" },
+                        new { Id = 3, Content = "с экстрактом ласточкиного гнезда", Created = new DateTime(2018, 10, 31, 16, 33, 39, 385, DateTimeKind.Local), ImageUrl = "/images/new3.png", IsActive = true, Order = 30, Title = "Инновационная сыворотка CF-nest 97%", Url = "/promo/akciya-3" },
+                        new { Id = 4, Content = "для глубокого очищения кожи лица", Created = new DateTime(2018, 10, 31, 16, 33, 39, 385, DateTimeKind.Local), ImageUrl = "/images/new4.png", IsActive = true, Order = 15, Title = "Глиняная маска", Url = "/promo/akciya-4" },
+                        new { Id = 5, Content = "Огуречная маска сохранит свежесть", Created = new DateTime(2018, 10, 31, 16, 33, 39, 385, DateTimeKind.Local), ImageUrl = "/images/new1.png", IsActive = true, Order = 25, Title = "Лучшая маска всех времён", Url = "/promo/akciya-5" }
                     );
                 });
 
@@ -383,14 +393,22 @@ namespace MyTotto.Data.Migrations
             modelBuilder.Entity("MyTotto.Data.Models.ProductGroup", b =>
                 {
                     b.HasOne("MyTotto.Data.Models.ProductCategory", "ProductCategory")
-                        .WithMany("Groups")
+                        .WithMany()
                         .HasForeignKey("ProductCategoryId")
                         .OnDelete(DeleteBehavior.Restrict);
 
-                    b.HasOne("MyTotto.Data.Models.ProductSubcategory", "ProductSubcategory")
+                    b.HasOne("MyTotto.Data.Models.ProductCategory")
                         .WithMany("Groups")
+                        .HasForeignKey("ProductCategoryId1");
+
+                    b.HasOne("MyTotto.Data.Models.ProductSubcategory", "ProductSubcategory")
+                        .WithMany()
                         .HasForeignKey("ProductSubcategoryId")
                         .OnDelete(DeleteBehavior.Restrict);
+
+                    b.HasOne("MyTotto.Data.Models.ProductSubcategory")
+                        .WithMany("Groups")
+                        .HasForeignKey("ProductSubcategoryId1");
                 });
 
             modelBuilder.Entity("MyTotto.Data.Models.ProductSubcategory", b =>

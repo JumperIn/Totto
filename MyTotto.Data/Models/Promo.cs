@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MyTotto.Data.Abstract;
 
 namespace MyTotto.Data.Models
 {
     /// <summary>
     /// Модель промо-блока.
     /// </summary>
-    public class Promo
+    public class Promo : ISorted
     {
         /// <summary>
         /// Идентификатор.

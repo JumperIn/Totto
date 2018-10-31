@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MyTotto.Data.Abstract;
 
 namespace MyTotto.Data.Models
 {
     /// <summary>
     /// Модель продукта.
     /// </summary>
-    public class Product
+    public class Product : IActive
     {
         /// <summary>
         /// Идентификатор.
