@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MyTotto.Data.Abstract;
 
 namespace MyTotto.Data.Models
 {
     /// <summary>
     /// Модель для подкатегории продукта.
     /// </summary>
-    public class ProductSubcategory
+    public class ProductSubcategory : ISorted
     {
         /// <summary>
         /// Идентификатор.
@@ -33,6 +34,11 @@ namespace MyTotto.Data.Models
         /// Категория продукта.
         /// </summary>
         public ProductCategory ProductCategory { get; set; }
+
+        /// <summary>
+        /// Список групп, относящихся к подкатегории.
+        /// </summary>
+        public List<ProductGroup> Groups { get; set; }
 
         /// <summary>
         /// Признак показа на сайте.

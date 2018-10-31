@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MyTotto.Data.Abstract;
 
 namespace MyTotto.Data.Models
 {
     /// <summary>
     /// Модель продукта.
     /// </summary>
-    public class Product
+    public class Product : IActive
     {
         /// <summary>
         /// Идентификатор.
@@ -24,10 +25,10 @@ namespace MyTotto.Data.Models
         /// </summary>
         public string Manufacturer { get; set; }
 
-        ///// <summary>
-        ///// URL-адрес продукта.
-        ///// </summary>
-        //public string Url { get; set; }
+        /// <summary>
+        /// Название на латинице для URL-адреса продукта.
+        /// </summary>
+        public string TitleUrl { get; set; }
 
         /// <summary>
         /// Идентификатор категории продукта.

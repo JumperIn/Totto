@@ -19,12 +19,12 @@ namespace MyTotto.Data.Configurations
             builder.HasKey(x => x.Id);
 
             builder.HasOne(x => x.ProductCategory)
-                .WithMany()
+                .WithMany(x => x.Groups)
                 .HasForeignKey(x => x.ProductCategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasOne(x => x.ProductSubcategory)
-                .WithMany()
+                .WithMany(x => x.Groups)
                 .HasForeignKey(x => x.ProductSubcategoryId)
                 .OnDelete(DeleteBehavior.Restrict);
 

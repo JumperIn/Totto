@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using MyTotto.Data.Abstract;
 
 namespace MyTotto.Data.Models
 {
     /// <summary>
     /// Модель новостного баннера.
     /// </summary>
-    public class Banner
+    public class Banner : ISorted
     {
         /// <summary>
         /// Идентификатор.
@@ -40,7 +41,6 @@ namespace MyTotto.Data.Models
         /// <summary>
         /// Порядок, в котором выводится баннер.
         /// </summary>
-        [Required]
         public int Order { get; set; }
 
         /// <summary>

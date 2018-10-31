@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MyTotto.Data.Abstract;
 
 namespace MyTotto.Data.Models
 {
     /// <summary>
     /// Модель для категории продукта.
     /// </summary>
-    public class ProductCategory
+    public class ProductCategory : ISorted
     {
         /// <summary>
         /// Идентификатор.
@@ -23,6 +24,16 @@ namespace MyTotto.Data.Models
         /// URL-адрес секции.
         /// </summary>
         public string SectionUrl { get; set; }
+
+        /// <summary>
+        /// Список подкатегорий, относящихся к категории.
+        /// </summary>
+        public List<ProductSubcategory> Subcategories { get; set; }
+
+        /// <summary>
+        /// Список групп, относящихся к категории.
+        /// </summary>
+        public List<ProductGroup> Groups { get; set; }
 
         /// <summary>
         /// Признак показа на сайте.

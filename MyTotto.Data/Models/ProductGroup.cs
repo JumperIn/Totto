@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using MyTotto.Data.Abstract;
 
 namespace MyTotto.Data.Models
 {
     /// <summary>
     /// Модель для группы продукта.
     /// </summary>
-    public class ProductGroup
+    public class ProductGroup : ISorted
     {
         /// <summary>
         /// Идентификатор.

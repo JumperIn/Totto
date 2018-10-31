@@ -26,9 +26,9 @@ namespace MyTotto.Data.Repositories
         public List<Product> GetAllProducts()
         {
             List<Product> products = context.Products
-                .Include(p => p.ProductCategory)
-                .Include(p => p.ProductSubcategory)
-                .Include(p => p.ProductGroup)
+                //.Include(p => p.ProductCategory)
+                //.Include(p => p.ProductSubcategory)
+                //.Include(p => p.ProductGroup)
                 .Where(p => p.IsActive)
                 .ToList();
 
