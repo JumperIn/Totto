@@ -1,0 +1,242 @@
+.modal
+	// display: none
+	position: fixed
+	z-index: 300
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+	overflow: auto
+	background-color: rgb(0,0,0)
+	background-color: rgba(0,0,0,0.4)
+
+.modal-content
+	position: relative
+	width: 680px
+	margin: 100px auto 0
+	border-radius: 20px
+	background-color: #fff
+
+.modal-content-close
+	position: absolute
+	flex(,, center)
+	top: 18px
+	right: 18px
+	cursor: pointer
+
+.modal-content-close__text
+	padding-right: 5px
+	font(14px, 100, #464647)
+	text-decoration: underline
+
+.modal-content-close__text:hover
+	text-decoration: none
+
+.modal-icon-button-cross
+	size(25px, 25px)
+
+.modal-wrapper
+	flex(column, center, center)
+	padding: 60px
+
+.modal__title
+	flex()
+	align-self: flex-start
+	font(24px, 500)
+	text-transform: uppercase
+
+.modal__text
+	text-align: center
+	padding-bottom: 17px
+
+.modal__text_normal
+	font(14px, 100)
+
+.modal__text_bold
+	padding-top: 60px
+	font(18px, 500)
+	text-transform: uppercase
+
+.modal-callback__form
+	flex(column, center, center)
+	padding-top: 30px
+
+.modal-callback__input
+	flex(,center)
+	padding-bottom: 30px
+
+.modal-callback__input-name
+.modal-callback__input-phone
+	size(245px, 40px)
+	margin: 0 15px
+	padding: 0 20px
+	border: solid 1px stroke-color
+	border-radius: 20px
+
+.modal-callback__input-name
+.modal-callback__input-phone
+.modal-callback__input-name::placeholder
+.modal-callback__input-phone::placeholder
+	font(14px, 100, #a7a6a6)
+
+.modal-callback__button
+	padding: 0 20px
+	height: 40px
+	border-radius: 20px
+	background-color: main-color
+	font(14px, 500, #fff)
+	text-transform: uppercase
+
+// стили для modal-basket
+
+.modal-product
+	flex(,, center)
+	padding: 40px 0
+	width: 100%
+
+.modal-product__img
+	size(130px, 100px)
+	background-position: 100%
+	background-size: cover
+
+.modal-product__body
+	flex(column, center)
+	padding: 0 30px
+
+.modal-product__title
+	height: 16px
+	margin-bottom: 7px
+	font(14px, 500)
+	text-transform: uppercase
+	overflow-y: hidden
+
+.modal-product__info
+	flex()
+	padding-bottom: 10px
+
+.modal-product__status
+.modal-product__delivery
+	font(14px, 100)
+
+.modal-product__price
+	font(14px, 500)
+
+.modal-product__status
+	padding-right: 10px
+	border-right: solid 1px stroke-color
+
+.modal-product__delivery
+	padding-left: 10px
+
+.modal-basket__info
+	flex(,space-between, center)
+	size(100%, 40px)
+	padding: 0 20px
+	border: solid 1px stroke-color
+	background-color: #f3f3f3
+
+.modal-basket__text
+	font(14px, 100)
+
+.modal-basket__sum
+	font(18px, 500)
+
+.modal-product__buttons
+	flex(,flex-end, center)
+	padding-top: 30px
+	width: 100%
+
+.modal-product__button
+	margin-left: 15px
+	padding: 0 20px
+	height: 40px
+	border-radius: 20px
+	font(14px, 500)
+	text-transform: uppercase
+
+.modal-product__button-continue
+	border: solid 1px stroke-color
+	background-color: #f3f3f3
+
+.modal-product__button-inbusket
+	background-color: main-color
+	color: #fff
+
+@media (max-width: 767px)
+	.modal-content
+		margin: 100px 10px 0
+		width: calc(100% - 20px)
+
+	.modal__title
+		font(18px, 500)
+
+	.modal-product__body
+		padding: 0 10px
+
+	.modal__text_bold
+		font(14px, 500)
+		padding-top: 30px
+
+	.modal-callback__form
+		padding-top: 0
+
+	.modal-callback__input
+		flex-direction: column
+		padding-bottom: 20px
+
+	.modal-callback__input-name
+	.modal-callback__input-phone
+		margin: 0
+
+	.modal-callback__input-phone
+		margin-top: 10px
+
+@media (max-width: 575px)
+	.modal-wrapper
+		padding: 60px 30px 30px
+
+	.modal-product
+		flex-direction: column
+
+	.modal-product__img
+		size(220px, 200px)
+
+@media (max-width: 480px)
+	.modal-content
+		margin: 100px 0 0
+		width: 100%
+
+	.modal-wrapper
+		padding: 60px 20px 20px
+
+	.modal__title
+		font(14px, 500)
+
+	.modal-product
+		padding: 20px 0
+
+	.modal-product__info
+		flex-direction: column
+
+	.modal-product__status
+	.modal-product__delivery
+		padding: 5px 0
+		border: none
+
+	.modal-basket__info
+		flex-direction: column
+		height: inherit
+
+	.modal-basket__text
+	.modal-basket__sum
+		padding: 5px 0
+
+	.modal-product__buttons
+		padding-top: 10px
+		flex-direction: column
+
+	.modal-product__button
+		margin: 0
+
+	.modal-product__button-inbusket
+		margin-top: 10px

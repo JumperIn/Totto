@@ -8,6 +8,7 @@ import { setClasses } from "./modules/products/mainNavAnimation";
 import { moveCarouselEvent, getNumNewProductDisp, getNumPromoProductDisp } from "./modules/products/carousel";
 import { toggleProductsEventItems } from "./modules/products/productToggle";
 import { adaptFooter, dropDownFooterItems } from "../../shared/footer/footer";
+import { hidePopupEvent, showPopupEvent, resetClick } from "../../shared/popup/popup";
 
 //Адаптивность сайта
 
@@ -50,12 +51,22 @@ setClasses();
 getNumPromoProductDisp(0);
 getNumNewProductDisp(1);
 
-//Карусель для Новых товаров
+//Карусель для Новых товаров и промо
 
 moveCarouselEvent('js-move-discounts-right', 'js-move-discounts-left', 'discounts__wrapper', 0);
 moveCarouselEvent('js-move-new-products-right', 'js-move-new-products-left', 'new-products__wrapper', 1);
 
-//Карусель для Промо
+// reset click
+
+resetClick();
+
+// popaps
+
+hidePopupEvent('js-modal-basket-close', 'js-modal-basket');
+hidePopupEvent('js-modal-callback-close', 'js-modal-callback');
+
+showPopupEvent('js-product-basket-modal', 'js-modal-basket');
+showPopupEvent('js-modal-phone', 'js-modal-callback');
 
 //Адаптация футера
 
