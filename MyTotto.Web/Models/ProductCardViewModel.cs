@@ -68,14 +68,14 @@ namespace MyTotto.Web.Models
             Manufacturer = product.Manufacturer;
             Url = SetUrl(product.Id, product.TitleUrl);
             ImageUrl = product.ImageUrl;
-            Price = product.Price.ToString("0.00");
-            DiscountPrice = ((100 - product.Discount) / 100 * product.Price).ToString("0.00");
+            Price = product.GetPrice();
+            DiscountPrice = product.GetDiscountPrice();
             ProductType = product.ProductType;
         }
 
         private string SetUrl(int id, string titleUrl)
         {
-            return $"/catalog/products/id{id}-{titleUrl}";
+            return $"/catalog/products/{id}-{titleUrl}";
         }
     }
 }

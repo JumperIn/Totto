@@ -94,5 +94,27 @@ namespace MyTotto.Data.Models
         /// Дата создания.
         /// </summary>
         public DateTime Created { get; set; }
+
+
+        /// <summary>
+        /// Возвращает цену в нужном формате.
+        /// </summary>
+        public string GetPrice()
+        {
+            return FormatPrice(Price);
+        }
+
+        /// <summary>
+        /// Возвращает цену с учётом скидки.
+        /// </summary>
+        public string GetDiscountPrice()
+        {
+            return FormatPrice(((100 - Discount) / 100 * Price));
+        }
+
+        private string FormatPrice(decimal price)
+        {
+            return price.ToString("0.00");
+        }
     }
 }

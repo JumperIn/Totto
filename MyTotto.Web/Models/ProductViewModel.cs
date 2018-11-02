@@ -34,12 +34,12 @@ namespace MyTotto.Web.Models
         /// <summary>
         /// Цена продукта.
         /// </summary>
-        public decimal Price { get; set; }
+        public string Price { get; set; }
 
         /// <summary>
         /// Цена с учётом % скидки.
         /// </summary>
-        public decimal DiscountPrice { get; set; }
+        public string DiscountPrice { get; set; }
 
         /// <summary>
         /// Тип продукта.
@@ -50,5 +50,27 @@ namespace MyTotto.Web.Models
         /// Ссылки на изображения.
         /// </summary>
         public string[] ImageUrls { get; set; }
+
+        /// <summary>
+        /// Создает экземпляр.
+        /// </summary>
+        public ProductViewModel()
+        {
+        }
+
+        /// <summary>
+        /// Создает экземпляр и инициализирует поля класса.
+        /// </summary>
+        public ProductViewModel(Product product)
+        {
+            Title = product.Title;
+            Manufacturer = product.Manufacturer;
+            Url = product.TitleUrl;
+            ImageUrl = product.ImageUrl;
+            Price = product.GetPrice();
+            DiscountPrice = product.GetDiscountPrice();
+            ProductType = product.ProductType;
+            ImageUrls = product.ImageUrls.Split(";"[0]);
+        }
     }
 }
