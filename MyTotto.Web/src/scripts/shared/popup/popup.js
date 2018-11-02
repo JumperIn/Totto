@@ -12,7 +12,7 @@ function resetClick() {
 	}
 }
 
-// убираем скролл
+// убираем событие "скролл"
 
 function disableScroll() {
 	window.scrollTo(0, variables.yOffset);
@@ -23,34 +23,33 @@ function disableScrollEvent() {
 	window.addEventListener('scroll', disableScroll);
 }
 
-// возвращаем скролл
+// возвращаем событие "скролл"
 
-function enableScroll() {
+function enableScrollEvent() {
 	window.removeEventListener('scroll', disableScroll);
 }
 
-// popup для продукта
+// popup
 
-function showPopup() {
+function showPopup(popupClass) {
 	toggleExistClass('modal', 'hidden');
-	toggleExistClass('js-modal-basket', 'hidden');
+	toggleExistClass(popupClass, 'hidden');
 	disableScrollEvent();
 	// обработчик событий для возможности отключить popup кликнув по внешней области
 	window.addEventListener('click', hidePopupClickArea);
 }
 
-function hidePopup() {
+function hidePopup(popupClass) {
 	toggleNotExistClass('modal', 'hidden');
-	toggleNotExistClass('js-modal-basket', 'hidden');
-	toggleNotExistClass('js-modal-basket', 'hidden');
-	enableScroll();
+	toggleNotExistClass(popupClass, 'hidden');
+	enableScrollEvent();
 }
 
-function showPopupEvent() {
-	var elems = document.getElementsByClassName('js-product-inbasket-modal');
+function showPopupEvent(buttonClass, popupClass) {
+	var elems = document.getElementsByClassName(buttonClass);
 	for ( var i = 0; i < elems.length; i++ ) {
 		elems[i].addEventListener('click', function() {
-			showPopup();
+			showPopup(popupClass);
 		})
 	}
 }
@@ -60,17 +59,18 @@ function showPopupEvent() {
 function hidePopupClickArea(event) {
 	var modal = document.getElementsByClassName('modal')[0];
 	if (event.target == modal) {
-		hidePopup();
+		hidePopup('js-modal-basket');
+		hidePopup('js-modal-callback');
 		// удаляем обработчик событий
 		window.removeEventListener('click', hidePopupClickArea);
 	}
 }
 
-function hidePopupEvent() {
-	var elems = document.getElementsByClassName('js-modal-close');
+function hidePopupEvent(buttonClass, popupClass) {
+	var elems = document.getElementsByClassName(buttonClass);
 	for ( var i = 0; i < elems.length; i++ ) {
 		elems[i].addEventListener('click', function() {
-			hidePopup();
+			hidePopup(popupClass);
 		})
 	}
 }

@@ -62,8 +62,11 @@ resetClick();
 
 // popaps
 
-hidePopupEvent();
-showPopupEvent();
+hidePopupEvent('js-modal-basket-close', 'js-modal-basket');
+hidePopupEvent('js-modal-callback-close', 'js-modal-callback');
+
+showPopupEvent('js-product-basket-modal', 'js-modal-basket');
+showPopupEvent('js-modal-phone', 'js-modal-callback');
 
 //Адаптация футера
 
