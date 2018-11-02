@@ -26,6 +26,8 @@ namespace MyTotto.Data.Repositories
         public List<Product> GetAllProducts()
         {
             List<Product> products = context.Products
+                // Включая эти свойства в Продукт подгружаются данные
+                // Но возникают проблемы с кольцевыми ссылками в разделах
                 //.Include(p => p.ProductCategory)
                 //.Include(p => p.ProductSubcategory)
                 //.Include(p => p.ProductGroup)

@@ -33,6 +33,7 @@ namespace MyTotto.Web.Controllers
         /// <summary>
         /// Отображает главную страницу.
         /// </summary>
+        [HttpGet("")]
         public IActionResult Index()
         {
             List<Banner> banners = bannersRepository.GetBanners();
