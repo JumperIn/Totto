@@ -12,7 +12,7 @@
 
 .modal-content
 	position: relative
-	size(680px, 430px)
+	width: 680px
 	margin: 0 auto
 	border-radius: 20px
 	background-color: #fff
@@ -42,7 +42,6 @@
 .modal__title
 	flex()
 	align-self: flex-start
-	padding-bottom: 60px
 	font(24px, 500)
 	text-transform: uppercase
 
@@ -54,6 +53,7 @@
 	font(14px, 100)
 
 .modal__text_bold
+	padding-top: 60px
 	font(18px, 500)
 	text-transform: uppercase
 
@@ -86,3 +86,73 @@
 	background-color: main-color
 	font(14px, 500, #fff)
 	text-transform: uppercase
+
+// стили для modal-basket
+
+.modal-product
+	flex(,, center)
+	padding: 40px 0
+	width: 100%
+
+.modal-product__img
+	size(130px, 100px)
+	background-position: 100%
+	background-size: cover
+
+.modal-product__body
+	flex(column, center)
+	padding: 0 30px
+
+.modal-product__title
+	padding-bottom: 7px
+	font(14px, 500)
+	text-transform: uppercase
+
+.modal-product__info
+	flex()
+	padding-bottom: 10px
+
+.modal-product__status
+.modal-product__delivery
+	font(14px, 100)
+
+.modal-product__price
+	font(14px, 500)
+
+.modal-product__status
+	padding-right: 10px
+	border-right: solid 1px stroke-color
+
+.modal-basket__info
+	flex(,space-between, center)
+	size(100%, 40px)
+	padding: 0 20px
+	border: solid 1px stroke-color
+	background-color: #f3f3f3
+
+.modal-basket__text
+	font(14px, 100)
+
+.modal-basket__sum
+	font(18px, 500)
+
+.modal-product__buttons
+	flex(,flex-end, center)
+	padding-top: 30px
+	width: 100%
+
+.modal-product__button
+	margin-left: 15px
+	padding: 0 20px
+	height: 40px
+	border-radius: 20px
+	font(14px, 500)
+	text-transform: uppercase
+
+.modal-product__button-continue
+	border: solid 1px stroke-color
+	background-color: #f3f3f3
+
+.modal-product__button-inbusket
+	background-color: main-color
+	color: #fff

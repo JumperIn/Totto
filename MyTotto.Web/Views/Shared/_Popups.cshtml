@@ -1,6 +1,6 @@
 <div class="modal">
-	<div class="modal-content">
-		<button class="modal-content-close">
+	<div class="modal-content modal-callback js-modal-callback hidden">
+		<button class="modal-content-close js-modal-close">
 			<div class="modal-content-close__text">Закрыть</div>
 			<svg class="modal-icon-button-cross">
 				<use xlink:href="#icon-button-cross"></use>
@@ -17,6 +17,36 @@
 				</div>
 				<button class="modal-callback__button" type="submit">Заказать звонок</button>
 			</form>
+		</div>
+	</div>
+	<div class="modal-content modal-basket js-modal-basket">
+		<button class="modal-content-close js-modal-close">
+			<div class="modal-content-close__text">Закрыть</div>
+			<svg class="modal-icon-button-cross">
+				<use xlink:href="#icon-button-cross"></use>
+			</svg>
+		</button>
+		<div class="modal-wrapper">
+			<h3 class="modal__title">Товар добавлен в вашу корзину</h3>
+			<div class="modal-product">
+				<div class="modal-product__img" style="background-image: url(/images/cream4.png)"></div>
+				<div class="modal-product__body">
+					<h3 class="modal-product__title">ELIZAVECCA крем для лица улиточный</h3>
+					<div class="modal-product__info">
+						<p class="modal-product__status">В наличии</p>
+						<p class="modal-product__delivery">Обычно доставляется через 24 часа</p>
+					</div>
+					<p class="modal-product__price">550 P</p>
+				</div>
+			</div>
+			<div class="modal-basket__info">
+				<p class="modal-basket__text">В Вашей корзине 3 товара на сумму</p>
+				<p class="modal-basket__sum">2000 P</p>
+			</div>
+			<div class="modal-product__buttons">
+				<button class="modal-product__button modal-product__button-continue">Продолжить покупки</button>
+				<button class="modal-product__button modal-product__button-inbusket">В корзину</button>
+			</div>
 		</div>
 	</div>
 </div>
