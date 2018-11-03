@@ -1,14 +1,25 @@
 import { variables } from "../const/const";
 import { toggleExistClass, toggleNotExistClass } from "../const/toggleClass";
 
+// функция обнуления кликабельности
+
+function prevDefault(e) {
+	e.preventDefault();
+}
+
+function prevDefaultModal(e) {
+	var modal = document.getElementsByClassName('modal')[0];
+	if (event.target == modal) {
+		e.preventDefault();
+	}
+}
+
 // обнуление кликабельности кнопок
 
 function resetClick() {
 	var elems = document.getElementsByClassName('js-reset-click');
 	for ( var i = 0; i < elems.length; i++ ) {
-		elems[i].addEventListener('click', function(event) {
-			event.preventDefault();
-		})
+		elems[i].addEventListener('click', prevDefault)
 	}
 }
 
@@ -21,12 +32,18 @@ function disableScroll() {
 function disableScrollEvent() {
 	variables.yOffset = window.pageYOffset;
 	window.addEventListener('scroll', disableScroll);
+	// обработчики, устроняющие баг с дёрганием страницы, при попытки скрола или свайпа при открытом попапе
+	// убирают возможность свайпа или скрола колесиком мыши вне попапа, при этом сам попап можно прокручивать
+	window.addEventListener('touchstart', prevDefaultModal, { passive: false }); 
+	window.addEventListener('wheel', prevDefaultModal, { passive: false });
 }
 
 // возвращаем событие "скролл"
 
 function enableScrollEvent() {
 	window.removeEventListener('scroll', disableScroll);
+	window.removeEventListener('touchstart', prevDefaultModal, { passive: false }); 
+	window.removeEventListener('wheel', prevDefaultModal, { passive: false });
 }
 
 // popup
@@ -35,6 +52,9 @@ function showPopup(popupClass) {
 	toggleExistClass('modal', 'hidden');
 	toggleExistClass(popupClass, 'hidden');
 	disableScrollEvent();
+
+
+
 	// обработчик событий для возможности отключить popup кликнув по внешней области
 	window.addEventListener('click', hidePopupClickArea);
 }
