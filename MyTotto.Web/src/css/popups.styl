@@ -1,5 +1,5 @@
 .modal
-	// display: none
+	flex(column, center, center)
 	position: fixed
 	z-index: 300
 	left: 0
@@ -13,7 +13,6 @@
 .modal-content
 	position: relative
 	width: 680px
-	margin: 100px auto 0
 	border-radius: 20px
 	background-color: #fff
 
@@ -164,7 +163,7 @@
 
 @media (max-width: 767px)
 	.modal-content
-		margin: 100px 10px 0
+		margin: 0 10px
 		width: calc(100% - 20px)
 
 	.modal__title
@@ -203,7 +202,7 @@
 
 @media (max-width: 480px)
 	.modal-content
-		margin: 100px 0 0
+		margin: 0
 		width: 100%
 
 	.modal-wrapper

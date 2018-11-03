@@ -1,17 +1,32 @@
 import { variables } from "../const/const";
 import { toggleExistClass, toggleNotExistClass } from "../const/toggleClass";
 
+// задаём для body свойства
+
+function addBodyProperties() {
+	var body = document.body;
+	variables.yOffset = window.pageYOffset;
+	body.style.width = '100%';
+	body.style.top = '-' + variables.yOffset + 'px';
+	body.style.position = 'fixed';
+	body.style.overflowY = 'scroll';
+}
+
+// удаляем свойства у body
+
+function removeBodyProperties() {
+	var body = document.body;
+	body.style.width = null;
+	body.style.top = null;
+	body.style.position = null;
+	body.style.overflowY = null;
+	window.scrollTo(0, variables.yOffset);
+}
+
 // функция обнуления кликабельности
 
 function prevDefault(e) {
 	e.preventDefault();
-}
-
-function prevDefaultModal(e) {
-	var modal = document.getElementsByClassName('modal')[0];
-	if (event.target == modal) {
-		e.preventDefault();
-	}
 }
 
 // обнуление кликабельности кнопок
@@ -23,36 +38,12 @@ function resetClick() {
 	}
 }
 
-// убираем событие "скролл"
-
-function disableScroll() {
-	window.scrollTo(0, variables.yOffset);
-}
-
-function disableScrollEvent() {
-	variables.yOffset = window.pageYOffset;
-	window.addEventListener('scroll', disableScroll);
-	// обработчики, устроняющие баг с дёрганием страницы, при попытки скрола или свайпа при открытом попапе
-	// убирают возможность свайпа или скрола колесиком мыши вне попапа, при этом сам попап можно прокручивать
-	window.addEventListener('touchstart', prevDefaultModal, { passive: false }); 
-	window.addEventListener('wheel', prevDefaultModal, { passive: false });
-}
-
-// возвращаем событие "скролл"
-
-function enableScrollEvent() {
-	window.removeEventListener('scroll', disableScroll);
-	window.removeEventListener('touchstart', prevDefaultModal, { passive: false }); 
-	window.removeEventListener('wheel', prevDefaultModal, { passive: false });
-}
-
 // popup
 
 function showPopup(popupClass) {
 	toggleExistClass('modal', 'hidden');
 	toggleExistClass(popupClass, 'hidden');
-	disableScrollEvent();
-
+	addBodyProperties();
 
 
 	// обработчик событий для возможности отключить popup кликнув по внешней области
@@ -62,7 +53,7 @@ function showPopup(popupClass) {
 function hidePopup(popupClass) {
 	toggleNotExistClass('modal', 'hidden');
 	toggleNotExistClass(popupClass, 'hidden');
-	enableScrollEvent();
+	removeBodyProperties()
 }
 
 function showPopupEvent(buttonClass, popupClass) {
