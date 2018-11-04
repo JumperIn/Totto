@@ -14,6 +14,13 @@ var variables = (function() {
 		return elem.children.length
 	}
 	var variables = {
+		// переменные для свайпа
+		stateSwipe: false,
+		timeStampStart: 0,
+		timeStampEnd: 0,
+		startX: 0,
+		endX: 0,
+		// переменная для попапов
 		yOffset: 0,
 		numProductsDisp: [0, 0],
 		shift: [0, 0],
