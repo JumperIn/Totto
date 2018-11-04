@@ -74,4 +74,4 @@ function moveCarouselEvent(classButtonRight, classButtonLeft, classWrapper, i) {
 	moveCarouselLeftEvent(classButtonLeft, classWrapper, i);
 }
 
-export { getNumNewProductDisp, getNumPromoProductDisp, moveCarouselEvent, returnCarouselBack };
+export { getNumNewProductDisp, getNumPromoProductDisp, moveCarouselEvent, returnCarouselBack, moveCarouselRight, moveCarouselLeft };

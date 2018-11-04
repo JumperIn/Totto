@@ -63,4 +63,4 @@ function moveBannerMouseOut() {
     elem.addEventListener('mouseout', slideBannerTimer);
 };
 
-export { returnBannerBack, moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut };
+export { returnBannerBack, moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut, moveBannerRight, moveBannerLeft };

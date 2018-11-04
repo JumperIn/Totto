@@ -9,6 +9,7 @@ import { moveCarouselEvent, getNumNewProductDisp, getNumPromoProductDisp } from 
 import { toggleProductsEventItems } from "./modules/products/productToggle";
 import { adaptFooter, dropDownFooterItems } from "../../shared/footer/footer";
 import { hidePopupEvent, showPopupEvent, resetClick } from "../../shared/popup/popup";
+import { swipeEvent } from "../../shared/swipe/swipe";
 
 //Адаптивность сайта
 
@@ -72,6 +73,12 @@ showPopupEvent('js-modal-phone', 'js-modal-callback');
 
 adaptFooter();
 dropDownFooterItems();
+
+// Свайп
+
+swipeEvent('discounts__wrapper', 0);
+swipeEvent('new-products__wrapper', 1);
+swipeEvent('banners-wrapper');
 
 // export { moveCarouselLeftEvent };
 // Таким образом можно выносить объекты в глобальную область видимости
