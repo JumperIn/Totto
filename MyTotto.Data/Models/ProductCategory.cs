@@ -26,6 +26,11 @@ namespace MyTotto.Data.Models
         public string SectionUrl { get; set; }
 
         /// <summary>
+        /// Изображение для меню.
+        /// </summary>
+        public string Image { get; set; }
+
+        /// <summary>
         /// Список подкатегорий, относящихся к категории.
         /// </summary>
         public List<ProductSubcategory> Subcategories { get; set; }
