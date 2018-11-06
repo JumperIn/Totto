@@ -27,6 +27,7 @@ namespace MyTotto.Data.Configurations
                     Id = 1,
                     Title = "Лицо",
                     SectionUrl = "lico",
+                    Image = "/images/cream.jpg",
                     IsActive = true,
                     Order = 10
                 },
@@ -35,6 +36,7 @@ namespace MyTotto.Data.Configurations
                     Id = 2,
                     Title = "Тело",
                     SectionUrl = "telo",
+                    Image = "/images/cream.jpg",
                     IsActive = true,
                     Order = 20
                 },
@@ -43,6 +45,7 @@ namespace MyTotto.Data.Configurations
                     Id = 3,
                     Title = "Волосы",
                     SectionUrl = "volosy",
+                    Image = "/images/cream.jpg",
                     IsActive = true,
                     Order = 30
                 },
@@ -51,6 +54,7 @@ namespace MyTotto.Data.Configurations
                     Id = 4,
                     Title = "Макияж",
                     SectionUrl = "makiyazh",
+                    Image = "/images/cream.jpg",
                     IsActive = true,
                     Order = 40
                 },
@@ -59,6 +63,7 @@ namespace MyTotto.Data.Configurations
                     Id = 5,
                     Title = "Дом&Семья",
                     SectionUrl = "dom-semya",
+                    Image = "/images/cream.jpg",
                     IsActive = true,
                     Order = 50
                 },
@@ -67,6 +72,7 @@ namespace MyTotto.Data.Configurations
                     Id = 6,
                     Title = "Наборы",
                     SectionUrl = "nabory",
+                    Image = "/images/cream.jpg",
                     IsActive = false,
                     Order = 60
                 },
@@ -75,6 +81,7 @@ namespace MyTotto.Data.Configurations
                     Id = 7,
                     Title = "Бренды",
                     SectionUrl = "brendy",
+                    Image = "/images/cream.jpg",
                     IsActive = false,
                     Order = 70
                 },
@@ -83,6 +90,7 @@ namespace MyTotto.Data.Configurations
                     Id = 8,
                     Title = "По компонентам",
                     SectionUrl = "po-komponentam",
+                    Image = "/images/cream.jpg",
                     IsActive = false,
                     Order = 80
                 });

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
 using MyTotto.Data.Models;
 using MyTotto.Web.Extensions;
+using MyTotto.Web.Models.Layout;
 
 namespace MyTotto.Web.Models
 {
@@ -12,6 +13,16 @@ namespace MyTotto.Web.Models
     /// </summary>
     public class MainPageViewModel
     {
+        /// <summary>
+        /// SEO-настройки.
+        /// </summary>
+        public SeoViewModel Seo { get; set; }
+
+        /// <summary>
+        /// Навигационное меню.
+        /// </summary>
+        public NavMenuViewModel Navigation { get; set; }
+
         /// <summary>
         /// Список баннеров.
         /// </summary>
@@ -44,12 +55,21 @@ namespace MyTotto.Web.Models
         /// </summary>
         public MainPageViewModel
         (
+            List<ProductCategory> categories,
+            List<ProductSubcategory> subcategories,
+            List<ProductGroup> groups,
             List<Banner> banners, 
             List<Product> products, 
             List<Promo> promos, 
             List<PromoProduct> promoProducts
         )
         {
+            string title = "MyTotto - Онлайн-магазин косметики";
+            string description = "Интернет-магазин корейской косметики";
+            string keywords = "Купить косметику корейскую";
+
+            Navigation = new NavMenuViewModel(categories, subcategories, groups);
+            Seo = new SeoViewModel(title, description, keywords);
             Banners = banners.Select(b => new BannerViewModel(b)).ToList();
             Promos = promos.Select(p => new PromoViewModel(p)).ToList();
             PromoProducts = promoProducts.Select(p => new PromoProductViewModel(p)).ToList();

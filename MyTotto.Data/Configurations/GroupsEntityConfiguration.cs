@@ -225,7 +225,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Мыло",
                     SectionUrl = "mylo",
                     ProductCategoryId = 2,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 5,
                     IsActive = true,
                     Order = 10
                 },
@@ -235,7 +235,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Гель для душа",
                     SectionUrl = "gel-dlya-dusha",
                     ProductCategoryId = 2,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 5,
                     IsActive = true,
                     Order = 20
                 },
@@ -245,7 +245,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Скрабы и пилинги для тела",
                     SectionUrl = "skraby-i-pilingi-dlya-tela",
                     ProductCategoryId = 2,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 5,
                     IsActive = true,
                     Order = 30
                 },
@@ -255,7 +255,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Кремы, гели и молочко",
                     SectionUrl = "kremy-geli-i-molochko",
                     ProductCategoryId = 2,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 5,
                     IsActive = true,
                     Order = 40
                 },
@@ -265,7 +265,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Лосьоны и масла",
                     SectionUrl = "losiony-i-masla",
                     ProductCategoryId = 2,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 5,
                     IsActive = true,
                     Order = 50
                 },
@@ -275,7 +275,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Спреи для тела",
                     SectionUrl = "sprei-dlya-tela",
                     ProductCategoryId = 2,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 5,
                     IsActive = true,
                     Order = 60
                 },
@@ -285,7 +285,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Дезодоранты",
                     SectionUrl = "dezodoranty",
                     ProductCategoryId = 2,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 5,
                     IsActive = true,
                     Order = 70
                 },
@@ -295,7 +295,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Крем для рук",
                     SectionUrl = "krem-dlya-ruk",
                     ProductCategoryId = 2,
-                    ProductSubcategoryId = 2,
+                    ProductSubcategoryId = 6,
                     IsActive = true,
                     Order = 10
                 },
@@ -305,7 +305,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Крем для ног",
                     SectionUrl = "krem-dlya-nog",
                     ProductCategoryId = 2,
-                    ProductSubcategoryId = 2,
+                    ProductSubcategoryId = 6,
                     IsActive = true,
                     Order = 20
                 },
@@ -315,7 +315,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Солнцезащитные средства",
                     SectionUrl = "solncezashchitnye-sredstva",
                     ProductCategoryId = 2,
-                    ProductSubcategoryId = 2,
+                    ProductSubcategoryId = 6,
                     IsActive = true,
                     Order = 30
                 },
@@ -325,7 +325,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Шампуни",
                     SectionUrl = "shampuni",
                     ProductCategoryId = 3,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 7,
                     IsActive = true,
                     Order = 10
                 },
@@ -335,7 +335,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Бальзамы",
                     SectionUrl = "balzamy",
                     ProductCategoryId = 3,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 7,
                     IsActive = true,
                     Order = 20
                 },
@@ -345,7 +345,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Кондиционеры",
                     SectionUrl = "kondicionery",
                     ProductCategoryId = 3,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 7,
                     IsActive = true,
                     Order = 30
                 },
@@ -355,7 +355,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Спреи и мисты",
                     SectionUrl = "sprei-i-misty",
                     ProductCategoryId = 3,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 7,
                     IsActive = true,
                     Order = 40
                 },
@@ -365,7 +365,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Эссенции и сыворотки",
                     SectionUrl = "ehssencii-i-syvorotki",
                     ProductCategoryId = 3,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 7,
                     IsActive = true,
                     Order = 50
                 },
@@ -375,7 +375,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Масла",
                     SectionUrl = "masla",
                     ProductCategoryId = 3,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 7,
                     IsActive = true,
                     Order = 60
                 },
@@ -385,7 +385,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Маски для волос",
                     SectionUrl = "maski-dlya-volos",
                     ProductCategoryId = 3,
-                    ProductSubcategoryId = 1,
+                    ProductSubcategoryId = 7,
                     IsActive = true,
                     Order = 70
                 },
@@ -395,7 +395,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Воск",
                     SectionUrl = "vosk",
                     ProductCategoryId = 3,
-                    ProductSubcategoryId = 2,
+                    ProductSubcategoryId = 8,
                     IsActive = true,
                     Order = 10
                 },
@@ -405,7 +405,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Гель",
                     SectionUrl = "gel",
                     ProductCategoryId = 3,
-                    ProductSubcategoryId = 2,
+                    ProductSubcategoryId = 8,
                     IsActive = true,
                     Order = 20
                 },
@@ -415,7 +415,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Мусс",
                     SectionUrl = "muss",
                     ProductCategoryId = 3,
-                    ProductSubcategoryId = 2,
+                    ProductSubcategoryId = 8,
                     IsActive = true,
                     Order = 30
                 },
@@ -425,7 +425,7 @@ namespace MyTotto.Data.Configurations
                     Title = "Лак – спрей",
                     SectionUrl = "lak-sprej",
                     ProductCategoryId = 3,
-                    ProductSubcategoryId = 2,
+                    ProductSubcategoryId = 8,
                     IsActive = true,
                     Order = 40
                 });

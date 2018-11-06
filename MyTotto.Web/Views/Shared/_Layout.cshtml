@@ -1,10 +1,18 @@
-﻿<!DOCTYPE html>
+﻿@{ 
+    string title = ViewBag.Seo.Title;
+    string description = ViewBag.Seo.Description;
+    string keywords = ViewBag.Seo.Keywords;
+
+    NavMenuViewModel navigation = (NavMenuViewModel) ViewBag.Navigation;
+}
+
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MyTotto - Онлайн-магазин косметики</title>
-    <meta name="description" content="Косметика купить">
+    <title>@title</title>
+    <meta name="description" content="@description">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="~/libs/styles/style.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
@@ -16,7 +24,7 @@
 	<div style="display: none">
     	@Html.Partial("_Symbols")
 	</div>
-    @Html.Partial("_Header")
+    @Html.Partial("_Header", navigation)
 
     <main class="main container-fluid">
         

@@ -17,17 +17,20 @@ namespace MyTotto.Web.Controllers
         private IBannersRepository bannersRepository;
         private IProductsRepository productsRepository;
         private IPromosRepository promosRepository;
+        private ICatalogRepository catalogRepository;
 
         public HomeController
         (
             IBannersRepository bannersRepository,
             IProductsRepository productsRepository,
-            IPromosRepository promosRepository
+            IPromosRepository promosRepository,
+            ICatalogRepository catalogRepository
         )
         {
             this.bannersRepository = bannersRepository;
             this.productsRepository = productsRepository;
             this.promosRepository = promosRepository;
+            this.catalogRepository = catalogRepository;
         }
 
         /// <summary>
@@ -41,7 +44,14 @@ namespace MyTotto.Web.Controllers
             List<Promo> promos = promosRepository.GetAllPromos();
             List<PromoProduct> promoProducts = promosRepository.GetAllPromoProducts();
 
-            var mainPage = new MainPageViewModel(banners, products, promos, promoProducts);
+            List<ProductCategory> categories = catalogRepository.GetCategories();
+            List<ProductSubcategory> subcategories = catalogRepository.GetSubcategories();
+            List<ProductGroup> groups = catalogRepository.GetGroups();
+
+            var mainPage = new MainPageViewModel(categories, subcategories, groups, banners, products, promos, promoProducts);
+
+            ViewBag.Seo = mainPage.Seo;
+            ViewBag.Navigation = mainPage.Navigation;
 
             return View(mainPage);
         }
@@ -49,19 +59,5 @@ namespace MyTotto.Web.Controllers
 
 
 
-        ///// Страница с Бонусными баллами.
-        //[Route("bonus-points")]
-
-        ///// Страница с Подарочными сертификатами.
-        //[Route("gift-certificate")]
-
-        ///// Страница Оплаты и доставки.
-        //[Route("payment-and-delivery")]
-
-        ///// Страница Пункты самовывоза.
-        //[Route("pickup-points")]
-        
-        ///// Страница Контакты
-        //[Route("contacts")]
     }
 }

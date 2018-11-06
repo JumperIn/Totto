@@ -1,4 +1,6 @@
-﻿<header class="header container-fluid">
+﻿@model NavMenuViewModel
+
+<header class="header container-fluid">
     <div class="header-menu">
 		<div class="header-frame"></div>
         <div class="header-title container-fluid row">
@@ -11,11 +13,11 @@
 
                     <div class="header-title__menu">
                         <ul class="header-title__list">
-                            <a href="#"><li class="header-title__item"><h2 class="header-title__item_h">Бонусные баллы</h2></li></a>
-                            <a href="#"><li class="header-title__item"><h2 class="header-title__item_h">Подарочные сертификаты</h2></li></a>
-                            <a href="#"><li class="header-title__item"><h2 class="header-title__item_h">Доставка и оплата</h2></li></a>
-                            <a href="#"><li class="header-title__item"><h2 class="header-title__item_h">Пункт самовывоза</h2></li></a>
-                            <a href="#"><li class="header-title__item"><h2 class="header-title__item_h">Контакты</h2></li></a>
+                            <a href="/bonusnye-bally"><li class="header-title__item"><h2 class="header-title__item_h">Бонусные баллы</h2></li></a>
+                            <a href="/podarochnye-sertifikaty"><li class="header-title__item"><h2 class="header-title__item_h">Подарочные сертификаты</h2></li></a>
+                            <a href="/dostavka-i-oplata"><li class="header-title__item"><h2 class="header-title__item_h">Доставка и оплата</h2></li></a>
+                            <a href="/punkt-samovyvoza"><li class="header-title__item"><h2 class="header-title__item_h">Пункт самовывоза</h2></li></a>
+                            <a href="/kontakty"><li class="header-title__item"><h2 class="header-title__item_h">Контакты</h2></li></a>
                         </ul>
                     </div>
                 </div>
@@ -97,7 +99,118 @@
 						</svg>
                     </div>
                     <ul class="menu__list">
-                        <li class="menu_padding menu_drop">
+
+                        @foreach (var category in Model.Categories)
+                        {
+                            <li class="menu_padding menu_drop">
+                                <div class="menu__wrap">
+                                    <a class="menu-item row" href="@category.Link">
+                                        <div class="col">@category.Title</div>
+                                    </a>
+                                    <svg class="menu-item__icon-drop accordion hidden"><use class="menu-item__icon-drop-toggle" xlink:href="#icon-plus"></use></svg>
+                                </div>
+                                <div class="menu-drop container-fluid justify-content-center row">
+                                    <div class="menu-drop__container container-fluid js-menu-wrapper">
+                                        <div class="menu-drop__title">
+                                            <a class="menu-drop__catalog" href="/catalog">Каталог</a>
+                                            <a class="menu-drop__see-all" href="@category.Link">Смотреть все</a>
+                                        </div>
+                                        <div class="menu-drop__body container-fluid row">
+
+                                            @foreach (var subcategory in category.Subcategories)
+                                            {
+                                                <div class="menu-drop__body_hover">
+                                                    <div class="menu-drop__wrap">
+                                                        <a href="@subcategory.Link" class="menu-drop__list-header">@subcategory.Title</a>
+                                                        <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
+                                                    </div>
+                                                    <ul class="menu-drop__list">
+
+                                                        @foreach (var group in subcategory.Groups)
+                                                        {
+                                                            <li><a href="@group.Link" class="menu-drop__item">@group.Title</a></li>
+                                                        }
+
+                                                        @*<li><a href="#" class="menu-drop__item">Пенки и гели</a></li>
+                                                        <li><a href="#" class="menu-drop__item">Снятие макияжа</a></li>
+                                                        <li><a href="#" class="menu-drop__item">Гидрофильное масло</a></li>
+                                                        <li><a href="#" class="menu-drop__item">Тоник</a></li>*@
+                                                    </ul>
+                                                </div>
+                                            }
+
+                                            @*<div class="menu-drop__body_hover">
+                                                <div class="menu-drop__wrap">
+                                                    <a href="#" class="menu-drop__list-header">Очищение</a>
+                                                    <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
+                                                </div>
+                                                <ul class="menu-drop__list">
+                                                    <li><a href="#" class="menu-drop__item">Пенки и гели</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Снятие макияжа</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Гидрофильное масло</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Тоник</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="menu-drop__body_hover">
+                                                <div class="menu-drop__wrap">
+                                                    <a href="#" class="menu-drop__list-header">Уход</a>
+                                                    <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
+                                                </div>
+                                                <ul class="menu-drop__list">
+                                                    <li><a href="#" class="menu-drop__item">Крем для лица</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Скрабы и пилинги</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Спреи и мисты</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Сыворотки и лосьоны</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Точечные средства</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="menu-drop__body_hover">
+                                                <div class="menu-drop__wrap">
+                                                    <a href="#" class="menu-drop__list-header">Маски</a>
+                                                    <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
+                                                </div>
+                                                <ul class="menu-drop__list">
+                                                    <li><a href="#" class="menu-drop__item">Патчи</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Маски</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Тканевые маски</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Гидрогелевые маски</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Ночные маски</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="menu-drop__body_hover">
+                                                <div class="menu-drop__wrap">
+                                                    <a href="#" class="menu-drop__list-header">Глаза и губы</a>
+                                                    <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
+                                                </div>
+                                                <ul class="menu-drop__list">
+                                                    <li><a href="#" class="menu-drop__item">Бальзам для губ</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Крем для кожи вокруг глаз</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="menu-drop__body_hover">
+                                                <div class="menu-drop__wrap">
+                                                    <a href="#" class="menu-drop__list-header">Салфетки и диски</a>
+                                                    <svg class="menu-drop__icon accordion-list"><use class="menu-drop__icon-toggle" xlink:href="#icon-plus"></use></svg>
+                                                </div>
+                                                <ul class="menu-drop__list">
+                                                    <li><a href="#" class="menu-drop__item">Ватные палочки и диски</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Матирующие салфетки</a></li>
+                                                    <li><a href="#" class="menu-drop__item">Очищающие салфетки</a></li>
+                                                </ul>
+                                            </div>*@
+                                            <div class="menu-drop-img">
+                                                <div class="menu-drop-img__face" style="background-image: url(@category.Image)"></div>
+                                                <div class="menu-drop-img__sale">
+                                                    <p class="menu-drop-img__text">Скидка 40% на избранные товары раздела Кремы и лосьены</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+
+                        @*<li class="menu_padding menu_drop">
                             <div class="menu__wrap">
                                 <a class="menu-item row" href="#">
                                     <div class="col">Лицо</div>
@@ -107,7 +220,7 @@
                             <div class="menu-drop container-fluid justify-content-center row">
                                 <div class="menu-drop__container container-fluid js-menu-wrapper">
                                     <div class="menu-drop__title">
-										<a class="menu-drop__catalog" href="">Каталог</a>
+										<a class="menu-drop__catalog" href="/catalog">Каталог</a>
 										<a class="menu-drop__see-all" href="">Смотреть все</a>
 									</div>
 									<div class="menu-drop__body container-fluid row">
@@ -492,8 +605,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </li>
-                        <li class="menu_padding menu_drop">
+                        </li>*@
+                        @*<li class="menu_padding menu_drop">
                             <div class="menu__wrap">
                                 <a class="menu-item row" href="#"><div class="col">Бренды</div></a>
                             </div>
@@ -502,7 +615,7 @@
                             <div class="menu__wrap">
                                 <a class="menu-item row" href="#"><div class="col">По компонентам</div></a>
                             </div>
-                        </li>
+                        </li>*@
                     </ul>
 
                 </nav>
