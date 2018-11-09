@@ -10,6 +10,5 @@ namespace MyTotto.Web.Abstract
 {
     public class BaseController : Controller
     {
-
     }
 }

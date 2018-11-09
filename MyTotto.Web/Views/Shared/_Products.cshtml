@@ -27,27 +27,27 @@
 					<div class="products cover row js-products_all hidden">
 						@foreach (var product in Model.AllProducts)
 						{
-							@Html.Partial("_ProductCard", product)
+							@await Html.PartialAsync("_ProductCard", product)
 						}
 					</div>
-					<div class="products cover row js-products_new">
-						@foreach (var product in Model.NewProducts)
-						{
-							@Html.Partial("_ProductCard", product)
-						}
-					</div>
-					<div class="products cover row js-products_hit hidden">
-						@foreach (var product in Model.HitProducts)
-						{
-							@Html.Partial("_ProductCard", product)
-						}
-					</div>
-					<div class="products cover row js-products_discount hidden">
-						@foreach (var product in Model.DiscountProducts)
-						{
-							@Html.Partial("_ProductCard", product)
-						}
-					</div>
+                    <div class="products cover row js-products_new">
+                        @foreach (var product in Model.NewProducts)
+                        {
+                            @await Html.PartialAsync("_ProductCard", product)
+                        }
+                    </div>
+                    <div class="products cover row js-products_hit hidden">
+                        @foreach (var product in Model.HitProducts)
+                        {
+                            @await Html.PartialAsync("_ProductCard", product)
+                        }
+                    </div>
+                    <div class="products cover row js-products_discount hidden">
+                        @foreach (var product in Model.DiscountProducts)
+                        {
+                            @await Html.PartialAsync("_ProductCard", product)
+                        }
+                    </div>
 
 					<div class="products__link-wrapper cover">
 						<button class="products__link js-products__watch-all">Смотреть все</button>

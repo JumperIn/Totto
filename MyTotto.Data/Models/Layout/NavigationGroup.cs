@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using MyTotto.Data.Models;
+using System.Text;
 
-namespace MyTotto.Web.Models.Layout
+namespace MyTotto.Data.Models.Layout
 {
     /// <summary>
-    /// Модель представления для группы в навигационном меню.
+    /// Модель группы в навигационном меню.
     /// </summary>
-    public class GroupNavMenuViewModel
+    public class NavigationGroup
     {
         /// <summary>
         /// Название.
@@ -21,16 +20,9 @@ namespace MyTotto.Web.Models.Layout
         public string Link { get; set; }
 
         /// <summary>
-        /// Создает экземпляр.
-        /// </summary>
-        public GroupNavMenuViewModel()
-        {
-        }
-
-        /// <summary>
         /// Создает экземпляр и инициализирует поля.
         /// </summary>
-        public GroupNavMenuViewModel(string subcategoryLink, ProductGroup group)
+        public NavigationGroup(string subcategoryLink, ProductGroup group)
         {
             Title = group.Title;
             Link = $"{subcategoryLink}/{group.SectionUrl}";

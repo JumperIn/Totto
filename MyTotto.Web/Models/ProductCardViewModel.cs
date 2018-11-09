@@ -75,7 +75,7 @@ namespace MyTotto.Web.Models
 
         private string SetUrl(int id, string titleUrl)
         {
-            return $"/catalog/products/{id}-{titleUrl}";
+            return $"/products/{id}-{titleUrl}";
         }
     }
 }

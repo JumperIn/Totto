@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MyTotto.Data.Models;
 
 namespace MyTotto.Web.Models.Layout
 {
@@ -35,11 +33,11 @@ namespace MyTotto.Web.Models.Layout
         /// <summary>
         /// Создает экземпляр и инициализирует поля.
         /// </summary>
-        public SeoViewModel(string title, string description, string keywords)
+        public SeoViewModel(SeoData seo)
         {
-            Title = title;
-            Description = description;
-            Keywords = keywords;
+            Title = seo.Title;
+            Description = seo.Description;
+            Keywords = seo.Keywords;
         }
     }
 }

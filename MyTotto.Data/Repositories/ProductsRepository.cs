@@ -38,6 +38,34 @@ namespace MyTotto.Data.Repositories
         }
 
         /// <summary>
+        /// Возвращает список продуктов по идентификаторам разделов.
+        /// </summary>
+        /// <param name="categoryId">Идентификатор категории.</param>
+        /// <param name="subcategoryId">Идентификатор подкатегории.</param>
+        /// <param name="groupId">Идентификатор группы.</param>
+        public List<Product> GetProducts(int categoryId, int subcategoryId, int groupId)
+        {
+            IEnumerable<Product> products = context.Products;
+
+            if (categoryId != 0)
+            {
+                products = products.Where(x => x.ProductCategoryId == categoryId);
+            }
+
+            if (subcategoryId != 0)
+            {
+                products = products.Where(x => x.ProductSubcategoryId == subcategoryId);
+            }
+
+            if (groupId != 0)
+            {
+                products = products.Where(x => x.ProductGroupId == groupId);
+            }
+
+            return products.ToList();
+        }
+
+        /// <summary>
         /// Возвращает продукт по идентификатору.
         /// </summary>
         /// <param name="id">Идентификатор продукта.</param>

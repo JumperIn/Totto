@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
 using MyTotto.Data.Models;
+using MyTotto.Data.Models.Layout;
 using MyTotto.Web.Extensions;
+using MyTotto.Web.Models.Layout;
 
 namespace MyTotto.Web.Models
 {
     /// <summary>
     /// Модель представления каталога.
     /// </summary>
-    public class CatalogPageViewModel
+    public class CatalogPageViewModel : BasePageViewModel
     {
         /// <summary>
         /// Блок с продуктами.
@@ -18,19 +20,14 @@ namespace MyTotto.Web.Models
         public ProductsAllViewModel Products { get; set; }
 
         /// <summary>
-        /// Создает экземпляр.
-        /// </summary>
-        public CatalogPageViewModel()
-        {
-        }
-
-        /// <summary>
         /// Создает экземпляр и инициализирует поля класса.
         /// </summary>
         public CatalogPageViewModel
         (
+            SeoData seo,
+            Navigation navigation,
             List<Product> products
-        )
+        ) : base(seo, navigation)
         {
             Products = new ProductsAllViewModel(products);
         }

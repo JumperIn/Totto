@@ -9,34 +9,36 @@ using MyTotto.Data.Models;
 using MyTotto.Web.Models;
 using MyTotto.Web.Abstract;
 using MyTotto.Data;
+using MyTotto.Data.Models.Layout;
 
 namespace MyTotto.Web.Controllers
 {
+    [Route("/")]
     public class HomeController : BaseController
     {
         private IBannersRepository bannersRepository;
         private IProductsRepository productsRepository;
         private IPromosRepository promosRepository;
-        private ICatalogRepository catalogRepository;
+        private ICommonRepository commonRepository;
 
         public HomeController
         (
             IBannersRepository bannersRepository,
             IProductsRepository productsRepository,
             IPromosRepository promosRepository,
-            ICatalogRepository catalogRepository
+            ICommonRepository commonRepository
         )
         {
             this.bannersRepository = bannersRepository;
             this.productsRepository = productsRepository;
             this.promosRepository = promosRepository;
-            this.catalogRepository = catalogRepository;
+            this.commonRepository = commonRepository;
         }
 
         /// <summary>
         /// Отображает главную страницу.
         /// </summary>
-        [HttpGet("")]
+        [HttpGet]
         public IActionResult Index()
         {
             List<Banner> banners = bannersRepository.GetBanners();
@@ -44,15 +46,11 @@ namespace MyTotto.Web.Controllers
             List<Promo> promos = promosRepository.GetAllPromos();
             List<PromoProduct> promoProducts = promosRepository.GetAllPromoProducts();
 
-            List<ProductCategory> categories = catalogRepository.GetCategories();
-            List<ProductSubcategory> subcategories = catalogRepository.GetSubcategories();
-            List<ProductGroup> groups = catalogRepository.GetGroups();
+            Navigation navigation = commonRepository.GetNavigation();
+            SeoData seo = commonRepository.GetSeo("main");
 
-            var mainPage = new MainPageViewModel(categories, subcategories, groups, banners, products, promos, promoProducts);
-
-            ViewBag.Seo = mainPage.Seo;
-            ViewBag.Navigation = mainPage.Navigation;
-
+            var mainPage = new MainPageViewModel(seo, navigation, banners, products, promos, promoProducts);
+            
             return View(mainPage);
         }
 

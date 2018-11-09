@@ -1,6 +1,11 @@
 ﻿@model CatalogPageViewModel
 
+@{
+    ViewBag.Seo = Model.Seo;
+    ViewBag.Navigation = Model.Navigation;
+}
+
 <hr>
 <div>SECTION PAGE</div>
 <hr>
-@Html.Partial("_Products", Model.Products)
+@await Html.PartialAsync("_Products", Model.Products)
