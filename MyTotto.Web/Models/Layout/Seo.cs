@@ -6,7 +6,7 @@ namespace MyTotto.Web.Models.Layout
     /// <summary>
     /// Модель представления для SEO-настроек.
     /// </summary>
-    public class SeoViewModel
+    public class Seo
     {
         /// <summary>
         /// Название страницы.
@@ -26,14 +26,14 @@ namespace MyTotto.Web.Models.Layout
         /// <summary>
         /// Создает экземпляр.
         /// </summary>
-        public SeoViewModel()
+        public Seo()
         {
         }
 
         /// <summary>
         /// Создает экземпляр и инициализирует поля.
         /// </summary>
-        public SeoViewModel(SeoData seo)
+        public Seo(SeoData seo)
         {
             Title = seo.Title;
             Description = seo.Description;

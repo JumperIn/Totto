@@ -15,10 +15,12 @@ namespace MyTotto.Api.Controllers
     public class ProductsController : BaseController
     {
         private IProductsRepository productsRepository;
+        private ICatalogRepository catalogRepository;
 
-        public ProductsController(IProductsRepository productsRepository)
+        public ProductsController(IProductsRepository productsRepository, ICatalogRepository catalogRepository)
         {
             this.productsRepository = productsRepository;
+            this.catalogRepository = catalogRepository;
         }
 
         /// <summary>
@@ -28,6 +30,48 @@ namespace MyTotto.Api.Controllers
         public IEnumerable<Product> GetAllProductCards()
         {
             List<Product> products = productsRepository.GetAllProducts();
+            return products;
+        }
+
+        /// <summary>
+        /// Отображает страницу раздела каталога.
+        /// </summary>
+        /// <param name="categoryUrl">Категория.</param>
+        /// <param name="subcategoryUrl">Подкатегория.</param>
+        /// <param name="groupUrl">Группа.</param>
+        /// <param name="showBy">Отображать по количеству.</param>
+        /// <param name="page">Номер страницы.</param>
+        /// <param name="priceInterval">Интервал цен.</param>
+        /// <param name="manufacturer">Производитель.</param>
+        /// <param name="discount">Наличие скидки. Да = 1. Нет = 0. Не важно = -1</param>
+        [HttpGet("section/{categoryUrl}/{subcategoryUrl?}/{groupUrl?}")]
+        public IEnumerable<Product> GetProductCards
+        (
+            string categoryUrl = "",
+            string subcategoryUrl = "",
+            string groupUrl = "",
+            int showBy = 1,
+            int page = 1,
+            int priceInterval = 0,
+            string manufacturer = "",
+            int discount = -1
+        )
+        {
+            if (string.IsNullOrEmpty(categoryUrl))
+            {
+                return null;
+            }
+            
+            ProductCategory category = catalogRepository.GetCategory(categoryUrl);
+            ProductSubcategory subcategory = catalogRepository.GetSubcategory(subcategoryUrl);
+            ProductGroup group = catalogRepository.GetGroup(groupUrl);
+
+            int categoryId = category != null ? category.Id : 0;
+            int subcategoryId = subcategory != null ? subcategory.Id : 0;
+            int groupId = group != null ? group.Id : 0;
+
+            List<Product> products = productsRepository.GetProducts(categoryId, subcategoryId, groupId);
+
             return products;
         }
 

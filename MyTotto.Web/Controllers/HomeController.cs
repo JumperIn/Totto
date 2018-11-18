@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Mvc;
+
+using MyTotto.Data;
 using MyTotto.Data.Abstract;
 using MyTotto.Data.Models;
 using MyTotto.Web.Models;
 using MyTotto.Web.Abstract;
-using MyTotto.Data;
 using MyTotto.Data.Models.Layout;
+using MyTotto.Web.Models.Pages;
 
 namespace MyTotto.Web.Controllers
 {
@@ -49,7 +52,7 @@ namespace MyTotto.Web.Controllers
             Navigation navigation = commonRepository.GetNavigation();
             SeoData seo = commonRepository.GetSeo("main");
 
-            var mainPage = new MainPageViewModel(seo, navigation, banners, products, promos, promoProducts);
+            var mainPage = new MainPage(seo, navigation, null, banners, products, promos, promoProducts);
             
             return View(mainPage);
         }

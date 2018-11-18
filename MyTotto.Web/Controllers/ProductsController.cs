@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Microsoft.AspNetCore.Mvc;
+
+using MyTotto.Data;
 using MyTotto.Data.Abstract;
 using MyTotto.Data.Models;
-using MyTotto.Web.Models;
 using MyTotto.Web.Abstract;
-using MyTotto.Data;
+using MyTotto.Web.Models;
 using MyTotto.Data.Models.Layout;
+using MyTotto.Web.Models.Layout;
+using MyTotto.Web.Models.Pages;
 
 namespace MyTotto.Web.Controllers
 {
@@ -55,7 +59,15 @@ namespace MyTotto.Web.Controllers
             SeoData seo = commonRepository.GetSeo("product");
 
             Product product = productsRepository.GetProduct(id);
-            var productPage = new ProductPageViewModel(seo, navigation, product);
+
+            List<Breadcrumb> breadcrumbs = new List<Breadcrumb>()
+            {
+                new Breadcrumb("Главная", "/"),
+                new Breadcrumb("Каталог", "/catalog"),
+                new Breadcrumb(product.Title, $"/products/{product.TitleUrl}")
+            };
+
+            var productPage = new ProductPage(seo, navigation, breadcrumbs, product);
 
             return View(productPage);
         }

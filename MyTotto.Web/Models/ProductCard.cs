@@ -9,7 +9,7 @@ namespace MyTotto.Web.Models
     /// <summary>
     /// Модель представления карточки продукта.
     /// </summary>
-    public class ProductCardViewModel
+    public class ProductCard
     {
         /// <summary>
         /// Идентификатор.
@@ -54,14 +54,14 @@ namespace MyTotto.Web.Models
         /// <summary>
         /// Создает экземпляр.
         /// </summary>
-        public ProductCardViewModel()
+        public ProductCard()
         {
         }
 
         /// <summary>
         /// Создает экземпляр и инициализирует поля класса.
         /// </summary>
-        public ProductCardViewModel(Product product)
+        public ProductCard(Product product)
         {
             Id = product.Id;
             Title = product.Title;

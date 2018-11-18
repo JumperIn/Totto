@@ -1,21 +1,21 @@
-﻿using MyTotto.Data.Models;
-using MyTotto.Data.Models.Layout;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
+using MyTotto.Data.Models;
+using MyTotto.Data.Models.Layout;
 
 namespace MyTotto.Web.Models.Layout
 {
     /// <summary>
     /// Модель представления базовой части страницы.
     /// </summary>
-    public abstract class BasePageViewModel
+    public abstract class BasePage
     {
         /// <summary>
         /// SEO-настройки.
         /// </summary>
-        public SeoViewModel Seo { get; set; }
+        public Seo Seo { get; set; }
 
         /// <summary>
         /// Навигационное меню.
@@ -23,16 +23,23 @@ namespace MyTotto.Web.Models.Layout
         public Navigation Navigation { get; set; }
 
         /// <summary>
+        /// Хлебные крошки.
+        /// </summary>
+        public List<Breadcrumb> Breadcrumbs { get; set; }
+
+        /// <summary>
         /// Создает экземпляр и инициализирует поля класса.
         /// </summary>
-        public BasePageViewModel
+        public BasePage
         (
             SeoData seo,
-            Navigation navigation
+            Navigation navigation,
+            List<Breadcrumb> breadcrumbs
         )
         {
             Navigation = navigation;
-            Seo = new SeoViewModel(seo);
+            Seo = new Seo(seo);
+            Breadcrumbs = breadcrumbs ?? new List<Breadcrumb>();
         }
     }
 }

@@ -7,12 +7,12 @@ using MyTotto.Data.Models.Layout;
 using MyTotto.Web.Extensions;
 using MyTotto.Web.Models.Layout;
 
-namespace MyTotto.Web.Models
+namespace MyTotto.Web.Models.Pages
 {
     /// <summary>
     /// Модель представления главной страницы.
     /// </summary>
-    public class MainPageViewModel : BasePageViewModel
+    public class MainPage : BasePage
     {
         /// <summary>
         /// Список баннеров.
@@ -37,15 +37,16 @@ namespace MyTotto.Web.Models
         /// <summary>
         /// Создает экземпляр и инициализирует поля класса.
         /// </summary>
-        public MainPageViewModel
+        public MainPage
         (
             SeoData seo,
             Navigation navigation,
+            List<Breadcrumb> breadcrumbs,
             List<Banner> banners, 
             List<Product> products, 
             List<Promo> promos, 
             List<PromoProduct> promoProducts
-        ) :base(seo, navigation)
+        ) :base(seo, navigation, breadcrumbs)
         {
             Banners = banners.Select(b => new BannerViewModel(b)).ToList();
             Promos = promos.Select(p => new PromoViewModel(p)).ToList();
