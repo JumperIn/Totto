@@ -8,26 +8,24 @@
 
                 @foreach (var promo in Model)
                 {
-					if (string.IsNullOrEmpty(promo.Url))
-					{
-						<div class="discounts__body-wrapper col-12 col-sm-6 col-lg-4">
-							<div class="discounts__body">
-								<div class="discounts__img" style="background-image: url(@promo.ImageUrl)"></div>
-								<p class="discounts__text">@promo.Title</p>
-								<p class="discounts__promocode">@promo.Content</p>
-							</div>
-						</div>
-					}
-					else
-					{
-						<div class="discounts__body-wrapper col-12 col-sm-6 col-lg-4">
-							<a href="@promo.Url" class="discounts__body">
-								<div class="discounts__img" style="background-image: url(@promo.ImageUrl)"></div>
-								<p class="discounts__text">@promo.Title</p>
-								<p class="discounts__promocode">@promo.Content</p>
-							</a>
-						</div>
-					}
+                    <div class="discounts__body-wrapper col-12 col-sm-6 col-lg-4">
+                        @if (string.IsNullOrEmpty(promo.Url))
+                        {
+                            <div class="discounts__body">
+                                <div class="discounts__img" style="background-image: url(@promo.ImageUrl)"></div>
+                                <p class="discounts__text">@promo.Title</p>
+                                <p class="discounts__promocode">@promo.Content</p>
+                            </div>
+                        }
+                        else
+                        {
+                            <a href="@promo.Url" class="discounts__body">
+                                <div class="discounts__img" style="background-image: url(@promo.ImageUrl)"></div>
+                                <p class="discounts__text">@promo.Title</p>
+                                <p class="discounts__promocode">@promo.Content</p>
+                            </a>
+                        }
+                    </div>
                 }
 
             </div>

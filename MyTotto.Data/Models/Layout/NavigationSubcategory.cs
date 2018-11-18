@@ -1,15 +1,14 @@
-﻿using MyTotto.Data.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace MyTotto.Web.Models.Layout
+namespace MyTotto.Data.Models.Layout
 {
     /// <summary>
-    /// Модель представления для подкатегории в навигационном меню.
+    /// Модель подкатегории в навигационном меню.
     /// </summary>
-    public class SubcategoryNavMenuViewModel
+    public class NavigationSubcategory
     {
         /// <summary>
         /// Название.
@@ -24,19 +23,12 @@ namespace MyTotto.Web.Models.Layout
         /// <summary>
         /// Список групп.
         /// </summary>
-        public List<GroupNavMenuViewModel> Groups { get; set; }
-
-        /// <summary>
-        /// Создает экземпляр.
-        /// </summary>
-        public SubcategoryNavMenuViewModel()
-        {
-        }
-
+        public List<NavigationGroup> Groups { get; set; }
+        
         /// <summary>
         /// Создает экземпляр и инициализирует поля.
         /// </summary>
-        public SubcategoryNavMenuViewModel
+        public NavigationSubcategory
         (
             string categoryLink,
             ProductSubcategory subcategory
@@ -46,12 +38,12 @@ namespace MyTotto.Web.Models.Layout
             string subcategoryLink = $"{categoryLink}/{subcategory.SectionUrl}";
             Link = subcategoryLink;
 
-            Groups = subcategory.Groups != null ? 
+            Groups = subcategory.Groups != null ?
                 subcategory.Groups
                     .Where(s => s.ProductSubcategoryId == subcategory.Id)
-                    .Select(group => new GroupNavMenuViewModel(subcategoryLink, group))
+                    .Select(group => new NavigationGroup(subcategoryLink, group))
                     .ToList()
-                : new List<GroupNavMenuViewModel>();
+                : new List<NavigationGroup>();
         }
     }
 }

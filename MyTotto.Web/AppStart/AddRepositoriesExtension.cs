@@ -17,6 +17,7 @@ namespace MyTotto.Web.AppStart
             services.AddScoped<IProductsRepository, ProductsRepository>();
             services.AddScoped<IPromosRepository, PromosRepository>();
             services.AddScoped<ICatalogRepository, CatalogRepository>();
+            services.AddScoped<ICommonRepository, CommonRepository>();
 
             return services;
         }

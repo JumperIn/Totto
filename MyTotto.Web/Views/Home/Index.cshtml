@@ -1,6 +1,10 @@
-﻿@model MainPageViewModel
+﻿@model MainPage
+@{
+    ViewBag.Seo = Model.Seo;
+    ViewBag.Navigation = Model.Navigation;
+}
 
-@Html.Partial("_Banners", Model.Banners)
-@Html.Partial("_Products", Model.Products)
-@Html.Partial("_Discounts", Model.Promos)
-@Html.Partial("_NewProducts", Model.PromoProducts)
+@await Html.PartialAsync("_Banners", Model.Banners)
+@await Html.PartialAsync("_Products", Model.Products)
+@await Html.PartialAsync("_Discounts", Model.Promos)
+@await Html.PartialAsync("_NewProducts", Model.PromoProducts)

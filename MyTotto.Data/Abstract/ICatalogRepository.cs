@@ -20,8 +20,14 @@ namespace MyTotto.Data.Abstract
         /// <summary>
         /// Возвращает категорию по идентификатору.
         /// </summary>
-        /// <param name="id">Идентификатор категории.</param>
+        /// <param name="id">Идентификатор.</param>
         ProductCategory GetCategory(int id);
+
+        /// <summary>
+        /// Возвращает категорию по URL.
+        /// </summary>
+        /// <param name="url">URL-адрес.</param>
+        ProductCategory GetCategory(string url);
 
         /// <summary>
         /// Добавляет категорию в список.
@@ -38,7 +44,7 @@ namespace MyTotto.Data.Abstract
         /// <summary>
         /// Удаляет категорию по идентификатору.
         /// </summary>
-        /// <param name="id">Идентификатор категории.</param>
+        /// <param name="id">Идентификатор.</param>
         void DeleteCategory(int id);
 
         #endregion
@@ -53,8 +59,14 @@ namespace MyTotto.Data.Abstract
         /// <summary>
         /// Возвращает подкатегорию по идентификатору.
         /// </summary>
-        /// <param name="id">Идентификатор подкатегории.</param>
+        /// <param name="id">Идентификатор.</param>
         ProductSubcategory GetSubcategory(int id);
+
+        /// <summary>
+        /// Возвращает подкатегорию по URL.
+        /// </summary>
+        /// <param name="url">URL-адрес.</param>
+        ProductSubcategory GetSubcategory(string url);
 
         /// <summary>
         /// Добавляет подкатегорию в список.
@@ -71,7 +83,7 @@ namespace MyTotto.Data.Abstract
         /// <summary>
         /// Удаляет подкатегорию по идентификатору.
         /// </summary>
-        /// <param name="id">Идентификатор подкатегории.</param>
+        /// <param name="id">Идентификатор.</param>
         void DeleteSubcategory(int id);
 
         #endregion
@@ -86,8 +98,14 @@ namespace MyTotto.Data.Abstract
         /// <summary>
         /// Возвращает группу по идентификатору.
         /// </summary>
-        /// <param name="id">Идентификатор группы.</param>
+        /// <param name="id">Идентификатор.</param>
         ProductGroup GetGroup(int id);
+
+        /// <summary>
+        /// Возвращает подкатегорию по URL.
+        /// </summary>
+        /// <param name="url">URL-адрес.</param>
+        ProductGroup GetGroup(string url);
 
         /// <summary>
         /// Добавляет группу в список.
@@ -104,7 +122,7 @@ namespace MyTotto.Data.Abstract
         /// <summary>
         /// Удаляет группу по идентификатору.
         /// </summary>
-        /// <param name="id">Идентификатор группы.</param>
+        /// <param name="id">Идентификатор.</param>
         void DeleteGroup(int id);
 
         #endregion

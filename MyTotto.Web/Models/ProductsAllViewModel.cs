@@ -15,22 +15,22 @@ namespace MyTotto.Web.Models
         /// <summary>
         /// Список карточек всех продуктов.
         /// </summary>
-        public List<ProductCardViewModel> AllProducts { get; set; }
+        public List<ProductCard> AllProducts { get; set; }
 
         /// <summary>
         /// Список карточек продуктов-новинок.
         /// </summary>
-        public List<ProductCardViewModel> NewProducts { get; set; }
+        public List<ProductCard> NewProducts { get; set; }
 
         /// <summary>
         /// Список карточек продуктов-хитов.
         /// </summary>
-        public List<ProductCardViewModel> HitProducts { get; set; }
+        public List<ProductCard> HitProducts { get; set; }
 
         /// <summary>
         /// Список карточек продуктов со скидками.
         /// </summary>
-        public List<ProductCardViewModel> DiscountProducts { get; set; }
+        public List<ProductCard> DiscountProducts { get; set; }
 
         private int maxCount = 12;
         private int multipleCount = 4;
@@ -62,13 +62,13 @@ namespace MyTotto.Web.Models
         /// </summary>
         /// <param name="products">Список продуктов.</param>
         /// <param name="type">Тип продукта.</param>
-        private List<ProductCardViewModel> SelectProductCardByType(List<Product> products, ProductType type)
+        private List<ProductCard> SelectProductCardByType(List<Product> products, ProductType type)
         {
             return products
                 .Where(p => p.ProductType == type)
                 .RandomElements(maxCount)
                 .TakeMultiple(multipleCount)
-                .Select(p => new ProductCardViewModel(p))
+                .Select(p => new ProductCard(p))
                 .ToList();
         }
     }

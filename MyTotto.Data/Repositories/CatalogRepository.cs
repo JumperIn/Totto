@@ -34,11 +34,21 @@ namespace MyTotto.Data.Repositories
         /// <summary>
         /// Возвращает категорию по идентификатору.
         /// </summary>
-        /// <param name="id">Идентификатор категории.</param>
+        /// <param name="id">Идентификатор.</param>
         public ProductCategory GetCategory(int id)
         {
             return context.ProductCategories
-                .FirstOrDefault(b => b.Id == id);
+                .FirstOrDefault(x => x.Id == id);
+        }
+
+        /// <summary>
+        /// Возвращает категорию по URL.
+        /// </summary>
+        /// <param name="url">URL-адрес.</param>
+        public ProductCategory GetCategory(string url)
+        {
+            return context.ProductCategories
+                .FirstOrDefault(x => x.SectionUrl == url);
         }
 
         /// <summary>
@@ -64,7 +74,7 @@ namespace MyTotto.Data.Repositories
         /// <summary>
         /// Удаляет категорию по идентификатору.
         /// </summary>
-        /// <param name="id">Идентификатор категории.</param>
+        /// <param name="id">Идентификатор.</param>
         public void DeleteCategory(int id)
         {
             ProductCategory category = GetCategory(id);
@@ -96,11 +106,21 @@ namespace MyTotto.Data.Repositories
         /// <summary>
         /// Возвращает подкатегорию по идентификатору.
         /// </summary>
-        /// <param name="id">Идентификатор подкатегории.</param>
+        /// <param name="id">Идентификатор.</param>
         public ProductSubcategory GetSubcategory(int id)
         {
             return context.ProductSubcategories
-                .FirstOrDefault(b => b.Id == id);
+                .FirstOrDefault(x => x.Id == id);
+        }
+
+        /// <summary>
+        /// Возвращает подкатегорию по URL.
+        /// </summary>
+        /// <param name="url">URL-адрес.</param>
+        public ProductSubcategory GetSubcategory(string url)
+        {
+            return context.ProductSubcategories
+                .FirstOrDefault(x => x.SectionUrl == url);
         }
 
         /// <summary>
@@ -126,7 +146,7 @@ namespace MyTotto.Data.Repositories
         /// <summary>
         /// Удаляет подкатегорию по идентификатору.
         /// </summary>
-        /// <param name="id">Идентификатор подкатегории.</param>
+        /// <param name="id">Идентификатор.</param>
         public void DeleteSubcategory(int id)
         {
             ProductSubcategory subcategory = GetSubcategory(id);
@@ -158,11 +178,21 @@ namespace MyTotto.Data.Repositories
         /// <summary>
         /// Возвращает группу по идентификатору.
         /// </summary>
-        /// <param name="id">Идентификатор группы.</param>
+        /// <param name="id">Идентификатор.</param>
         public ProductGroup GetGroup(int id)
         {
             return context.ProductGroups
-                .FirstOrDefault(b => b.Id == id);
+                .FirstOrDefault(x => x.Id == id);
+        }
+
+        /// <summary>
+        /// Возвращает подкатегорию по URL.
+        /// </summary>
+        /// <param name="url">URL-адрес.</param>
+        public ProductGroup GetGroup(string url)
+        {
+            return context.ProductGroups
+                .FirstOrDefault(x => x.SectionUrl == url);
         }
 
         /// <summary>
@@ -188,7 +218,7 @@ namespace MyTotto.Data.Repositories
         /// <summary>
         /// Удаляет группу по идентификатору.
         /// </summary>
-        /// <param name="id">Идентификатор группы.</param>
+        /// <param name="id">Идентификатор.</param>
         public void DeleteGroup(int id)
         {
             ProductGroup group = GetGroup(id);

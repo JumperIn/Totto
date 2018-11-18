@@ -1,15 +1,14 @@
-﻿using MyTotto.Data.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace MyTotto.Web.Models.Layout
+namespace MyTotto.Data.Models.Layout
 {
     /// <summary>
-    /// Модель представления для категории в навигационном меню.
+    /// Модель категории в навигационном меню.
     /// </summary>
-    public class CategoryNavMenuViewModel
+    public class NavigationCategory
     {
         /// <summary>
         /// Название.
@@ -29,19 +28,12 @@ namespace MyTotto.Web.Models.Layout
         /// <summary>
         /// Список подкатегорий.
         /// </summary>
-        public List<SubcategoryNavMenuViewModel> Subcategories { get; set; }
-
-        /// <summary>
-        /// Создает экземпляр.
-        /// </summary>
-        public CategoryNavMenuViewModel()
-        {
-        }
-
+        public List<NavigationSubcategory> Subcategories { get; set; }
+        
         /// <summary>
         /// Создает экземпляр и инициализирует поля.
         /// </summary>
-        public CategoryNavMenuViewModel
+        public NavigationCategory
         (
             ProductCategory category,
             List<ProductSubcategory> subcategories,
@@ -49,12 +41,12 @@ namespace MyTotto.Web.Models.Layout
         )
         {
             Title = category.Title;
-            Image = "/images/cream.jpg";
+            Image = category.Image;
             string categoryLink = $"/catalog/{category.SectionUrl}";
             Link = categoryLink;
 
             Subcategories = category.Subcategories
-                .Select(subcategory => new SubcategoryNavMenuViewModel(categoryLink, subcategory))
+                .Select(subcategory => new NavigationSubcategory(categoryLink, subcategory))
                 .ToList();
         }
     }

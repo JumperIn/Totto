@@ -1,6 +1,45 @@
-﻿@model CatalogPageViewModel
+﻿@model SectionPage
 
-<hr>
-<div>SECTION PAGE</div>
-<hr>
-@Html.Partial("_Products", Model.Products)
+@{
+    ViewBag.Seo = Model.Seo;
+    ViewBag.Navigation = Model.Navigation;
+}
+
+
+<div class="breadcrumbs">
+    @foreach (var breadcrumb in Model.Breadcrumbs)
+    {
+        <a href="@breadcrumb.Link" class="breadcrumbs__item breadcrumb">@breadcrumb.Title</a>
+    }
+</div>
+
+
+<div>Количество товаров: @Model.ProductsCount</div>
+
+<div>Страницы:</div>
+<ul class="pagination">
+    <li class="pagination__page pagination__page_first"><<</li>
+    <li class="pagination__page pagination__page_previous"><</li>
+    @for (int i = 0; i < Model.Pagination.Count; i++)
+    {
+        int pageNumber = i + 1;
+        <li class="pagination__page">@pageNumber</li>
+    }
+    <li class="pagination__page pagination__page_next">></li>
+    <li class="pagination__page pagination__page_last">>></li>
+</ul>
+
+<section class="catalog__products section__products">
+    @foreach (var product in Model.Products)
+    {
+        <a href="@product.Url" class="products__item">
+            <span>@product.Id</span>
+            <span>@product.Title</span>
+            <span>@product.Price</span>
+            <span>@product.DiscountPrice</span>
+            <span>@product.ImageUrl</span>
+            <span>@product.Manufacturer</span>
+            <span>@product.ProductType</span>
+        </a>
+    }
+</section>

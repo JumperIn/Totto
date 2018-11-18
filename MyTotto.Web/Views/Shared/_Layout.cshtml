@@ -1,9 +1,5 @@
 ﻿@{ 
-    string title = ViewBag.Seo.Title;
-    string description = ViewBag.Seo.Description;
-    string keywords = ViewBag.Seo.Keywords;
-
-    NavMenuViewModel navigation = (NavMenuViewModel) ViewBag.Navigation;
+    Navigation navigation = (Navigation)ViewBag.Navigation;
 }
 
 <!DOCTYPE html>
@@ -11,31 +7,33 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@title</title>
-    <meta name="description" content="@description">
+    <title>@ViewBag.Seo.Title</title>
+    <meta name="description" content="@ViewBag.Seo.Description">
+    <meta name="keywords" content="@ViewBag.Seo.Keywords">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="stylesheet" href="~/libs/styles/style.css" asp-append-version="true">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true">
     <script src="~/libs/scripts/script.js" asp-append-version="true" async></script>
 </head>
 <body>
-	@Html.Partial("_Popups")
+    @await Html.PartialAsync("_Popups")
 
-	<div style="display: none">
-    	@Html.Partial("_Symbols")
-	</div>
-    @Html.Partial("_Header", navigation)
+    <div style="display: none">
+        @await Html.PartialAsync("_Symbols")
+    </div>
+
+    @await Html.PartialAsync("_Header", navigation)
 
     <main class="main container-fluid">
-        
+
         @RenderBody()
 
     </main>
-    
-    @Html.Partial("_Footer")
+
+    @await Html.PartialAsync("_Footer")
 
     <script src="~/js/main.js" asp-append-version="true"></script>
 
-    @RenderSection("Scripts", required: false)
+    @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

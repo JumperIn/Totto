@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MyTotto.Data.Models;
+using System.Threading.Tasks;
 
 namespace MyTotto.Web.Models.Layout
 {
     /// <summary>
-    /// Модель представления для группы в навигационном меню.
+    /// Модель хлебной крошки
     /// </summary>
-    public class GroupNavMenuViewModel
+    public class Breadcrumb
     {
         /// <summary>
         /// Название.
@@ -21,19 +21,21 @@ namespace MyTotto.Web.Models.Layout
         public string Link { get; set; }
 
         /// <summary>
-        /// Создает экземпляр.
+        /// Признак активной ссылки.
         /// </summary>
-        public GroupNavMenuViewModel()
-        {
-        }
+        public bool IsActive { get; set; }
 
         /// <summary>
         /// Создает экземпляр и инициализирует поля.
         /// </summary>
-        public GroupNavMenuViewModel(string subcategoryLink, ProductGroup group)
+        /// <param name="title">Название.</param>
+        /// <param name="link">Ссылка.</param>
+        /// <param name="isActive">Признак активной ссылки.</param>
+        public Breadcrumb(string title, string link, bool isActive = true)
         {
-            Title = group.Title;
-            Link = $"{subcategoryLink}/{group.SectionUrl}";
+            Title = title;
+            Link = link;
+            IsActive = isActive;
         }
     }
 }
