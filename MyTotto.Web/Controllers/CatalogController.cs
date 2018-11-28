@@ -126,7 +126,7 @@ namespace MyTotto.Web.Controllers
             if (!string.IsNullOrEmpty(manufacturer))
             {
                 filteredProducts = filteredProducts
-                    .Where(x => string.Equals(x.Manufacturer, manufacturer, StringComparison.InvariantCultureIgnoreCase));
+                    .Where(x => string.Equals(x.ManufacturerId.ToString(), manufacturer, StringComparison.InvariantCultureIgnoreCase));
             }
 
             // 3. Отсортировать по типу сортировки

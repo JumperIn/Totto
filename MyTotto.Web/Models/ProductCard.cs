@@ -65,9 +65,9 @@ namespace MyTotto.Web.Models
         {
             Id = product.Id;
             Title = product.Title;
-            Manufacturer = product.Manufacturer;
+            Manufacturer = product.ManufacturerId.ToString();
             Url = SetUrl(product.Id, product.TitleUrl);
-            ImageUrl = product.ImageUrl;
+            ImageUrl = product.CardImage;
             Price = product.GetPrice();
             DiscountPrice = product.GetDiscountPrice();
             ProductType = product.ProductType;

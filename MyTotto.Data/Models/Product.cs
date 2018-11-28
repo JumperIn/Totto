@@ -21,9 +21,14 @@ namespace MyTotto.Data.Models
         public string Title { get; set; }
 
         /// <summary>
-        /// Фирма-изготовитель.
+        /// Идентификатор фирмы-изготовителя.
         /// </summary>
-        public string Manufacturer { get; set; }
+        public int ManufacturerId { get; set; }
+
+        ///// <summary>
+        ///// Фирма-изготовитель.
+        ///// </summary>
+        //public Manufacturer Manufacturer { get; set; }
 
         /// <summary>
         /// Название на латинице для URL-адреса продукта.
@@ -63,12 +68,17 @@ namespace MyTotto.Data.Models
         /// <summary>
         /// Ссылка на картинку.
         /// </summary>
-        public string ImageUrl { get; set; }
-
+        public string CardImage { get; set; }
+        
         /// <summary>
         /// Цена продукта.
         /// </summary>
         public decimal Price { get; set; }
+
+        /// <summary>
+        /// Цена продукта после скидки.
+        /// </summary>
+        public decimal DiscountPrice { get; set; }
 
         /// <summary>
         /// Скидка на продукт в %.
@@ -81,9 +91,34 @@ namespace MyTotto.Data.Models
         public ProductType ProductType { get; set; }
 
         /// <summary>
-        /// Строка с массивом ссылок на изображения.
+        /// Картинки для галереи.
         /// </summary>
-        public string ImageUrls { get; set; }
+        public string FullImages { get; set; }
+
+        /// <summary>
+        /// Веса фасовки.
+        /// </summary>
+        public string Weights { get; set; }
+
+        /// <summary>
+        /// Состав.
+        /// </summary>
+        public string Compounds { get; set; }
+
+        /// <summary>
+        /// Описание товара.
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Дополнительная информация.
+        /// </summary>
+        public string AdditionalInfo { get; set; }
+
+        /// <summary>
+        /// Подходящие продукты.
+        /// </summary>
+        public string SuitableProducts { get; set; }
 
         /// <summary>
         /// Признак активного элемента.
