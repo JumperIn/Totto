@@ -11,7 +11,9 @@ var constants = (function() {
 var variables = (function() {
 	function getBannersLengthWrapper() {
 		var elem = document.getElementsByClassName('banners-wrapper')[0];
-		return elem.children.length
+		if (elem) {
+			return elem.children.length;
+		}
 	}
 	var variables = {
 		// переменные для свайпа
