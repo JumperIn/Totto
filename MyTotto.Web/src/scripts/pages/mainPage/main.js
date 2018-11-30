@@ -1,40 +1,23 @@
 'use strict'
 
-import { resizeLayout, resizeMain } from "../../shared/resize/resize";
-// import { scrollNavEvent, dropDownNav } from "../../shared/navigation/scrollNav";
-import { dropDownMenu, dropDownListEvent, dropDownItemEvent, toCenterDropMenu } from "../../shared/navigation/navAdaptive";
+import { resizeMain } from "../../shared/resize/resizeMain";
 import { moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut } from "./modules/banner/banner";
 import { setClasses } from "./modules/products/mainNavAnimation";
 import { moveCarouselEvent, getNumNewProductDisp, getNumPromoProductDisp } from "./modules/products/carousel";
 import { toggleProductsEventItems } from "./modules/products/productToggle";
-import { adaptFooter, dropDownFooterItems } from "../../shared/footer/footer";
 import { hidePopupEvent, showPopupEvent, resetClick } from "../../shared/popup/popup";
 import { swipeEvent } from "../../shared/swipe/swipe";
 
 //Адаптивность сайта
 
-resizeLayout();
 resizeMain();
-
-//scroll-navigation
-
-// scrollNavEvent();
-// dropDownNav();
-
-//Адаптивность навигации
-
-dropDownMenu();
-dropDownListEvent();
-dropDownItemEvent();
-
-toCenterDropMenu();
 
 //слайдер баннера
 
 moveBannerRightEvent();
 moveBannerLeftEvent();
-// slideBannerTimer();
-// moveBannerMouseOut();
+slideBannerTimer();
+moveBannerMouseOut();
 
 //переключатель продуктов
 
@@ -65,21 +48,10 @@ resetClick();
 // popaps
 
 hidePopupEvent('js-modal-basket-close', 'js-modal-basket');
-hidePopupEvent('js-modal-callback-close', 'js-modal-callback');
-
 showPopupEvent('js-product-basket-modal', 'js-modal-basket');
-showPopupEvent('js-modal-phone', 'js-modal-callback');
-
-//Адаптация футера
-
-adaptFooter();
-dropDownFooterItems();
 
 // Свайп
 
 swipeEvent('discounts__wrapper', 0);
 swipeEvent('new-products__wrapper', 1);
 swipeEvent('banners-wrapper');
-
-// export { moveCarouselLeftEvent };
-// Таким образом можно выносить объекты в глобальную область видимости
