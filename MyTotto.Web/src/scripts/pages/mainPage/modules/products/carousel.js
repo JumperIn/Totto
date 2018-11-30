@@ -5,7 +5,7 @@ function returnCarouselBack(classWrapper) {
 	elem.style.transform = 'translateX(0px)';
 }
 
-function getNumNewProductDisp(i) {
+function getNumNewProductDisp(i = 1) {
 	if (window.innerWidth > 0) { variables.numProductsDisp[i] = 1; };
 	if (window.innerWidth >= constants.SCREEN_SMALL) { variables.numProductsDisp[i] = 2; };
 	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numProductsDisp[i] = 3; };
@@ -13,7 +13,7 @@ function getNumNewProductDisp(i) {
 	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numProductsDisp[i] = 4; };
 }
 
-function getNumPromoProductDisp(i) {
+function getNumPromoProductDisp(i = 0) {
 	if (window.innerWidth > 0) { variables.numProductsDisp[i] = 1; };
 	if (window.innerWidth >= constants.SCREEN_SMALL) { variables.numProductsDisp[i] = 2; };
 	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numProductsDisp[i] = 2; };

@@ -1,6 +1,6 @@
 'use strict'
 
-import { resize } from "../../shared/resize/resize";
+import { resizeLayout, resizeMain } from "../../shared/resize/resize";
 // import { scrollNavEvent, dropDownNav } from "../../shared/navigation/scrollNav";
 import { dropDownMenu, dropDownListEvent, dropDownItemEvent, toCenterDropMenu } from "../../shared/navigation/navAdaptive";
 import { moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut } from "./modules/banner/banner";
@@ -13,7 +13,8 @@ import { swipeEvent } from "../../shared/swipe/swipe";
 
 //Адаптивность сайта
 
-resize();
+resizeLayout();
+resizeMain();
 
 //scroll-navigation
 
