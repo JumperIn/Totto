@@ -35,3 +35,95 @@
 .o-button-selection__icon
 	size(20px, 20px)
 	color: #fff
+
+.o-sorting-select
+	size(280px, 40px)
+	padding-left: 20px
+	border-radius: 20px
+	border: solid 1px stroke-color
+	font(14px, 100, #4e4e4e)
+	-webkit-appearance: none
+	-moz-appearance: none
+	appearance: none
+	cursor: pointer
+
+.o-sorting-select-icon
+	position: absolute
+	top: 5px
+	right: 5px
+	size(30px, 30px)
+	color: main-color
+	transition: color 200ms ease-in-out
+	pointer-events: none;
+
+.o-sorting-select:hover ~ .o-sorting-select-icon
+	color: secondary-color
+
+.o-sorting-select:focus
+	border-bottom-left-radius: 0
+	border-bottom-right-radius: 0
+
+.o-sorting-select-wrapper
+	position: relative
+
+.o-sorting-option
+	font(14px, 100, #4e4e4e)
+
+
+.o-sorting-option:hover
+	background-color: #E9E7A1
+
+.o-pagination
+	flex()
+
+.o-pagination__page
+	flex(, center, center)
+	size(40px, 40px)
+	margin-right: -1px
+	border: solid 1px stroke-color
+	cursor: pointer
+	background-color: #fff
+
+.o-pagination__page:hover
+	background-color: #f3f3f3
+	color: gray-dark-color
+
+.o-pagination__page_first
+	border-radius: 20px 0 0 20px
+
+.o-pagination__page_last
+	border-radius: 0 20px 20px 0
+
+.o-pagination__page_first
+.o-pagination__page_last
+.o-pagination__page_previous
+.o-pagination__page_next
+	color: main-color
+
+.o-pagination__page_first:hover
+.o-pagination__page_last:hover
+.o-pagination__page_previous:hover
+.o-pagination__page_next:hover
+	background-color: #fff
+	color: secondary-color
+
+.o-pagination__page_num
+	font(14px, 100)
+
+.o-pagination__page_disabled
+.o-pagination__page_disabled:hover
+	color: stroke-color
+	background-color: #f3f3f3
+
+.o-pagination__page_active
+	border: none
+	background-color: main-color
+	color: #fff
+
+.o-pagination__page_active:hover
+	background-color: secondary-color
+	color: #fff
+
+.o-pagination__page-icon
+	size(10px, 10px)
+	color: inherit

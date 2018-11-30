@@ -1,3 +1,7 @@
+.catalog
+	flex(column, center, center)
+	width: 100%
+
 .catalog__nav
 	flex(, space-between)
 	padding: 20px 0 50px
@@ -11,6 +15,11 @@
 .breadcrumbs-wrapper
 	flex(, space-between)
 
+.catalog__num-product-dysplay
+.catalog__num-product-dysplay-text
+.breadcrumbs__item
+	font(14px, 100, #464647)
+
 .breadcrumbs > *::before
 	content: '/'
 	display: inline-block
@@ -19,5 +28,45 @@
 .breadcrumbs > :first-child::before
 	content: none
 
-// .catalog__num-product-dysplay
-	
+.catalog__num-product-dysplay-wrapper
+	flex()
+	padding-bottom: 30px
+
+.catalog__num-product-dysplay-text
+	padding-right: 10px
+
+.catalog__num-product-dysplay_m::before
+.catalog__num-product-dysplay_l::before
+	content: '/'
+	display: inline-block
+	padding: 0 5px
+
+.catalog__num-product-dysplay:hover
+	color: secondary-color
+
+.catalog__title-wrapper
+	flex(, space-between)
+	padding-bottom: 60px
+
+.catalog__title
+	font(24px, 500)
+	text-transform: uppercase
+
+.catalog__products-counts
+	font(15px, 500)
+	text-transform: uppercase
+
+.catalog__sorting-wrapper
+	flex(, space-between)
+	padding-bottom: 40px
+
+.catalog__sorting
+	flex()
+
+.catalog__sorting-text
+	flex(, center, center)
+	padding-right: 10px
+	font(10px, 100)
+
+
+
