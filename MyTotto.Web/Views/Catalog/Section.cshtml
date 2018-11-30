@@ -6,14 +6,36 @@
 }
 
 
+<div class="catalog">
+	<div class="catalog__nav cover">
+		<a href="" class="o-button o-button-back">
+			<p class="o-button-back__text">назад</p>
+			<svg class="o-button-back__icon">
+				<use xlink:href="#icon-arrow-back"></use>
+			</svg>
+		</a>
+		<a href="" class="catalog__selection o-button o-button_main">
+			<svg class="o-button-selection__icon">
+				<use xlink:href="#icon-menu"></use>
+			</svg>
+			<p class="o-button-selection__text">расширенный подбор</p>
+		</a>
+	</div>
+	<div class="breadcrumbs-wrapper">
+		<div class="breadcrumbs">
+			@foreach (var breadcrumb in Model.Breadcrumbs)
+			{
+				<a href="@breadcrumb.Link" class="breadcrumbs__item breadcrumb">@breadcrumb.Title</a>
+			}
+		</div>
+		<div class="catalog__num-product-dysplay">
+			
+		</div>
 
+	</div>
 
-<div class="breadcrumbs">
-    @foreach (var breadcrumb in Model.Breadcrumbs)
-    {
-        <a href="@breadcrumb.Link" class="breadcrumbs__item breadcrumb">@breadcrumb.Title</a>
-    }
 </div>
+
 
 
 
