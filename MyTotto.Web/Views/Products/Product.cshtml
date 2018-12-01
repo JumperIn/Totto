@@ -5,4 +5,52 @@
     ViewBag.Navigation = Model.Navigation;
 }
 
-<div> PRODUCT PAGE </div>
+<div class="product-info">
+	<div class="product-info__nav cover">
+		<a href="" class="o-button o-button-back">
+			<p class="o-button-back__text">назад</p>
+			<svg class="o-button-back__icon">
+				<use xlink:href="#icon-arrow-back"></use>
+			</svg>
+		</a>
+		<a href="" class="o-button o-button_main">
+			<svg class="o-button-selection__icon">
+				<use xlink:href="#icon-menu"></use>
+			</svg>
+			<p class="o-button-selection__text">расширенный подбор</p>
+		</a>
+	</div>
+	<div class="breadcrumbs-wrapper cover">
+		<div class="breadcrumbs">
+			@foreach (var breadcrumb in Model.Breadcrumbs)
+			{
+				<a href="@breadcrumb.Link" class="breadcrumbs__item breadcrumb">@breadcrumb.Title</a>
+			}
+		</div>
+		<div class="o-favorites-button o-button">
+			<a class="o-quick-order-button o-button o-button_main">
+				<svg class="o-quick-order-button__icon-basket">
+					<use xlink:href="#icon-basket"></use>
+				</svg>
+				<p class="o-quick-order-button__text">быстрый заказ сейчас</p>
+			</a>
+			<svg class="o-favorites-button__icon-heart">
+				<use xlink:href="#icon-heart-3"></use>
+			</svg>
+		</div>
+	</div>
+
+
+
+
+	<div class="o-delivery-wrapper cover">
+		<p class="o-delivery">
+			Доставка покупок выполняется в течение 2 рабочих дней. 
+			Если на момент оформления заказа выбранный клиентом товар отсутствует на центральном складе, 
+			то его передача в курьерскую службу откладывается на тот срок, который необходим для поступления 
+			продукции на склад. Доставка товаров осуществляется с 09:00 до 18:00 по рабочим дням и с 11:00 до 
+			17:00 в субботу. Оформляя заказ на сайте компании, Вы можете выбрать удобный для Вас период доставки 
+			– 09:00−14:00 или 14:00−18:00.
+		</p>
+	</div>
+</div>
