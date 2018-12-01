@@ -1,0 +1,127 @@
+.catalog
+	flex(column, center, center)
+	width: 100%
+
+.catalog__nav
+	flex(, space-between)
+	padding: 20px 0 50px
+
+.catalog__back-button
+	flex(, center, center)
+	border: solid 1px stroke-color
+	color: gray-dark-color
+
+
+.breadcrumbs-wrapper
+	flex(, space-between)
+
+.catalog__num-product-dysplay
+.catalog__num-product-dysplay-text
+.breadcrumbs__item
+	font(14px, 100, #464647)
+
+.breadcrumbs > *::before
+	content: '/'
+	display: inline-block
+	padding: 0 10px
+
+.breadcrumbs > :first-child::before
+	content: none
+
+.catalog__num-product-dysplay-wrapper
+	flex()
+	padding-bottom: 30px
+
+.catalog__num-product-dysplay-text
+	padding-right: 10px
+
+.catalog__num-product-dysplay_m::before
+.catalog__num-product-dysplay_l::before
+	content: '/'
+	display: inline-block
+	padding: 0 5px
+
+.catalog__num-product-dysplay:hover
+	color: secondary-color
+
+.catalog__title-wrapper
+	flex(, space-between)
+	padding-bottom: 60px
+
+.catalog__title
+	font(24px, 500)
+	text-transform: uppercase
+
+.catalog__products-counts
+	font(15px, 500)
+	text-transform: uppercase
+
+.catalog__sorting-wrapper
+	flex(, space-between)
+	padding-bottom: 40px
+
+.catalog__sorting
+	flex()
+
+.catalog__sorting-text
+	flex(, center, center)
+	padding-right: 10px
+	font(10px, 100)
+
+.catalog__body
+	flex()
+
+.catalog__products
+	flex()
+	flex-wrap: wrap
+
+.catalog__info-wrapper
+	padding: 60px 0
+
+.catalog__info
+	font(14px, 100, #464647)
+
+.catalog__sidebar
+	flex(column)
+	padding: 0 15px
+
+.catalog__categories
+	flex(column)
+
+.catalog__categories_selected
+	border-bottom: solid 1px stroke-color
+
+.catalog__categories-title-wrapper
+	flex(, space-between)
+	padding: 15px 0
+	border-bottom: solid 1px stroke-color
+
+.catalog__categories-title
+	font(16px, 500)
+	text-transform: uppercase
+
+.catalog__categories-clear
+	font(14px, 100, #464647)
+
+.catalog__categories-list
+	padding-bottom: 12px
+	max-height: 270px
+	overflow-y: auto
+
+.catalog__categories-list::-webkit-scrollbar
+	background-color: #f4f4f4
+
+.catalog__categories-list::-webkit-scrollbar-thumb
+	background-color: main-color
+	width: 15px
+
+.catalog__categories-item
+	font(14px, 100, #464647)
+	padding-top: 12px
+
+.catalog__categories-item-label
+	flex()
+
+.catalog__categories-item-text
+	font(14px, 100, #464647)
+	padding-left: 35px

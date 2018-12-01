@@ -19,7 +19,6 @@
                                 </svg>
                                 <p class="main-nav__selection_text">Расширенный подбор</p>
                             </a>
-
                         </div>
                     </nav>
                 </div>
@@ -27,25 +26,33 @@
 					<div class="products cover row js-products_all hidden">
 						@foreach (var product in Model.AllProducts)
 						{
-							@await Html.PartialAsync("_ProductCard", product)
+							<div class="products__item col-12 col-sm-12 col-md-12 col-lg-12 col-xl-3">
+								@await Html.PartialAsync("_ProductCard", product)
+							</div>
 						}
 					</div>
                     <div class="products cover row js-products_new">
                         @foreach (var product in Model.NewProducts)
                         {
-                            @await Html.PartialAsync("_ProductCard", product)
+							<div class="products__item col-12 col-sm-12 col-md-12 col-lg-12 col-xl-3">
+                            	@await Html.PartialAsync("_ProductCard", product)
+							</div>
                         }
                     </div>
                     <div class="products cover row js-products_hit hidden">
                         @foreach (var product in Model.HitProducts)
                         {
-                            @await Html.PartialAsync("_ProductCard", product)
+							<div class="products__item col-12 col-sm-12 col-md-12 col-lg-12 col-xl-3">
+                            	@await Html.PartialAsync("_ProductCard", product)
+							</div>
                         }
                     </div>
                     <div class="products cover row js-products_discount hidden">
                         @foreach (var product in Model.DiscountProducts)
                         {
-                            @await Html.PartialAsync("_ProductCard", product)
+							<div class="products__item col-12 col-sm-12 col-md-12 col-lg-12 col-xl-3">
+                            	@await Html.PartialAsync("_ProductCard", product)
+							</div>
                         }
                     </div>
 
