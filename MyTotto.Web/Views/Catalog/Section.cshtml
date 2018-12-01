@@ -91,6 +91,83 @@
 		</ul>
 	</div>
 
+	<div class="catalog__body cover">
+		<div class="catalog__products col-9">
+			@foreach (var product in Model.Products)
+			{
+				<div class="products__item col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4">
+					@await Html.PartialAsync("_ProductCard", product)
+				</div>
+			}
+		</div>
+		<div class="catalog__sidebar col-3">
+			здесь будет сайдбар
+		</div>
+	</div>
+
+	<div class="catalog__sorting-wrapper cover">
+		<div class="catalog__sorting">
+			<p class="catalog__sorting-text">Сортировка</p>
+			<div class="o-sorting-select-wrapper">
+				<select class="catalog__sorting-select o-sorting-select">
+					<option class="catalog__sorting-item o-sorting-option">По умолчанию</option>
+					<option class="catalog__sorting-item o-sorting-option">По возрастанию цены</option>
+					<option class="catalog__sorting-item o-sorting-option">По убыванию цены</option>
+					<option class="catalog__sorting-item o-sorting-option">По возрастанию названия</option>
+					<option class="catalog__sorting-item o-sorting-option">По убыванию названия</option>
+					<option class="catalog__sorting-item o-sorting-option">По новинкам</option>
+				</select>
+				<svg class="o-sorting-select-icon">
+					<use xlink:href="#icon-button-arrow-top-bottom"></use>
+				</svg>
+			</div>
+		</div>
+		<ul class="o-pagination">
+			<li class="o-pagination__page o-pagination__page_first o-pagination__page_disabled">
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-left"></use>
+				</svg>
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-left"></use>
+				</svg>
+			</li>
+			<li class="o-pagination__page o-pagination__page_previous">
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-left"></use>
+				</svg>
+			</li>
+			@for (int i = 0; i < Model.Pagination.Count; i++)
+			{
+				int pageNumber = i + 1;
+				<li class="o-pagination__page o-pagination__page_num o-pagination__page_active">@pageNumber</li>
+			}
+			<li class="o-pagination__page o-pagination__page_next">
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-right"></use>
+				</svg>
+			</li>
+			<li class="o-pagination__page o-pagination__page_last">
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-right"></use>
+				</svg>
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-right"></use>
+				</svg>
+			</li>
+		</ul>
+	</div>
+	<div class="catalog__info-wrapper cover">
+		<p class="catalog__info">
+			Доставка покупок выполняется в течение 2 рабочих дней. 
+			Если на момент оформления заказа выбранный клиентом товар отсутствует на центральном складе, 
+			то его передача в курьерскую службу откладывается на тот срок, который необходим для поступления 
+			продукции на склад. Доставка товаров осуществляется с 09:00 до 18:00 по рабочим дням и с 11:00 до 
+			17:00 в субботу. Оформляя заказ на сайте компании, Вы можете выбрать удобный для Вас период доставки 
+			– 09:00−14:00 или 14:00−18:00.
+		</p>
+	</div>
+
+
 </div>
 
 
