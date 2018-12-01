@@ -127,3 +127,27 @@
 .o-pagination__page-icon
 	size(10px, 10px)
 	color: inherit
+
+.o-input-checkbox
+	display: none
+
+.o-label-checkbox
+	position: relative
+	cursor: pointer
+	padding-left: 35px
+	font(14px, 100, #464647)
+
+.o-label-checkbox::before
+	content: ''
+	position: absolute
+	top: 0
+	left: 0
+	size(15px, 15px)
+	border: solid 1px stroke-color
+
+.o-input-checkbox:hover + .o-label-checkbox::before
+	border: solid 1px main-color
+	
+.o-input-checkbox:checked + .o-label-checkbox::before
+	border: none
+	background-color: main-color
