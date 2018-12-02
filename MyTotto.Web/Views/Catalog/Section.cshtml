@@ -90,7 +90,6 @@
 			</li>
 		</ul>
 	</div>
-
 	<div class="catalog__body cover">
 		<div class="catalog__products col-9">
 			@foreach (var product in Model.Products)
@@ -212,7 +211,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="catalog__sorting-wrapper cover">
 		<div class="catalog__sorting">
 			<p class="catalog__sorting-text">Сортировка</p>
@@ -264,8 +262,8 @@
 			</li>
 		</ul>
 	</div>
-	<div class="catalog__info-wrapper cover">
-		<p class="catalog__info">
+	<div class="o-delivery-wrapper cover">
+		<p class="o-delivery">
 			Доставка покупок выполняется в течение 2 рабочих дней. 
 			Если на момент оформления заказа выбранный клиентом товар отсутствует на центральном складе, 
 			то его передача в курьерскую службу откладывается на тот срок, который необходим для поступления 
@@ -274,40 +272,4 @@
 			– 09:00−14:00 или 14:00−18:00.
 		</p>
 	</div>
-
-
 </div>
-
-
-
-
-
-<!-- <div>Количество товаров: @Model.ProductsCount</div>
-
-<div>Страницы:</div>
-<ul class="pagination">
-    <li class="pagination__page pagination__page_first"><<</li>
-    <li class="pagination__page pagination__page_previous"><</li>
-    @for (int i = 0; i < Model.Pagination.Count; i++)
-    {
-        int pageNumber = i + 1;
-        <li class="pagination__page">@pageNumber</li>
-    }
-    <li class="pagination__page pagination__page_next">></li>
-    <li class="pagination__page pagination__page_last">>></li>
-</ul>
-
-<section class="catalog__products section__products">
-    @foreach (var product in Model.Products)
-    {
-        <a href="@product.Url" class="products__item">
-            <span>@product.Id</span>
-            <span>@product.Title</span>
-            <span>@product.Price</span>
-            <span>@product.DiscountPrice</span>
-            <span>@product.ImageUrl</span>
-            <span>@product.Manufacturer</span>
-            <span>@product.ProductType</span>
-        </a>
-    }
-</section> -->
