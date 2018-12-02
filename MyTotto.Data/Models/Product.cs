@@ -20,15 +20,15 @@ namespace MyTotto.Data.Models
         /// </summary>
         public string Title { get; set; }
 
-        ///// <summary>
-        ///// Идентификатор фирмы-изготовителя.
-        ///// </summary>
-        //public int ManufacturerId { get; set; }
+        /// <summary>
+        /// Идентификатор фирмы-изготовителя.
+        /// </summary>
+        public int ManufacturerId { get; set; }
 
-        ///// <summary>
-        ///// Фирма-изготовитель.
-        ///// </summary>
-        //public Manufacturer Manufacturer { get; set; }
+        /// <summary>
+        /// Фирма-изготовитель.
+        /// </summary>
+        public Manufacturer Manufacturer { get; set; }
 
         /// <summary>
         /// Название на латинице для URL-адреса продукта.

@@ -32,10 +32,10 @@ namespace MyTotto.Data.Configurations
                 .HasForeignKey(x => x.ProductGroupId)
                 .OnDelete(DeleteBehavior.SetNull);
 
-            //builder.HasOne(x => x.ProductSubcategory)
-            //    .WithMany()
-            //    .HasForeignKey(x => x.ProductSubcategoryId)
-            //    .OnDelete(DeleteBehavior.Restrict);
+            builder.HasOne(x => x.Manufacturer);
+                //.WithMany()
+                //.HasForeignKey(x => x.ManufacturerId)
+                //.OnDelete(DeleteBehavior.Restrict);
 
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Created).HasDefaultValue(DateTime.Now);
@@ -45,7 +45,7 @@ namespace MyTotto.Data.Configurations
                {
                    Id = 1,
                    Title = "Несмываемая кератиновая сыворотка для волос СР-1 Keratin Silk Injection, 5мл",
-                   //ManufacturerId = 2,
+                   ManufacturerId = 2,
                    ProductCategoryId = 1,
                    ProductSubcategoryId = 1,
                    ProductGroupId = 1,
@@ -73,7 +73,7 @@ namespace MyTotto.Data.Configurations
                 {
                     Id = 2,
                     Title = "Крем для лица увлажняющий гиалуроновый Aqua Hyaluronic Acid Water Drop Cream, 50 мл",
-                    //ManufacturerId = 1,
+                    ManufacturerId = 1,
                     ProductCategoryId = 1,
                     ProductSubcategoryId = 1,
                     ProductGroupId = 2,
@@ -100,7 +100,7 @@ namespace MyTotto.Data.Configurations
                 {
                     Id = 3,
                     Title = "Кондиц.ополас. на основе малинового уксуса CP-1 Rasberry Treatment Vinegar, 500 мл",
-                    //ManufacturerId = 2,
+                    ManufacturerId = 2,
                     ProductCategoryId = 1,
                     ProductSubcategoryId = 1,
                     ProductGroupId = 3,
@@ -127,7 +127,7 @@ namespace MyTotto.Data.Configurations
                 {
                     Id = 4,
                     Title = "Гидрогелевая маска для лица с жемчугом и маслом Ши Pearl & Shea Butter, 30гр",
-                    //ManufacturerId = 3,
+                    ManufacturerId = 3,
                     ProductCategoryId = 2,
                     ProductSubcategoryId = 1,
                     ProductGroupId = 1,
@@ -154,7 +154,7 @@ namespace MyTotto.Data.Configurations
                 {
                     Id = 5,
                     Title = "Маска тканевая с экстрактом масла ши Natural Shea Butter Mask Sheet, 21мл",
-                    //ManufacturerId = 4,
+                    ManufacturerId = 4,
                     ProductCategoryId = 2,
                     ProductSubcategoryId = 2,
                     ProductGroupId = 1,
@@ -181,7 +181,7 @@ namespace MyTotto.Data.Configurations
                 {
                     Id = 6,
                     Title = "Листовая маска для лица с экстрактом томата My Real Squeeze Mask Tomato",
-                    //ManufacturerId = 5,
+                    ManufacturerId = 5,
                     ProductCategoryId = 2,
                     ProductSubcategoryId = 1,
                     ProductGroupId = 2,
@@ -208,7 +208,7 @@ namespace MyTotto.Data.Configurations
                 {
                     Id = 7,
                     Title = "Патчи гидрогелевые Красное вино Red Wine Hydrogel Eyepatch, 60шт.",
-                    //ManufacturerId = 2,
+                    ManufacturerId = 2,
                     ProductCategoryId = 2,
                     ProductSubcategoryId = 1,
                     ProductGroupId = 2,
@@ -233,7 +233,7 @@ namespace MyTotto.Data.Configurations
                 {
                     Id = 8,
                     Title = "Спрей для волос защитный Super Protein Hair Guard Mist, 105мл",
-                    //ManufacturerId = 6,
+                    ManufacturerId = 6,
                     ProductCategoryId = 1,
                     ProductSubcategoryId = 1,
                     ProductGroupId = 1,
@@ -258,7 +258,7 @@ namespace MyTotto.Data.Configurations
                 {
                     Id = 9,
                     Title = "Маска для лица глиняно-пузырьковая Carbonated Bubble Clay Mask, 100гр",
-                    //ManufacturerId = 1,
+                    ManufacturerId = 1,
                     ProductCategoryId = 1,
                     ProductSubcategoryId = 1,
                     ProductGroupId = 1,
@@ -283,7 +283,7 @@ namespace MyTotto.Data.Configurations
                 {
                     Id = 10,
                     Title = "Протеиновый кондиционер д/волос CP-1 BС Intense Nourishing Conditioner, 100 мл",
-                    //ManufacturerId = 2,
+                    ManufacturerId = 2,
                     ProductCategoryId = 1,
                     ProductSubcategoryId = 1,
                     ProductGroupId = 1,
@@ -308,7 +308,7 @@ namespace MyTotto.Data.Configurations
                 {
                     Id = 11,
                     Title = "Тканевая маска с натуральным экстрактом граната Visible Difference Pomegranate Mask, 23мл",
-                    //ManufacturerId = 7,
+                    ManufacturerId = 7,
                     ProductCategoryId = 1,
                     ProductSubcategoryId = 1,
                     ProductGroupId = 1,
