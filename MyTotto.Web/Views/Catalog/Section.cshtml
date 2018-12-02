@@ -6,40 +6,270 @@
 }
 
 
-<div class="breadcrumbs">
-    @foreach (var breadcrumb in Model.Breadcrumbs)
-    {
-        <a href="@breadcrumb.Link" class="breadcrumbs__item breadcrumb">@breadcrumb.Title</a>
-    }
+<div class="catalog">
+	<div class="catalog__nav cover">
+		<a href="" class="o-button o-button-back">
+			<p class="o-button-back__text">назад</p>
+			<svg class="o-button-back__icon">
+				<use xlink:href="#icon-arrow-back"></use>
+			</svg>
+		</a>
+		<a href="" class="catalog__selection o-button o-button_main">
+			<svg class="o-button-selection__icon">
+				<use xlink:href="#icon-menu"></use>
+			</svg>
+			<p class="o-button-selection__text">расширенный подбор</p>
+		</a>
+	</div>
+	<div class="breadcrumbs-wrapper cover">
+		<div class="breadcrumbs">
+			@foreach (var breadcrumb in Model.Breadcrumbs)
+			{
+				<a href="@breadcrumb.Link" class="breadcrumbs__item breadcrumb">@breadcrumb.Title</a>
+			}
+		</div>
+		<div class="catalog__num-product-dysplay-wrapper">
+			<p class="catalog__num-product-dysplay-text">Отображать по:</p>
+			<a href="" class="catalog__num-product-dysplay catalog__num-product-dysplay_s">12</a>
+			<a href="" class="catalog__num-product-dysplay catalog__num-product-dysplay_m">24</a>
+			<a href="" class="catalog__num-product-dysplay catalog__num-product-dysplay_l">36</a>
+		</div>
+	</div>
+	<div class="catalog__title-wrapper cover">
+		<h3 class="catalog__title">Кремы для лица</h3>
+		<p class="catalog__products-counts">@Model.ProductsCount предметов</p>
+	</div>
+	<div class="catalog__sorting-wrapper cover">
+		<div class="catalog__sorting">
+			<p class="catalog__sorting-text">Сортировка</p>
+			<div class="o-sorting-select-wrapper">
+				<select class="catalog__sorting-select o-sorting-select">
+					<option class="catalog__sorting-item o-sorting-option">По умолчанию</option>
+					<option class="catalog__sorting-item o-sorting-option">По возрастанию цены</option>
+					<option class="catalog__sorting-item o-sorting-option">По убыванию цены</option>
+					<option class="catalog__sorting-item o-sorting-option">По возрастанию названия</option>
+					<option class="catalog__sorting-item o-sorting-option">По убыванию названия</option>
+					<option class="catalog__sorting-item o-sorting-option">По новинкам</option>
+				</select>
+				<svg class="o-sorting-select-icon">
+					<use xlink:href="#icon-button-arrow-top-bottom"></use>
+				</svg>
+			</div>
+		</div>
+		<ul class="o-pagination">
+			<li class="o-pagination__page o-pagination__page_first o-pagination__page_disabled">
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-left"></use>
+				</svg>
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-left"></use>
+				</svg>
+			</li>
+			<li class="o-pagination__page o-pagination__page_previous">
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-left"></use>
+				</svg>
+			</li>
+			@for (int i = 0; i < Model.Pagination.Count; i++)
+			{
+				int pageNumber = i + 1;
+				<li class="o-pagination__page o-pagination__page_num o-pagination__page_active">@pageNumber</li>
+			}
+			<li class="o-pagination__page o-pagination__page_next">
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-right"></use>
+				</svg>
+			</li>
+			<li class="o-pagination__page o-pagination__page_last">
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-right"></use>
+				</svg>
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-right"></use>
+				</svg>
+			</li>
+		</ul>
+	</div>
+	<div class="catalog__body cover">
+		<div class="catalog__products col-9">
+			@foreach (var product in Model.Products)
+			{
+				<div class="products__item col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4">
+					@await Html.PartialAsync("_ProductCard", product)
+				</div>
+			}
+		</div>
+		<div class="catalog__sidebar col-3">
+			<div class="catalog__categories catalog__categories_selected">
+				<div class="catalog__categories-title-wrapper">
+					<h3 class="catalog__categories-title">Выбрано</h3>
+					<button class="catalog__categories-clear">Очистить</button>
+				</div>
+				<ul class="catalog__categories-list">
+					<li class="catalog__categories-item">категории: Антивозрастные</li>
+				</ul>
+			</div>
+			<div class="catalog__categories catalog__categories_selected">
+				<div class="catalog__categories-title-wrapper">
+					<h3 class="catalog__categories-title">Категории</h3>
+				</div>
+				<ul class="catalog__categories-list">
+					<li class="catalog__categories-item">
+						<input id="001" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="001" class="o-label-checkbox catalog__categories-item-label">Уалажняющие</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="002" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="002" class="o-label-checkbox catalog__categories-item-label">Питательные</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="003" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="003" class="o-label-checkbox catalog__categories-item-label">Натуральные</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="004" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="004" class="o-label-checkbox catalog__categories-item-label">Уалажняющие</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="005" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="005" class="o-label-checkbox catalog__categories-item-label">Питательные</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="006" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="006" class="o-label-checkbox catalog__categories-item-label">Натуральные</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="007" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="007" class="o-label-checkbox catalog__categories-item-label">Уалажняющие</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="008" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="008" class="o-label-checkbox catalog__categories-item-label">Питательные</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="009" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="009" class="o-label-checkbox catalog__categories-item-label">Натуральные</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="010" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="010" class="o-label-checkbox catalog__categories-item-label">Уалажняющие</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="011" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="011" class="o-label-checkbox catalog__categories-item-label">Питательные</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="012" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="012" class="o-label-checkbox catalog__categories-item-label">Натуральные</label>
+					</li>
+				</ul>
+			</div>
+			<div class="catalog__categories catalog__categories_selected">
+				<div class="catalog__categories-title-wrapper">
+					<h3 class="catalog__categories-title">Цена</h3>
+				</div>
+				<ul class="catalog__categories-list">
+					<li class="catalog__categories-item">
+						<input id="015" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="015" class="o-label-checkbox catalog__categories-item-label">100р-500р</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="016" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="016" class="o-label-checkbox catalog__categories-item-label">500р-1000р</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="017" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="017" class="o-label-checkbox catalog__categories-item-label">1000р-2000р</label>
+					</li>
+				</ul>
+			</div>
+			<div class="catalog__categories catalog__categories_selected">
+				<div class="catalog__categories-title-wrapper">
+					<h3 class="catalog__categories-title">Производитель</h3>
+				</div>
+				<ul class="catalog__categories-list">
+					<li class="catalog__categories-item">
+						<input id="020" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="020" class="o-label-checkbox catalog__categories-item-label">A.D.K.</label>
+					</li>
+					<li class="catalog__categories-item">
+						<input id="021" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="021" class="o-label-checkbox catalog__categories-item-label">A.Fabretti</label>
+					</li>
+				</ul>
+			</div>
+			<div class="catalog__categories catalog__categories_selected">
+				<div class="catalog__categories-title-wrapper">
+					<h3 class="catalog__categories-title">Скидка</h3>
+				</div>
+				<ul class="catalog__categories-list">
+					<li class="catalog__categories-item">
+						<input id="030" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+						<label for="030" class="o-label-checkbox catalog__categories-item-label">20%</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="catalog__sorting-wrapper cover">
+		<div class="catalog__sorting">
+			<p class="catalog__sorting-text">Сортировка</p>
+			<div class="o-sorting-select-wrapper">
+				<select class="catalog__sorting-select o-sorting-select">
+					<option class="catalog__sorting-item o-sorting-option">По умолчанию</option>
+					<option class="catalog__sorting-item o-sorting-option">По возрастанию цены</option>
+					<option class="catalog__sorting-item o-sorting-option">По убыванию цены</option>
+					<option class="catalog__sorting-item o-sorting-option">По возрастанию названия</option>
+					<option class="catalog__sorting-item o-sorting-option">По убыванию названия</option>
+					<option class="catalog__sorting-item o-sorting-option">По новинкам</option>
+				</select>
+				<svg class="o-sorting-select-icon">
+					<use xlink:href="#icon-button-arrow-top-bottom"></use>
+				</svg>
+			</div>
+		</div>
+		<ul class="o-pagination">
+			<li class="o-pagination__page o-pagination__page_first o-pagination__page_disabled">
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-left"></use>
+				</svg>
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-left"></use>
+				</svg>
+			</li>
+			<li class="o-pagination__page o-pagination__page_previous">
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-left"></use>
+				</svg>
+			</li>
+			@for (int i = 0; i < Model.Pagination.Count; i++)
+			{
+				int pageNumber = i + 1;
+				<li class="o-pagination__page o-pagination__page_num o-pagination__page_active">@pageNumber</li>
+			}
+			<li class="o-pagination__page o-pagination__page_next">
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-right"></use>
+				</svg>
+			</li>
+			<li class="o-pagination__page o-pagination__page_last">
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-right"></use>
+				</svg>
+				<svg class="o-pagination__page-icon">
+					<use xlink:href="#icon-arrow-right"></use>
+				</svg>
+			</li>
+		</ul>
+	</div>
+	<div class="o-delivery-wrapper cover">
+		<p class="o-delivery">
+			Доставка покупок выполняется в течение 2 рабочих дней. 
+			Если на момент оформления заказа выбранный клиентом товар отсутствует на центральном складе, 
+			то его передача в курьерскую службу откладывается на тот срок, который необходим для поступления 
+			продукции на склад. Доставка товаров осуществляется с 09:00 до 18:00 по рабочим дням и с 11:00 до 
+			17:00 в субботу. Оформляя заказ на сайте компании, Вы можете выбрать удобный для Вас период доставки 
+			– 09:00−14:00 или 14:00−18:00.
+		</p>
+	</div>
 </div>
-
-
-<div>Количество товаров: @Model.ProductsCount</div>
-
-<div>Страницы:</div>
-<ul class="pagination">
-    <li class="pagination__page pagination__page_first"><<</li>
-    <li class="pagination__page pagination__page_previous"><</li>
-    @for (int i = 0; i < Model.Pagination.Count; i++)
-    {
-        int pageNumber = i + 1;
-        <li class="pagination__page">@pageNumber</li>
-    }
-    <li class="pagination__page pagination__page_next">></li>
-    <li class="pagination__page pagination__page_last">>></li>
-</ul>
-
-<section class="catalog__products section__products">
-    @foreach (var product in Model.Products)
-    {
-        <a href="@product.Url" class="products__item">
-            <span>@product.Id</span>
-            <span>@product.Title</span>
-            <span>@product.Price</span>
-            <span>@product.DiscountPrice</span>
-            <span>@product.CardImage</span>
-            <span>@product.Manufacturer</span>
-            <span>@product.ProductType</span>
-        </a>
-    }
-</section>
