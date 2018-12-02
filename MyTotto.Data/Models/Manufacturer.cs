@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace MyTotto.Web.Models
+namespace MyTotto.Data.Models
 {
     /// <summary>
-    /// Модель представления производителя.
+    /// Модель производителя.
     /// </summary>
     public class Manufacturer
     {
@@ -22,7 +21,13 @@ namespace MyTotto.Web.Models
 
         /// <summary>
         /// Значение в URL.
+        /// URL-значение для параметров.
         /// </summary>
         public string Url { get; set; }
+
+        ///// <summary>
+        ///// Продукты, принадлежащие производителю.
+        ///// </summary>
+        //public List<Product> Products { get; set; }
     }
 }

@@ -34,7 +34,7 @@ namespace MyTotto.Web.Models
         /// <summary>
         /// Ссылка на картинку.
         /// </summary>
-        public string ImageUrl { get; set; }
+        public string CardImage { get; set; }
 
         /// <summary>
         /// Цена продукта.
@@ -65,9 +65,9 @@ namespace MyTotto.Web.Models
         {
             Id = product.Id;
             Title = product.Title;
-            Manufacturer = product.Manufacturer;
+            Manufacturer = "";
             Url = SetUrl(product.Id, product.TitleUrl);
-            ImageUrl = product.ImageUrl;
+            CardImage = product.CardImage;
             Price = product.GetPrice();
             DiscountPrice = product.GetDiscountPrice();
             ProductType = product.ProductType;

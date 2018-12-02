@@ -31,6 +31,7 @@ namespace MyTotto.Data.Repositories
                 //.Include(p => p.ProductCategory)
                 //.Include(p => p.ProductSubcategory)
                 //.Include(p => p.ProductGroup)
+                .Include(p => p.Manufacturer)
                 .Where(p => p.IsActive)
                 .ToList();
 
@@ -45,7 +46,8 @@ namespace MyTotto.Data.Repositories
         /// <param name="groupId">Идентификатор группы.</param>
         public List<Product> GetProducts(int categoryId, int subcategoryId, int groupId)
         {
-            IEnumerable<Product> products = context.Products;
+            IEnumerable<Product> products = context.Products
+                .Include(p => p.Manufacturer);
 
             if (categoryId != 0)
             {
