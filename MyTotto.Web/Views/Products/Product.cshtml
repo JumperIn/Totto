@@ -39,9 +39,120 @@
 			</svg>
 		</div>
 	</div>
-
-
-
+	<div class="product-info__body cover">
+		<div class="product-info__left-side-wrapper col-6">
+			<div class="product-info__main-img" style="background-image: url(@Model.Product.ImageUrl)" alt="@Model.Product.Title"></div>
+			<div class="product-info__sub-images-wrapper">
+				<div class="product-info__sub-img-wrapper product-info__sub-img-wrapper_padding-right-20 col-4">
+					<div class="product-info__sub-img" style="background-image: url(@Model.Product.ImageUrl)" alt="@Model.Product.Title"></div>
+				</div>
+				<div class="product-info__sub-img-wrapper product-info__sub-img-wrapper_padding-side-10 col-4">
+					<div class="product-info__sub-img" style="background-image: url(@Model.Product.ImageUrl)" alt="@Model.Product.Title"></div>
+				</div>
+				<div class="product-info__sub-img-wrapper product-info__sub-img-wrapper_padding-left-20 col-4">
+					<div class="product-info__sub-img" style="background-image: url(@Model.Product.ImageUrl)" alt="@Model.Product.Title"></div>
+				</div>
+			</div>
+			<div class="product-info__second-info-wrapper">
+				<h3 class="product-info__second-info-title">Дополнительная информация</h3>
+				<p class="product-info__second-info-text">
+					В плодах содержатся до 3,5% сахарозы, органические кислоты (уксусная). 4.6% белков, клетчатка, 
+					48-76% жирного масла, состоящего на 80% из ненасыщенных кислот, токоферолы, высшие жирные кислоты, 
+					антоцианы. Ядра косточек питательны и вкусны, их потребляют свежими, поджаренными и солеными, используют 
+					в кондитерском, колбасном производстве, а также при изготовлении сыра. Из ядер извлекают ценное пищевое 
+					масло, которое применяется в кулинарии и кондитерском деле.
+				</p>
+			</div>
+		</div>
+		<div class="product-info__right-side-wrapper col-6">
+			<p class="product-info__article">Артикул: 000047</p>
+			<h3 class="product-info__title">@Model.Product.Title</h3>
+			<div class="product-info__actions">
+				<div class="product-info__actions-row">
+					<div class="product-info__price col-4">@Model.Product.Price Р</div>
+					<div class="col-4">
+						<button class="product-info__basket-button o-button o-button_main">В корзину</button>
+					</div>
+					<div class="product-info__bonus col-4">Начисляемые бонусы: 330</div>
+				</div>
+				<div class="product-info__actions-row">
+					<div class="product-info__quantity col-4">Количество</div>
+					<div class="product-info__quantity-count col-4">
+						<button class="product-info__quantity-minus">
+							<svg class="product-info__quantity-icon">
+								<use xlink:href="#icon-arrow-left"></use>
+							</svg>
+						</button>
+						<input class="product-info__quantity-input" type="number">
+						<button class="product-info__quantity-plus">
+							<svg class="product-info__quantity-icon">
+								<use xlink:href="#icon-arrow-right"></use>
+							</svg>
+						</button>
+					</div>
+				</div>
+			</div>
+			<h3 class="product-info__options-title">ИНФОРМАЦИЯ О ТОВАРЕ</h3>
+			<div class="product-info__options">
+				<div class="product-info__options-row">
+					<div class="product-info__options-key col-4">Производитель</div>
+					<div class="product-info__options-value col-4">Джаз (Россия)</div>
+				</div>
+				<div class="product-info__options-row">
+					<div class="product-info__options-key col-4">Состав</div>
+					<div class="product-info__options-value col-8">
+						Ядро фисташки очищенное, Семена подсолнечника ,
+						Льняное семя, Семена кунжута, Мед, Грецкий орех,
+						Ядро фисташки очищенное, Семена подсолнечника ,
+						Льняное семя, Семена кунжута, Мед, Грецкий орех,
+					</div>
+				</div>
+			</div>
+			<div class="product-info__social-network">
+				<div class="product-info__like">
+					<p class="product-info__like-text">Нравится продукт?</p>
+					<svg class="product-info__like-icon">
+						<use xlink:href="#icon-like"></use>
+					</svg>
+				</div>
+				<div class="product-info__social-network-icons-wrapper">
+					<div class="product-info__social-network-icon-wrapper">
+						<svg class="product-info__social-network-icon">
+							<use xlink:href="#icon-ok"></use>
+						</svg>
+					</div>
+					<div class="product-info__social-network-icon-wrapper">
+						<svg class="product-info__social-network-icon">
+							<use xlink:href="#icon-fb"></use>
+						</svg>
+					</div>
+					<div class="product-info__social-network-icon-wrapper">
+						<svg class="product-info__social-network-icon">
+							<use xlink:href="#icon-vk"></use>
+						</svg>
+					</div>
+					<div class="product-info__social-network-icon-wrapper">
+						<svg class="product-info__social-network-icon">
+							<use xlink:href="#icon-tw"></use>
+						</svg>
+					</div>
+				</div>
+			</div>
+			<h3 class="product-info__description-title">Описание товара</h3>
+			<div class="product-info__description">
+				В плодах содержатся до 3,5% сахарозы, органические кислоты (уксусная). 4.6% белков, клетчатка, 
+				48-76% жирного масла, состоящего на 80% из ненасыщенных кислот, токоферолы, высшие жирные кислоты, 
+				антоцианы. Ядра косточек питательны и вкусны, их потребляют свежими, поджаренными и солеными, используют 
+				в кондитерском, колбасном производстве, а также при изготовлении сыра. Из ядер извлекают ценное пищевое 
+				масло, которое применяется в кулинарии и кондитерском деле.
+				Дерево жизни - так называют фисташку на Востоке. Фисташка полезна для мозга и сердца, кроме того, 
+				фисташки богаты кальцием, железом и цинком, что позволяет использовать их для профилактики заболеваний печени 
+				и желудка. Они оказывают тонизирующее и бодрящее действие. В плодах содержатся до 3,5% сахарозы, органические 
+				кислоты (уксусная). 4.6% белков, клетчатка, 48-76% жирного масла, состоящего на 80% из ненасыщенных кислот, 
+				токоферолы, высшие жирные кислоты, антоцианы.
+			</div>
+		</div>
+	</div>
 
 	<div class="o-delivery-wrapper cover">
 		<p class="o-delivery">
