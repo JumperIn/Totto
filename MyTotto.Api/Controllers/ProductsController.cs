@@ -99,12 +99,12 @@ namespace MyTotto.Api.Controllers
                 .Where(x =>
                     x.Price >= minPrice && x.Price <= maxPrice);
 
-            // 2.3 Если есть производитель - выбрать по нему
-            if (!string.IsNullOrEmpty(manufacturer))
-            {
-                filteredProducts = filteredProducts
-                    .Where(x => string.Equals(x.Manufacturer, manufacturer, StringComparison.InvariantCultureIgnoreCase));
-            }
+            //// 2.3 Если есть производитель - выбрать по нему
+            //if (!string.IsNullOrEmpty(manufacturer))
+            //{
+            //    filteredProducts = filteredProducts
+            //        .Where(x => string.Equals(x.Manufacturer, manufacturer, StringComparison.InvariantCultureIgnoreCase));
+            //}
 
             // 3. Отсортировать по типу сортировки
             switch (sorting)
