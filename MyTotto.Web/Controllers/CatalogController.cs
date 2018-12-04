@@ -10,6 +10,7 @@ using MyTotto.Data;
 using MyTotto.Data.Abstract;
 using MyTotto.Data.Enums;
 using MyTotto.Data.Models;
+using MyTotto.Data.Models.Comparers;
 using MyTotto.Data.Models.Layout;
 using MyTotto.Web.Abstract;
 using MyTotto.Web.Models;
@@ -120,14 +121,14 @@ namespace MyTotto.Web.Controllers
             // 2.2 Выбрать по цене
             filteredProducts = filteredProducts
                 .Where(x =>
-                    x.Price >= minPrice && x.Price <= maxPrice);
+                    x.DiscountPrice >= minPrice && x.DiscountPrice <= maxPrice);
 
-            //// 2.3 Если есть производитель - выбрать по нему
-            //if (!string.IsNullOrEmpty(manufacturer))
-            //{
-            //    filteredProducts = filteredProducts
-            //        .Where(x => string.Equals(x.Manufacturer, manufacturer, StringComparison.InvariantCultureIgnoreCase));
-            //}
+            // 2.3 Если есть производитель - выбрать по нему
+            if (!string.IsNullOrEmpty(manufacturer))
+            {
+                filteredProducts = filteredProducts
+                    .Where(x => string.Equals(x.Manufacturer.Title, manufacturer, StringComparison.InvariantCultureIgnoreCase));
+            }
 
             // 3. Отсортировать по типу сортировки
             switch (sorting)
@@ -170,54 +171,15 @@ namespace MyTotto.Web.Controllers
                 .Take(countItems)
                 .ToList();
 
-            List<Breadcrumb> breadcrumbs = new List<Breadcrumb>()
-            {
-                new Breadcrumb("Главная", "/"),
-                new Breadcrumb("Каталог", "/catalog")
-            };
+            List<Breadcrumb> breadcrumbs = GetBreadcrumbs(category, subcategory, group);
 
-            if (category != null)
-            {
-                breadcrumbs.Add(new Breadcrumb(category.Title, $"/catalog/{category.SectionUrl}"));
-            }
-
-            if (subcategory != null)
-            {
-                breadcrumbs.Add(new Breadcrumb(subcategory.Title, $"/catalog/{subcategory.ProductCategory.SectionUrl}/{subcategory.SectionUrl}"));
-            }
-
-            if (group != null)
-            {
-                breadcrumbs.Add(new Breadcrumb(group.Title, $"/catalog/{group.ProductCategory.SectionUrl}/{group.ProductSubcategory.SectionUrl}/{group.SectionUrl}"));
-            }
-
-
+            var manufacturerComparer = new ManufacturerEqualityComparer();
 
             var catalogFilters = new CatalogFilters()
             {
                 MinPrice = (int)finalProducts.Min(x => x.Price),
                 MaxPrice = (int)finalProducts.Max(x => x.Price),
-                Manufacturers = new List<Manufacturer>()
-                {
-                    new Manufacturer()
-                    {
-                        Id = 1,
-                        Title = "ELIZAVECCA",
-                        Url = "elizavecca"
-                    },
-                    new Manufacturer()
-                    {
-                        Id = 2,
-                        Title = "A-Kids",
-                        Url = "a-kids"
-                    },
-                    new Manufacturer()
-                    {
-                        Id = 3,
-                        Title = "ESTHETIC HOUSE",
-                        Url = "esthetic-house"
-                    }
-                },
+                Manufacturers = finalProducts.Select(x => x.Manufacturer).Distinct(manufacturerComparer).ToList(),
                 IsExistDiscount = true,
                 CategoryFilters = new List<CategoryFilter>()
                 {
@@ -242,15 +204,38 @@ namespace MyTotto.Web.Controllers
 
             int pageCount = finalProducts.Count / countItems != 0 ? finalProducts.Count / countItems : 1;
 
-            var pagination = new Pagination()
+            var pagination = new Pagination(page, pageCount);
+
+            var sectionPage = new SectionPage(seo, navigation, breadcrumbs, finalProducts, products.Count, catalogFilters, pagination);
+
+            return View(sectionPage);
+        }
+
+
+        private List<Breadcrumb> GetBreadcrumbs(ProductCategory category, ProductSubcategory subcategory, ProductGroup group)
+        {
+            List<Breadcrumb> breadcrumbs = new List<Breadcrumb>()
             {
-                Current = page,
-                Count = pageCount
+                new Breadcrumb("Главная", "/"),
+                new Breadcrumb("Каталог", "/catalog")
             };
 
-            var catalogPage = new SectionPage(seo, navigation, breadcrumbs, finalProducts, products.Count, catalogFilters, pagination);
+            if (category != null)
+            {
+                breadcrumbs.Add(new Breadcrumb(category.Title, $"/catalog/{category.SectionUrl}"));
+            }
 
-            return View(catalogPage);
+            if (subcategory != null)
+            {
+                breadcrumbs.Add(new Breadcrumb(subcategory.Title, $"/catalog/{subcategory.ProductCategory.SectionUrl}/{subcategory.SectionUrl}"));
+            }
+
+            if (group != null)
+            {
+                breadcrumbs.Add(new Breadcrumb(group.Title, $"/catalog/{group.ProductCategory.SectionUrl}/{group.ProductSubcategory.SectionUrl}/{group.SectionUrl}"));
+            }
+
+            return breadcrumbs;
         }
     }
 }

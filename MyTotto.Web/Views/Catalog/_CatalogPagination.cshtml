@@ -1,0 +1,34 @@
+﻿@model Pagination
+
+<ul class="o-pagination">
+    <li class="o-pagination__page o-pagination__page_first o-pagination__page_disabled" data-pagination-first="@Model.First">
+        <svg class="o-pagination__page-icon">
+            <use xlink:href="#icon-arrow-left"></use>
+        </svg>
+        <svg class="o-pagination__page-icon">
+            <use xlink:href="#icon-arrow-left"></use>
+        </svg>
+    </li>
+    <li class="o-pagination__page o-pagination__page_previous" data-pagination-previous="@Model.Previous">
+        <svg class="o-pagination__page-icon">
+            <use xlink:href="#icon-arrow-left"></use>
+        </svg>
+    </li>
+    @for (int pageNum = 1; pageNum <= Model.Last; pageNum++)
+    {
+        <li class="o-pagination__page o-pagination__page_num o-pagination__page_active" data-pagination-page="@pageNum">@pageNum</li>
+    }
+    <li class="o-pagination__page o-pagination__page_next" data-pagination-next="@Model.Next">
+        <svg class="o-pagination__page-icon">
+            <use xlink:href="#icon-arrow-right"></use>
+        </svg>
+    </li>
+    <li class="o-pagination__page o-pagination__page_last" data-pagination-last="@Model.Last">
+        <svg class="o-pagination__page-icon">
+            <use xlink:href="#icon-arrow-right"></use>
+        </svg>
+        <svg class="o-pagination__page-icon">
+            <use xlink:href="#icon-arrow-right"></use>
+        </svg>
+    </li>
+</ul>

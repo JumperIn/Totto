@@ -45,6 +45,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Catalog\_CatalogSorting.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Catalog\_CatalogPagination.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Shared\_ProductCard.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>

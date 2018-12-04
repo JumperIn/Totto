@@ -144,7 +144,7 @@ namespace MyTotto.Data.Models
         /// </summary>
         public string GetDiscountPrice()
         {
-            return FormatPrice(((100 - Discount) / 100 * Price));
+            return FormatPrice(DiscountPrice);
         }
 
         private string FormatPrice(decimal price)

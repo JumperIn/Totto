@@ -73,7 +73,9 @@ namespace MyTotto.Data.Repositories
         /// <param name="id">Идентификатор продукта.</param>
         public Product GetProduct(int id)
         {
-            return context.Products.FirstOrDefault(p => p.Id == id);
+            return context.Products
+                .Include(p => p.Manufacturer)
+                .FirstOrDefault(p => p.Id == id);
         }
 
         /// <summary>

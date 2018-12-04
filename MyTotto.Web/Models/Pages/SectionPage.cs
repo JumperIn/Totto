@@ -15,6 +15,11 @@ namespace MyTotto.Web.Models.Pages
     public class SectionPage : BasePage
     {
         /// <summary>
+        /// Название раздела.
+        /// </summary>
+        public string SectionTitle { get; set; }
+
+        /// <summary>
         /// Блок с продуктами.
         /// </summary>
         public List<ProductCard> Products { get; set; }
@@ -48,6 +53,7 @@ namespace MyTotto.Web.Models.Pages
             Pagination pagination
         ) : base(seo, navigation, breadcrumbs)
         {
+            SectionTitle = Breadcrumbs.LastOrDefault()?.Title;
             Products = products.Select(p => new ProductCard(p)).ToList();
             ProductsCount = productsCount;
             Filters = filters;
