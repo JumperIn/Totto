@@ -1,24 +1,7 @@
 ﻿@model ProductCard
 
 @{
-    string type = "";
-    switch (Model.ProductType)
-    {
-        case ProductType.New:
-            type = "new";
-            break;
-        case ProductType.Hit:
-            type = "hit";
-            break;
-        case ProductType.Discount:
-            type = "discount";
-            break;
-        default:
-            type = "normal";
-            break;
-    }
-
-    string productClasses = $"product js-products-{type}";
+    string productClasses = $"product js-products-{Model.ProductTypeModifier}";
 }
 
 <a class="@productClasses" href="@Model.Url">
@@ -38,12 +21,15 @@
 		</div>
 		<div class="product__buttons container col-md-6 col-xl-12">
 			<div class="row">
-				<div class="col-5">
-					<div class="product__price-before-strike">
-						<p class="product__price-before">@Model.Price</p>
-					</div>
-					<p class="product__price-after">@Model.DiscountPrice</p>
-				</div>
+                <div class="col-5">
+                    @if (Model.IsExistDiscount)
+                    {
+                        <div class="product__price-before-strike">
+                            <p class="product__price-before">@Model.Price</p>
+                        </div>
+                    }
+                    <p class="product__price-after">@Model.DiscountPrice</p>
+                </div>
 				<div class="product-sale col-4">
 					@if (Model.ProductType == ProductType.Discount)
 					{

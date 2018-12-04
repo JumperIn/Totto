@@ -15,7 +15,7 @@ namespace MyTotto.Web.Models.Pages
     public class ProductPage : BasePage
     {
         /// <summary>
-        /// Блок с продуктами.
+        /// Данные о продукте.
         /// </summary>
         public ProductViewModel Product { get; set; }
 

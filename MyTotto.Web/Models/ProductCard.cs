@@ -47,6 +47,16 @@ namespace MyTotto.Web.Models
         public string DiscountPrice { get; set; }
 
         /// <summary>
+        /// Признак наличия скидки.
+        /// </summary>
+        public bool IsExistDiscount { get; set; }
+
+        /// <summary>
+        /// Модификатор класса для типа продукта.
+        /// </summary>
+        public string ProductTypeModifier { get; set; }
+
+        /// <summary>
         /// Тип продукта.
         /// </summary>
         public ProductType ProductType { get; set; }
@@ -64,18 +74,42 @@ namespace MyTotto.Web.Models
         public ProductCard(Product product)
         {
             Id = product.Id;
-            Title = product.Title;
-            Manufacturer = "";
+            Title = $"{product.Manufacturer.Title} {product.Title}";
+            Manufacturer = product.Manufacturer.Title;
             Url = SetUrl(product.Id, product.TitleUrl);
             CardImage = product.CardImage;
             Price = product.GetPrice();
             DiscountPrice = product.GetDiscountPrice();
+            IsExistDiscount = product.DiscountPrice < product.Price; // product.ProductType == ProductType.Discount
             ProductType = product.ProductType;
+            ProductTypeModifier = SetModifier(product.ProductType);
         }
 
         private string SetUrl(int id, string titleUrl)
         {
             return $"/products/{id}-{titleUrl}";
+        }
+
+        private string SetModifier(ProductType type)
+        {
+            string modifier = "";
+            switch (type)
+            {
+                case ProductType.New:
+                    modifier = "new";
+                    break;
+                case ProductType.Hit:
+                    modifier = "hit";
+                    break;
+                case ProductType.Discount:
+                    modifier = "discount";
+                    break;
+                default:
+                    modifier = "normal";
+                    break;
+            }
+
+            return modifier;
         }
     }
 }
