@@ -3,7 +3,7 @@
 import { resizeMain } from "../../shared/resize/resizeMain";
 import { moveBannerRightEvent, moveBannerLeftEvent, slideBannerTimer, moveBannerMouseOut } from "./modules/banner/banner";
 import { setClasses } from "./modules/products/mainNavAnimation";
-import { moveCarouselEvent, getNumNewProductDisp, getNumPromoProductDisp } from "./modules/products/carousel";
+import { moveCarouselEvent, getNumNewProductDisp, getNumPromoProductDisp, Carousel } from "./modules/products/carousel";
 import { toggleProductsEventItems } from "./modules/products/productToggle";
 import { hidePopupEvent, showPopupEvent, resetClick } from "../../shared/popup/popup";
 import { swipeEvent } from "../../shared/swipe/swipe";
@@ -14,8 +14,11 @@ resizeMain();
 
 //слайдер баннера
 
-moveBannerRightEvent();
-moveBannerLeftEvent();
+let bannersCarousel = new Carousel('div.banners-wrapper', '#moveBannerLeft', '#moveBannerRight');
+bannersCarousel.moveCarouselEvents();
+
+// moveBannerRightEvent();
+// moveBannerLeftEvent();
 slideBannerTimer();
 moveBannerMouseOut();
 
@@ -38,8 +41,14 @@ getNumNewProductDisp(1);
 
 //Карусель для Новых товаров и промо
 
-moveCarouselEvent('js-move-discounts-right', 'js-move-discounts-left', 'discounts__wrapper', 0);
-moveCarouselEvent('js-move-new-products-right', 'js-move-new-products-left', 'new-products__wrapper', 1);
+let newProductCarousel = new Carousel('div.new-products__wrapper', 'div.js-move-new-products-left', 'div.js-move-new-products-right');
+newProductCarousel.moveCarouselEvents();
+
+let promoCarousel = new Carousel('div.discounts__wrapper', 'div.js-move-discounts-left', 'div.js-move-discounts-right');
+promoCarousel.moveCarouselEvents();
+
+// moveCarouselEvent('js-move-discounts-right', 'js-move-discounts-left', 'discounts__wrapper', 0);
+// moveCarouselEvent('js-move-new-products-right', 'js-move-new-products-left', 'new-products__wrapper', 1);
 
 // reset click
 
@@ -55,3 +64,5 @@ showPopupEvent('js-product-basket-modal', 'js-modal-basket');
 swipeEvent('discounts__wrapper', 0);
 swipeEvent('new-products__wrapper', 1);
 swipeEvent('banners-wrapper');
+
+export { bannersCarousel, newProductCarousel, promoCarousel };
