@@ -18,12 +18,25 @@
 .product-info__right-side-wrapper
 	flex(column)
 
+
+// .product-info__main-img-wrapper
+// 	flex()
+// 	position: relative
+// 	width: 100%
+// 	overflow-x: hidden
+
+// .product-info__main-img-carousel
+// 	flex()
+// 	width: 100%
+// 	flex-wrap: nowrap
+
 .product-info__main-img
 	height: 560px
 	border: solid 1px stroke-color
 	background-position: center
 	background-size: cover
 	background-repeat: no-repeat
+	cursor: pointer
 
 .product-info__sub-images-wrapper
 	flex()
@@ -40,6 +53,7 @@
 	background-position: center
 	background-size: cover
 	background-repeat: no-repeat
+	cursor: pointer
 
 .product-info__sub-img-wrapper_padding-right-20
 	padding-right: 20px
@@ -173,3 +187,41 @@
 	padding: 30px 0
 	font(15px, 100)
 
+.product-carousel-wrapper
+	flex()
+	position: relative
+	width: 100%
+	overflow-x: hidden
+
+.product-carousel
+	flex()
+	width: 100%
+	flex-wrap: nowrap
+	transition: transform 400ms ease-in-out
+
+.product-carousel-img
+	flex()
+	width: 100%
+	height: 500px;
+	background-size: cover
+	background-position: center
+
+.product-carousel-button
+	flex(, center, center)
+	position: absolute
+	top: calc(50% - 36px)
+	height: 72px
+	width: 40px
+
+	background-color: #acacac
+	opacity: 0.7
+	cursor: pointer
+
+.product-carousel-button_left
+	left: 0px
+
+.product-carousel-button_right
+	right: 0px
+
+.product-carousel-button-icon
+	padding: 10px

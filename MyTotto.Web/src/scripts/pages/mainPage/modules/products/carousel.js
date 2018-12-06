@@ -132,4 +132,35 @@ class Carousel {
 	}
 }
 
-export { Carousel };
+class CarouselWithButtons extends Carousel {
+	constructor(wrapper, buttonLeft, buttonRight, buttons) {
+		super(wrapper, buttonLeft, buttonRight);
+		this._buttons = document.querySelectorAll(buttons);
+	}
+
+	moveCarouselClickButton(i) {
+		for (let j = 0; j < this._buttons.length; j++) {
+			if (this._buttons[j] === this._buttons[i]) {
+				this._wrapperPosition = j;
+				this._wrapperPositionBefore = j;
+				this._wrapper.style.transform = `translateX(${-this._wrapperPosition * 100}%)`;
+
+				this.replaceMainPage(j)
+			}
+		}
+	}
+
+	replaceMainPage(j) {
+		let mainPage = document.querySelector('div.product-info__main-img');
+		let urlImage = window.getComputedStyle(this._buttons[j]).getPropertyValue('background-image');
+		mainPage.style.backgroundImage = urlImage;
+	}
+
+	moveCarouselClickButtonEvent() {
+		for (let i = 0; i < this._buttons.length; i++) {
+			this._buttons[i].addEventListener('click', () => this.moveCarouselClickButton(i))
+		}
+	}
+}
+
+export { Carousel, CarouselWithButtons };
