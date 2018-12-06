@@ -68,13 +68,6 @@ class Carousel {
 
 	// swipe
 
-	clearSwipeData() {
-		this._startX = 0;
-		this._endX = 0;
-		console.log(this._startX)
-		console.log(this._endX)
-	}
-
 	swipeStart(e) {
 		this._stateSwipe = true;
 		this._timeStampStart = e.timeStamp;

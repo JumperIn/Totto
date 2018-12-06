@@ -4,7 +4,7 @@ import { resizeMain } from "../../shared/resize/resizeMain";
 import { setClasses } from "./modules/products/mainNavAnimation";
 import { Carousel } from "./modules/products/carousel";
 import { toggleProductsEventItems } from "./modules/products/productToggle";
-import { hidePopupEvent, showPopupEvent, resetClick } from "../../shared/popup/popup";
+import { PopupEvents } from "../../shared/popup/popup";
 
 //Адаптивность сайта
 
@@ -39,13 +39,9 @@ let promoCarousel = new Carousel('div.discounts__wrapper', 'div.js-move-discount
 promoCarousel.moveCarouselEvents();
 promoCarousel.swipeEvents();
 
-// reset click
 
-resetClick();
+// popap
 
-// popaps
-
-hidePopupEvent('js-modal-basket-close', 'js-modal-basket');
-showPopupEvent('js-product-basket-modal', 'js-modal-basket');
+PopupEvents('modal-basket-wrapper', 'js-product-basket-modal', 'js-modal-basket-close')
 
 export { bannersCarousel, newProductCarousel, promoCarousel };
