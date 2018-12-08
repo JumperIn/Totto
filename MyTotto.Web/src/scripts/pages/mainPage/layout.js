@@ -3,7 +3,7 @@
 import { resizeLayout } from "../../shared/resize/resizeLayout";
 import { dropDownMenu, dropDownListEvent, dropDownItemEvent, toCenterDropMenu } from "../../shared/navigation/navAdaptive";
 import { adaptFooter, dropDownFooterItems } from "../../shared/footer/footer";
-import { hidePopupEvent, showPopupEvent } from "../../shared/popup/popup";
+import { PopupEvents } from "../../shared/popup/popup";
 
 //Адаптивность сайта
 
@@ -19,8 +19,7 @@ toCenterDropMenu();
 
 // popaps
 
-hidePopupEvent('js-modal-callback-close', 'js-modal-callback');
-showPopupEvent('js-modal-phone', 'js-modal-callback');
+PopupEvents('modal-callback-wrapper', 'js-modal-phone', 'js-modal-callback-close');
 
 //Адаптация футера
 

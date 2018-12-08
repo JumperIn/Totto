@@ -5,6 +5,39 @@
     ViewBag.Navigation = Model.Navigation;
 }
 
+<div class="modal modal-product-carousel-wrapper hidden">
+	<div class="modal-content modal-product-carousel js-modal-product-carousel">
+		<button class="modal-content-close js-modal-product-carousel-close">
+			<div class="modal-content-close__text">Закрыть</div>
+			<svg class="modal-icon-button-cross">
+				<use xlink:href="#icon-button-cross"></use>
+			</svg>
+		</button>
+		<div class="modal-wrapper">
+			<div class="product-carousel-wrapper">
+				<div class="product-carousel js-product-carousel">
+					@foreach (var image in Model.Product.ImageUrls)
+					{
+						<div class="col-12">
+							<div class="product-carousel-img" style="background-image: url(@image)" alt="@Model.Product.Title"></div>
+						</div>
+					}
+				</div>
+				<div class="product-carousel-button product-carousel-button_left js-product-carousel-button_left">
+					<svg class="product-carousel-button-icon">
+						<use xlink:href="#icon-angle-left"></use>
+					</svg>
+				</div>
+				<div class="product-carousel-button product-carousel-button_right js-product-carousel-button_right">
+					<svg class="product-carousel-button-icon">
+						<use xlink:href="#icon-angle-right"></use>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="product-info">
 	<div class="product-info__nav cover">
 		<a href="" class="o-button o-button-back">
@@ -41,11 +74,21 @@
 	</div>
 	<div class="product-info__body cover">
 		<div class="product-info__left-side-wrapper col-6">
+			<!-- <div class="product-info__main-img-wrapper">
+				<div class="product-info__main-img-carousel">
+					@foreach (var image in Model.Product.ImageUrls)
+					{
+						<div class="col-12">
+							<div class="product-info__main-img" style="background-image: url(@image)" alt="@Model.Product.Title"></div>
+						</div>
+					}
+				</div>
+			</div> -->
 			<div class="product-info__main-img" style="background-image: url(@Model.Product.ImageUrls[0])" alt="@Model.Product.Title"></div>
             <div class="product-info__sub-images-wrapper">
                 @foreach (var image in Model.Product.ImageUrls)
                 {
-                    <div class="product-info__sub-img-wrapper product-info__sub-img-wrapper_padding-right-20 col-4">
+                    <div class="product-info__sub-img-wrapper col-4">
                         <div class="product-info__sub-img" style="background-image: url(@image)" alt="@Model.Product.Title"></div>
                     </div>
                 }
@@ -171,3 +214,5 @@
 		</p>
 	</div>
 </div>
+
+<script src="~/js/product.js" asp-append-version="true"></script>

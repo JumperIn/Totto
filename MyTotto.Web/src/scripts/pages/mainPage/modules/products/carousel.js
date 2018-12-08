@@ -1,77 +1,166 @@
-import { constants, variables } from "../../../../shared/const/const";
-
-function returnCarouselBack(classWrapper) {
-	var elem = document.getElementsByClassName(classWrapper)[0];
-	elem.style.transform = 'translateX(0px)';
-}
-
-function getNumNewProductDisp(i = 1) {
-	if (window.innerWidth > 0) { variables.numProductsDisp[i] = 1; };
-	if (window.innerWidth >= constants.SCREEN_SMALL) { variables.numProductsDisp[i] = 2; };
-	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numProductsDisp[i] = 3; };
-	if (window.innerWidth >= constants.SCREEN_LARGE) { variables.numProductsDisp[i] = 4; };
-	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numProductsDisp[i] = 4; };
-}
-
-function getNumPromoProductDisp(i = 0) {
-	if (window.innerWidth > 0) { variables.numProductsDisp[i] = 1; };
-	if (window.innerWidth >= constants.SCREEN_SMALL) { variables.numProductsDisp[i] = 2; };
-	if (window.innerWidth >= constants.SCREEN_MEDIUM) { variables.numProductsDisp[i] = 2; };
-	if (window.innerWidth >= constants.SCREEN_LARGE) { variables.numProductsDisp[i] = 3; };
-	if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) { variables.numProductsDisp[i] = 3; };
-}
-
-function getProductWidth(classWrapper) {
-	var elem = document.getElementsByClassName(classWrapper)[0];
-	return elem.firstElementChild.offsetWidth;
-};
-
-function getLengthWrapper(classWrapper) {
-	var elem = document.getElementsByClassName(classWrapper)[0];
-    return elem.children.length;
-}
-
-function moveCarouselRight(classWrapper, i) {
-    var elem = document.getElementsByClassName(classWrapper)[0];
-    //граничное условие, при котором необходимо вернуть карусель в начальное состояние
-    var distanceTolastProduct = (getLengthWrapper(classWrapper) - variables.numProductsDisp[i]) * getProductWidth(classWrapper);
-    var returnToStartCondition = variables.shift[i] == distanceTolastProduct || variables.shift[i] > distanceTolastProduct;
-    if (returnToStartCondition) {
-        variables.shift[i] = 0;
-        elem.style.transform = 'translateX(-' + +variables.shift[i] + 'px)';
-    } else {
-        variables.shift[i] = +variables.shift[i] + +getProductWidth(classWrapper);
-        elem.style.transform = 'translateX(-' + +variables.shift[i] + 'px)';
+class Carousel {
+	constructor(wrapper, buttonLeft, buttonRight) {
+		this._buttonLeft = document.querySelector(buttonLeft);
+		this._buttonRight = document.querySelector(buttonRight);
+		this._wrapper = document.querySelector(wrapper);
+		this._wrapperPosition = 0;
+		this._wrapperPositionBefore = 0;
+		this._slideInterval = null;
+		this._stateSwipe = false;
+		this._timeStampStart;
+		this._timeStampEnd;
+		this._startX;
+		this._endX;
+		this._swipeMoveEvent = false;
 	}
-};
-function moveCarouselRightEvent(classButtonRight, classWrapper, i) {
-	var elem = document.getElementsByClassName(classButtonRight)[0];
-    elem.addEventListener('click', function() {
-		moveCarouselRight(classWrapper, i);
-	})
-};
 
-function moveCarouselLeft(classWrapper, i) {
-    var elem = document.getElementsByClassName(classWrapper)[0];
-    var returnToEndCondition = variables.shift[i] == 0 || variables.shift[i] < 0;
-    if (returnToEndCondition) {
-        variables.shift[i] = (getLengthWrapper(classWrapper) - variables.numProductsDisp[i]) * getProductWidth(classWrapper);
-        elem.style.transform = 'translateX(-' + +variables.shift[i] + 'px)';
-    } else {
-        variables.shift[i] = +variables.shift[i] - +getProductWidth(classWrapper);
-        elem.style.transform = 'translateX(-' + +variables.shift[i] + 'px)';
+	refreshCarousel() {
+		this._wrapperPosition = 0;
+		this._wrapperPositionBefore = 0;
+		this._wrapper.style.transform = `translateX(0)`;
 	}
-};
-function moveCarouselLeftEvent(classButtonLeft, classWrapper, i) {
-    var elem = document.getElementsByClassName(classButtonLeft)[0];
-    elem.addEventListener('click', function() {
-		moveCarouselLeft(classWrapper, i);
-	})
-};
 
-function moveCarouselEvent(classButtonRight, classButtonLeft, classWrapper, i) {
-	moveCarouselRightEvent(classButtonRight, classWrapper, i);
-	moveCarouselLeftEvent(classButtonLeft, classWrapper, i);
+	getNumProductsDisplay() {
+		return Math.round(this._wrapper.offsetWidth / this._wrapper.firstElementChild.offsetWidth);
+	}
+
+	getMaxWrapperPosition() {
+		return this._wrapper.children.length - this.getNumProductsDisplay();
+	}
+
+	moveCarouselLeft() {
+		--this._wrapperPosition;
+		if (this._wrapperPositionBefore === 0 && this._wrapperPosition === - 1) {
+			this._wrapperPosition = this.getMaxWrapperPosition();
+			this._wrapper.style.transform = `translateX(${-this._wrapperPosition * 100 / this.getNumProductsDisplay()}%)`;
+		} else {
+			this._wrapper.style.transform = `translateX(${-this._wrapperPosition * 100 / this.getNumProductsDisplay()}%)`;
+		}
+		this._wrapperPositionBefore = this._wrapperPosition;
+	}
+
+	moveCarouselRight() {
+		++this._wrapperPosition;
+		if (this._wrapperPositionBefore === this.getMaxWrapperPosition() && this._wrapperPosition === this.getMaxWrapperPosition() + 1) {
+			this._wrapperPosition = 0;
+			this._wrapper.style.transform = `translateX(0)`;
+		} else {
+			this._wrapper.style.transform = `translateX(${-this._wrapperPosition * 100 / this.getNumProductsDisplay()}%)`;
+		}
+		this._wrapperPositionBefore = this._wrapperPosition;
+	}
+
+	moveCarouselInterval(delay) {
+		this._slideInterval = setInterval(() => this.moveCarouselRight(), delay);
+	}
+
+	stopCarousel() {
+		clearInterval(this._slideInterval)
+	}
+
+	moveCarouselIntervalEvent(delay) {
+		this._wrapper.addEventListener('mouseover', () => this.stopCarousel());
+
+		this._wrapper.addEventListener('mouseout', () => this.moveCarouselInterval(delay));
+
+		this.moveCarouselInterval(delay);
+	};
+
+	// swipe
+
+	swipeStart(e) {
+		this._stateSwipe = true;
+		this._timeStampStart = e.timeStamp;
+		this._startX = e.touches[0].clientX;
+	}
+
+	swipeMove(e) {
+		this._endX = e.touches[0].clientX;
+		this._swipeMoveEvent = true;
+	}
+
+	swipeCancel(e) {
+		this._stateSwipe = false;
+	}
+
+	swipeEnd(e) {
+		if (!this._swipeMoveEvent) { return }
+		let wrapperWidth,
+			difference,
+			conditionSwipeLeft,
+			conditionSwipeRight,
+			deffTimeStamp;
+
+		this._timeStampEnd = e.timeStamp;
+
+		deffTimeStamp = this._timeStampEnd - this._timeStampStart;
+		// если время между началом свайпа и его концом больше секунды, то событие не происходит
+		if (deffTimeStamp > 1000) { this._stateSwipe = false }
+
+		wrapperWidth = this._wrapper.offsetWidth;
+
+		difference = this._startX - this._endX;
+
+		conditionSwipeLeft = -difference >= wrapperWidth / 3;
+		conditionSwipeRight = difference >= wrapperWidth / 3;
+
+		if (this._stateSwipe === true) {
+			if (conditionSwipeLeft) {
+				this.moveCarouselLeft();
+			} else if (conditionSwipeRight) {
+				this.moveCarouselRight();
+			} else {
+				return;
+			}
+		}
+		this._swipeMoveEvent = false;
+	}
+
+	// объединящая функция
+
+	swipeEvents() {
+		this._wrapper.addEventListener('touchstart', e => this.swipeStart(e));
+		this._wrapper.addEventListener('touchmove', e => this.swipeMove(e));
+		this._wrapper.addEventListener('touchcancel', e => this.swipeCancel(e));
+		this._wrapper.addEventListener('touchend', e => this.swipeEnd(e));
+	}
+
+
+	moveCarouselEvents() {
+		this._buttonLeft.addEventListener('click', () => { this.moveCarouselLeft() });
+		this._buttonRight.addEventListener('click', () => { this.moveCarouselRight() });
+	}
 }
 
-export { getNumNewProductDisp, getNumPromoProductDisp, moveCarouselEvent, returnCarouselBack, moveCarouselRight, moveCarouselLeft };
+class CarouselWithButtons extends Carousel {
+	constructor(wrapper, buttonLeft, buttonRight, buttons) {
+		super(wrapper, buttonLeft, buttonRight);
+		this._buttons = document.querySelectorAll(buttons);
+	}
+
+	moveCarouselClickButton(i) {
+		for (let j = 0; j < this._buttons.length; j++) {
+			if (this._buttons[j] === this._buttons[i]) {
+				this._wrapperPosition = j;
+				this._wrapperPositionBefore = j;
+				this._wrapper.style.transform = `translateX(${-this._wrapperPosition * 100}%)`;
+
+				this.replaceMainPage(j)
+			}
+		}
+	}
+
+	replaceMainPage(j) {
+		let mainPage = document.querySelector('div.product-info__main-img');
+		let urlImage = window.getComputedStyle(this._buttons[j]).getPropertyValue('background-image');
+		mainPage.style.backgroundImage = urlImage;
+	}
+
+	moveCarouselClickButtonEvent() {
+		for (let i = 0; i < this._buttons.length; i++) {
+			this._buttons[i].addEventListener('click', () => this.moveCarouselClickButton(i))
+		}
+	}
+}
+
+export { Carousel, CarouselWithButtons };

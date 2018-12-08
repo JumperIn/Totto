@@ -23,67 +23,64 @@ function removeBodyProperties() {
 	window.scrollTo(0, variables.yOffset);
 }
 
-// функция обнуления кликабельности
-
-function prevDefault(e) {
-	e.preventDefault();
-}
-
-// обнуление кликабельности кнопок
-
-function resetClick() {
-	var elems = document.getElementsByClassName('js-reset-click');
-	for ( var i = 0; i < elems.length; i++ ) {
-		elems[i].addEventListener('click', prevDefault)
-	}
-}
-
 // popup
 
+let popupClassWrapper;
+
 function showPopup(popupClass) {
-	toggleExistClass('modal', 'hidden');
+	popupClassWrapper = popupClass;
 	toggleExistClass(popupClass, 'hidden');
 	addBodyProperties();
-
-
+	window.addEventListener('keydown', hidePopupEscapeEvent);
 	// обработчик событий для возможности отключить popup кликнув по внешней области
-	window.addEventListener('click', hidePopupClickArea);
+	window.addEventListener('click', e => hidePopupClickArea(e, popupClass));
 }
 
 function hidePopup(popupClass) {
-	toggleNotExistClass('modal', 'hidden');
 	toggleNotExistClass(popupClass, 'hidden');
-	removeBodyProperties()
+	removeBodyProperties();
+	window.removeEventListener('keydown', hidePopupEscapeEvent);
+	window.removeEventListener('click', hidePopupClickArea);
 }
 
 function showPopupEvent(buttonClass, popupClass) {
 	var elems = document.getElementsByClassName(buttonClass);
-	for ( var i = 0; i < elems.length; i++ ) {
-		elems[i].addEventListener('click', function() {
+	for (var i = 0; i < elems.length; i++) {
+		elems[i].addEventListener('click', (e) => {
+			e.preventDefault();
 			showPopup(popupClass);
-		})
+		});
 	}
 }
 
-// скрываем попап по нажатию по пустому полю
+// скрываем попап по нажатию по пустому полю и на клавишу ESC
+
+// задаю класс popup через замыкание, а не передаю параметром, для того
+// чтобы можно было добавлять и удалять обработчики событий, вызывающие эти функции
+
+function hidePopupEscapeEvent(event) {
+	if (event.keyCode == 27) {
+		hidePopup(popupClassWrapper);
+	}
+}
 
 function hidePopupClickArea(event) {
-	var modal = document.getElementsByClassName('modal')[0];
+	let modal = document.getElementsByClassName(popupClassWrapper)[0];
 	if (event.target == modal) {
-		hidePopup('js-modal-basket');
-		hidePopup('js-modal-callback');
-		// удаляем обработчик событий
-		window.removeEventListener('click', hidePopupClickArea);
+		hidePopup(popupClassWrapper);
 	}
 }
 
 function hidePopupEvent(buttonClass, popupClass) {
-	var elems = document.getElementsByClassName(buttonClass);
-	for ( var i = 0; i < elems.length; i++ ) {
-		elems[i].addEventListener('click', function() {
-			hidePopup(popupClass);
-		})
+	let buttons = document.getElementsByClassName(buttonClass);
+	for (var i = 0; i < buttons.length; i++) {
+		buttons[i].addEventListener('click', () => hidePopup(popupClass));
 	}
 }
 
-export { showPopupEvent, hidePopupEvent, resetClick };
+function PopupEvents(popupClass, openButtonClass, closeButtonsClass) {
+	showPopupEvent(openButtonClass, popupClass)
+	hidePopupEvent(closeButtonsClass, popupClass);
+}
+
+export { PopupEvents };
