@@ -37,11 +37,11 @@ function toggleFooterIcons() {
 }
 
 function adaptFooter() {
-	if (window.innerWidth < constants.SCREEN_MEDIUM) {
+	if (window.innerWidth < constants.SCREEN_EXTRA_LARGE) {
 		hideFooterItems();
 		showFooterIcons();
 		toggleFooterIcons();
-	} else if (window.innerWidth >= constants.SCREEN_MEDIUM) {
+	} else if (window.innerWidth >= constants.SCREEN_EXTRA_LARGE) {
 		showFooterItems();
 		hideFooterIcons();
 		toggleFooterIcons();
@@ -52,9 +52,11 @@ function dropDownFooterItems() {
 	var elems2 = document.getElementsByClassName('footer-block__icon-toggle');
 	for (var i = 0; i < elems1.length; i++) {
 		let elem = elems2[i];
-		elems1[i].addEventListener('click', function() {
-			this.nextElementSibling.classList.toggle('hidden');
-			toggleIcon(elem, '#icon-angle-bottom', '#icon-angle-top');
+		elems1[i].addEventListener('click', function () {
+			if (window.innerWidth < constants.SCREEN_EXTRA_LARGE) {
+				this.nextElementSibling.classList.toggle('hidden');
+				toggleIcon(elem, '#icon-angle-bottom', '#icon-angle-top');
+			}
 		})
 	}
 }
