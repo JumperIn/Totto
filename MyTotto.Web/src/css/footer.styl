@@ -77,7 +77,7 @@
 
 .footer-copyright__wrapper
 	flex(, space-between)
-	padding: 35px 0
+	padding: 35px 20px
 
 .footer-copyright__text
 	flex(,,center)
@@ -134,7 +134,7 @@
 	font(12px, 500, #fff)
 	text-transform: uppercase
 
-@media (max-width: 767px)
+@media (max-width: 1199px)
 	.footer-block
 		border-bottom: 1px solid rgba(0, 0, 0, 0.1)
 		
@@ -145,8 +145,9 @@
 	.footer-block__title
 		display: flex
 		margin: 0
+		padding: 10px 0
 		padding-right: 15px
-		font(16px, 700, grey-darken)
+		font(16px, 700, gray-dark-color)
 
 	.footer-block__icon
 		size(15px, 15px)
@@ -155,6 +156,9 @@
 	.footer-block__body
 		padding-bottom: 10px
 
-@media (min-width: 768px)
+	.footer-connection__body
+		padding-top: 10px
+
+@media (min-width: 1200px)
 	.footer-block__icon
 		display: none
