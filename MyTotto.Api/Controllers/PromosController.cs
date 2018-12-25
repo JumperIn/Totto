@@ -14,7 +14,7 @@ namespace MyTotto.Api.Controllers
 {
     public class PromosController : BaseController
     {
-        private IPromosRepository promosRepository;
+        private readonly IPromosRepository promosRepository;
 
         public PromosController(IPromosRepository promosRepository)
         {

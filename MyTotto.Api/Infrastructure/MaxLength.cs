@@ -19,5 +19,10 @@ namespace MyTotto.Api.Infrastructure
         /// Максимальный размер поля для телефона.
         /// </summary>
         public const int Phone = 20;
+
+        /// <summary>
+        /// Максимальный размер поля для email.
+        /// </summary>
+        public const int Email = 30;
     }
 }

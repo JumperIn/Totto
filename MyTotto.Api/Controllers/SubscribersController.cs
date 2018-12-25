@@ -14,37 +14,37 @@ using MyTotto.Data.Models;
 namespace MyTotto.Api.Controllers
 {
     /// <summary>
-    /// Контроллер для заказа обратных звонков.
+    /// Контроллер для подписчиков.
     /// </summary>
     [Consumes("application/json")]
     [Produces("application/json")]
-    public class CallsController : BaseController
+    public class SubscribersController : BaseController
     {
-        private readonly ICallsRepository callsRepository;
+        private readonly ISubscribersRepository subscribersRepository;
 
-        public CallsController(ICallsRepository callsRepository)
+        public SubscribersController(ISubscribersRepository subscribersRepository)
         {
-            this.callsRepository = callsRepository;
+            this.subscribersRepository = subscribersRepository;
         }
 
         /// <summary>
-        /// Сохраняет заказ обратного звонка.
+        /// Сохраняет почту подписчика.
         /// </summary>
-        /// <param name="call">Данные для звонка.</param>
+        /// <param name="subscriber">Данные подписчика.</param>
         /// <response code="400">Not valid.</response>
         /// <response code="200">Success.</response>
-        [HttpPost("order")]
+        [HttpPost("subscriber")]
         [ProducesResponseType(400)]
         [ProducesResponseType(200)]
-        public IActionResult SaveCall([FromBody] OrderCallBindingModel call)
+        public IActionResult SaveCall([FromBody] SubscriberBindingModel subscriber)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
-            OrderCall callItem = new OrderCall(call.Name, call.Phone);
-            callsRepository.SaveCall(callItem);
+            Subscriber subscriberItem = new Subscriber(subscriber.Email);
+            subscribersRepository.SaveSubscriber(subscriberItem);
 
             return Ok();
         }

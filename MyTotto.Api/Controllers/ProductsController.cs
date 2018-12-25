@@ -15,8 +15,8 @@ namespace MyTotto.Api.Controllers
 {
     public class ProductsController : BaseController
     {
-        private IProductsRepository productsRepository;
-        private ICatalogRepository catalogRepository;
+        private readonly IProductsRepository productsRepository;
+        private readonly ICatalogRepository catalogRepository;
 
         private readonly int[] showByCounts = new int[] { 12, 24, 36 };
 
