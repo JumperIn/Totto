@@ -58,6 +58,11 @@ namespace MyTotto.Data
         /// </summary>
         public DbSet<OrderCall> OrderCalls { get; set; }
 
+        /// <summary>
+        /// Таблица с подписчиками.
+        /// </summary>
+        public DbSet<Subscriber> Subscribers { get; set; }
+
         public TottoContext(DbContextOptions<TottoContext> options) : base(options)
         {
             // Ниже включаю для миграций. Вроде должно быть ок.
@@ -82,6 +87,7 @@ namespace MyTotto.Data
             modelBuilder.ApplyConfiguration(new ManufacturersEntityConfiguration());
             modelBuilder.ApplyConfiguration(new ProductsEntityConfiguration());
             modelBuilder.ApplyConfiguration(new OrderCallsEntityConfiguration());
+            modelBuilder.ApplyConfiguration(new SubscribersEntityConfiguration());
         }
     }
 }

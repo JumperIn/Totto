@@ -14,7 +14,7 @@ namespace MyTotto.Api.Controllers
 {
     public class CatalogController : BaseController
     {
-        private ICatalogRepository catalogRepository;
+        private readonly ICatalogRepository catalogRepository;
 
         public CatalogController(ICatalogRepository catalogRepository)
         {

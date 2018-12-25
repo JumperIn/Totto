@@ -14,7 +14,7 @@ namespace MyTotto.Api.Controllers
 {
     public class BannersController : BaseController
     {
-        private IBannersRepository bannersRepository;
+        private readonly IBannersRepository bannersRepository;
 
         public BannersController(IBannersRepository bannersRepository)
         {
