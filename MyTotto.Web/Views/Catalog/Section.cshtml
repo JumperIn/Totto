@@ -90,19 +90,19 @@
                 <input type="number" name="maxprice" value="@Model.Filters.MaxPrice" />
 
                 @*<ul class="catalog__categories-list">
-                    <li class="catalog__categories-item">
-                        <input id="015" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
-                        <label for="015" class="o-label-checkbox catalog__categories-item-label">100р-500р</label>
-                    </li>
-                    <li class="catalog__categories-item">
-                        <input id="016" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
-                        <label for="016" class="o-label-checkbox catalog__categories-item-label">500р-1000р</label>
-                    </li>
-                    <li class="catalog__categories-item">
-                        <input id="017" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
-                        <label for="017" class="o-label-checkbox catalog__categories-item-label">1000р-2000р</label>
-                    </li>
-                </ul>*@
+                <li class="catalog__categories-item">
+                    <input id="015" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+                    <label for="015" class="o-label-checkbox catalog__categories-item-label">100р-500р</label>
+                </li>
+                <li class="catalog__categories-item">
+                    <input id="016" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+                    <label for="016" class="o-label-checkbox catalog__categories-item-label">500р-1000р</label>
+                </li>
+                <li class="catalog__categories-item">
+                    <input id="017" class="o-input-checkbox catalog__categories-checkbox" type="checkbox">
+                    <label for="017" class="o-label-checkbox catalog__categories-item-label">1000р-2000р</label>
+                </li>
+            </ul>*@
             </div>
 
             <div class="catalog__categories catalog__categories_selected">
@@ -120,24 +120,25 @@
                 </ul>
             </div>
 
-            @if (Model.Filters.IsExistDiscount)
-            {
-                <div class="catalog__categories catalog__categories_selected">
-                    <div class="catalog__categories-title-wrapper">
-                        <h3 class="catalog__categories-title">Скидка</h3>
-                    </div>
-                    <ul class="catalog__categories-list">
-                        <li class="catalog__categories-item">
-                            <input id="isDiscount" class="o-input-checkbox catalog__categories-checkbox" type="checkbox" data-value="1">
-                            <label for="isDiscount" class="o-label-checkbox catalog__categories-item-label">Да</label>
-                        </li>
-                        <li class="catalog__categories-item">
-                            <input id="isNotDiscount" class="o-input-checkbox catalog__categories-checkbox" type="checkbox" data-value="2">
-                            <label for="isNotDiscount" class="o-label-checkbox catalog__categories-item-label">Нет</label>
-                        </li>
-                    </ul>
+            <div class="catalog__categories catalog__categories_selected">
+                <div class="catalog__categories-title-wrapper">
+                    <h3 class="catalog__categories-title">Фильтрация</h3>
                 </div>
-            }
+                <ul class="catalog__categories-list">
+                    <li class="catalog__categories-item">
+                        <input id="hitProducts" class="o-input-checkbox catalog__categories-checkbox" type="checkbox" data-value="0">
+                        <label for="hitProducts" class="o-label-checkbox catalog__categories-item-label">Хиты</label>
+                    </li>
+                    <li class="catalog__categories-item">
+                        <input id="newProducts" class="o-input-checkbox catalog__categories-checkbox" type="checkbox" data-value="1">
+                        <label for="newProducts" class="o-label-checkbox catalog__categories-item-label">Новинки</label>
+                    </li>
+                    <li class="catalog__categories-item">
+                        <input id="discountProducts" class="o-input-checkbox catalog__categories-checkbox" type="checkbox" data-value="2">
+                        <label for="discountProducts" class="o-label-checkbox catalog__categories-item-label">Скидки и акции</label>
+                    </li>
+                </ul>
+            </div>
 
         </div>
 	</div>

@@ -21,11 +21,6 @@ namespace MyTotto.Web.Models
         public int MaxPrice { get; set; }
 
         /// <summary>
-        /// Наличие или отсутствие скидки.
-        /// </summary>
-        public bool IsExistDiscount { get; set; }
-
-        /// <summary>
         /// Список производителей.
         /// </summary>
         public List<Manufacturer> Manufacturers { get; set; }
