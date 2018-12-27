@@ -102,7 +102,7 @@
 .footer-icon-vk
 .footer-icon-telegram
 .footer-icon-inst
-.footer-icon-youtube
+.footer-icon-tw
 	size(25px, 25px)
 	color: icon-color
 	transition: color 200ms ease-in-out
@@ -112,15 +112,18 @@
 .footer-icon-vk:hover
 .footer-icon-telegram:hover
 .footer-icon-inst:hover
-.footer-icon-youtube:hover
+.footer-icon-tw:hover
 	color: #fff
 	stroke: icon-color
 
+.footer-anchor__wrapper
+	position: fixed
+	bottom: 10px
+	left: 10px
+	z-index: 2
+
 .footer-anchor
 	flex(column, center, center)
-	position: absolute
-	top: 0
-	right: 0
 	size(90px, 42px)
 	background-color: main-color
 	border-radius: 25px
@@ -137,6 +140,17 @@
 	padding-top: 6px
 	font(12px, 500, #fff)
 	text-transform: uppercase
+
+@media (max-width: 1389px)
+	.footer__wrapper
+		position: relative
+
+	.footer-anchor__wrapper
+		position: absolute
+		top: 0
+		right: 0
+		left: auto
+		bottom: auto
 
 @media (max-width: 1199px)
 	.footer-block
