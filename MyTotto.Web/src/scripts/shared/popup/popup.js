@@ -83,4 +83,4 @@ function PopupEvents(popupClass, openButtonClass, closeButtonsClass) {
 	hidePopupEvent(closeButtonsClass, popupClass);
 }
 
-export { PopupEvents };
+export { PopupEvents, hidePopup };

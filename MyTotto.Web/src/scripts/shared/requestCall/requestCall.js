@@ -1,3 +1,6 @@
+import createRequest from '../createRequest/createRequest';
+import { requestCallBack } from '../createRequest/apiConfig';
+import { hidePopup } from '../popup/popup';
 
 function addErrorMessage(classWrapper, errorMessage) {
 	const wrapper = document.querySelector(classWrapper);
@@ -31,7 +34,8 @@ function requestCallValidation() {
 	const nameInput = document.querySelector('input.modal-callback__input-name');
 	const phoneInput = document.querySelector('input.modal-callback__input-phone');
 
-	const errorsConditions = {}
+	const errorsConditions = {};
+	const formBody = {};
 
 	form.addEventListener('submit', function (e) {
 		e.preventDefault();
@@ -39,9 +43,16 @@ function requestCallValidation() {
 
 		if (valid) {
 			removeErrorMessages('div.modal-callback__inputs-wrapper');
-			// TODO: добавить отправление XMLHttpRequest
-			console.log('отправление формы на сервер и закрытие формы')
-			// TODO: добавить закрытие попапа
+			createRequest(requestCallBack, null, formBody)
+				.then(({ statusText }) => {
+					if (statusText === 'OK') {
+						nameInput.value = null;
+						phoneInput.value = null;
+						setTimeout(function () {
+							hidePopup('modal-callback-wrapper');
+						}, 1000)
+					}
+				})
 		} else {
 			removeErrorMessages('div.modal-callback__inputs-wrapper');
 			const nameErrorMessages = pristine.getErrors(nameInput);
@@ -57,23 +68,24 @@ function requestCallValidation() {
 
 	// TODO: добавить нормальную валидацию для этих полей
 	pristine.addValidator(nameInput, function (value, nameInput) {
-		// пример
-		if (value.length && value[0] === value[0].toUpperCase()) {
+		if (value.length > 0) {
 			errorsConditions.nameInput = true;
+			formBody.name = value;
 			return true;
 		}
 		errorsConditions.nameInput = false;
 		return false;
-	}, "The first character must be capitalized", 1, false);
+	}, "Введите имя", 1, false);
 
 	pristine.addValidator(phoneInput, function (value, phoneInput) {
-		if (value.length <= 20) {
+		if (value.length <= 20 && value.length >= 11) {
 			errorsConditions.phoneInput = true;
+			formBody.phone = value;
 			return true;
 		}
 		errorsConditions.phoneInput = false;
 		return false;
-	}, "Введите номер телефона, не больше 20 символов", 2, false);
+	}, "Введите номер телефона полностью (от 11 до 20 символов)", 3, false);
 }
 
 export { requestCallValidation };
