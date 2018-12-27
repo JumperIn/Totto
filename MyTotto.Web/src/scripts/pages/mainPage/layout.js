@@ -6,6 +6,7 @@ import { adaptFooter, dropDownFooterItems } from "../../shared/footer/footer";
 import { PopupEvents } from "../../shared/popup/popup";
 import { requestCall } from "../../shared/requestCall/requestCall";
 import { subscribeNews } from "../../shared/subscribeNews/subscribeNews";
+import { buttonUpEvent } from "../../shared/buttonUp/buttonUp";
 
 //Адаптивность сайта
 
@@ -35,3 +36,7 @@ requestCall();
 // подписка на новости
 
 subscribeNews();
+
+// событие кнопки "наверх" для динамического отображения
+
+buttonUpEvent();
