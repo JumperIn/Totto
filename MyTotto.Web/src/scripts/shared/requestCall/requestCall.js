@@ -28,7 +28,7 @@ function removeErrorMessages(classWrapper) {
 	}
 }
 
-function requestCallValidation() {
+function requestCall() {
 	const form = document.querySelector('form.modal-callback__form');
 	const pristine = new Pristine(form);
 	const nameInput = document.querySelector('input.modal-callback__input-name');
@@ -88,4 +88,4 @@ function requestCallValidation() {
 	}, "Введите номер телефона полностью (от 11 до 20 символов)", 3, false);
 }
 
-export { requestCallValidation };
+export { requestCall, addErrorMessage, removeErrorMessages };

@@ -4,7 +4,8 @@ import { resizeLayout } from "../../shared/resize/resizeLayout";
 import { dropDownMenu, dropDownListEvent, dropDownItemEvent, toCenterDropMenu } from "../../shared/navigation/navAdaptive";
 import { adaptFooter, dropDownFooterItems } from "../../shared/footer/footer";
 import { PopupEvents } from "../../shared/popup/popup";
-import { requestCallValidation } from "../../shared/requestCall/requestCall";
+import { requestCall } from "../../shared/requestCall/requestCall";
+import { subscribeNews } from "../../shared/subscribeNews/subscribeNews";
 
 //Адаптивность сайта
 
@@ -27,6 +28,10 @@ PopupEvents('modal-callback-wrapper', 'js-modal-phone', 'js-modal-callback-close
 adaptFooter();
 dropDownFooterItems();
 
-// валидация формы и отправка запросы для заказа звонка
+// заказ звонка
 
-requestCallValidation();
+requestCall();
+
+// подписка на новости
+
+subscribeNews();
