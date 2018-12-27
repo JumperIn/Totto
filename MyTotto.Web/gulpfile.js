@@ -33,7 +33,7 @@ var libsCss = [
 
 // сюда указываем пути у подключаемых библиотек
 var libsJs = [
-	`./${source}/libs/scripts/jquery.min.js`
+	`./${source}/libs/scripts/*.js`
 ];
 
 var srcPaths = {
