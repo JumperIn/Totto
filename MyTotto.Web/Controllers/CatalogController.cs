@@ -22,9 +22,9 @@ namespace MyTotto.Web.Controllers
     [Route("[controller]")]
     public class CatalogController : BaseController
     {
-        private IProductsRepository productsRepository;
-        private ICatalogRepository catalogRepository;
-        private ICommonRepository commonRepository;
+        private readonly IProductsRepository productsRepository;
+        private readonly ICatalogRepository catalogRepository;
+        private readonly ICommonRepository commonRepository;
 
         public CatalogController
         (
@@ -40,17 +40,6 @@ namespace MyTotto.Web.Controllers
 
         private readonly int[] showByCounts = new int[] { 12, 24, 36 };
 
-        ///// <summary>
-        ///// Отображает страницу каталога.
-        ///// </summary>
-        //[HttpGet("catalog")]
-        //public IActionResult Index()
-        //{
-        //    List<Product> products = productsRepository.GetAllProducts();
-        //    var catalogPage = new CatalogPageViewModel(products);
-        //    return View(catalogPage);
-        //}
-
         /// <summary>
         /// Отображает страницу раздела каталога.
         /// </summary>
@@ -64,7 +53,7 @@ namespace MyTotto.Web.Controllers
         /// <param name="minPrice">Минимальная цена.</param>
         /// <param name="maxPrice">Максимальная цена.</param>
         /// <param name="manufacturer">Производитель.</param>
-        /// <param name="discount">Наличие скидки.</param>
+        /// <param name="type">Тип продукта.</param>
         [HttpGet("{categoryUrl}/{subcategoryUrl?}/{groupUrl?}")]
         public IActionResult Section
         (
@@ -78,7 +67,7 @@ namespace MyTotto.Web.Controllers
             int minPrice = 0,
             int maxPrice = int.MaxValue,
             string manufacturer = "",
-            ProductDiscount discount = ProductDiscount.Any
+            ProductType type = ProductType.Normal
         )
         {
             if (string.IsNullOrEmpty(categoryUrl))
@@ -102,85 +91,28 @@ namespace MyTotto.Web.Controllers
                 return NotFound();
             }
 
-            // 1. Сперва выбрать продукты по разделу
+            int countItems = GetPageCountByItems(count);
+
             List<Product> products = productsRepository.GetProducts(categoryId, subcategoryId, groupId);
 
-            IEnumerable<Product> filteredProducts = products;
+            IEnumerable<Product> filteredProducts = FilterByCategories(products, filters);
+            filteredProducts = FilterByPrice(filteredProducts, minPrice, maxPrice);
+            filteredProducts = FilterByManufacturer(filteredProducts, manufacturer);
+            filteredProducts = SortByCatalogType(filteredProducts, sorting);
+            filteredProducts = FilterByProductType(filteredProducts, type);
+            filteredProducts = GetProductByPage(filteredProducts, countItems, page);
 
-            // 2. Отфильтровать по остальным параметрам
-
-            string[] filterValues = !string.IsNullOrEmpty(filters) ? 
-                filters.Split(";"[0]) :
-                new string[] { };
-
-            if (filterValues.Any())
-            {
-                // 2.1 TODO: фильтровать по значениям в самом продукте
-            }
-             
-            // 2.2 Выбрать по цене
-            filteredProducts = filteredProducts
-                .Where(x =>
-                    x.DiscountPrice >= minPrice && x.DiscountPrice <= maxPrice);
-
-            // 2.3 Если есть производитель - выбрать по нему
-            if (!string.IsNullOrEmpty(manufacturer))
-            {
-                filteredProducts = filteredProducts
-                    .Where(x => string.Equals(x.Manufacturer.Title, manufacturer, StringComparison.InvariantCultureIgnoreCase));
-            }
-
-            // 3. Отсортировать по типу сортировки
-            switch (sorting)
-            {
-                case CatalogSortingType.DescendingTitle:
-                    filteredProducts = filteredProducts.OrderByDescending(x => x.Title);
-                    break;
-                case CatalogSortingType.AscendingPrice:
-                    filteredProducts = filteredProducts.OrderBy(x => x.Price);
-                    break;
-                case CatalogSortingType.DescendingPrice:
-                    filteredProducts = filteredProducts.OrderByDescending(x => x.Price);
-                    break;
-                case CatalogSortingType.DiscountFirst:
-                    filteredProducts = filteredProducts.OrderByDescending(x => x.ProductType == ProductType.Discount);
-                    // x.Price > x.DiscountPrice
-                    break;
-                default:
-                    filteredProducts = filteredProducts.OrderBy(x => x.Title);
-                    break;
-            }
-
-            // 4. По пагинации выдать количество предметов
-            int countItems;
-            switch (count)
-            {
-                case CatalogCountItems.Medium:
-                    countItems = showByCounts[1];
-                    break;
-                case CatalogCountItems.Large:
-                    countItems = showByCounts[2];
-                    break;
-                default:
-                    countItems = showByCounts[0];
-                    break;
-            }
-
-            List<Product> finalProducts = filteredProducts
-                .Skip((page - 1) * countItems)
-                .Take(countItems)
-                .ToList();
+            List<Product> finalProducts = filteredProducts.ToList();
 
             List<Breadcrumb> breadcrumbs = GetBreadcrumbs(category, subcategory, group);
-
-            var manufacturerComparer = new ManufacturerEqualityComparer();
 
             var catalogFilters = new CatalogFilters()
             {
                 MinPrice = (int)finalProducts.Min(x => x.Price),
                 MaxPrice = (int)finalProducts.Max(x => x.Price),
-                Manufacturers = finalProducts.Select(x => x.Manufacturer).Distinct(manufacturerComparer).ToList(),
-                IsExistDiscount = true,
+                Manufacturers = finalProducts.Any() ? 
+                    finalProducts.Select(x => x.Manufacturer).Distinct(new ManufacturerEqualityComparer()).ToList() : 
+                    new List<Manufacturer>(),
                 CategoryFilters = new List<CategoryFilter>()
                 {
                     new CategoryFilter("Категория 1", new List<CategoryFilterItem>()
@@ -203,9 +135,7 @@ namespace MyTotto.Web.Controllers
             };
 
             int pageCount = finalProducts.Count / countItems != 0 ? finalProducts.Count / countItems : 1;
-
             var pagination = new Pagination(page, pageCount);
-
             var sectionPage = new SectionPage(seo, navigation, breadcrumbs, finalProducts, products.Count, catalogFilters, pagination);
 
             return View(sectionPage);
@@ -237,5 +167,93 @@ namespace MyTotto.Web.Controllers
 
             return breadcrumbs;
         }
+
+
+        private IEnumerable<Product> FilterByCategories(IEnumerable<Product> products, string filters)
+        {
+            string[] filterValues = !string.IsNullOrEmpty(filters) ?
+                filters.Split(";"[0]) :
+                new string[] { };
+
+            if (filterValues.Any())
+            {
+                // TODO: фильтровать по значениям в самом продукте
+            }
+
+            return products;
+        }
+
+        private IEnumerable<Product> FilterByPrice(IEnumerable<Product> products, int minPrice, int maxPrice)
+        {
+            return products.Where(x =>
+                x.DiscountPrice >= minPrice && x.DiscountPrice <= maxPrice);
+        }
+
+        private IEnumerable<Product> FilterByManufacturer(IEnumerable<Product> products, string manufacturer)
+        {
+            return string.IsNullOrEmpty(manufacturer) ? 
+                products : 
+                products.Where(x =>
+                    string.Equals(x.Manufacturer.Title, manufacturer, StringComparison.OrdinalIgnoreCase));
+        }
+
+        private IEnumerable<Product> FilterByProductType(IEnumerable<Product> products, ProductType type)
+        {
+            return type == ProductType.Normal ? 
+                products : 
+                products.Where(x => x.ProductType == type);
+        }
+
+        private IEnumerable<Product> SortByCatalogType(IEnumerable<Product> products, CatalogSortingType sorting)
+        {
+            switch (sorting)
+            {
+                case CatalogSortingType.DescendingTitle:
+                    products = products.OrderByDescending(x => x.Title);
+                    break;
+                case CatalogSortingType.AscendingPrice:
+                    products = products.OrderBy(x => x.Price);
+                    break;
+                case CatalogSortingType.DescendingPrice:
+                    products = products.OrderByDescending(x => x.Price);
+                    break;
+                case CatalogSortingType.DiscountFirst:
+                    products = products.OrderByDescending(x => x.ProductType == ProductType.Discount);
+                    break;
+                default:
+                    products = products.OrderBy(x => x.Title);
+                    break;
+            }
+
+            return products;
+        }
+
+        private int GetPageCountByItems(CatalogCountItems count)
+        {
+            int countItems;
+            switch (count)
+            {
+                case CatalogCountItems.Medium:
+                    countItems = showByCounts[1];
+                    break;
+                case CatalogCountItems.Large:
+                    countItems = showByCounts[2];
+                    break;
+                default:
+                    countItems = showByCounts[0];
+                    break;
+            }
+
+            return countItems;
+        }
+
+        private IEnumerable<Product> GetProductByPage(IEnumerable<Product> products, int count, int page)
+        {
+            return products
+                .Skip((page - 1) * count)
+                .Take(count);
+        }
+        
+
     }
 }
