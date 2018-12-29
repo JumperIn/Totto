@@ -30,7 +30,6 @@
 
   <ItemGroup>
     <Folder Include="Infrastructure\" />
-    <Folder Include="NewFolder\" />
     <Folder Include="src\img\" />
     <Folder Include="src\fonts\" />
     <Folder Include="src\icons\" />

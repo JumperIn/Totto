@@ -4,8 +4,9 @@ using System.Linq;
 
 using MyTotto.Data.Models;
 using MyTotto.Data.Models.Layout;
+using MyTotto.Web.Models.Layout;
 
-namespace MyTotto.Web.Models.Layout
+namespace MyTotto.Web.Models.Pages
 {
     /// <summary>
     /// Модель представления базовой части страницы.
