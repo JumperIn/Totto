@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTotto.Web", "MyTotto.Web\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTotto.Api", "MyTotto.Api\MyTotto.Api.csproj", "{82A7CE03-C20F-43CE-976E-27AEDA675403}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTotto.Infrastructure", "MyTotto.Infrastructure\MyTotto.Infrastructure.csproj", "{ECC38251-480C-440A-8947-AEC112FB2F0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTotto.BusinessLogic", "MyTotto.Infrastructure\MyTotto.BusinessLogic.csproj", "{ECC38251-480C-440A-8947-AEC112FB2F0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

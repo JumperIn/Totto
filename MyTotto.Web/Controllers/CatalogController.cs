@@ -12,6 +12,8 @@ using MyTotto.Data.Enums;
 using MyTotto.Data.Models;
 using MyTotto.Data.Models.Comparers;
 using MyTotto.Data.Models.Layout;
+using MyTotto.BusinessLogic.Services;
+using MyTotto.BusinessLogic.Abstract;
 using MyTotto.Web.Abstract;
 using MyTotto.Web.Models;
 using MyTotto.Web.Models.Layout;
@@ -25,17 +27,20 @@ namespace MyTotto.Web.Controllers
         private readonly IProductsRepository productsRepository;
         private readonly ICatalogRepository catalogRepository;
         private readonly ICommonRepository commonRepository;
+        private readonly IProductsFilterService productsFilterService;
 
         public CatalogController
         (
             IProductsRepository productsRepository,
             ICatalogRepository catalogRepository,
-            ICommonRepository commonRepository
+            ICommonRepository commonRepository,
+            IProductsFilterService productsFilterService
         )
         {
             this.productsRepository = productsRepository;
             this.catalogRepository = catalogRepository;
             this.commonRepository = commonRepository;
+            this.productsFilterService = productsFilterService;
         }
 
         private readonly int[] showByCounts = new int[] { 12, 24, 36 };
@@ -82,36 +87,30 @@ namespace MyTotto.Web.Controllers
             ProductSubcategory subcategory = catalogRepository.GetSubcategory(subcategoryUrl);
             ProductGroup group = catalogRepository.GetGroup(groupUrl);
 
-            int categoryId = category != null ? category.Id : 0;
-            int subcategoryId = subcategory != null ? subcategory.Id : 0;
-            int groupId = group != null ? group.Id : 0;
-
             if (category == null)
             {
                 return NotFound();
             }
 
-            int countItems = GetPageCountByItems(count);
+            int countItems = productsFilterService.GetPageCountByItems(count);
 
-            List<Product> products = productsRepository.GetProducts(categoryId, subcategoryId, groupId);
-
-            IEnumerable<Product> filteredProducts = FilterByCategories(products, filters);
-            filteredProducts = FilterByPrice(filteredProducts, minPrice, maxPrice);
-            filteredProducts = FilterByManufacturer(filteredProducts, manufacturer);
-            filteredProducts = SortByCatalogType(filteredProducts, sorting);
-            filteredProducts = FilterByProductType(filteredProducts, type);
-            filteredProducts = GetProductByPage(filteredProducts, countItems, page);
-
-            List<Product> finalProducts = filteredProducts.ToList();
+            List<Product> products = productsFilterService.Filter
+            (
+                categoryUrl, subcategoryUrl, groupUrl,
+                count, sorting, page,
+                filters,
+                minPrice, maxPrice,
+                manufacturer, type
+            );
 
             List<Breadcrumb> breadcrumbs = GetBreadcrumbs(category, subcategory, group);
 
             var catalogFilters = new CatalogFilters()
             {
-                MinPrice = (int)finalProducts.Min(x => x.Price),
-                MaxPrice = (int)finalProducts.Max(x => x.Price),
-                Manufacturers = finalProducts.Any() ? 
-                    finalProducts.Select(x => x.Manufacturer).Distinct(new ManufacturerEqualityComparer()).ToList() : 
+                MinPrice = (int)products.Min(x => x.Price),
+                MaxPrice = (int)products.Max(x => x.Price),
+                Manufacturers = products.Any() ?
+                    products.Select(x => x.Manufacturer).Distinct(new ManufacturerEqualityComparer()).ToList() : 
                     new List<Manufacturer>(),
                 CategoryFilters = new List<CategoryFilter>()
                 {
@@ -134,9 +133,9 @@ namespace MyTotto.Web.Controllers
                 }
             };
 
-            int pageCount = finalProducts.Count / countItems != 0 ? finalProducts.Count / countItems : 1;
+            int pageCount = products.Count() / countItems != 0 ? products.Count() / countItems : 1;
             var pagination = new Pagination(page, pageCount);
-            var sectionPage = new SectionPage(seo, navigation, breadcrumbs, finalProducts, products.Count, catalogFilters, pagination);
+            var sectionPage = new SectionPage(seo, navigation, breadcrumbs, products, products.Count, catalogFilters, pagination);
 
             return View(sectionPage);
         }
@@ -167,93 +166,5 @@ namespace MyTotto.Web.Controllers
 
             return breadcrumbs;
         }
-
-
-        private IEnumerable<Product> FilterByCategories(IEnumerable<Product> products, string filters)
-        {
-            string[] filterValues = !string.IsNullOrEmpty(filters) ?
-                filters.Split(";"[0]) :
-                new string[] { };
-
-            if (filterValues.Any())
-            {
-                // TODO: фильтровать по значениям в самом продукте
-            }
-
-            return products;
-        }
-
-        private IEnumerable<Product> FilterByPrice(IEnumerable<Product> products, int minPrice, int maxPrice)
-        {
-            return products.Where(x =>
-                x.DiscountPrice >= minPrice && x.DiscountPrice <= maxPrice);
-        }
-
-        private IEnumerable<Product> FilterByManufacturer(IEnumerable<Product> products, string manufacturer)
-        {
-            return string.IsNullOrEmpty(manufacturer) ? 
-                products : 
-                products.Where(x =>
-                    string.Equals(x.Manufacturer.Title, manufacturer, StringComparison.OrdinalIgnoreCase));
-        }
-
-        private IEnumerable<Product> FilterByProductType(IEnumerable<Product> products, ProductType type)
-        {
-            return type == ProductType.Normal ? 
-                products : 
-                products.Where(x => x.ProductType == type);
-        }
-
-        private IEnumerable<Product> SortByCatalogType(IEnumerable<Product> products, CatalogSortingType sorting)
-        {
-            switch (sorting)
-            {
-                case CatalogSortingType.DescendingTitle:
-                    products = products.OrderByDescending(x => x.Title);
-                    break;
-                case CatalogSortingType.AscendingPrice:
-                    products = products.OrderBy(x => x.Price);
-                    break;
-                case CatalogSortingType.DescendingPrice:
-                    products = products.OrderByDescending(x => x.Price);
-                    break;
-                case CatalogSortingType.DiscountFirst:
-                    products = products.OrderByDescending(x => x.ProductType == ProductType.Discount);
-                    break;
-                default:
-                    products = products.OrderBy(x => x.Title);
-                    break;
-            }
-
-            return products;
-        }
-
-        private int GetPageCountByItems(CatalogCountItems count)
-        {
-            int countItems;
-            switch (count)
-            {
-                case CatalogCountItems.Medium:
-                    countItems = showByCounts[1];
-                    break;
-                case CatalogCountItems.Large:
-                    countItems = showByCounts[2];
-                    break;
-                default:
-                    countItems = showByCounts[0];
-                    break;
-            }
-
-            return countItems;
-        }
-
-        private IEnumerable<Product> GetProductByPage(IEnumerable<Product> products, int count, int page)
-        {
-            return products
-                .Skip((page - 1) * count)
-                .Take(count);
-        }
-        
-
     }
 }

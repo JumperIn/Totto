@@ -5,8 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstract\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\MyTotto.Data\MyTotto.Data.csproj" />
   </ItemGroup>
 
 </Project>
