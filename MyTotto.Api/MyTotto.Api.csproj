@@ -29,6 +29,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyTotto.Data\MyTotto.Data.csproj" />
+    <ProjectReference Include="..\MyTotto.Infrastructure\MyTotto.BusinessLogic.csproj" />
   </ItemGroup>
 
 </Project>

@@ -6,6 +6,7 @@ using MyTotto.Data.Models;
 using MyTotto.Data.Models.Layout;
 using MyTotto.Web.Extensions;
 using MyTotto.Web.Models.Layout;
+using MyTotto.Web.Models.Pages;
 
 namespace MyTotto.Web.Models
 {
