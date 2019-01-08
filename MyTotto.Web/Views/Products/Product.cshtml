@@ -39,21 +39,23 @@
 </div>
 
 <div class="product-info">
-	<!-- кнопка назад и расширенный подбор -->
-	<!-- <div class="product-info__nav cover">
-		<a href="" class="o-button o-button-back">
-			<p class="o-button-back__text">назад</p>
-			<svg class="o-button-back__icon">
-				<use xlink:href="#icon-arrow-back"></use>
-			</svg>
-		</a>
-		<a href="" class="o-button o-button_main">
-			<svg class="o-button-selection__icon">
-				<use xlink:href="#icon-menu"></use>
-			</svg>
-			<p class="o-button-selection__text">расширенный подбор</p>
-		</a>
-	</div> -->
+	@*кнопка назад и расширенный подбор*@
+	@*
+		<div class="product-info__nav cover">
+			<a href="" class="o-button o-button-back">
+				<p class="o-button-back__text">назад</p>
+				<svg class="o-button-back__icon">
+					<use xlink:href="#icon-arrow-back"></use>
+				</svg>
+			</a>
+			<a href="" class="o-button o-button_main">
+				<svg class="o-button-selection__icon">
+					<use xlink:href="#icon-menu"></use>
+				</svg>
+				<p class="o-button-selection__text">расширенный подбор</p>
+			</a>
+		</div>
+	*@
 	<div class="breadcrumbs-wrapper cover">
 		<div class="breadcrumbs">
 			@foreach (var breadcrumb in Model.Breadcrumbs)
@@ -75,16 +77,18 @@
 	</div>
 	<div class="product-info__body cover">
 		<div class="product-info__left-side-wrapper col-6">
-			<!-- <div class="product-info__main-img-wrapper">
-				<div class="product-info__main-img-carousel">
-					@foreach (var image in Model.Product.ImageUrls)
-					{
-						<div class="col-12">
-							<div class="product-info__main-img" style="background-image: url(@image)" alt="@Model.Product.Title"></div>
-						</div>
-					}
+			@*
+				<div class="product-info__main-img-wrapper">
+					<div class="product-info__main-img-carousel">
+						@foreach (var image in Model.Product.ImageUrls)
+						{
+							<div class="col-12">
+								<div class="product-info__main-img" style="background-image: url(@image)" alt="@Model.Product.Title"></div>
+							</div>
+						}
+					</div>
 				</div>
-			</div> -->
+			*@
 			<div class="product-info__main-img" style="background-image: url(@Model.Product.ImageUrls[0])" alt="@Model.Product.Title"></div>
             <div class="product-info__sub-images-wrapper">
                 @foreach (var image in Model.Product.ImageUrls)

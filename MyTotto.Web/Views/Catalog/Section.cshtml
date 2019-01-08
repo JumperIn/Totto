@@ -6,21 +6,23 @@
 }
 
 <div class="catalog">
-	<!-- кнопка назад и расширенный подбор -->
-	<!-- <div class="catalog__nav cover">
-		<a href="" class="o-button o-button-back">
-			<span class="o-button-back__text">назад</span>
-			<svg class="o-button-back__icon">
-				<use xlink:href="#icon-arrow-back"></use>
-			</svg>
-		</a>
-		<a href="/catalog" class="catalog__selection o-button o-button_main">
-			<svg class="o-button-selection__icon">
-				<use xlink:href="#icon-menu"></use>
-			</svg>
-			<span class="o-button-selection__text">расширенный подбор</span>
-		</a>
-	</div> -->
+	@*кнопка назад и расширенный подбор*@.
+	@*
+		<div class="catalog__nav cover">
+			<a href="" class="o-button o-button-back">
+				<span class="o-button-back__text">назад</span>
+				<svg class="o-button-back__icon">
+					<use xlink:href="#icon-arrow-back"></use>
+				</svg>
+			</a>
+			<a href="/catalog" class="catalog__selection o-button o-button_main">
+				<svg class="o-button-selection__icon">
+					<use xlink:href="#icon-menu"></use>
+				</svg>
+				<span class="o-button-selection__text">расширенный подбор</span>
+			</a>
+		</div>
+	*@
 	<div class="breadcrumbs-wrapper cover">
 		<div class="breadcrumbs">
 			@foreach (var breadcrumb in Model.Breadcrumbs)
