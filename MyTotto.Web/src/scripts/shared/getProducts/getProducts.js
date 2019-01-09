@@ -2,6 +2,23 @@ import createRequest from '../../shared/createRequest/createRequest'
 
 const reqQueryParams = {};
 
+function drawProducts(products) {
+
+	let productsWrapper = document.querySelector('div.catalog__products');
+	productsWrapper.innerHTML = null;
+
+	for (let i = 0; i < products.length; i++) {
+		const template = document.querySelector('template.products__item-template');
+		const link = template.content.querySelector('a.product');
+
+		link.href = ``;
+
+		let clone = document.importNode(template.content, true);
+
+		productsWrapper.appendChild(clone);
+	}
+}
+
 function getReqParams() {
 	const catalog = '/catalog';
 	const pathIndex = location.href.indexOf(catalog);
@@ -19,8 +36,11 @@ function getProducts() {
 				return response.json();
 			}
 		})
-		.then((result) => {
-			console.log('result', result)
+		.then((products) => {
+			console.log('result', products)
+			// TODO: удаление содержимого обёртки
+			// отрисовка полученных товаров через template
+			drawProducts(products);
 		})
 }
 
