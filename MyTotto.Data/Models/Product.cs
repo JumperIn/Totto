@@ -121,6 +121,11 @@ namespace MyTotto.Data.Models
         public string SuitableProducts { get; set; }
 
         /// <summary>
+        /// Количество лайков.
+        /// </summary>
+        public int LikesCount { get; set; }
+
+        /// <summary>
         /// Признак активного элемента.
         /// </summary>
         public bool IsActive { get; set; }
@@ -145,6 +150,14 @@ namespace MyTotto.Data.Models
         public string GetDiscountPrice()
         {
             return FormatPrice(DiscountPrice);
+        }
+
+        /// <summary>
+        /// Добавляет лайк.
+        /// </summary>
+        public int AddLike()
+        {
+            return LikesCount++;
         }
 
         private string FormatPrice(decimal price)

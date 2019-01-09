@@ -14,6 +14,11 @@ using MyTotto.Data.Models;
 
 namespace MyTotto.Api.Controllers
 {
+    /// <summary>
+    /// Контроллер для работы с продуктами.
+    /// </summary>
+    [Consumes("application/json")]
+    [Produces("application/json")]
     public class ProductsController : BaseController
     {
         private readonly IProductsRepository productsRepository;
@@ -123,6 +128,27 @@ namespace MyTotto.Api.Controllers
         public void DeleteProduct(int id)
         {
             productsRepository.DeleteProduct(id);
+        }
+
+        /// <summary>
+        /// Добавляет отметку "Лайк" для продукта по ID.
+        /// </summary>
+        /// <param name="id">Идентификатор продукта.</param>
+        /// <response code="400">Not exist ID.</response>
+        /// <response code="200">Success.</response>
+        [HttpPost("product/like/{id}")]
+        [ProducesResponseType(400)]
+        [ProducesResponseType(200)]
+        public IActionResult AddLike(int id)
+        {
+            if (id <= 0)
+            {
+                return BadRequest();
+            }
+
+            productsRepository.AddLikeToProduct(id);
+
+            return Ok();
         }
     }
 }

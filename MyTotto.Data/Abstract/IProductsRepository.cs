@@ -45,5 +45,11 @@ namespace MyTotto.Data.Abstract
         /// </summary>
         /// <param name="id">Идентификатор продукта.</param>
         void DeleteProduct(int id);
+
+        /// <summary>
+        /// Добавляет лайк продукту по идентификатору.
+        /// </summary>
+        /// <param name="id">Идентификатор продукта.</param>
+        void AddLikeToProduct(int id);
     }
 }

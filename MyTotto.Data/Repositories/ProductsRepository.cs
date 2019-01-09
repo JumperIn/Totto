@@ -112,5 +112,23 @@ namespace MyTotto.Data.Repositories
             context.Products.Remove(product);
             Save();
         }
+
+        /// <summary>
+        /// Добавляет лайк продукту по идентификатору.
+        /// </summary>
+        /// <param name="id">Идентификатор продукта.</param>
+        public void AddLikeToProduct(int id)
+        {
+            Product product = GetProduct(id);
+            if (product == null)
+            {
+                return;
+            }
+
+            product.AddLike();
+
+            context.Products.Update(product);
+            Save();
+        }
     }
 }
