@@ -45,6 +45,9 @@
     </div>
 	<div class="catalog__body cover">
 		<div class="catalog__products col-9">
+            <template>
+                @await Html.PartialAsync("_ProductCard", new ProductCard())
+            </template>
 			@foreach (var product in Model.Products)
 			{
 				<div class="products__item col-12 col-sm-12 col-md-12 col-lg-12 col-xl-4">

@@ -66,6 +66,16 @@ namespace MyTotto.Web.Models
         /// </summary>
         public ProductCard()
         {
+            Id = 0;
+            Title = string.Empty;
+            Manufacturer = string.Empty;
+            Url = string.Empty;
+            CardImage = string.Empty;
+            Price = string.Empty;
+            DiscountPrice = string.Empty;
+            IsExistDiscount = true;
+            ProductType = ProductType.Normal;
+            ProductTypeModifier = string.Empty;
         }
 
         /// <summary>
