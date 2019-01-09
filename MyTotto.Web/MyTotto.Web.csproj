@@ -26,11 +26,11 @@
   <ItemGroup>
     <ProjectReference Include="..\MyTotto.Api\MyTotto.Api.csproj" />
     <ProjectReference Include="..\MyTotto.Data\MyTotto.Data.csproj" />
+    <ProjectReference Include="..\MyTotto.Infrastructure\MyTotto.BusinessLogic.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Infrastructure\" />
-    <Folder Include="NewFolder\" />
     <Folder Include="src\img\" />
     <Folder Include="src\fonts\" />
     <Folder Include="src\icons\" />

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 
 using MyTotto.Api.Abstract;
+using MyTotto.BusinessLogic.Abstract;
 using MyTotto.Data;
 using MyTotto.Data.Abstract;
 using MyTotto.Data.Enums;
@@ -17,13 +18,18 @@ namespace MyTotto.Api.Controllers
     {
         private readonly IProductsRepository productsRepository;
         private readonly ICatalogRepository catalogRepository;
-
-        private readonly int[] showByCounts = new int[] { 12, 24, 36 };
-
-        public ProductsController(IProductsRepository productsRepository, ICatalogRepository catalogRepository)
+        private readonly IProductsFilterService productsFilterService;
+        
+        public ProductsController
+        (
+            IProductsRepository productsRepository, 
+            ICatalogRepository catalogRepository,
+            IProductsFilterService productsFilterService
+        )
         {
             this.productsRepository = productsRepository;
             this.catalogRepository = catalogRepository;
+            this.productsFilterService = productsFilterService;
         }
 
         /// <summary>
@@ -49,7 +55,7 @@ namespace MyTotto.Api.Controllers
         /// <param name="minPrice">Минимальная цена.</param>
         /// <param name="maxPrice">Максимальная цена.</param>
         /// <param name="manufacturer">Производитель.</param>
-        /// <param name="discount">Наличие скидки.</param>
+        /// <param name="type">Тип продукта.</param>
         [HttpGet("section/{categoryUrl}/{subcategoryUrl?}/{groupUrl?}")]
         public IEnumerable<Product> GetProductCards
         (
@@ -63,7 +69,7 @@ namespace MyTotto.Api.Controllers
             int minPrice = 0,
             int maxPrice = int.MaxValue,
             string manufacturer = "",
-            ProductDiscount discount = ProductDiscount.Any
+            ProductType type = ProductType.Normal
         )
         {
             if (string.IsNullOrEmpty(categoryUrl))
@@ -75,79 +81,18 @@ namespace MyTotto.Api.Controllers
             ProductSubcategory subcategory = catalogRepository.GetSubcategory(subcategoryUrl);
             ProductGroup group = catalogRepository.GetGroup(groupUrl);
 
-            int categoryId = category != null ? category.Id : 0;
-            int subcategoryId = subcategory != null ? subcategory.Id : 0;
-            int groupId = group != null ? group.Id : 0;
+            int countItems = productsFilterService.GetPageCountByItems(count);
 
-            List<Product> products = productsRepository.GetProducts(categoryId, subcategoryId, groupId);
+            List<Product> products = productsFilterService.Filter
+            (
+                categoryUrl, subcategoryUrl, groupUrl,
+                count, sorting, page,
+                filters,
+                minPrice, maxPrice,
+                manufacturer, type
+            );
 
-            IEnumerable<Product> filteredProducts = products;
-
-            // 2. Отфильтровать по остальным параметрам
-
-            string[] filterValues = !string.IsNullOrEmpty(filters) ?
-                filters.Split(";"[0]) :
-                new string[] { };
-
-            if (filterValues.Any())
-            {
-                // 2.1 TODO: фильтровать по значениям в самом продукте
-            }
-
-            // 2.2 Выбрать по цене
-            filteredProducts = filteredProducts
-                .Where(x =>
-                    x.Price >= minPrice && x.Price <= maxPrice);
-
-            //// 2.3 Если есть производитель - выбрать по нему
-            //if (!string.IsNullOrEmpty(manufacturer))
-            //{
-            //    filteredProducts = filteredProducts
-            //        .Where(x => string.Equals(x.Manufacturer, manufacturer, StringComparison.InvariantCultureIgnoreCase));
-            //}
-
-            // 3. Отсортировать по типу сортировки
-            switch (sorting)
-            {
-                case CatalogSortingType.DescendingTitle:
-                    filteredProducts = filteredProducts.OrderByDescending(x => x.Title);
-                    break;
-                case CatalogSortingType.AscendingPrice:
-                    filteredProducts = filteredProducts.OrderBy(x => x.Price);
-                    break;
-                case CatalogSortingType.DescendingPrice:
-                    filteredProducts = filteredProducts.OrderByDescending(x => x.Price);
-                    break;
-                case CatalogSortingType.DiscountFirst:
-                    filteredProducts = filteredProducts.OrderByDescending(x => x.ProductType == ProductType.Discount);
-                    // x.Price > x.DiscountPrice
-                    break;
-                default:
-                    filteredProducts = filteredProducts.OrderBy(x => x.Title);
-                    break;
-            }
-
-            // 4. По пагинации выдать количество предметов
-            int countItems;
-            switch (count)
-            {
-                case CatalogCountItems.Medium:
-                    countItems = showByCounts[1];
-                    break;
-                case CatalogCountItems.Large:
-                    countItems = showByCounts[2];
-                    break;
-                default:
-                    countItems = showByCounts[0];
-                    break;
-            }
-
-            List<Product> finalProducts = filteredProducts
-                .Skip((page - 1) * countItems)
-                .Take(countItems)
-                .ToList();
-
-            return finalProducts;
+            return products;
         }
 
         /// <summary>

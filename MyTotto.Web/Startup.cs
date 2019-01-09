@@ -50,6 +50,7 @@ namespace MyTotto
 
 
             services.AddRepositories(Configuration);
+            services.AddServices(Configuration);
             services.AddAndConfigureSwagger();
 
             services.AddMvc()
