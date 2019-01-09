@@ -39,8 +39,8 @@
 </div>
 
 <div class="product-info">
-	<!-- кнопка назад и расширенный подбор -->
-	<!-- <div class="product-info__nav cover">
+	@*кнопка назад и расширенный подбор*@ 
+	@*<div class="product-info__nav cover">
 		<a href="" class="o-button o-button-back">
 			<p class="o-button-back__text">назад</p>
 			<svg class="o-button-back__icon">
@@ -53,7 +53,7 @@
 			</svg>
 			<p class="o-button-selection__text">расширенный подбор</p>
 		</a>
-	</div> -->
+	</div>*@ 
 	<div class="breadcrumbs-wrapper cover">
 		<div class="breadcrumbs">
 			@foreach (var breadcrumb in Model.Breadcrumbs)
@@ -75,7 +75,7 @@
 	</div>
 	<div class="product-info__body cover">
 		<div class="product-info__left-side-wrapper col-6">
-			<!-- <div class="product-info__main-img-wrapper">
+			@*<div class="product-info__main-img-wrapper">
 				<div class="product-info__main-img-carousel">
 					@foreach (var image in Model.Product.ImageUrls)
 					{
@@ -84,7 +84,7 @@
 						</div>
 					}
 				</div>
-			</div> -->
+			</div>*@ 
 			<div class="product-info__main-img" style="background-image: url(@Model.Product.ImageUrls[0])" alt="@Model.Product.Title"></div>
             <div class="product-info__sub-images-wrapper">
                 @foreach (var image in Model.Product.ImageUrls)
@@ -129,16 +129,14 @@
                     </div>
                 </div>
             </div>
-
-            @*
-                TODO: здесь веса подставляем! Ну или где-то там
-                <div>
-                    @foreach (var weight in Model.Product.Weights)
-                    {
-                        <span>@weight</span>
-                    }
-                </div>
-            *@
+            
+            <div>
+                @foreach (var weight in Model.Product.Weights)
+                {
+                    @* TODO: здесь веса подставляем! Ну или где-то там *@
+                    <span>@weight</span>
+                }
+            </div>
 
             <h3 class="product-info__options-title">ИНФОРМАЦИЯ О ТОВАРЕ</h3>
             <div class="product-info__options">
@@ -150,20 +148,16 @@
                     <div class="product-info__options-key col-4">Состав</div>
                     <div class="product-info__options-value col-8">
                         @Model.Product.Compounds
-                        @*Ядро фисташки очищенное, Семена подсолнечника ,
-                        Льняное семя, Семена кунжута, Мед, Грецкий орех,
-                        Ядро фисташки очищенное, Семена подсолнечника ,
-                        Льняное семя, Семена кунжута, Мед, Грецкий орех,*@
                     </div>
                 </div>
             </div>
             <div class="product-info__social-network">
-                @*<div class="product-info__like">
+                <div class="product-info__like">
                     <p class="product-info__like-text">Нравится продукт?</p>
                     <svg class="product-info__like-icon">
                         <use xlink:href="#icon-like"></use>
                     </svg>
-                </div>*@
+                </div>
                 <div class="product-info__social-network-icons-wrapper">
                     <div class="product-info__social-network-icon-wrapper">
                         <svg class="product-info__social-network-icon">
@@ -200,16 +194,6 @@
             <h3 class="product-info__description-title">Описание товара</h3>
             <div class="product-info__description">
                 @Model.Product.Description
-                @*В плодах содержатся до 3,5% сахарозы, органические кислоты (уксусная). 4.6% белков, клетчатка,
-                48-76% жирного масла, состоящего на 80% из ненасыщенных кислот, токоферолы, высшие жирные кислоты,
-                антоцианы. Ядра косточек питательны и вкусны, их потребляют свежими, поджаренными и солеными, используют
-                в кондитерском, колбасном производстве, а также при изготовлении сыра. Из ядер извлекают ценное пищевое
-                масло, которое применяется в кулинарии и кондитерском деле.
-                Дерево жизни - так называют фисташку на Востоке. Фисташка полезна для мозга и сердца, кроме того,
-                фисташки богаты кальцием, железом и цинком, что позволяет использовать их для профилактики заболеваний печени
-                и желудка. Они оказывают тонизирующее и бодрящее действие. В плодах содержатся до 3,5% сахарозы, органические
-                кислоты (уксусная). 4.6% белков, клетчатка, 48-76% жирного масла, состоящего на 80% из ненасыщенных кислот,
-                токоферолы, высшие жирные кислоты, антоцианы.*@
             </div>
         </div>
 	</div>
