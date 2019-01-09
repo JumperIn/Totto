@@ -93,6 +93,11 @@ namespace MyTotto.Web.Models
         public int[] SuitableProductIds { get; set; }
 
         /// <summary>
+        /// Количество лайков.
+        /// </summary>
+        public int LikesCount { get; set; }
+
+        /// <summary>
         /// Создает экземпляр.
         /// </summary>
         public ProductViewModel()
@@ -118,6 +123,7 @@ namespace MyTotto.Web.Models
             Description = product.Description;
             AdditionalInfo = product.AdditionalInfo;
             SuitableProductIds = IntSplit(product.SuitableProducts);
+            LikesCount = product.LikesCount;
         }
 
         private string[] Split(string items)
