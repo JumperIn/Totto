@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+
 using MyTotto.Data.Models;
+using MyTotto.BusinessLogic.Models;
 using MyTotto.Web.Extensions;
 
 namespace MyTotto.Web.Models

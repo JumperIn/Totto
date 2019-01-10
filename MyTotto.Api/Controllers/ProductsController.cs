@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 using MyTotto.Api.Abstract;
 using MyTotto.BusinessLogic.Abstract;
+using MyTotto.BusinessLogic.Models;
 using MyTotto.Data;
 using MyTotto.Data.Abstract;
 using MyTotto.Data.Enums;
@@ -38,16 +39,6 @@ namespace MyTotto.Api.Controllers
         }
 
         /// <summary>
-        /// Возвращает список всех карточек продуктов.
-        /// </summary>
-        [HttpGet("all")]
-        public IEnumerable<Product> GetAllProductCards()
-        {
-            List<Product> products = productsRepository.GetAllProducts();
-            return products;
-        }
-
-        /// <summary>
         /// Отображает страницу раздела каталога.
         /// </summary>
         /// <param name="categoryUrl">Категория.</param>
@@ -62,7 +53,9 @@ namespace MyTotto.Api.Controllers
         /// <param name="manufacturer">Производитель.</param>
         /// <param name="type">Тип продукта.</param>
         [HttpGet("section/{categoryUrl}/{subcategoryUrl?}/{groupUrl?}")]
-        public IEnumerable<Product> GetProductCards
+        [ProducesResponseType(400)]
+        [ProducesResponseType(200, Type = typeof(IEnumerable<ProductCard>))]
+        public IActionResult GetProductCards
         (
             string categoryUrl = "",
             string subcategoryUrl = "",
@@ -79,9 +72,9 @@ namespace MyTotto.Api.Controllers
         {
             if (string.IsNullOrEmpty(categoryUrl))
             {
-                return null;
+                return BadRequest();
             }
-            
+
             ProductCategory category = catalogRepository.GetCategory(categoryUrl);
             ProductSubcategory subcategory = catalogRepository.GetSubcategory(subcategoryUrl);
             ProductGroup group = catalogRepository.GetGroup(groupUrl);
@@ -97,37 +90,11 @@ namespace MyTotto.Api.Controllers
                 manufacturer, type
             );
 
-            return products;
-        }
+            List<ProductCard> productCards = products
+                .Select(product => new ProductCard(product))
+                .ToList();
 
-        /// <summary>
-        /// Добавляет новый продукт в список.
-        /// </summary>
-        /// <param name="product">Данные продукта.</param>
-        [HttpPost("product")]
-        public void AddProduct([FromBody] Product product)
-        {
-            productsRepository.AddProduct(product);
-        }
-
-        /// <summary>
-        /// Обновляет данные продукта в списке.
-        /// </summary>
-        /// <param name="product">Данные продукта.</param>
-        [HttpPost("product/update")]
-        public void UpdateProduct([FromBody] Product product)
-        {
-            productsRepository.UpdateProduct(product);
-        }
-
-        /// <summary>
-        /// Удаляет продукт из списка.
-        /// </summary>
-        /// <param name="id">Идентификатор продукта.</param>
-        [HttpPost("product/delete/{id}")]
-        public void DeleteProduct(int id)
-        {
-            productsRepository.DeleteProduct(id);
+            return Ok(productCards);
         }
 
         /// <summary>
@@ -150,5 +117,53 @@ namespace MyTotto.Api.Controllers
 
             return Ok();
         }
+
+        #region Admin Panel
+
+        /// <summary>
+        /// Возвращает список всех карточек продуктов.
+        /// ** Админ-кабинет. **
+        /// </summary>
+        [HttpGet("all")]
+        public IEnumerable<Product> GetAllProductCards()
+        {
+            List<Product> products = productsRepository.GetAllProducts();
+            return products;
+        }
+
+        /// <summary>
+        /// Добавляет новый продукт в список.
+        /// ** Админ-кабинет. **
+        /// </summary>
+        /// <param name="product">Данные продукта.</param>
+        [HttpPost("product")]
+        public void AddProduct([FromBody] Product product)
+        {
+            productsRepository.AddProduct(product);
+        }
+
+        /// <summary>
+        /// Обновляет данные продукта в списке.
+        /// ** Админ-кабинет. **
+        /// </summary>
+        /// <param name="product">Данные продукта.</param>
+        [HttpPost("product/update")]
+        public void UpdateProduct([FromBody] Product product)
+        {
+            productsRepository.UpdateProduct(product);
+        }
+
+        /// <summary>
+        /// Удаляет продукт из списка.
+        /// ** Админ-кабинет. **
+        /// </summary>
+        /// <param name="id">Идентификатор продукта.</param>
+        [HttpPost("product/delete/{id}")]
+        public void DeleteProduct(int id)
+        {
+            productsRepository.DeleteProduct(id);
+        }
+
+        #endregion
     }
 }

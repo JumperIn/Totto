@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 using MyTotto.Data.Models;
 using MyTotto.Data.Models.Layout;
+using MyTotto.BusinessLogic.Models;
 using MyTotto.Web.Models.Layout;
 
 namespace MyTotto.Web.Models.Pages
@@ -17,7 +17,7 @@ namespace MyTotto.Web.Models.Pages
         /// <summary>
         /// Данные о продукте.
         /// </summary>
-        public ProductViewModel Product { get; set; }
+        public ProductFull Product { get; set; }
 
         /// <summary>
         /// Создает экземпляр и инициализирует поля класса.
@@ -30,7 +30,7 @@ namespace MyTotto.Web.Models.Pages
             Product product
         ) : base(seo, navigaton, breadcrumbs)
         {
-            Product = new ProductViewModel(product);
+            Product = new ProductFull(product);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 
 using MyTotto.Data.Models;
 using MyTotto.Data.Models.Layout;
+using MyTotto.BusinessLogic.Models;
 using MyTotto.Web.Extensions;
 using MyTotto.Web.Models.Layout;
 

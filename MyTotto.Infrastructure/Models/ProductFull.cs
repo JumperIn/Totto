@@ -1,15 +1,14 @@
-﻿using MyTotto.Data.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
+using MyTotto.Data.Models;
 
-namespace MyTotto.Web.Models
+namespace MyTotto.BusinessLogic.Models
 {
     /// <summary>
-    /// Модель представления продукта.
+    /// Модель продукта.
     /// </summary>
-    public class ProductViewModel
+    public class ProductFull
     {
         /// <summary>
         /// Идентификатор.
@@ -100,14 +99,14 @@ namespace MyTotto.Web.Models
         /// <summary>
         /// Создает экземпляр.
         /// </summary>
-        public ProductViewModel()
+        public ProductFull()
         {
         }
 
         /// <summary>
         /// Создает экземпляр и инициализирует поля класса.
         /// </summary>
-        public ProductViewModel(Product product)
+        public ProductFull(Product product)
         {
             Id = product.Id;
             Title = $"{product.Manufacturer.Title} {product.Title}";
