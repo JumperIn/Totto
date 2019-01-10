@@ -1,13 +1,12 @@
-﻿using MyTotto.Data.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
+using MyTotto.Data.Models;
 
-namespace MyTotto.Web.Models
+namespace MyTotto.BusinessLogic.Models
 {
     /// <summary>
-    /// Модель представления карточки продукта.
+    /// Модель карточки продукта.
     /// </summary>
     public class ProductCard
     {

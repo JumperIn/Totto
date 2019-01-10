@@ -4,6 +4,7 @@ using System.Linq;
 
 using MyTotto.Data.Models;
 using MyTotto.Data.Models.Layout;
+using MyTotto.BusinessLogic.Models;
 using MyTotto.Web.Extensions;
 using MyTotto.Web.Models.Layout;
 using MyTotto.Web.Models.Pages;
@@ -34,7 +35,6 @@ namespace MyTotto.Web.Models
         ) : base(seo, navigation, breadcrumbs)
         {
             Products = products.Select(p => new ProductCard(p)).ToList();
-
         }
     }
 }

@@ -46,7 +46,7 @@ namespace MyTotto.Web.Models.Pages
             List<Product> products, 
             List<Promo> promos, 
             List<PromoProduct> promoProducts
-        ) :base(seo, navigation, breadcrumbs)
+        ) : base(seo, navigation, breadcrumbs)
         {
             Banners = banners.Select(b => new BannerViewModel(b)).ToList();
             Promos = promos.Select(p => new PromoViewModel(p)).ToList();
